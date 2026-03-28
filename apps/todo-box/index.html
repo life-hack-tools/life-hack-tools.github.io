@@ -26,18 +26,10 @@
     .section p, .section li { font-size: 15px; color: #d4a0a0; line-height: 1.7; }
     .section ul { list-style: none; padding: 0; }
     .section ul li::before { content: "・"; }
-    .stores { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; justify-content: center; }
-    .store-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #000; color: #fff; text-decoration: none;
-      padding: 10px 20px; border-radius: 10px;
-      border: 1px solid #333; transition: opacity 0.2s;
-    }
-    .store-badge:hover { opacity: 0.85; }
-    .store-badge .icon { font-size: 28px; line-height: 1; }
-    .store-badge .text { text-align: left; }
-    .store-badge .text small { font-size: 10px; display: block; color: #ccc; }
-    .store-badge .text span { font-size: 16px; font-weight: 600; }
+    .stores { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; justify-content: center; align-items: center; }
+    .stores a { transition: opacity 0.2s; }
+    .stores a:hover { opacity: 0.8; }
+    .stores img { height: 50px; }
   </style>
 </head>
 <body>
