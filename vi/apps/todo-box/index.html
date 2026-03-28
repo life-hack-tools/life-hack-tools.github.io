@@ -94,6 +94,23 @@
     .hero .cta a { transition: opacity 0.2s; }
     .hero .cta a:hover { opacity: 0.8; }
     .hero .cta img { height: 50px; }
+    .coming-soon {
+      display: inline-block;
+      color: #3b82f6;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 28px;
+      border: 1px solid rgba(59,130,246,0.3);
+      border-radius: 10px;
+      background: rgba(59,130,246,0.06);
+      animation: pulse-badge 3s ease-in-out infinite;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { border-color: rgba(59,130,246,0.2); }
+      50% { border-color: rgba(59,130,246,0.5); }
+    }
 
     /* Sections */
     .section {
@@ -213,8 +230,7 @@
     <h1>TodoBox</h1>
     <p class="subtitle">Việc cần làm, chỉ vậy thôi.</p>
     <div class="cta">
-      <a href="#"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
-      <a href="#"><img src="/assets/google-play-badge.png" alt="Tải trên Google Play"></a>
+      <span class="coming-soon">Sắp ra mắt</span>
     </div>
   </div>
 
@@ -261,8 +277,7 @@
   <div class="footer-cta fade-in">
     <h2>Hãy viết ra việc cần làm hôm nay.</h2>
     <div class="cta">
-      <a href="#"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
-      <a href="#"><img src="/assets/google-play-badge.png" alt="Tải trên Google Play"></a>
+      <span class="coming-soon">Sắp ra mắt</span>
     </div>
   </div>
 
