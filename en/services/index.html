@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Life Hack Tools</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 24px;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a {
+      font-size: 12px; padding: 4px 10px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15); color: #888;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+
+    /* Hero */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(220,38,38,0.08) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+    .hero h1 {
+      font-size: clamp(32px, 7vw, 52px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .hero .subtitle {
+      font-size: clamp(16px, 3vw, 20px);
+      color: #777;
+      max-width: 520px;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Section */
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #dc2626;
+      margin-bottom: 20px;
+    }
+
+    /* Services grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 28px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(220,38,38,0.3);
+      background: rgba(255,255,255,0.06);
+    }
+    .service-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+    .service-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .service-card p { font-size: 13px; color: #777; line-height: 1.6; }
+
+    /* Works */
+    .works { margin-bottom: 80px; }
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .work-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .work-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+    }
+    .work-card img { width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0; }
+    .work-card .info h3 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+    .work-card .info p { font-size: 12px; color: #777; }
+
+    /* Stack link */
+    .stack-link {
+      display: block;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 24px 28px;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 80px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .stack-link:hover { border-color: rgba(220,38,38,0.3); background: rgba(255,255,255,0.06); }
+    .stack-link .label { font-size: 13px; color: #777; margin-bottom: 4px; }
+    .stack-link .title { font-size: 17px; font-weight: 700; }
+    .stack-link .arrow { color: #dc2626; }
+
+    /* Contact */
+    .contact-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .contact-card .x-icon {
+      width: 56px; height: 56px;
+      background: #fff;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-card .x-icon svg { width: 28px; height: 28px; }
+    .contact-card .info { flex: 1; }
+    .contact-card .label { font-size: 13px; color: #666; margin-bottom: 6px; }
+    .contact-card .info a {
+      color: #f0f0f0; text-decoration: none;
+      font-weight: 600; font-size: 18px;
+      transition: color 0.2s;
+    }
+    .contact-card .info a:hover { color: #dc2626; }
+    .contact-card .note { font-size: 13px; color: #555; margin-top: 6px; }
+
+    .fade-in {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/en/">&larr; LHTz</a>
+    <div class="lang-switch">
+      <a href="/services/">JA</a>
+      <a href="/en/services/" class="active">EN</a>
+      <a href="/vi/services/">VI</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>Your idea,<br>made into an app.</h1>
+    <p class="subtitle">Life Hack Tools plans and develops mobile apps that make everyday life easier. Got a small idea? Let's build it together.</p>
+  </div>
+
+  <div class="content">
+    <div class="fade-in">
+      <div class="section-title">Services</div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">📱</span>
+          <h3>Mobile App Development</h3>
+          <p>Cross-platform apps for iOS and Android. Built with React Native + Expo for high quality and fast delivery.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🛠️</span>
+          <h3>Backend Development</h3>
+          <p>Serverless backends powered by Supabase and AWS. Full design and build of auth, database, and APIs.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🎨</span>
+          <h3>UI / UX Design</h3>
+          <p>Usability comes first. We design simple, intuitive interfaces that feel natural.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🌐</span>
+          <h3>Localization</h3>
+          <p>Native-quality localization in Japanese, English, and Vietnamese. Designed with global reach in mind.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="works fade-in">
+      <div class="section-title">Works</div>
+      <div class="works-grid">
+        <a href="/en/apps/stockhome" class="work-card">
+          <img src="/assets/icon-stockhome.png" alt="StockHome">
+          <div class="info">
+            <h3>StockHome</h3>
+            <p>Home inventory manager</p>
+          </div>
+        </a>
+        <a href="/en/apps/mahjong-cho" class="work-card">
+          <img src="/assets/icon-mahjong-cho.png" alt="Mahjong Cho">
+          <div class="info">
+            <h3>Mahjong Cho</h3>
+            <p>Mahjong score tracker</p>
+          </div>
+        </a>
+        <a href="/en/apps/life-calendar" class="work-card">
+          <img src="/assets/icon-life-calendar.png" alt="Life Calendar">
+          <div class="info">
+            <h3>Life Calendar</h3>
+            <p>Visualize your life</p>
+          </div>
+        </a>
+        <a href="/en/apps/todo-box" class="work-card">
+          <img src="/assets/icon-todo-box.png" alt="TodoBox">
+          <div class="info">
+            <h3>TodoBox</h3>
+            <p>Simple todo app</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="fade-in">
+      <a href="/en/stack" class="stack-link">
+        <div class="label">See the technologies we use</div>
+        <div class="title">Tech Stack <span class="arrow">&rarr;</span></div>
+      </a>
+    </div>
+
+    <div class="fade-in">
+      <div class="section-title">Contact</div>
+      <div class="contact-card">
+        <div class="x-icon">
+          <svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <div class="info">
+          <div class="label">Feel free to reach out via DM</div>
+          <a href="https://x.com/LifeHackToolz" target="_blank">@LifeHackToolz</a>
+          <div class="note">App ideas, requests, estimates — anything goes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
