@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Stack - Life Hack Tools</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 24px;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav a {
+      color: #aaa; text-decoration: none; font-size: 14px;
+      transition: color 0.3s;
+    }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a {
+      font-size: 12px; padding: 4px 10px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15); color: #888;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+    h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      font-size: 17px;
+      color: #666;
+      margin-bottom: 60px;
+      line-height: 1.6;
+    }
+
+    .category {
+      margin-bottom: 48px;
+    }
+    .category-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #dc2626;
+      margin-bottom: 20px;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .stack-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 22px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .stack-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+    }
+    .stack-card .name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .stack-card .name .icon {
+      font-size: 20px;
+    }
+    .stack-card .desc {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.5;
+    }
+    .stack-card .apps {
+      margin-top: 10px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .stack-card .apps span {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+      color: #999;
+    }
+
+    /* App matrix */
+    .matrix {
+      margin-top: 60px;
+      overflow-x: auto;
+    }
+    .matrix table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .matrix th, .matrix td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .matrix th {
+      color: #888;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .matrix td { color: #bbb; }
+    .matrix tr:hover td { background: rgba(255,255,255,0.02); }
+    .matrix .check { color: #10b981; }
+    .matrix .dash { color: #333; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/">&larr; LHTz</a>
+    <div class="lang-switch">
+      <a href="/stack/" class="active">JA</a>
+      <a href="/en/stack/">EN</a>
+      <a href="/vi/stack/">VI</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>Tech Stack</h1>
+    <p class="subtitle">LHTzのアプリを支える技術たち。</p>
+
+    <div class="category fade-in">
+      <div class="category-title">Frontend</div>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="name"><span class="icon">⚛️</span> React Native</div>
+          <div class="desc">クロスプラットフォームのモバイルアプリ開発フレームワーク。iOS / Android / Web に対応。</div>
+          <div class="apps"><span>全アプリ</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">📦</span> Expo</div>
+          <div class="desc">React Nativeの開発プラットフォーム。ビルド、OTA更新、ネイティブモジュール管理を統合。</div>
+          <div class="apps"><span>全アプリ</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">🟦</span> TypeScript</div>
+          <div class="desc">型安全なJavaScript。全プロジェクトで採用。</div>
+          <div class="apps"><span>全アプリ</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">🎨</span> NativeWind</div>
+          <div class="desc">Tailwind CSSをReact Nativeで使えるスタイリングライブラリ。</div>
+          <div class="apps"><span>StockHome</span><span>TodoBox</span><span>麻雀帖</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category fade-in">
+      <div class="category-title">Backend & Infrastructure</div>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="name"><span class="icon">🟢</span> Supabase</div>
+          <div class="desc">認証・データベース・リアルタイム同期を提供するBaaS。PostgreSQLベース。</div>
+          <div class="apps"><span>StockHome</span><span>TodoBox</span><span>Life Calendar</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">☁️</span> AWS</div>
+          <div class="desc">API Gateway + DynamoDB によるサーバーレスバックエンド。東京リージョンで運用。</div>
+          <div class="apps"><span>麻雀帖</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">⚡</span> Serverless Framework</div>
+          <div class="desc">AWSリソースのインフラ管理・デプロイを自動化するフレームワーク。</div>
+          <div class="apps"><span>麻雀帖</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category fade-in">
+      <div class="category-title">AI</div>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="name"><span class="icon">✨</span> Gemini API</div>
+          <div class="desc">GoogleのAIモデルを活用した機能を提供。</div>
+          <div class="apps"><span>Life Calendar</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category fade-in">
+      <div class="category-title">Monitoring & DevOps</div>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="name"><span class="icon">🔍</span> Sentry</div>
+          <div class="desc">リアルタイムのエラー追跡・パフォーマンスモニタリング。</div>
+          <div class="apps"><span>全アプリ</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">🚀</span> EAS Build</div>
+          <div class="desc">Expoのクラウドビルドサービス。App Store / Google Play への配信を管理。</div>
+          <div class="apps"><span>全アプリ</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">🐙</span> GitHub Pages</div>
+          <div class="desc">このWebサイトのホスティング。pushするだけで自動デプロイ。</div>
+          <div class="apps"><span>lh.tools</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category fade-in">
+      <div class="category-title">Localization</div>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="name"><span class="icon">🌐</span> i18next</div>
+          <div class="desc">多言語対応フレームワーク。日本語・英語・ベトナム語をサポート。</div>
+          <div class="apps"><span>全アプリ</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matrix fade-in">
+      <div class="category-title">アプリ別 技術マトリクス</div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>StockHome</th>
+            <th>麻雀帖</th>
+            <th>Life Calendar</th>
+            <th>TodoBox</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>React Native / Expo</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+          </tr>
+          <tr>
+            <td>TypeScript</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+          </tr>
+          <tr>
+            <td>Supabase</td>
+            <td class="check">&#10003;</td>
+            <td class="dash">—</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+          </tr>
+          <tr>
+            <td>AWS</td>
+            <td class="dash">—</td>
+            <td class="check">&#10003;</td>
+            <td class="dash">—</td>
+            <td class="dash">—</td>
+          </tr>
+          <tr>
+            <td>Serverless Framework</td>
+            <td class="dash">—</td>
+            <td class="check">&#10003;</td>
+            <td class="dash">—</td>
+            <td class="dash">—</td>
+          </tr>
+          <tr>
+            <td>NativeWind</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="dash">—</td>
+            <td class="check">&#10003;</td>
+          </tr>
+          <tr>
+            <td>Gemini API</td>
+            <td class="dash">—</td>
+            <td class="dash">—</td>
+            <td class="check">&#10003;</td>
+            <td class="dash">—</td>
+          </tr>
+          <tr>
+            <td>Sentry</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+          </tr>
+          <tr>
+            <td>i18next</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+          </tr>
+          <tr>
+            <td>Google AdMob</td>
+            <td class="dash">—</td>
+            <td class="check">&#10003;</td>
+            <td class="dash">—</td>
+            <td class="dash">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
