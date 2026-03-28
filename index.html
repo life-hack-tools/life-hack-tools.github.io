@@ -43,6 +43,13 @@
       padding: 24px;
       margin-bottom: 16px;
       text-align: left;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.2s;
+    }
+    .app-card:hover {
+      background: rgba(255,255,255,0.14);
     }
     .app-card h2 {
       font-size: 20px;
@@ -76,14 +83,22 @@
     <p class="tagline">Life Hack Tools</p>
 
     <div class="apps">
-      <div class="app-card">
+      <a href="/apps/stockhome" class="app-card">
         <h2>StockHome</h2>
         <p>Household inventory management. Track stock, share with housemates, get low-stock alerts.</p>
-      </div>
-      <div class="app-card">
-        <h2>Mahjong Cho</h2>
-        <p>Mahjong score tracker.</p>
-      </div>
+      </a>
+      <a href="/apps/mahjong-cho" class="app-card">
+        <h2>麻雀帖</h2>
+        <p>Mahjong score tracker. Record and analyze your game results.</p>
+      </a>
+      <a href="/apps/life-calendar" class="app-card">
+        <h2>Life Calendar</h2>
+        <p>Visualize your life in weeks. See the big picture and make every week count.</p>
+      </a>
+      <a href="/apps/todo-box" class="app-card">
+        <h2>TodoBox</h2>
+        <p>Simple, focused task management. Get things done without the clutter.</p>
+      </a>
     </div>
 
     <div class="links">
