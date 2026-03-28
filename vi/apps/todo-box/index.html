@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Life Calendar - Life Hack Tools</title>
+  <title>TodoBox - Life Hack Tools</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -54,7 +54,7 @@
       position: absolute;
       top: -50%; left: -50%;
       width: 200%; height: 200%;
-      background: radial-gradient(circle at 50% 50%, rgba(139,92,246,0.12) 0%, transparent 50%);
+      background: radial-gradient(circle at 50% 50%, rgba(59,130,246,0.12) 0%, transparent 50%);
       animation: pulse 8s ease-in-out infinite;
     }
     @keyframes pulse {
@@ -64,7 +64,7 @@
     .hero-icon {
       width: 120px; height: 120px;
       border-radius: 28px;
-      box-shadow: 0 20px 60px rgba(139,92,246,0.3);
+      box-shadow: 0 20px 60px rgba(59,130,246,0.3);
       margin-bottom: 32px;
       animation: float 6s ease-in-out infinite;
       position: relative;
@@ -106,7 +106,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 3px;
-      color: #8b5cf6;
+      color: #3b82f6;
       margin-bottom: 16px;
     }
     .section h2 {
@@ -137,7 +137,7 @@
     }
     .feature-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(139,92,246,0.3);
+      border-color: rgba(59,130,246,0.3);
       background: rgba(255,255,255,0.06);
     }
     .feature-icon {
@@ -167,7 +167,7 @@
       position: absolute;
       bottom: 0; left: -50%;
       width: 200%; height: 100%;
-      background: radial-gradient(ellipse at 50% 100%, rgba(139,92,246,0.08) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 100%, rgba(59,130,246,0.08) 0%, transparent 60%);
     }
     .footer-cta h2 {
       font-size: clamp(24px, 5vw, 36px);
@@ -199,70 +199,70 @@
 <body>
 
   <div class="nav">
-    <a href="/">&larr; LHTz</a>
+    <a href="/vi/">&larr; LHTz</a>
     <div class="lang-switch">
-      <a href="/apps/life-calendar/" class="active">JA</a>
-      <a href="/en/apps/life-calendar/">EN</a>
-      <a href="/vi/apps/life-calendar/">VI</a>
+      <a href="/apps/todo-box/">JA</a>
+      <a href="/en/apps/todo-box/">EN</a>
+      <a href="/vi/apps/todo-box/" class="active">VI</a>
     </div>
   </div>
 
   <!-- Hero -->
   <div class="hero">
-    <img src="/assets/icon-life-calendar.png" alt="Life Calendar" class="hero-icon">
-    <h1>Life Calendar</h1>
-    <p class="subtitle">人生を、一目で見渡す。</p>
+    <img src="/assets/icon-todo-box.png" alt="TodoBox" class="hero-icon">
+    <h1>TodoBox</h1>
+    <p class="subtitle">Việc cần làm, chỉ vậy thôi.</p>
     <div class="cta">
-      <a href="#"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
-      <a href="#"><img src="/assets/google-play-badge.png" alt="Get it on Google Play"></a>
+      <a href="#"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
+      <a href="#"><img src="/assets/google-play-badge.png" alt="Tải trên Google Play"></a>
     </div>
   </div>
 
   <!-- About -->
   <div class="section fade-in">
-    <div class="section-title">About</div>
-    <h2>あなたの人生、<br>あと何週間？</h2>
+    <div class="section-title">Giới thiệu</div>
+    <h2>Không cần tính năng<br>thừa thãi.</h2>
     <p>
-      Life Calendarは、人生を週単位のグリッドで可視化するアプリです。
-      これまで過ごした週と、これから残っている週を一目で把握。
-      大切なイベントを記録し、毎週を意識的に過ごすきっかけを提供します。
+      TodoBox là ứng dụng quản lý công việc chú trọng sự đơn giản.
+      Không có tính năng phức tạp. Thêm công việc, hoàn thành thì đánh dấu. Chỉ vậy thôi.
+      Không có gì thừa, nên bạn có thể tập trung vào những việc cần làm.
     </p>
   </div>
 
   <!-- Features -->
   <div class="section fade-in">
-    <div class="section-title">Features</div>
-    <h2>シンプルに、人生を見つめる。</h2>
+    <div class="section-title">Tính năng</div>
+    <h2>Đơn giản là mạnh nhất.</h2>
     <div class="features">
       <div class="feature-card">
-        <span class="feature-icon">📅</span>
-        <h3>週単位グリッドビュー</h3>
-        <p>80年分の人生を約4,160週のグリッドで一覧表示。</p>
+        <span class="feature-icon">⚡</span>
+        <h3>Thêm công việc nhanh chóng</h3>
+        <p>Nghĩ đến là thêm ngay. Trải nghiệm nhập liệu không căng thẳng.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">🏷️</span>
-        <h3>マイルストーン記録</h3>
-        <p>大切なイベントや節目を週に紐づけて記録。</p>
+        <span class="feature-icon">✅</span>
+        <h3>Đánh dấu hoàn thành đơn giản</h3>
+        <p>Chỉ cần một chạm để hoàn thành. Cảm giác thành tựu tuyệt vời.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">🎨</span>
-        <h3>カスタマイズ</h3>
-        <p>自分の人生設計に合わせた表示のカスタマイズ。</p>
+        <span class="feature-icon">🎯</span>
+        <h3>Thiết kế tối giản</h3>
+        <p>Chỉ có những gì cần thiết. Giao diện không làm phân tán sự tập trung.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">🔄</span>
-        <h3>週ごとの振り返り</h3>
-        <p>毎週を振り返り、次の一週間をもっと大切に。</p>
+        <span class="feature-icon">🪶</span>
+        <h3>Nhẹ và nhanh</h3>
+        <p>Mượt mà, không chờ đợi.</p>
       </div>
     </div>
   </div>
 
   <!-- Footer CTA -->
   <div class="footer-cta fade-in">
-    <h2>今週から、はじめよう。</h2>
+    <h2>Hãy viết ra việc cần làm hôm nay.</h2>
     <div class="cta">
-      <a href="#"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
-      <a href="#"><img src="/assets/google-play-badge.png" alt="Get it on Google Play"></a>
+      <a href="#"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
+      <a href="#"><img src="/assets/google-play-badge.png" alt="Tải trên Google Play"></a>
     </div>
   </div>
 

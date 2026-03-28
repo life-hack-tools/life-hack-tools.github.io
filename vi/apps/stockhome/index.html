@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Life Calendar - Life Hack Tools</title>
+  <title>StockHome - Life Hack Tools</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -54,7 +54,7 @@
       position: absolute;
       top: -50%; left: -50%;
       width: 200%; height: 200%;
-      background: radial-gradient(circle at 50% 50%, rgba(139,92,246,0.12) 0%, transparent 50%);
+      background: radial-gradient(circle at 50% 50%, rgba(16,185,129,0.12) 0%, transparent 50%);
       animation: pulse 8s ease-in-out infinite;
     }
     @keyframes pulse {
@@ -64,7 +64,7 @@
     .hero-icon {
       width: 120px; height: 120px;
       border-radius: 28px;
-      box-shadow: 0 20px 60px rgba(139,92,246,0.3);
+      box-shadow: 0 20px 60px rgba(16,185,129,0.3);
       margin-bottom: 32px;
       animation: float 6s ease-in-out infinite;
       position: relative;
@@ -106,7 +106,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 3px;
-      color: #8b5cf6;
+      color: #10b981;
       margin-bottom: 16px;
     }
     .section h2 {
@@ -137,7 +137,7 @@
     }
     .feature-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(139,92,246,0.3);
+      border-color: rgba(16,185,129,0.3);
       background: rgba(255,255,255,0.06);
     }
     .feature-icon {
@@ -156,6 +156,38 @@
       line-height: 1.6;
     }
 
+    /* Screenshots */
+    .screenshots {
+      padding: 80px 0;
+      overflow: hidden;
+    }
+    .screenshots .section-title,
+    .screenshots h2 {
+      text-align: center;
+      padding: 0 24px;
+    }
+    .screenshot-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 48px 24px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .screenshot-scroll::-webkit-scrollbar { display: none; }
+    .screenshot-scroll img {
+      height: 500px;
+      border-radius: 24px;
+      scroll-snap-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .screenshot-scroll img:hover {
+      transform: scale(1.02);
+    }
+
     /* Footer CTA */
     .footer-cta {
       text-align: center;
@@ -167,7 +199,7 @@
       position: absolute;
       bottom: 0; left: -50%;
       width: 200%; height: 100%;
-      background: radial-gradient(ellipse at 50% 100%, rgba(139,92,246,0.08) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 100%, rgba(16,185,129,0.08) 0%, transparent 60%);
     }
     .footer-cta h2 {
       font-size: clamp(24px, 5vw, 36px);
@@ -199,80 +231,115 @@
 <body>
 
   <div class="nav">
-    <a href="/">&larr; LHTz</a>
+    <a href="/vi/">&larr; LHTz</a>
     <div class="lang-switch">
-      <a href="/apps/life-calendar/" class="active">JA</a>
-      <a href="/en/apps/life-calendar/">EN</a>
-      <a href="/vi/apps/life-calendar/">VI</a>
+      <a href="/apps/stockhome/">JA</a>
+      <a href="/en/apps/stockhome/">EN</a>
+      <a href="/vi/apps/stockhome/" class="active">VI</a>
     </div>
   </div>
 
   <!-- Hero -->
   <div class="hero">
-    <img src="/assets/icon-life-calendar.png" alt="Life Calendar" class="hero-icon">
-    <h1>Life Calendar</h1>
-    <p class="subtitle">人生を、一目で見渡す。</p>
+    <img src="/assets/icon-stockhome.png" alt="StockHome" class="hero-icon">
+    <h1>StockHome</h1>
+    <p class="subtitle">Không bao giờ quên đồ trong nhà.</p>
     <div class="cta">
-      <a href="#"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
-      <a href="#"><img src="/assets/google-play-badge.png" alt="Get it on Google Play"></a>
+      <a href="#"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
+      <a href="#"><img src="/assets/google-play-badge.png" alt="Tải trên Google Play"></a>
     </div>
   </div>
 
   <!-- About -->
   <div class="section fade-in">
-    <div class="section-title">About</div>
-    <h2>あなたの人生、<br>あと何週間？</h2>
+    <div class="section-title">Giới thiệu</div>
+    <h2>Hết quên mua sắm<br>từ hôm nay.</h2>
     <p>
-      Life Calendarは、人生を週単位のグリッドで可視化するアプリです。
-      これまで過ごした週と、これから残っている週を一目で把握。
-      大切なイベントを記録し、毎週を意識的に過ごすきっかけを提供します。
+      StockHome là ứng dụng giúp bạn quản lý kho đồ gia đình một cách dễ dàng.
+      Đăng ký thực phẩm, đồ dùng hàng ngày, thuốc theo danh mục và tự động thêm vào danh sách mua sắm khi sắp hết.
+      Chia sẻ kho đồ với gia đình hoặc bạn cùng phòng bằng mã mời, đồng bộ theo thời gian thực.
     </p>
   </div>
 
   <!-- Features -->
   <div class="section fade-in">
-    <div class="section-title">Features</div>
-    <h2>シンプルに、人生を見つめる。</h2>
+    <div class="section-title">Tính năng</div>
+    <h2>Chỉ những gì cần thiết.</h2>
     <div class="features">
       <div class="feature-card">
-        <span class="feature-icon">📅</span>
-        <h3>週単位グリッドビュー</h3>
-        <p>80年分の人生を約4,160週のグリッドで一覧表示。</p>
+        <span class="feature-icon">📦</span>
+        <h3>Quản lý theo danh mục</h3>
+        <p>Thực phẩm, đồ dùng, thuốc và khác. Sắp xếp kho đồ theo danh mục.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">🏷️</span>
-        <h3>マイルストーン記録</h3>
-        <p>大切なイベントや節目を週に紐づけて記録。</p>
+        <span class="feature-icon">🛒</span>
+        <h3>Danh sách mua sắm tự động</h3>
+        <p>Tự động thêm vào danh sách mua sắm khi số lượng sắp hết.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">🎨</span>
-        <h3>カスタマイズ</h3>
-        <p>自分の人生設計に合わせた表示のカスタマイズ。</p>
+        <span class="feature-icon">👨‍👩‍👧‍👦</span>
+        <h3>Chia sẻ hộ gia đình</h3>
+        <p>Chia sẻ kho đồ theo thời gian thực với gia đình hoặc bạn cùng phòng bằng mã mời.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">🔄</span>
-        <h3>週ごとの振り返り</h3>
-        <p>毎週を振り返り、次の一週間をもっと大切に。</p>
+        <span class="feature-icon">🌐</span>
+        <h3>Hỗ trợ 3 ngôn ngữ</h3>
+        <p>日本語・English・Tiếng Việt. Sử dụng được nhiều ngôn ngữ.</p>
       </div>
+      <div class="feature-card">
+        <span class="feature-icon">📡</span>
+        <h3>Hoạt động ngoại tuyến</h3>
+        <p>Sử dụng được khi không có mạng. Tự động đồng bộ khi kết nối lại.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h3>Thao tác đơn giản</h3>
+        <p>Chỉ cần chọn từ danh sách có sẵn. Không cần nhập liệu phức tạp.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screenshots -->
+  <div class="screenshots fade-in">
+    <div class="section-title">Ảnh chụp màn hình</div>
+    <h2>Giao diện ứng dụng.</h2>
+    <div class="screenshot-scroll">
+      <img src="/assets/store/ios-screenshot-01-home.png" alt="Màn hình chính">
+      <img src="/assets/store/ios-screenshot-02-add.png" alt="Thêm sản phẩm">
+      <img src="/assets/store/ios-screenshot-03-shopping.png" alt="Danh sách mua sắm">
+      <img src="/assets/store/ios-screenshot-04-settings.png" alt="Cài đặt">
     </div>
   </div>
 
   <!-- Footer CTA -->
   <div class="footer-cta fade-in">
-    <h2>今週から、はじめよう。</h2>
+    <h2>Hãy dùng thử ngay.</h2>
     <div class="cta">
-      <a href="#"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
-      <a href="#"><img src="/assets/google-play-badge.png" alt="Get it on Google Play"></a>
+      <a href="#"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
+      <a href="#"><img src="/assets/google-play-badge.png" alt="Tải trên Google Play"></a>
     </div>
   </div>
 
   <script>
+    // Scroll fade-in animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
     }, { threshold: 0.1 });
+
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Parallax on hero background
+    window.addEventListener('scroll', () => {
+      const hero = document.querySelector('.hero::before');
+      const scrollY = window.scrollY;
+      document.querySelector('.hero').style.setProperty(
+        '--scroll', scrollY * 0.3 + 'px'
+      );
+    });
   </script>
 </body>
 </html>
