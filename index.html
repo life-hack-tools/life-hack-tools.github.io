@@ -18,7 +18,7 @@
       padding: 40px 20px;
     }
     .container {
-      max-width: 500px;
+      max-width: 520px;
       text-align: center;
     }
     .logo {
@@ -32,47 +32,37 @@
     .tagline {
       font-size: 16px;
       color: #d4a0a0;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
-    .apps {
-      margin-bottom: 48px;
-    }
-    .app-card {
+    .about {
       background: rgba(255,255,255,0.08);
       border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 16px;
+      padding: 28px;
+      margin-bottom: 40px;
       text-align: left;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      transition: background 0.2s;
     }
-    .app-card:hover {
-      background: rgba(255,255,255,0.14);
-    }
-    .app-card h2 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .app-card p {
-      font-size: 14px;
+    .about p {
+      font-size: 15px;
       color: #d4a0a0;
-      line-height: 1.5;
+      line-height: 1.8;
     }
-    .links a {
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav a {
       display: inline-block;
-      margin: 8px 12px;
       color: #f5c6c6;
       text-decoration: none;
       font-size: 14px;
-      padding: 8px 20px;
+      padding: 10px 24px;
       border: 1px solid rgba(245,198,198,0.3);
-      border-radius: 6px;
+      border-radius: 8px;
       transition: background 0.2s;
     }
-    .links a:hover {
+    nav a:hover {
       background: rgba(255,255,255,0.1);
     }
   </style>
@@ -82,29 +72,19 @@
     <div class="logo">LHTz</div>
     <p class="tagline">Life Hack Tools</p>
 
-    <div class="apps">
-      <a href="/apps/stockhome" class="app-card">
-        <h2>StockHome</h2>
-        <p>Household inventory management. Track stock, share with housemates, get low-stock alerts.</p>
-      </a>
-      <a href="/apps/mahjong-cho" class="app-card">
-        <h2>麻雀帖</h2>
-        <p>Mahjong score tracker. Record and analyze your game results.</p>
-      </a>
-      <a href="/apps/life-calendar" class="app-card">
-        <h2>Life Calendar</h2>
-        <p>Visualize your life in weeks. See the big picture and make every week count.</p>
-      </a>
-      <a href="/apps/todo-box" class="app-card">
-        <h2>TodoBox</h2>
-        <p>Simple, focused task management. Get things done without the clutter.</p>
-      </a>
+    <div class="about">
+      <p>
+        日々の暮らしの中にある、ちょっとした不便。<br>
+        Life Hack Tools は、そんな小さな不便をアプリで解決する提案をしています。<br><br>
+        大げさなツールではなく、毎日の生活をほんの少しだけ楽にする ── そんなアプリを作っています。
+      </p>
     </div>
 
-    <div class="links">
-      <a href="/privacy">Privacy Policy</a>
+    <nav>
+      <a href="/apps">Apps</a>
       <a href="/support">Support</a>
-    </div>
+      <a href="/privacy">Privacy Policy</a>
+    </nav>
   </div>
 </body>
 </html>
