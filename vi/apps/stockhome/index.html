@@ -94,6 +94,23 @@
     .hero .cta a { transition: opacity 0.2s; }
     .hero .cta a:hover { opacity: 0.8; }
     .hero .cta img { height: 50px; }
+    .coming-soon {
+      display: inline-block;
+      color: #10b981;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 28px;
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 10px;
+      background: rgba(16,185,129,0.06);
+      animation: pulse-badge 3s ease-in-out infinite;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { border-color: rgba(16,185,129,0.2); }
+      50% { border-color: rgba(16,185,129,0.5); }
+    }
 
     /* Sections */
     .section {
@@ -245,8 +262,7 @@
     <h1>StockHome</h1>
     <p class="subtitle">Không bao giờ quên đồ trong nhà.</p>
     <div class="cta">
-      <a href="#"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
-      <a href="#"><img src="/assets/google-play-badge.png" alt="Tải trên Google Play"></a>
+      <span class="coming-soon">Sắp ra mắt</span>
     </div>
   </div>
 
@@ -315,8 +331,7 @@
   <div class="footer-cta fade-in">
     <h2>Hãy dùng thử ngay.</h2>
     <div class="cta">
-      <a href="#"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
-      <a href="#"><img src="/assets/google-play-badge.png" alt="Tải trên Google Play"></a>
+      <span class="coming-soon">Sắp ra mắt</span>
     </div>
   </div>
 
