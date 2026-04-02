@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Điều khoản sử dụng - Life Hack Tools</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 24px;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav a {
+      color: #aaa; text-decoration: none; font-size: 14px;
+      transition: color 0.3s;
+    }
+    .nav a:hover { color: #fff; }
+    .lang-switch {
+      display: flex; gap: 8px;
+    }
+    .lang-switch a {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #888;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .updated {
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 40px;
+      display: block;
+    }
+    .intro {
+      font-size: 16px;
+      color: #999;
+      margin-bottom: 48px;
+      line-height: 1.8;
+    }
+
+    .policy-section {
+      margin-bottom: 40px;
+    }
+    .policy-section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .policy-section h2 .num {
+      font-size: 12px;
+      font-weight: 600;
+      color: #dc2626;
+      background: rgba(220,38,38,0.1);
+      border: 1px solid rgba(220,38,38,0.2);
+      border-radius: 6px;
+      padding: 2px 8px;
+      flex-shrink: 0;
+    }
+    .policy-section p {
+      font-size: 15px;
+      color: #999;
+      line-height: 1.8;
+    }
+    .policy-section ul {
+      margin: 8px 0 8px 20px;
+      color: #999;
+      font-size: 15px;
+    }
+    .policy-section li {
+      margin: 6px 0;
+      line-height: 1.7;
+    }
+    .policy-section strong {
+      color: #ccc;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .contact-card .x-icon {
+      width: 48px; height: 48px;
+      background: #fff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-card .x-icon svg {
+      width: 24px; height: 24px;
+    }
+    .contact-card .info { flex: 1; }
+    .contact-card .label {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    .contact-card a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.2s;
+    }
+    .contact-card a:hover { color: #dc2626; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/vi/">&larr; LHTz</a>
+    <div class="lang-switch">
+      <a href="/terms/">JA</a>
+      <a href="/en/terms/">EN</a>
+      <a href="/vi/terms/" class="active">VI</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>Điều khoản sử dụng</h1>
+    <span class="updated">Cập nhật lần cuối: 2 tháng 4, 2026</span>
+
+    <p class="intro">Các Điều khoản sử dụng này ("Điều khoản") điều chỉnh việc bạn sử dụng các ứng dụng ("Ứng dụng") do Life Hack Tools ("chúng tôi") cung cấp. Bằng cách sử dụng Ứng dụng, bạn đồng ý bị ràng buộc bởi các Điều khoản này.</p>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>Sử dụng dịch vụ</h2>
+      <p>Ứng dụng được cung cấp cho mục đích sử dụng cá nhân, phi thương mại. Bạn có thể sử dụng Ứng dụng miễn là tuân thủ các Điều khoản này.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>Các hoạt động bị cấm</h2>
+      <p>Bạn đồng ý không:</p>
+      <ul>
+        <li>Sử dụng Ứng dụng cho bất kỳ mục đích bất hợp pháp nào</li>
+        <li>Dịch ngược, dịch mã hoặc tháo rời Ứng dụng</li>
+        <li>Sao chép, sửa đổi hoặc phân phối mã nguồn của Ứng dụng</li>
+        <li>Truyền hoặc phát tán nội dung có hại thông qua Ứng dụng</li>
+        <li>Vi phạm quyền của chúng tôi hoặc bất kỳ bên thứ ba nào</li>
+      </ul>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>Sở hữu trí tuệ</h2>
+      <p>Tất cả quyền sở hữu trí tuệ đối với Ứng dụng và nội dung của nó (bao gồm thiết kế, văn bản và đồ họa) thuộc về chúng tôi. Các Điều khoản này không cấp cho bạn bất kỳ quyền nào đối với tài sản trí tuệ đó.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>Miễn trừ bảo đảm</h2>
+      <p>Ứng dụng được cung cấp "nguyên trạng" mà không có bất kỳ bảo đảm nào. Chúng tôi không đảm bảo về tính chính xác, đầy đủ hoặc hữu ích của Ứng dụng và không chịu trách nhiệm về bất kỳ thiệt hại nào phát sinh từ việc bạn sử dụng Ứng dụng.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>Thay đổi dịch vụ</h2>
+      <p>Chúng tôi có thể sửa đổi, thêm hoặc xóa các tính năng của Ứng dụng bất cứ lúc nào mà không cần thông báo. Chúng tôi cũng có thể tạm thời đình chỉ dịch vụ để bảo trì hoặc vì các lý do khác.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>Dịch vụ bên thứ ba</h2>
+      <p>Ứng dụng có thể sử dụng các dịch vụ của bên thứ ba. Các dịch vụ này được điều chỉnh bởi các điều khoản sử dụng và chính sách bảo mật riêng của họ, và chúng tôi không chịu trách nhiệm về nội dung của họ.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>Thay đổi điều khoản</h2>
+      <p>Chúng tôi có thể cập nhật các Điều khoản này bất cứ lúc nào. Các Điều khoản cập nhật có hiệu lực ngay khi được đăng trên trang này. Chúng tôi sẽ thông báo cho bạn về những thay đổi quan trọng trong Ứng dụng.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">08</span>Luật áp dụng</h2>
+      <p>Các Điều khoản này được điều chỉnh bởi luật pháp Nhật Bản. Mọi tranh chấp liên quan đến các Điều khoản này sẽ thuộc thẩm quyền độc quyền của Tòa án Quận Tokyo.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">09</span>Liên hệ</h2>
+      <p>Nếu có bất kỳ câu hỏi nào về các Điều khoản này, vui lòng liên hệ với chúng tôi:</p>
+      <div class="contact-card">
+        <div class="x-icon">
+          <svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <div class="info">
+          <div class="label">Liên hệ qua X (Twitter) DM</div>
+          <a href="https://x.com/LifeHackToolz" target="_blank">@LifeHackToolz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+</body>
+</html>
