@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Diary - Life Hack Tools</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 24px;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav a {
+      color: #aaa; text-decoration: none; font-size: 14px;
+      transition: color 0.3s;
+    }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a {
+      font-size: 12px; padding: 4px 10px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15); color: #888;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(216,94,66,0.1) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+    .hero-icon {
+      width: 120px; height: 120px;
+      border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(216,94,66,0.3);
+      margin-bottom: 32px;
+      animation: float 6s ease-in-out infinite;
+      position: relative;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .hero h1 {
+      font-size: clamp(36px, 8vw, 56px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .hero .subtitle {
+      font-size: clamp(16px, 3vw, 20px);
+      color: #888;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .hero .cta {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+    }
+    .coming-soon {
+      display: inline-block;
+      padding: 12px 28px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      color: #666;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 100px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #d85e42;
+      margin-bottom: 16px;
+    }
+    .section h2 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+    .section p {
+      font-size: 17px;
+      color: #999;
+      line-height: 1.8;
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 28px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(216,94,66,0.3);
+      background: rgba(255,255,255,0.06);
+    }
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+      text-align: center;
+      padding: 100px 24px;
+      position: relative;
+    }
+    .footer-cta::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: -50%;
+      width: 200%; height: 100%;
+      background: radial-gradient(ellipse at 50% 100%, rgba(216,94,66,0.06) 0%, transparent 60%);
+    }
+    .footer-cta h2 {
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 700;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .footer-cta .cta {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <a href="/">&larr; LHTz</a>
+    <div class="lang-switch">
+      <a href="/apps/word-diary/" class="active">JA</a>
+      <a href="/en/apps/word-diary/">EN</a>
+      <a href="/vi/apps/word-diary/">VI</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img src="/assets/icon-word-diary.png" alt="Word Diary" class="hero-icon">
+    <h1>Word Diary</h1>
+    <p class="subtitle">毎日の一語が、あなたの物語になる。</p>
+    <div class="cta">
+      <span class="coming-soon">Coming Soon</span>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div class="section fade-in">
+    <div class="section-title">About</div>
+    <h2>言葉を刻む、<br>毎日の記録。</h2>
+    <p>
+      Word Diaryは、1日1枚の写真と1つの言葉だけで日記を続けるアプリです。
+      長文は不要。今日を一言で表すだけで、あなたの軌跡が積み重なっていきます。
+    </p>
+  </div>
+
+  <!-- Features -->
+  <div class="section fade-in">
+    <div class="section-title">Features</div>
+    <h2>シンプルだから、続けられる。</h2>
+    <div class="features">
+      <div class="feature-card">
+        <span class="feature-icon">📷</span>
+        <h3>写真 × 一語</h3>
+        <p>今日の一枚と一言だけ。シンプルな記録が、振り返ったとき深い意味を持つ。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🗓️</span>
+        <h3>タイムライン</h3>
+        <p>写真と言葉が並ぶビジュアルタイムライン。自分の歩みがアートになる。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📊</span>
+        <h3>インサイト</h3>
+        <p>連続記録日数や頻出ワードを分析。自分の感情パターンが見えてくる。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">✨</span>
+        <h3>美しくシェア</h3>
+        <p>TikTokやXへ加工不要で投稿できる、こだわりのシェアカード。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="footer-cta fade-in">
+    <h2>あなたの今日を、一言で。</h2>
+    <div class="cta">
+      <span class="coming-soon">Coming Soon</span>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+</body>
+</html>
