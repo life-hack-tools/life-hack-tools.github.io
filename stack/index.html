@@ -116,31 +116,38 @@
     }
 
     /* App matrix */
-    .matrix {
-      margin-top: 60px;
-      overflow-x: auto;
+    .app-tags { margin-top: 64px; }
+    .app-tag-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      transition: border-color 0.3s;
     }
-    .matrix table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
+    .app-tag-card:hover { border-color: rgba(255,255,255,0.15); }
+    .app-tag-card .app-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e0e0e0;
+      min-width: 120px;
     }
-    .matrix th, .matrix td {
-      padding: 12px 16px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .matrix th {
-      color: #888;
+    .app-tag-card .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 6px;
       font-weight: 600;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
-    .matrix td { color: #bbb; }
-    .matrix tr:hover td { background: rgba(255,255,255,0.02); }
-    .matrix .check { color: #10b981; }
-    .matrix .dash { color: #333; }
+    .tag-core { background: rgba(99,102,241,0.15); color: #818cf8; border: 1px solid rgba(99,102,241,0.2); }
+    .tag-backend { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.2); }
+    .tag-infra { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.2); }
+    .tag-tool { background: rgba(220,38,38,0.15); color: #f87171; border: 1px solid rgba(220,38,38,0.2); }
 
     .fade-in {
       opacity: 0;
@@ -188,7 +195,7 @@
         <div class="stack-card">
           <div class="name"><span class="icon">🎨</span> NativeWind</div>
           <div class="desc">Tailwind CSSをReact Nativeで使えるスタイリングライブラリ。</div>
-          <div class="apps"><span>StockHome</span><span>TodoBox</span><span>麻雀帖</span></div>
+          <div class="apps"><span>StockHome</span><span>TodoBox</span><span>麻雀帖</span><span>Word Diary</span><span>Mugg</span><span>Rete</span></div>
         </div>
         <div class="stack-card">
           <div class="name"><span class="icon">🌐</span> i18next</div>
@@ -204,7 +211,7 @@
         <div class="stack-card">
           <div class="name"><span class="icon">🟢</span> Supabase</div>
           <div class="desc">認証・データベース・リアルタイム同期を提供するBaaS。PostgreSQLベース。</div>
-          <div class="apps"><span>StockHome</span><span>TodoBox</span><span>Life Calendar</span></div>
+          <div class="apps"><span>StockHome</span><span>TodoBox</span><span>Life Calendar</span><span>Word Diary</span><span>Mugg</span></div>
         </div>
         <div class="stack-card">
           <div class="name"><span class="icon">☁️</span> AWS</div>
@@ -215,6 +222,31 @@
           <div class="name"><span class="icon">⚡</span> Serverless Framework</div>
           <div class="desc">AWSリソースのインフラ管理・デプロイを自動化するフレームワーク。</div>
           <div class="apps"><span>麻雀帖</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">🔥</span> Firebase</div>
+          <div class="desc">認証・Firestore・Cloud Messagingを提供するGoogleのモバイルプラットフォーム。</div>
+          <div class="apps"><span>Rete</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">☁️</span> GCP Cloud Run</div>
+          <div class="desc">コンテナベースのサーバーレスAPIホスティング。東京リージョンで運用。</div>
+          <div class="apps"><span>Rete</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">🔷</span> Azure</div>
+          <div class="desc">バックエンドサービス基盤。</div>
+          <div class="apps"><span>Word Diary</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">🔶</span> Hono</div>
+          <div class="desc">超軽量・高速なWebフレームワーク。Edge / Node.js / Bun対応。</div>
+          <div class="apps"><span>Rete</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">📍</span> Google Maps API</div>
+          <div class="desc">地図表示・位置検索・Place API連携。</div>
+          <div class="apps"><span>Mugg</span><span>Rete</span></div>
         </div>
       </div>
     </div>
@@ -262,91 +294,50 @@
       </div>
     </div>
 
-    <div class="matrix fade-in">
-      <div class="category-title">アプリ別 技術マトリクス</div>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>StockHome</th>
-            <th>麻雀帖</th>
-            <th>Life Calendar</th>
-            <th>TodoBox</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>React Native / Expo</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-          </tr>
-          <tr>
-            <td>TypeScript</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-          </tr>
-          <tr>
-            <td>Supabase</td>
-            <td class="check">&#10003;</td>
-            <td class="dash">—</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-          </tr>
-          <tr>
-            <td>AWS</td>
-            <td class="dash">—</td>
-            <td class="check">&#10003;</td>
-            <td class="dash">—</td>
-            <td class="dash">—</td>
-          </tr>
-          <tr>
-            <td>Serverless Framework</td>
-            <td class="dash">—</td>
-            <td class="check">&#10003;</td>
-            <td class="dash">—</td>
-            <td class="dash">—</td>
-          </tr>
-          <tr>
-            <td>NativeWind</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="dash">—</td>
-            <td class="check">&#10003;</td>
-          </tr>
-          <tr>
-            <td>Gemini API</td>
-            <td class="dash">—</td>
-            <td class="dash">—</td>
-            <td class="check">&#10003;</td>
-            <td class="dash">—</td>
-          </tr>
-          <tr>
-            <td>Sentry</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-          </tr>
-          <tr>
-            <td>i18next</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-          </tr>
-          <tr>
-            <td>Google AdMob</td>
-            <td class="dash">—</td>
-            <td class="check">&#10003;</td>
-            <td class="dash">—</td>
-            <td class="dash">—</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="app-tags fade-in">
+      <div class="category-title">アプリ別 技術スタック</div>
+      <div class="app-tag-card">
+        <div class="app-name">StockHome</div>
+        <div class="tags">
+          <span class="tag tag-core">Expo</span><span class="tag tag-core">TypeScript</span><span class="tag tag-core">NativeWind</span><span class="tag tag-backend">Supabase</span><span class="tag tag-tool">Sentry</span><span class="tag tag-infra">i18next</span>
+        </div>
+      </div>
+      <div class="app-tag-card">
+        <div class="app-name">麻雀帖</div>
+        <div class="tags">
+          <span class="tag tag-core">Expo</span><span class="tag tag-core">TypeScript</span><span class="tag tag-core">NativeWind</span><span class="tag tag-backend">AWS</span><span class="tag tag-backend">Serverless</span><span class="tag tag-tool">Sentry</span><span class="tag tag-infra">i18next</span><span class="tag tag-infra">AdMob</span>
+        </div>
+      </div>
+      <div class="app-tag-card">
+        <div class="app-name">Life Calendar</div>
+        <div class="tags">
+          <span class="tag tag-core">Expo</span><span class="tag tag-core">TypeScript</span><span class="tag tag-backend">Supabase</span><span class="tag tag-infra">Gemini API</span><span class="tag tag-tool">Sentry</span><span class="tag tag-infra">i18next</span>
+        </div>
+      </div>
+      <div class="app-tag-card">
+        <div class="app-name">TodoBox</div>
+        <div class="tags">
+          <span class="tag tag-core">Expo</span><span class="tag tag-core">TypeScript</span><span class="tag tag-core">NativeWind</span><span class="tag tag-backend">Supabase</span><span class="tag tag-tool">Sentry</span><span class="tag tag-infra">i18next</span>
+        </div>
+      </div>
+      <div class="app-tag-card">
+        <div class="app-name">Word Diary</div>
+        <div class="tags">
+          <span class="tag tag-core">Expo</span><span class="tag tag-core">TypeScript</span><span class="tag tag-core">NativeWind</span><span class="tag tag-backend">Azure</span><span class="tag tag-tool">Sentry</span><span class="tag tag-infra">i18next</span>
+        </div>
+      </div>
+      <div class="app-tag-card">
+        <div class="app-name">Mugg</div>
+        <div class="tags">
+          <span class="tag tag-core">Expo</span><span class="tag tag-core">TypeScript</span><span class="tag tag-core">NativeWind</span><span class="tag tag-backend">Supabase</span><span class="tag tag-infra">Google Maps</span><span class="tag tag-tool">Sentry</span><span class="tag tag-infra">i18next</span>
+        </div>
+      </div>
+      <div class="app-tag-card">
+        <div class="app-name">Rete</div>
+        <div class="tags">
+          <span class="tag tag-core">Expo</span><span class="tag tag-core">TypeScript</span><span class="tag tag-core">NativeWind</span><span class="tag tag-backend">Firebase</span><span class="tag tag-backend">GCP Cloud Run</span><span class="tag tag-backend">Hono</span><span class="tag tag-infra">Google Maps</span><span class="tag tag-tool">Sentry</span><span class="tag tag-infra">i18next</span>
+        </div>
+      </div>
     </div>
   </div>
 
