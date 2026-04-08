@@ -116,31 +116,38 @@
     }
 
     /* App matrix */
-    .matrix {
-      margin-top: 60px;
-      overflow-x: auto;
+    .app-tags { margin-top: 64px; }
+    .app-tag-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      transition: border-color 0.3s;
     }
-    .matrix table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
+    .app-tag-card:hover { border-color: rgba(255,255,255,0.15); }
+    .app-tag-card .app-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e0e0e0;
+      min-width: 120px;
     }
-    .matrix th, .matrix td {
-      padding: 12px 16px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .matrix th {
-      color: #888;
+    .app-tag-card .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 6px;
       font-weight: 600;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
-    .matrix td { color: #bbb; }
-    .matrix tr:hover td { background: rgba(255,255,255,0.02); }
-    .matrix .check { color: #10b981; }
-    .matrix .dash { color: #333; }
+    .tag-core { background: rgba(99,102,241,0.15); color: #818cf8; border: 1px solid rgba(99,102,241,0.2); }
+    .tag-backend { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.2); }
+    .tag-infra { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.2); }
+    .tag-tool { background: rgba(220,38,38,0.15); color: #f87171; border: 1px solid rgba(220,38,38,0.2); }
 
     .fade-in {
       opacity: 0;
@@ -188,7 +195,7 @@
         <div class="stack-card">
           <div class="name"><span class="icon">🎨</span> NativeWind</div>
           <div class="desc">A styling library that brings Tailwind CSS to React Native.</div>
-          <div class="apps"><span>StockHome</span><span>TodoBox</span><span>麻雀帖</span></div>
+          <div class="apps"><span>StockHome</span><span>TodoBox</span><span>麻雀帖</span><span>Word Diary</span><span>Mugg</span><span>Rete</span></div>
         </div>
         <div class="stack-card">
           <div class="name"><span class="icon">🌐</span> i18next</div>
@@ -204,7 +211,7 @@
         <div class="stack-card">
           <div class="name"><span class="icon">🟢</span> Supabase</div>
           <div class="desc">A BaaS providing authentication, database, and real-time sync. Built on PostgreSQL.</div>
-          <div class="apps"><span>StockHome</span><span>TodoBox</span><span>Life Calendar</span></div>
+          <div class="apps"><span>StockHome</span><span>TodoBox</span><span>Life Calendar</span><span>Word Diary</span><span>Mugg</span></div>
         </div>
         <div class="stack-card">
           <div class="name"><span class="icon">☁️</span> AWS</div>
@@ -215,6 +222,31 @@
           <div class="name"><span class="icon">⚡</span> Serverless Framework</div>
           <div class="desc">A framework for automating AWS resource management and deployment.</div>
           <div class="apps"><span>麻雀帖</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">🔥</span> Firebase</div>
+          <div class="desc">Google's mobile platform providing authentication, Firestore, and Cloud Messaging.</div>
+          <div class="apps"><span>Rete</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">☁️</span> GCP Cloud Run</div>
+          <div class="desc">Container-based serverless API hosting. Hosted in the Tokyo region.</div>
+          <div class="apps"><span>Rete</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">🔷</span> Azure</div>
+          <div class="desc">Backend service platform.</div>
+          <div class="apps"><span>Word Diary</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">🔶</span> Hono</div>
+          <div class="desc">Ultra-lightweight, high-performance web framework. Supports Edge / Node.js / Bun.</div>
+          <div class="apps"><span>Rete</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="name"><span class="icon">📍</span> Google Maps API</div>
+          <div class="desc">Map display, location search, and Place API integration.</div>
+          <div class="apps"><span>Mugg</span><span>Rete</span></div>
         </div>
       </div>
     </div>
@@ -268,82 +300,85 @@
         <thead>
           <tr>
             <th></th>
-            <th>StockHome</th>
-            <th>麻雀帖</th>
-            <th>Life Calendar</th>
-            <th>TodoBox</th>
+            <th>Expo</th>
+            <th>TS</th>
+            <th>NW</th>
+            <th>i18n</th>
+            <th>Sentry</th>
+            <th>Backend</th>
+            <th>Other</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>React Native / Expo</td>
+            <td>StockHome</td>
             <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
-          </tr>
-          <tr>
-            <td>TypeScript</td>
             <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
-          </tr>
-          <tr>
             <td>Supabase</td>
-            <td class="check">&#10003;</td>
             <td class="dash">—</td>
-            <td class="check">&#10003;</td>
-            <td class="check">&#10003;</td>
           </tr>
           <tr>
+            <td>Mahjong Cho</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
             <td>AWS</td>
-            <td class="dash">—</td>
+            <td>AdMob</td>
+          </tr>
+          <tr>
+            <td>Life Calendar</td>
+            <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
             <td class="dash">—</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td>Supabase</td>
+            <td>Gemini</td>
+          </tr>
+          <tr>
+            <td>TodoBox</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td>Supabase</td>
             <td class="dash">—</td>
           </tr>
           <tr>
-            <td>Serverless Framework</td>
-            <td class="dash">—</td>
-            <td class="check">&#10003;</td>
-            <td class="dash">—</td>
-            <td class="dash">—</td>
-          </tr>
-          <tr>
-            <td>NativeWind</td>
+            <td>Word Diary</td>
             <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
-            <td class="dash">—</td>
             <td class="check">&#10003;</td>
-          </tr>
-          <tr>
-            <td>Gemini API</td>
-            <td class="dash">—</td>
-            <td class="dash">—</td>
             <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td>Azure</td>
             <td class="dash">—</td>
           </tr>
           <tr>
-            <td>Sentry</td>
+            <td>Mugg</td>
             <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
+            <td class="check">&#10003;</td>
+            <td>Supabase</td>
+            <td>Maps</td>
           </tr>
           <tr>
-            <td>i18next</td>
+            <td>Rete</td>
             <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
             <td class="check">&#10003;</td>
-          </tr>
-          <tr>
-            <td>Google AdMob</td>
-            <td class="dash">—</td>
             <td class="check">&#10003;</td>
-            <td class="dash">—</td>
-            <td class="dash">—</td>
+            <td>Firebase / GCP</td>
+            <td>Maps, Hono</td>
           </tr>
         </tbody>
       </table>
