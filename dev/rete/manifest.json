@@ -1,0 +1,37 @@
+[
+  {
+    "key": "ramen",
+    "shopName": "炎龍ラーメン",
+    "shopCode": "enryu",
+    "qrValue": "https://r3te.app/s/enryu",
+    "pngPath": "./ramen-shop-qr.png"
+  },
+  {
+    "key": "yakiniku",
+    "shopName": "炭火焼肉 にく匠",
+    "shopCode": "nikusho",
+    "qrValue": "https://r3te.app/s/nikusho",
+    "pngPath": "./yakiniku-shop-qr.png"
+  },
+  {
+    "key": "bar",
+    "shopName": "Night Owl BAR",
+    "shopCode": "nightowl",
+    "qrValue": "https://r3te.app/s/nightowl",
+    "pngPath": "./bar-shop-qr.png"
+  },
+  {
+    "key": "arajai",
+    "shopName": "居酒屋 あらじゃい",
+    "shopCode": "arajai",
+    "qrValue": "https://r3te.app/s/arajai",
+    "pngPath": "./arajai-shop-qr.png"
+  },
+  {
+    "key": "byking",
+    "shopName": "SPICE KITCHEN BY KING",
+    "shopCode": "byking",
+    "qrValue": "https://r3te.app/s/byking",
+    "pngPath": "./byking-shop-qr.png"
+  }
+]

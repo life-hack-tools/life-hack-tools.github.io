@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>r3te shop QR</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #120f0d;
+        --panel: #1c1714;
+        --line: rgba(255, 255, 255, 0.08);
+        --text: #fff8f2;
+        --muted: #d9c9bd;
+        --accent: #ff7a45;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top, rgba(255, 122, 69, 0.16), transparent 32%),
+          linear-gradient(180deg, #201612 0%, var(--bg) 58%);
+        color: var(--text);
+        font-family:
+          "SF Pro Display", "Inter", "Noto Sans JP", system-ui, sans-serif;
+      }
+
+      main {
+        width: min(1100px, 100%);
+        margin: 0 auto;
+        padding: 40px 20px 64px;
+      }
+
+      .header {
+        margin-bottom: 28px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 176, 142, 0.82);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 34px;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+      }
+
+      .sub {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: rgba(28, 23, 20, 0.9);
+        padding: 22px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      }
+
+      .shop {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.2;
+      }
+
+      .code {
+        margin-top: 8px;
+        color: rgba(255, 232, 220, 0.68);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .qr {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        margin: 18px auto;
+        border-radius: 22px;
+        background: #fff;
+      }
+
+      .url {
+        display: block;
+        color: #ffd9c8;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 1.6;
+        word-break: break-all;
+      }
+
+      .url:hover {
+        color: #fff3ed;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="header">
+        <p class="eyebrow">r3te dev qrs</p>
+        <h1>店舗QR一覧</h1>
+        <p class="sub">
+          ユーザー側で読み取り確認するための、印刷用 QR の確認ページです。
+        </p>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2 class="shop">炎龍ラーメン</h2>
+          <div class="code">shop code: enryu</div>
+          <img class="qr" src="./ramen-shop-qr.png" alt="炎龍ラーメン QR" />
+          <a class="url" href="https://r3te.app/s/enryu">https://r3te.app/s/enryu</a>
+        </article>
+
+        <article class="card">
+          <h2 class="shop">炭火焼肉 にく匠</h2>
+          <div class="code">shop code: nikusho</div>
+          <img class="qr" src="./yakiniku-shop-qr.png" alt="炭火焼肉 にく匠 QR" />
+          <a class="url" href="https://r3te.app/s/nikusho">https://r3te.app/s/nikusho</a>
+        </article>
+
+        <article class="card">
+          <h2 class="shop">Night Owl BAR</h2>
+          <div class="code">shop code: nightowl</div>
+          <img class="qr" src="./bar-shop-qr.png" alt="Night Owl BAR QR" />
+          <a class="url" href="https://r3te.app/s/nightowl">https://r3te.app/s/nightowl</a>
+        </article>
+
+        <article class="card">
+          <h2 class="shop">居酒屋 あらじゃい</h2>
+          <div class="code">shop code: arajai</div>
+          <img class="qr" src="./arajai-shop-qr.png" alt="居酒屋 あらじゃい QR" />
+          <a class="url" href="https://r3te.app/s/arajai">https://r3te.app/s/arajai</a>
+        </article>
+
+        <article class="card">
+          <h2 class="shop">SPICE KITCHEN BY KING</h2>
+          <div class="code">shop code: byking</div>
+          <img class="qr" src="./byking-shop-qr.png" alt="SPICE KITCHEN BY KING QR" />
+          <a class="url" href="https://r3te.app/s/byking">https://r3te.app/s/byking</a>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
