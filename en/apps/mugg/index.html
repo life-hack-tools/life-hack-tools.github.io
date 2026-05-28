@@ -48,6 +48,8 @@
     .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
     .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
     .hero .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; }
+    .hero .cta img { height: 50px; }
+    .hero .cta img[src*="google-play"] { height: 74px; margin: -12px 0; }
     .coming-soon {
       display: inline-block; padding: 12px 28px;
       border: 1px solid rgba(255,255,255,0.15); border-radius: 12px;
@@ -75,6 +77,8 @@
     }
     .footer-cta h2 { font-size: clamp(24px, 5vw, 36px); font-weight: 700; margin-bottom: 32px; position: relative; }
     .footer-cta .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; }
+    .footer-cta .cta img { height: 50px; }
+    .footer-cta .cta img[src*="google-play"] { height: 74px; margin: -12px 0; }
     .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
