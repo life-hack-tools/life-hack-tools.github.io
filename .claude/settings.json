@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(identify /Users/kenichi/Documents/Work/Projects/LHT/WordDiary/assets/icon.png)"
+    ]
+  }
+}
