@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peckish - Life Hack Tools</title>
+  <meta name="description" content="今夜の食べたいを見つける食事決定アプリ。トーナメント・気分ミキサー・写真タップの3つの遊べる決め方で、近くの実在する飲食店から今夜の一皿が決まります。">
+  <meta property="og:title" content="Peckish - Life Hack Tools">
+  <meta property="og:description" content="今夜の食べたいを見つける食事決定アプリ。3つの遊べる決め方で、近くのお店から今夜の一皿が決まります。">
+  <meta property="og:image" content="https://lh.tools/assets/icon-peckish.png">
+  <meta property="og:url" content="https://lh.tools/apps/peckish/">
+  <meta property="og:type" content="website">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 24px;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a {
+      font-size: 12px; padding: 4px 10px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15); color: #888;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 80px 24px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(236,72,153,0.12) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+    .hero-icon {
+      width: 120px; height: 120px; border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(236,72,153,0.3);
+      margin-bottom: 32px; animation: float 6s ease-in-out infinite; position: relative;
+    }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
+    .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
+    .hero .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; }
+    .coming-soon {
+      display: inline-block; padding: 12px 28px;
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 12px;
+      color: #666; font-size: 14px; letter-spacing: 1px;
+    }
+    .section { padding: 100px 24px; max-width: 800px; margin: 0 auto; }
+    .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #ec4899; margin-bottom: 16px; }
+    .section h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
+    .section p { font-size: 17px; color: #999; line-height: 1.8; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+    .feature-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 28px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(236,72,153,0.3); background: rgba(255,255,255,0.06); }
+    .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: #777; line-height: 1.6; }
+    .screenshots { padding: 80px 0; overflow: hidden; }
+    .screenshots .section-title, .screenshots h2 { text-align: center; padding: 0 24px; }
+    .screenshot-scroll {
+      display: flex; gap: 20px; overflow-x: auto; padding: 48px 24px;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .screenshot-scroll::-webkit-scrollbar { display: none; }
+    .screenshot-scroll img {
+      height: 500px; border-radius: 24px; scroll-snap-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5); flex-shrink: 0; transition: transform 0.3s;
+    }
+    .screenshot-scroll img:hover { transform: scale(1.02); }
+    .footer-cta { text-align: center; padding: 100px 24px; position: relative; }
+    .footer-cta::before {
+      content: ''; position: absolute; bottom: 0; left: -50%;
+      width: 200%; height: 100%;
+      background: radial-gradient(ellipse at 50% 100%, rgba(236,72,153,0.06) 0%, transparent 60%);
+    }
+    .footer-cta h2 { font-size: clamp(24px, 5vw, 36px); font-weight: 700; margin-bottom: 32px; position: relative; }
+    .footer-cta .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/">&larr; LHTz</a>
+    <div class="lang-switch">
+      <a href="/apps/peckish/" class="active">JA</a>
+      <a href="/en/apps/peckish/">EN</a>
+      <a href="/vi/apps/peckish/">VI</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <img src="/assets/icon-peckish.png" alt="Peckish" class="hero-icon">
+    <h1>Peckish</h1>
+    <p class="subtitle">今夜の食べたいを見つける。</p>
+    <div class="cta">
+      <span class="coming-soon">Coming Soon</span>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">About</div>
+    <h2>「今日、何食べる？」を<br>遊びながら終わらせる。</h2>
+    <p>
+      Peckishは、今夜どこで何を食べるかを楽しく決める食事決定アプリです。
+      気分や状況に合わせて選べる3つの決め方で、近くの実在する飲食店から今夜の一皿を見つけます。
+      迷う時間を、わくわくする時間に。
+    </p>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">Features</div>
+    <h2>3つの、遊べる決め方。</h2>
+    <div class="features">
+      <div class="feature-card">
+        <span class="feature-icon">🏆</span>
+        <h3>メシ・トーナメント</h3>
+        <p>2択の勝ち抜き戦で、今夜の最強ジャンルを決定。直感でタップするだけ。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎛️</span>
+        <h3>食欲ミキサー</h3>
+        <p>ボリューム・温度・味の強さ・食事感の4軸で“いまの気分”を混ぜると、ぴったりのお店を提案。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">👆</span>
+        <h3>クイック・ピック</h3>
+        <p>並んだ料理写真から、ピンと来た一皿をタップ一発。見て選ぶ、いちばん速い決め方。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📍</span>
+        <h3>近くのお店から提案</h3>
+        <p>候補は近隣の実在する飲食店データを使用。「決めたのに店がない」がありません。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="screenshots fade-in">
+    <div class="section-title">Screenshots</div>
+    <h2>こんな感じ。</h2>
+    <div class="screenshot-scroll">
+      <img src="/assets/peckish/screenshots/ja/01-home.png" alt="ホーム画面">
+      <img src="/assets/peckish/screenshots/ja/02-tournament.png" alt="メシ・トーナメント">
+      <img src="/assets/peckish/screenshots/ja/03-mixer.png" alt="食欲ミキサー">
+      <img src="/assets/peckish/screenshots/ja/04-quickpick.png" alt="クイック・ピック">
+      <img src="/assets/peckish/screenshots/ja/05-result.png" alt="提案結果">
+    </div>
+  </div>
+
+  <div class="footer-cta fade-in">
+    <h2>今夜の一皿は、Peckishで。</h2>
+    <div class="cta">
+      <span class="coming-soon">Coming Soon</span>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+</body>
+</html>
