@@ -32,6 +32,13 @@
     .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
     .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
     .contact-card a:hover { color: #dc2626; }
+    .data-table-wrap { overflow-x: auto; margin: 16px 0 8px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; -webkit-overflow-scrolling: touch; }
+    table.data-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 560px; }
+    table.data-table th, table.data-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: top; color: #aaa; line-height: 1.6; }
+    table.data-table thead th { background: rgba(255,255,255,0.04); color: #ddd; font-weight: 600; white-space: nowrap; }
+    table.data-table tbody th { color: #e0e0e0; font-weight: 600; white-space: nowrap; }
+    table.data-table tbody tr:last-child td, table.data-table tbody tr:last-child th { border-bottom: none; }
+    .table-note { font-size: 13px; color: #777; margin-top: 10px; }
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
@@ -47,48 +54,116 @@
   </div>
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: April 7, 2026</span>
-    <p class="intro">This Privacy Policy describes how Life Hack Tools ("we") handles user information in Rete ("the App").</p>
+    <span class="updated">Last updated: June 20, 2026</span>
+    <p class="intro">This Privacy Policy describes how Life Hack Tools ("we") handles user information in Rete ("the App"). The App is a stamp card and rewards management service used by both shops (owners) and visitors (customers). The data we handle differs depending on the user's role.</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Information We Collect</h2>
       <p>The App may handle the following information:</p>
       <ul>
-        <li><strong>User-provided data:</strong> Data necessary for app functionality (text, numbers, dates, photos, etc.)</li>
-        <li><strong>Auto-generated data:</strong> Anonymous user IDs generated within the app</li>
-        <li><strong>Diagnostic data:</strong> Crash logs and performance data for improving app stability</li>
+        <li><strong>Shop account information:</strong> Shop owners create an account and sign in with an email address and password. Visitors (customers) do not need to register an account and can use the App with an anonymous ID generated on their device.</li>
+        <li><strong>User-provided data:</strong> Data necessary for app functionality (shop name, stamp card and reward settings, text, numbers, dates, etc.)</li>
+        <li><strong>Images:</strong> Images that a shop owner selects from their device's photo library to use as stamp or reward images. Selected images are uploaded to cloud storage (Supabase Storage) and used for display within the App.</li>
+        <li><strong>Camera:</strong> The camera is used to scan shop QR codes and reward QR codes. Scanning is solely for reading QR codes; the App does not take or store photos.</li>
+        <li><strong>Auto-generated identifier:</strong> An anonymous ID generated within the app (it does not identify a specific individual). It is used for data synchronization and handoff.</li>
+        <li><strong>Diagnostic data:</strong> Crash logs and performance data for improving app stability (may be collected depending on the diagnostics tool configuration).</li>
       </ul>
-      <p>The App does not collect personally identifiable information such as names, email addresses, phone numbers, location data, or device identifiers.</p>
+      <p>For visitors (customers), the App does not collect personally identifiable information such as names or phone numbers, nor does it collect location data. For shop accounts, we collect an email address for sign-in.</p>
+      <p class="table-note">Note: The App includes some configuration for a possible future shop-location feature, but the current version does not obtain or use location data. If we add a feature that obtains location data, we will update this policy and obtain it with the user's permission.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>How We Use Information</h2>
+      <h2><span class="num">02</span>Data We Handle</h2>
+      <p>The types of data the App handles, along with their purpose, third-party sharing, and encryption, are as follows. We do not sell or share user data with third parties. All communication is encrypted (HTTPS / TLS).</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data type</th>
+              <th>Applies to</th>
+              <th>Purpose</th>
+              <th>Third-party sharing</th>
+              <th>Encryption</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Email address</th>
+              <td>Shop accounts</td>
+              <td>Shop owner sign-in / authentication</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>Images</th>
+              <td>Selected by shops</td>
+              <td>Registering / displaying stamp and reward images</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>Camera feed</th>
+              <td>All users</td>
+              <td>Scanning QR codes (not stored)</td>
+              <td>None</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th>Anonymous ID</th>
+              <td>All users</td>
+              <td>Data synchronization and handoff</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>Diagnostic data</th>
+              <td>All users</td>
+              <td>Crash analysis / quality improvement</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>How We Use Information</h2>
       <ul>
-        <li>Providing app functionality</li>
+        <li>Providing app functionality (issuing and using stamp cards and rewards, etc.)</li>
+        <li>Authenticating shop accounts</li>
         <li>Data synchronization across devices</li>
         <li>Improving app quality and fixing issues</li>
       </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">03</span>Data Storage</h2>
-      <p>Data is stored on the device's local storage and on cloud servers.</p>
+      <h2><span class="num">04</span>Third-Party Services</h2>
+      <p>The App uses the following external services to provide its functionality:</p>
+      <ul>
+        <li><strong>Supabase:</strong> Used for backend processing (authentication, data storage, and image storage). Shop email addresses, registered data, uploaded images, and anonymous IDs are securely managed on this service.</li>
+        <li><strong>Sentry:</strong> May be used to collect diagnostic data for crash analysis and quality improvement.</li>
+      </ul>
+      <p>These are used only to the extent necessary to provide the App's functionality. We do not sell user information to third parties.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">04</span>Third-Party Sharing</h2>
+      <h2><span class="num">05</span>Data Storage</h2>
+      <p>Some data, such as settings, is stored in the device's local storage. Shop account information, registered data, and uploaded images are stored on cloud servers (Supabase).</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>Third-Party Sharing</h2>
       <p>We do not sell, share, or provide user information to third parties, except as required by law.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>Data Deletion</h2>
-      <p>Users can delete local data by uninstalling the app. To request deletion of server-side data, please contact us below.</p>
+      <h2><span class="num">07</span>Data Deletion</h2>
+      <p>Users can delete local data by uninstalling the app. To request deletion of a shop account or server-side data, please contact us below.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Children's Privacy</h2>
+      <h2><span class="num">08</span>Children's Privacy</h2>
       <p>The App is not intended for children under 13 and does not knowingly collect personal information from children.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Changes to This Policy</h2>
+      <h2><span class="num">09</span>Changes to This Policy</h2>
       <p>We may update this policy as needed. Changes will be posted on this page.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Contact</h2>
+      <h2><span class="num">10</span>Contact</h2>
       <p>For questions about this policy, please contact us:</p>
       <div class="contact-card">
         <div class="x-icon"><svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>

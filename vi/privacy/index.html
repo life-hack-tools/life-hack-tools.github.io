@@ -241,7 +241,7 @@
         <li><strong>Mã định danh được tạo tự động:</strong> ID ẩn danh được tạo trong ứng dụng (không nhằm nhận dạng một cá nhân cụ thể). Các ứng dụng sử dụng máy chủ dùng ID ẩn danh này để đồng bộ và chuyển dữ liệu</li>
         <li><strong>Thông tin chẩn đoán:</strong> Nhật ký lỗi và dữ liệu hiệu suất (để cải thiện tính ổn định của ứng dụng)</li>
       </ul>
-      <p>Các ứng dụng của chúng tôi <strong>không thu thập các thông tin có thể nhận dạng cá nhân như họ tên, địa chỉ email hoặc số điện thoại.</strong> Không cần đăng ký tài khoản; khi cần đăng nhập, chỉ sử dụng ID ẩn danh được tạo trên thiết bị.</p>
+      <p>Theo nguyên tắc, các ứng dụng của chúng tôi <strong>không thu thập các thông tin có thể nhận dạng cá nhân như họ tên, địa chỉ email hoặc số điện thoại.</strong> Không cần đăng ký tài khoản; khi cần đăng nhập, chỉ sử dụng ID ẩn danh được tạo trên thiết bị. Tuy nhiên, một số ứng dụng (ví dụ: tính năng dành cho cửa hàng của Rete) sử dụng địa chỉ email để tạo tài khoản chủ cửa hàng. Xem mục "Dữ liệu được xử lý theo từng ứng dụng" bên dưới để biết chi tiết.</p>
     </div>
 
     <div class="policy-section fade-in">
@@ -305,13 +305,22 @@
               <th>Peckish</th>
               <td>Vị trí, chẩn đoán, ID ẩn danh</td>
               <td>Gợi ý nhà hàng gần đó, cải thiện chất lượng</td>
-              <td>Không (*)</td>
+              <td>Không (*1)</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Rete</th>
+              <td>Địa chỉ email (chỉ cửa hàng), hình ảnh (chỉ cửa hàng), chẩn đoán, ID ẩn danh (*2)</td>
+              <td>Quản lý thẻ tích điểm và ưu đãi, xác thực tài khoản cửa hàng, cải thiện chất lượng</td>
+              <td>Không</td>
               <td>Khi truyền</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="table-note">* Peckish gửi dữ liệu vị trí đến dịch vụ bên ngoài (Google Maps Platform) để tìm kiếm nhà hàng. Đây là xử lý cần thiết để cung cấp tính năng; chúng tôi không bán hoặc chia sẻ thông tin nhận dạng người dùng. Để biết chi tiết, xem chính sách bảo mật riêng của từng ứng dụng (ví dụ: <a href="/vi/privacy/peckish/" style="color:#dc2626;">Peckish</a>).</p>
+      <p class="table-note">*1 Peckish gửi dữ liệu vị trí đến dịch vụ bên ngoài (Google Maps Platform) để tìm kiếm nhà hàng. Đây là xử lý cần thiết để cung cấp tính năng; chúng tôi không bán hoặc chia sẻ thông tin nhận dạng người dùng.</p>
+      <p class="table-note">*2 Rete là ứng dụng thẻ tích điểm dành cho cửa hàng; chỉ chủ cửa hàng tạo tài khoản bằng địa chỉ email và mật khẩu (khách hàng không cần tài khoản và chỉ dùng ID ẩn danh). Hình ảnh do cửa hàng chọn được tải lên bộ lưu trữ đám mây. Phiên bản hiện tại không lấy dữ liệu vị trí.</p>
+      <p class="table-note">Để biết chi tiết, xem chính sách bảo mật riêng của từng ứng dụng (ví dụ: <a href="/vi/privacy/peckish/" style="color:#dc2626;">Peckish</a> / <a href="/vi/privacy/rete/" style="color:#dc2626;">Rete</a>).</p>
     </div>
 
     <div class="policy-section fade-in">
