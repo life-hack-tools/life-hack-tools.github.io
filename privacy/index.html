@@ -154,6 +154,44 @@
     }
     .contact-card a:hover { color: #dc2626; }
 
+    /* Per-app data table */
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 16px 0 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 560px;
+    }
+    table.data-table th,
+    table.data-table td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+      color: #aaa;
+      line-height: 1.6;
+    }
+    table.data-table thead th {
+      background: rgba(255,255,255,0.04);
+      color: #ddd;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.data-table tbody th {
+      color: #e0e0e0;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.data-table tbody tr:last-child td,
+    table.data-table tbody tr:last-child th { border-bottom: none; }
+    .table-note { font-size: 13px; color: #777; margin-top: 10px; }
+
     /* Animations */
     .fade-in {
       opacity: 0;
@@ -184,17 +222,88 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>収集する情報</h2>
-      <p>本アプリでは、以下の情報を取り扱います。</p>
+      <p>当団体のアプリでは、以下の情報を取り扱う場合があります。実際に取り扱う情報はアプリの機能によって異なり、詳細は下記「アプリ別の取り扱いデータ」をご確認ください。</p>
       <ul>
-        <li><strong>ユーザーが入力する情報:</strong> アプリの機能に必要なデータ（テキスト、数値、日時など）</li>
-        <li><strong>自動生成される情報:</strong> アプリ内で生成されるユーザーID（端末識別を目的としない匿名ID）</li>
+        <li><strong>ユーザーが入力する情報:</strong> アプリの機能に必要なデータ（テキスト、数値、日時、写真など）</li>
+        <li><strong>位置情報:</strong> 位置に関連する機能を提供するアプリでのみ、利用者の許可を得て取得します</li>
+        <li><strong>自動生成される識別子:</strong> アプリ内で生成される匿名ID（特定の個人を識別するものではありません）。バックエンドを利用するアプリでは、データの同期・引き継ぎのためにこの匿名IDを使用します</li>
         <li><strong>診断情報:</strong> クラッシュログおよびパフォーマンスデータ（アプリの安定性向上のため）</li>
       </ul>
-      <p>本アプリは、氏名、メールアドレス、電話番号、位置情報、端末識別子などの個人を特定できる情報は収集しません。</p>
+      <p>当団体のアプリは、<strong>氏名・メールアドレス・電話番号などの個人を特定できる情報は収集しません。</strong>アカウント登録は不要で、サインインが必要な場合も端末上で自動生成された匿名IDのみを使用します。</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>情報の利用目的</h2>
+      <h2><span class="num">02</span>アプリ別の取り扱いデータ</h2>
+      <p>各アプリが取り扱うデータの種別と用途は以下のとおりです。いずれのアプリも、利用者のデータを第三者に販売・共有することはありません。通信はすべて暗号化（HTTPS / TLS）されます。</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>アプリ</th>
+              <th>取り扱うデータ種別</th>
+              <th>用途</th>
+              <th>第三者共有</th>
+              <th>暗号化</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>WordDiary</th>
+              <td>写真、位置情報（任意）、天気、診断情報、匿名ID</td>
+              <td>日記の記録・任意のクラウド同期・品質改善</td>
+              <td>なし</td>
+              <td>転送時あり</td>
+            </tr>
+            <tr>
+              <th>Mugg</th>
+              <td>写真、位置情報、診断情報、匿名ID</td>
+              <td>カフェ記録・周辺カフェまでの距離表示・品質改善</td>
+              <td>なし</td>
+              <td>転送時あり</td>
+            </tr>
+            <tr>
+              <th>麻雀帖 (mahjong-cho)</th>
+              <td>位置情報（雀荘の登録時）、診断情報、匿名ID</td>
+              <td>対局・雀荘の記録・品質改善</td>
+              <td>なし</td>
+              <td>転送時あり</td>
+            </tr>
+            <tr>
+              <th>Life Calendar</th>
+              <td>診断情報、匿名ID</td>
+              <td>カレンダーデータの同期・品質改善</td>
+              <td>なし</td>
+              <td>転送時あり</td>
+            </tr>
+            <tr>
+              <th>StockHome</th>
+              <td>写真、診断情報、匿名ID</td>
+              <td>在庫の記録・世帯間の共有・品質改善</td>
+              <td>なし</td>
+              <td>転送時あり</td>
+            </tr>
+            <tr>
+              <th>TodoBox</th>
+              <td>写真、位置情報、診断情報、匿名ID</td>
+              <td>タスクの記録・位置情報付きタスク・品質改善</td>
+              <td>なし</td>
+              <td>転送時あり</td>
+            </tr>
+            <tr>
+              <th>Peckish</th>
+              <td>位置情報、診断情報、匿名ID</td>
+              <td>現在地周辺の飲食店提案・品質改善</td>
+              <td>なし（※）</td>
+              <td>転送時あり</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">※ Peckish は飲食店検索のため、位置情報を外部サービス（Google Maps Platform）に送信します。これは機能提供のための処理であり、利用者を特定する情報の販売・共有は行いません。各アプリの詳細は、アプリ個別のプライバシーポリシー（例: <a href="/privacy/peckish/" style="color:#dc2626;">Peckish</a>）をご確認ください。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>情報の利用目的</h2>
       <p>収集した情報は、以下の目的にのみ使用します。</p>
       <ul>
         <li>アプリの機能提供および動作に必要な処理</li>
@@ -204,7 +313,7 @@
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">03</span>情報の保存</h2>
+      <h2><span class="num">04</span>情報の保存</h2>
       <p>データは以下の場所に保存されます。</p>
       <ul>
         <li><strong>端末内:</strong> アプリ内のローカルストレージ</li>
@@ -213,27 +322,27 @@
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">04</span>第三者提供</h2>
+      <h2><span class="num">05</span>第三者提供</h2>
       <p>当団体は、利用者の情報を第三者に提供、販売、共有することはありません。ただし、法令に基づく場合を除きます。</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>データの削除</h2>
+      <h2><span class="num">06</span>データの削除</h2>
       <p>利用者は、アプリを端末からアンインストールすることでローカルデータを削除できます。サーバー上のデータの削除を希望される場合は、下記のお問い合わせ先までご連絡ください。</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>お子様のプライバシー</h2>
+      <h2><span class="num">07</span>お子様のプライバシー</h2>
       <p>本アプリは、13歳未満のお子様を対象としておらず、意図的にお子様の個人情報を収集することはありません。</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>ポリシーの変更</h2>
+      <h2><span class="num">08</span>ポリシーの変更</h2>
       <p>当団体は、必要に応じて本ポリシーを変更することがあります。変更があった場合は、本ページにて公開します。</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>お問い合わせ</h2>
+      <h2><span class="num">09</span>お問い合わせ</h2>
       <p>本ポリシーに関するお問い合わせは、以下までご連絡ください。</p>
       <div class="contact-card">
         <div class="x-icon">
