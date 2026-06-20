@@ -154,6 +154,44 @@
     }
     .contact-card a:hover { color: #dc2626; }
 
+    /* Per-app data table */
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 16px 0 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 560px;
+    }
+    table.data-table th,
+    table.data-table td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+      color: #aaa;
+      line-height: 1.6;
+    }
+    table.data-table thead th {
+      background: rgba(255,255,255,0.04);
+      color: #ddd;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.data-table tbody th {
+      color: #e0e0e0;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.data-table tbody tr:last-child td,
+    table.data-table tbody tr:last-child th { border-bottom: none; }
+    .table-note { font-size: 13px; color: #777; margin-top: 10px; }
+
     /* Animations */
     .fade-in {
       opacity: 0;
@@ -184,17 +222,88 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Information We Collect</h2>
-      <p>The App handles the following information:</p>
+      <p>Our apps may handle the following information. What is actually handled varies by each app's features; see "Data Handled Per App" below for details.</p>
       <ul>
-        <li><strong>User-provided information:</strong> Data necessary for app functionality (text, numbers, dates, etc.)</li>
-        <li><strong>Automatically generated information:</strong> Anonymous user IDs generated within the app (not intended for device identification)</li>
+        <li><strong>User-provided information:</strong> Data necessary for app functionality (text, numbers, dates, photos, etc.)</li>
+        <li><strong>Location data:</strong> Collected only by apps that provide location-based features, and only with the user's permission</li>
+        <li><strong>Automatically generated identifiers:</strong> Anonymous IDs generated within the app (these do not identify a specific individual). Apps that use a backend use this anonymous ID to sync and transfer data</li>
         <li><strong>Diagnostic information:</strong> Crash logs and performance data (to improve app stability)</li>
       </ul>
-      <p>The App does not collect personally identifiable information such as names, email addresses, phone numbers, location data, or device identifiers.</p>
+      <p>Our apps <strong>do not collect personally identifiable information such as names, email addresses, or phone numbers.</strong> No account registration is required; where sign-in is needed, only an anonymous ID generated on the device is used.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>Purpose of Use</h2>
+      <h2><span class="num">02</span>Data Handled Per App</h2>
+      <p>The types and purposes of data handled by each app are listed below. None of our apps sell or share user data with third parties. All communication is encrypted (HTTPS / TLS).</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>App</th>
+              <th>Data types</th>
+              <th>Purpose</th>
+              <th>Third-party sharing</th>
+              <th>Encryption</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>WordDiary</th>
+              <td>Photos, location (optional), weather, diagnostics, anonymous ID</td>
+              <td>Recording diary entries, optional cloud sync, quality improvement</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>Mugg</th>
+              <td>Photos, location, diagnostics, anonymous ID</td>
+              <td>Recording cafes, showing distance to nearby cafes, quality improvement</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>Mahjong Cho</th>
+              <td>Location (when registering a venue), diagnostics, anonymous ID</td>
+              <td>Recording games and venues, quality improvement</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>Life Calendar</th>
+              <td>Diagnostics, anonymous ID</td>
+              <td>Syncing calendar data, quality improvement</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>StockHome</th>
+              <td>Photos, diagnostics, anonymous ID</td>
+              <td>Recording inventory, household sharing, quality improvement</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>TodoBox</th>
+              <td>Photos, location, diagnostics, anonymous ID</td>
+              <td>Recording tasks, location-tagged tasks, quality improvement</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>Peckish</th>
+              <td>Location, diagnostics, anonymous ID</td>
+              <td>Suggesting nearby restaurants, quality improvement</td>
+              <td>None (*)</td>
+              <td>In transit</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">* Peckish sends location data to an external service (Google Maps Platform) to search for restaurants. This is processing required to provide the feature; we do not sell or share information that identifies users. For details, see each app's individual privacy policy (e.g. <a href="/en/privacy/peckish/" style="color:#dc2626;">Peckish</a>).</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>Purpose of Use</h2>
       <p>Collected information is used solely for the following purposes:</p>
       <ul>
         <li>Providing app functionality and necessary processing</li>
@@ -204,7 +313,7 @@
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">03</span>Data Storage</h2>
+      <h2><span class="num">04</span>Data Storage</h2>
       <p>Data is stored in the following locations:</p>
       <ul>
         <li><strong>On device:</strong> Local storage within the app</li>
@@ -213,27 +322,27 @@
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">04</span>Third-Party Disclosure</h2>
+      <h2><span class="num">05</span>Third-Party Disclosure</h2>
       <p>We do not provide, sell, or share user information with third parties, except as required by law.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>Data Deletion</h2>
+      <h2><span class="num">06</span>Data Deletion</h2>
       <p>Users can delete local data by uninstalling the app from their device. If you wish to delete server-side data, please contact us using the information below.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Children's Privacy</h2>
+      <h2><span class="num">07</span>Children's Privacy</h2>
       <p>The App is not intended for children under the age of 13, and we do not knowingly collect personal information from children.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Changes to This Policy</h2>
+      <h2><span class="num">08</span>Changes to This Policy</h2>
       <p>We may update this policy as needed. Any changes will be published on this page.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Contact Us</h2>
+      <h2><span class="num">09</span>Contact Us</h2>
       <p>For inquiries regarding this policy, please contact us below.</p>
       <div class="contact-card">
         <div class="x-icon">
