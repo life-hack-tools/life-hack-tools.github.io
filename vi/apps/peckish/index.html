@@ -58,11 +58,9 @@
     .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
     .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
     .hero .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; }
-    .coming-soon {
-      display: inline-block; padding: 12px 28px;
-      border: 1px solid rgba(255,255,255,0.15); border-radius: 12px;
-      color: #666; font-size: 14px; letter-spacing: 1px;
-    }
+    .hero .cta a { transition: opacity 0.2s; }
+    .hero .cta a:hover { opacity: 0.8; }
+    .hero .cta img { height: 50px; }
     .section { padding: 100px 24px; max-width: 800px; margin: 0 auto; }
     .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #ec4899; margin-bottom: 16px; }
     .section h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
@@ -97,6 +95,9 @@
     }
     .footer-cta h2 { font-size: clamp(24px, 5vw, 36px); font-weight: 700; margin-bottom: 32px; position: relative; }
     .footer-cta .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; }
+    .footer-cta .cta a { transition: opacity 0.2s; }
+    .footer-cta .cta a:hover { opacity: 0.8; }
+    .footer-cta .cta img { height: 50px; }
     .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
@@ -116,7 +117,7 @@
     <h1>Peckish</h1>
     <p class="subtitle">Tìm món đang thèm tối nay.</p>
     <div class="cta">
-      <span class="coming-soon">Coming Soon</span>
+      <a href="https://apps.apple.com/jp/app/peckish/id6778606057"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
     </div>
   </div>
 
@@ -172,7 +173,7 @@
   <div class="footer-cta fade-in">
     <h2>Món tối nay, cùng Peckish.</h2>
     <div class="cta">
-      <span class="coming-soon">Coming Soon</span>
+      <a href="https://apps.apple.com/jp/app/peckish/id6778606057"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
     </div>
   </div>
 
