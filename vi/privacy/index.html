@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chính sách bảo mật - Life Hack Tools</title>
+  <meta name="description" content="Chính sách bảo mật của Life Hack Tools. Tìm hiểu dữ liệu mỗi ứng dụng xử lý, mục đích, chia sẻ với bên thứ ba và mã hóa.">
+  <link rel="canonical" href="https://lh.tools/vi/privacy/">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/">
+  <meta property="og:title" content="Chính sách bảo mật - Life Hack Tools">
+  <meta property="og:description" content="Chính sách bảo mật của Life Hack Tools. Tìm hiểu dữ liệu mỗi ứng dụng xử lý, mục đích, chia sẻ với bên thứ ba và mã hóa.">
+  <meta property="og:url" content="https://lh.tools/vi/privacy/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Life Hack Tools">
+  <meta name="twitter:card" content="summary">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -154,6 +166,44 @@
     }
     .contact-card a:hover { color: #dc2626; }
 
+    /* Per-app data table */
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 16px 0 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 560px;
+    }
+    table.data-table th,
+    table.data-table td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+      color: #aaa;
+      line-height: 1.6;
+    }
+    table.data-table thead th {
+      background: rgba(255,255,255,0.04);
+      color: #ddd;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.data-table tbody th {
+      color: #e0e0e0;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    table.data-table tbody tr:last-child td,
+    table.data-table tbody tr:last-child th { border-bottom: none; }
+    .table-note { font-size: 13px; color: #777; margin-top: 10px; }
+
     /* Animations */
     .fade-in {
       opacity: 0;
@@ -184,17 +234,97 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Thông tin thu thập</h2>
-      <p>Ứng dụng xử lý các thông tin sau.</p>
+      <p>Các ứng dụng của chúng tôi có thể xử lý các thông tin sau. Thông tin thực tế được xử lý khác nhau tùy theo tính năng của từng ứng dụng; vui lòng xem mục "Dữ liệu xử lý theo từng ứng dụng" bên dưới để biết chi tiết.</p>
       <ul>
-        <li><strong>Thông tin do người dùng nhập:</strong> Dữ liệu cần thiết cho chức năng ứng dụng (văn bản, số liệu, ngày giờ, v.v.)</li>
-        <li><strong>Thông tin được tạo tự động:</strong> ID người dùng được tạo trong ứng dụng (ID ẩn danh, không nhằm mục đích nhận dạng thiết bị)</li>
+        <li><strong>Thông tin do người dùng nhập:</strong> Dữ liệu cần thiết cho chức năng ứng dụng (văn bản, số liệu, ngày giờ, ảnh, v.v.)</li>
+        <li><strong>Vị trí:</strong> Chỉ được thu thập bởi các ứng dụng cung cấp tính năng dựa trên vị trí, và chỉ khi có sự cho phép của người dùng</li>
+        <li><strong>Mã định danh được tạo tự động:</strong> ID ẩn danh được tạo trong ứng dụng (không nhằm nhận dạng một cá nhân cụ thể). Các ứng dụng sử dụng máy chủ dùng ID ẩn danh này để đồng bộ và chuyển dữ liệu</li>
         <li><strong>Thông tin chẩn đoán:</strong> Nhật ký lỗi và dữ liệu hiệu suất (để cải thiện tính ổn định của ứng dụng)</li>
       </ul>
-      <p>Ứng dụng không thu thập các thông tin có thể nhận dạng cá nhân như họ tên, địa chỉ email, số điện thoại, vị trí, mã nhận dạng thiết bị.</p>
+      <p>Theo nguyên tắc, các ứng dụng của chúng tôi <strong>không thu thập các thông tin có thể nhận dạng cá nhân như họ tên, địa chỉ email hoặc số điện thoại.</strong> Không cần đăng ký tài khoản; khi cần đăng nhập, chỉ sử dụng ID ẩn danh được tạo trên thiết bị. Tuy nhiên, một số ứng dụng (ví dụ: tính năng dành cho cửa hàng của Rete) sử dụng địa chỉ email để tạo tài khoản chủ cửa hàng. Xem mục "Dữ liệu được xử lý theo từng ứng dụng" bên dưới để biết chi tiết.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>Mục đích sử dụng thông tin</h2>
+      <h2><span class="num">02</span>Dữ liệu xử lý theo từng ứng dụng</h2>
+      <p>Các loại dữ liệu và mục đích xử lý của từng ứng dụng được liệt kê dưới đây. Không ứng dụng nào bán hoặc chia sẻ dữ liệu người dùng cho bên thứ ba. Mọi liên lạc đều được mã hóa (HTTPS / TLS).</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Ứng dụng</th>
+              <th>Loại dữ liệu</th>
+              <th>Mục đích</th>
+              <th>Chia sẻ bên thứ ba</th>
+              <th>Mã hóa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>WordDiary</th>
+              <td>Ảnh, vị trí (tùy chọn), thời tiết, chẩn đoán, ID ẩn danh</td>
+              <td>Ghi nhật ký, đồng bộ đám mây tùy chọn, cải thiện chất lượng</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Mugg</th>
+              <td>Ảnh, vị trí, chẩn đoán, ID ẩn danh</td>
+              <td>Ghi lại quán cà phê, hiển thị khoảng cách đến quán gần đó, cải thiện chất lượng</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Mahjong Cho</th>
+              <td>Vị trí (khi đăng ký địa điểm), chẩn đoán, ID ẩn danh</td>
+              <td>Ghi lại ván đấu và địa điểm, cải thiện chất lượng</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Life Calendar</th>
+              <td>Chẩn đoán, ID ẩn danh</td>
+              <td>Đồng bộ dữ liệu lịch, cải thiện chất lượng</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>StockHome</th>
+              <td>Ảnh, chẩn đoán, ID ẩn danh</td>
+              <td>Ghi lại hàng tồn kho, chia sẻ trong hộ gia đình, cải thiện chất lượng</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>TodoBox</th>
+              <td>Ảnh, vị trí, chẩn đoán, ID ẩn danh</td>
+              <td>Ghi lại công việc, công việc gắn vị trí, cải thiện chất lượng</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Peckish</th>
+              <td>Vị trí, chẩn đoán, ID ẩn danh</td>
+              <td>Gợi ý nhà hàng gần đó, cải thiện chất lượng</td>
+              <td>Không (*1)</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Rete</th>
+              <td>Địa chỉ email (chỉ cửa hàng), hình ảnh (chỉ cửa hàng), chẩn đoán, ID ẩn danh (*2)</td>
+              <td>Quản lý thẻ tích điểm và ưu đãi, xác thực tài khoản cửa hàng, cải thiện chất lượng</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">*1 Peckish gửi dữ liệu vị trí đến dịch vụ bên ngoài (Google Maps Platform) để tìm kiếm nhà hàng. Đây là xử lý cần thiết để cung cấp tính năng; chúng tôi không bán hoặc chia sẻ thông tin nhận dạng người dùng.</p>
+      <p class="table-note">*2 Rete là ứng dụng thẻ tích điểm dành cho cửa hàng; chỉ chủ cửa hàng tạo tài khoản bằng địa chỉ email và mật khẩu (khách hàng không cần tài khoản và chỉ dùng ID ẩn danh). Hình ảnh do cửa hàng chọn được tải lên bộ lưu trữ đám mây. Phiên bản hiện tại không lấy dữ liệu vị trí.</p>
+      <p class="table-note">Để biết chi tiết, xem chính sách bảo mật riêng của từng ứng dụng (ví dụ: <a href="/vi/privacy/peckish/" style="color:#dc2626;">Peckish</a> / <a href="/vi/privacy/rete/" style="color:#dc2626;">Rete</a>).</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>Mục đích sử dụng thông tin</h2>
       <p>Thông tin thu thập được chỉ được sử dụng cho các mục đích sau.</p>
       <ul>
         <li>Cung cấp chức năng ứng dụng và xử lý cần thiết</li>
@@ -204,7 +334,7 @@
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">03</span>Lưu trữ thông tin</h2>
+      <h2><span class="num">04</span>Lưu trữ thông tin</h2>
       <p>Dữ liệu được lưu trữ tại các vị trí sau.</p>
       <ul>
         <li><strong>Trên thiết bị:</strong> Bộ nhớ cục bộ trong ứng dụng</li>
@@ -213,27 +343,27 @@
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">04</span>Cung cấp cho bên thứ ba</h2>
+      <h2><span class="num">05</span>Cung cấp cho bên thứ ba</h2>
       <p>Tổ chức không cung cấp, bán hoặc chia sẻ thông tin người dùng cho bên thứ ba. Trừ trường hợp theo yêu cầu của pháp luật.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>Xóa dữ liệu</h2>
+      <h2><span class="num">06</span>Xóa dữ liệu</h2>
       <p>Người dùng có thể xóa dữ liệu cục bộ bằng cách gỡ cài đặt ứng dụng khỏi thiết bị. Nếu bạn muốn xóa dữ liệu trên máy chủ, vui lòng liên hệ với chúng tôi qua thông tin bên dưới.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Quyền riêng tư trẻ em</h2>
+      <h2><span class="num">07</span>Quyền riêng tư trẻ em</h2>
       <p>Ứng dụng không dành cho trẻ em dưới 13 tuổi và không cố ý thu thập thông tin cá nhân của trẻ em.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Thay đổi chính sách</h2>
+      <h2><span class="num">08</span>Thay đổi chính sách</h2>
       <p>Tổ chức có thể thay đổi chính sách này khi cần thiết. Mọi thay đổi sẽ được công bố trên trang này.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Liên hệ</h2>
+      <h2><span class="num">09</span>Liên hệ</h2>
       <p>Nếu bạn có câu hỏi về chính sách này, vui lòng liên hệ với chúng tôi qua thông tin bên dưới.</p>
       <div class="contact-card">
         <div class="x-icon">

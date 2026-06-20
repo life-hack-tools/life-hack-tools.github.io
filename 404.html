@@ -84,6 +84,22 @@
       transform: translateY(-2px);
     }
 
+    .quick-links {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      justify-content: center;
+    }
+    .quick-links a {
+      color: #888;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .quick-links a:hover { color: #fff; }
+    .quick-links .sep { color: #333; }
+
     /* Floating particles */
     .particles {
       position: fixed;
@@ -113,6 +129,14 @@
   <div class="code">404</div>
   <p class="message">このページ、どこかに消えちゃったみたい。</p>
   <a href="/" class="home-link">ホームに戻る</a>
+
+  <nav class="quick-links" aria-label="主要ページへのリンク">
+    <a href="/apps/">アプリ一覧</a>
+    <span class="sep" aria-hidden="true">·</span>
+    <a href="/support/">サポート</a>
+    <span class="sep" aria-hidden="true">·</span>
+    <a href="/privacy/">プライバシー</a>
+  </nav>
 
   <script>
     // Generate floating particles

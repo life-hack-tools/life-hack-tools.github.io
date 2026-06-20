@@ -32,6 +32,13 @@
     .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
     .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
     .contact-card a:hover { color: #dc2626; }
+    .data-table-wrap { overflow-x: auto; margin: 16px 0 8px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; -webkit-overflow-scrolling: touch; }
+    table.data-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 560px; }
+    table.data-table th, table.data-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: top; color: #aaa; line-height: 1.6; }
+    table.data-table thead th { background: rgba(255,255,255,0.04); color: #ddd; font-weight: 600; white-space: nowrap; }
+    table.data-table tbody th { color: #e0e0e0; font-weight: 600; white-space: nowrap; }
+    table.data-table tbody tr:last-child td, table.data-table tbody tr:last-child th { border-bottom: none; }
+    .table-note { font-size: 13px; color: #777; margin-top: 10px; }
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
@@ -47,48 +54,116 @@
   </div>
   <div class="content">
     <h1>Chính sách bảo mật</h1>
-    <span class="updated">Cập nhật lần cuối: 7 tháng 4, 2026</span>
-    <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Rete ("Ứng dụng").</p>
+    <span class="updated">Cập nhật lần cuối: 20 tháng 6, 2026</span>
+    <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Rete ("Ứng dụng"). Ứng dụng là dịch vụ quản lý thẻ tích điểm và ưu đãi, được sử dụng bởi cả cửa hàng (chủ cửa hàng) và khách hàng. Dữ liệu chúng tôi xử lý khác nhau tùy theo vai trò của người dùng.</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Thông tin chúng tôi thu thập</h2>
       <p>Ứng dụng có thể xử lý các thông tin sau:</p>
       <ul>
-        <li><strong>Dữ liệu do người dùng cung cấp:</strong> Dữ liệu cần thiết cho chức năng ứng dụng (văn bản, số, ngày, ảnh, v.v.)</li>
-        <li><strong>Dữ liệu tự động tạo:</strong> ID người dùng ẩn danh được tạo trong ứng dụng</li>
-        <li><strong>Dữ liệu chẩn đoán:</strong> Nhật ký lỗi và dữ liệu hiệu suất để cải thiện độ ổn định</li>
+        <li><strong>Thông tin tài khoản cửa hàng:</strong> Chủ cửa hàng tạo tài khoản và đăng nhập bằng địa chỉ email và mật khẩu. Khách hàng không cần đăng ký tài khoản và có thể sử dụng ứng dụng bằng ID ẩn danh được tạo trên thiết bị.</li>
+        <li><strong>Dữ liệu do người dùng cung cấp:</strong> Dữ liệu cần thiết cho chức năng ứng dụng (tên cửa hàng, cài đặt thẻ tích điểm và ưu đãi, văn bản, số, ngày, v.v.)</li>
+        <li><strong>Hình ảnh:</strong> Hình ảnh mà chủ cửa hàng chọn từ thư viện ảnh của thiết bị để dùng làm hình ảnh tem hoặc ưu đãi. Hình ảnh đã chọn được tải lên bộ lưu trữ đám mây (Supabase Storage) và dùng để hiển thị trong ứng dụng.</li>
+        <li><strong>Máy ảnh:</strong> Máy ảnh được dùng để quét mã QR của cửa hàng và mã QR ưu đãi. Việc quét chỉ nhằm đọc mã QR; ứng dụng không chụp hoặc lưu ảnh.</li>
+        <li><strong>Mã định danh tự động tạo:</strong> ID ẩn danh được tạo trong ứng dụng (không nhận dạng một cá nhân cụ thể). Được dùng để đồng bộ và chuyển dữ liệu.</li>
+        <li><strong>Dữ liệu chẩn đoán:</strong> Nhật ký lỗi và dữ liệu hiệu suất để cải thiện độ ổn định (có thể được thu thập tùy theo cấu hình công cụ chẩn đoán).</li>
       </ul>
-      <p>Ứng dụng không thu thập thông tin nhận dạng cá nhân như tên, email, số điện thoại, vị trí hoặc mã thiết bị.</p>
+      <p>Đối với khách hàng, ứng dụng không thu thập thông tin nhận dạng cá nhân như tên hoặc số điện thoại, và cũng không thu thập dữ liệu vị trí. Đối với tài khoản cửa hàng, chúng tôi thu thập địa chỉ email để đăng nhập.</p>
+      <p class="table-note">Lưu ý: Ứng dụng có một số cấu hình cho tính năng hiển thị vị trí cửa hàng trong tương lai, nhưng phiên bản hiện tại không lấy hoặc sử dụng dữ liệu vị trí. Nếu chúng tôi thêm tính năng lấy dữ liệu vị trí, chúng tôi sẽ cập nhật chính sách này và chỉ lấy khi có sự cho phép của người dùng.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>Cách chúng tôi sử dụng thông tin</h2>
+      <h2><span class="num">02</span>Dữ liệu chúng tôi xử lý</h2>
+      <p>Các loại dữ liệu mà ứng dụng xử lý, cùng với mục đích, việc chia sẻ với bên thứ ba và mã hóa, như sau. Chúng tôi không bán hoặc chia sẻ dữ liệu người dùng cho bên thứ ba. Mọi liên lạc đều được mã hóa (HTTPS / TLS).</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Loại dữ liệu</th>
+              <th>Áp dụng cho</th>
+              <th>Mục đích</th>
+              <th>Chia sẻ bên thứ ba</th>
+              <th>Mã hóa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Địa chỉ email</th>
+              <td>Tài khoản cửa hàng</td>
+              <td>Đăng nhập / xác thực chủ cửa hàng</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Hình ảnh</th>
+              <td>Cửa hàng chọn</td>
+              <td>Đăng ký / hiển thị hình ảnh tem và ưu đãi</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Hình ảnh máy ảnh</th>
+              <td>Mọi người dùng</td>
+              <td>Quét mã QR (không lưu)</td>
+              <td>Không</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th>ID ẩn danh</th>
+              <td>Mọi người dùng</td>
+              <td>Đồng bộ và chuyển dữ liệu</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Dữ liệu chẩn đoán</th>
+              <td>Mọi người dùng</td>
+              <td>Phân tích lỗi / cải thiện chất lượng</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>Cách chúng tôi sử dụng thông tin</h2>
       <ul>
-        <li>Cung cấp chức năng ứng dụng</li>
+        <li>Cung cấp chức năng ứng dụng (phát hành và sử dụng thẻ tích điểm và ưu đãi, v.v.)</li>
+        <li>Xác thực tài khoản cửa hàng</li>
         <li>Đồng bộ dữ liệu giữa các thiết bị</li>
         <li>Cải thiện chất lượng và sửa lỗi</li>
       </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">03</span>Lưu trữ dữ liệu</h2>
-      <p>Dữ liệu được lưu trữ trên bộ nhớ cục bộ của thiết bị và trên máy chủ đám mây.</p>
+      <h2><span class="num">04</span>Dịch vụ của bên thứ ba</h2>
+      <p>Ứng dụng sử dụng các dịch vụ bên ngoài sau để cung cấp chức năng:</p>
+      <ul>
+        <li><strong>Supabase:</strong> Dùng cho xử lý phía máy chủ (xác thực, lưu trữ dữ liệu và lưu trữ hình ảnh). Email cửa hàng, dữ liệu đã đăng ký, hình ảnh đã tải lên và ID ẩn danh được quản lý an toàn trên dịch vụ này.</li>
+        <li><strong>Sentry:</strong> Có thể được dùng để thu thập dữ liệu chẩn đoán nhằm phân tích lỗi và cải thiện chất lượng.</li>
+      </ul>
+      <p>Các dịch vụ này chỉ được sử dụng trong phạm vi cần thiết để cung cấp chức năng của ứng dụng. Chúng tôi không bán thông tin người dùng cho bên thứ ba.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">04</span>Chia sẻ với bên thứ ba</h2>
+      <h2><span class="num">05</span>Lưu trữ dữ liệu</h2>
+      <p>Một số dữ liệu, chẳng hạn như cài đặt, được lưu trên bộ nhớ cục bộ của thiết bị. Thông tin tài khoản cửa hàng, dữ liệu đã đăng ký và hình ảnh đã tải lên được lưu trên máy chủ đám mây (Supabase).</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>Chia sẻ với bên thứ ba</h2>
       <p>Chúng tôi không bán, chia sẻ hoặc cung cấp thông tin người dùng cho bên thứ ba, trừ khi pháp luật yêu cầu.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>Xóa dữ liệu</h2>
-      <p>Người dùng có thể xóa dữ liệu cục bộ bằng cách gỡ cài đặt ứng dụng. Để yêu cầu xóa dữ liệu trên máy chủ, vui lòng liên hệ bên dưới.</p>
+      <h2><span class="num">07</span>Xóa dữ liệu</h2>
+      <p>Người dùng có thể xóa dữ liệu cục bộ bằng cách gỡ cài đặt ứng dụng. Để yêu cầu xóa tài khoản cửa hàng hoặc dữ liệu trên máy chủ, vui lòng liên hệ bên dưới.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Quyền riêng tư trẻ em</h2>
+      <h2><span class="num">08</span>Quyền riêng tư trẻ em</h2>
       <p>Ứng dụng không dành cho trẻ em dưới 13 tuổi và không cố ý thu thập thông tin cá nhân từ trẻ em.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Thay đổi chính sách</h2>
+      <h2><span class="num">09</span>Thay đổi chính sách</h2>
       <p>Chúng tôi có thể cập nhật chính sách này khi cần. Thay đổi sẽ được đăng trên trang này.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Liên hệ</h2>
+      <h2><span class="num">10</span>Liên hệ</h2>
       <p>Nếu có câu hỏi về chính sách này, vui lòng liên hệ:</p>
       <div class="contact-card">
         <div class="x-icon"><svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
