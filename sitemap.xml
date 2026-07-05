@@ -434,6 +434,33 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lh.tools/apps/pitto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/pitto/"/>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/apps/pitto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/pitto/"/>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/apps/pitto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/pitto/"/>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lh.tools/privacy/word-diary/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/word-diary/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/word-diary/"/>
@@ -650,6 +677,33 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://lh.tools/privacy/pitto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/pitto/"/>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/pitto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/pitto/"/>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/pitto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/pitto/"/>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lh.tools/support/word-diary/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/word-diary/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/word-diary/"/>
@@ -864,5 +918,32 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/peckish/"/>
     <lastmod>2026-06-20</lastmod>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/support/pitto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/pitto/"/>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/support/pitto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/pitto/"/>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/support/pitto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/pitto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/pitto/"/>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>
