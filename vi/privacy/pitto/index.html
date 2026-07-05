@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chính sách bảo mật - Pitto - Life Hack Tools</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .updated { color: #666; font-size: 13px; margin-bottom: 40px; display: block; }
+    .intro { font-size: 16px; color: #999; margin-bottom: 48px; line-height: 1.8; }
+    .policy-section { margin-bottom: 40px; }
+    .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
+    .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #ec4899; background: rgba(236,72,153,0.1); border: 1px solid rgba(236,72,153,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
+    .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .policy-section ul { margin: 8px 0 8px 20px; color: #999; font-size: 15px; }
+    .policy-section li { margin: 6px 0; line-height: 1.7; }
+    .policy-section strong { color: #ccc; }
+    .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .contact-card .info { flex: 1; }
+    .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
+    .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
+    .contact-card a:hover { color: #ec4899; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/vi/">&larr; Pitto</a>
+    <div class="lang-switch">
+      <a href="/privacy/pitto/">JA</a>
+      <a href="/en/privacy/pitto/">EN</a>
+      <a href="/vi/privacy/pitto/" class="active">VI</a>
+    </div>
+  </div>
+  <div class="content">
+    <h1>Chính sách bảo mật</h1>
+    <span class="updated">Cập nhật lần cuối: 5 tháng 7, 2026</span>
+    <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Pitto (ứng dụng ghi chú &amp; dẫn đường bãi đỗ xe; "Ứng dụng"). Ứng dụng không yêu cầu tài khoản và có thể dùng ẩn danh. Chúng tôi không bao giờ chia sẻ thông tin thu thập được cho bên thứ ba vì mục đích quảng cáo, cũng không bán nó. Dữ liệu được mã hóa khi truyền.</p>
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>Thông tin chúng tôi thu thập &amp; sử dụng</h2>
+      <p>Ứng dụng có thể xử lý các thông tin sau:</p>
+      <ul>
+        <li><strong>Dữ liệu vị trí (vị trí hiện tại chính xác):</strong> Dùng để tìm và so sánh bãi đỗ xe gần điểm đến, và hiển thị lộ trình đi bộ đến điểm đến cũng như đến chỗ đã đỗ xe. Dữ liệu vị trí được gửi đến Google Maps Platform (Places API, Routes API, Maps SDK) để xử lý.</li>
+        <li><strong>Bản ghi chỗ đã đỗ:</strong> Chúng tôi lưu tọa độ chỗ đã đỗ, ghi chú như tầng hoặc khu vực, và ảnh.</li>
+        <li><strong>Ảnh:</strong> Bạn có thể chụp ảnh bằng máy ảnh làm mốc đánh dấu chỗ đã đỗ (tùy chọn).</li>
+        <li><strong>Nhật ký lỗi:</strong> Được thu thập qua Sentry để cải thiện chất lượng ứng dụng (mục đích phân tích).</li>
+        <li><strong>Định danh ẩn danh:</strong> Một định danh ẩn danh qua Supabase được dùng để đồng bộ giữa các thiết bị mà không cần tài khoản. Dữ liệu liên quan được lưu trên máy chủ của Supabase.</li>
+      </ul>
+      <p>Ứng dụng không thu thập thông tin nhận dạng cá nhân như tên, email hoặc số điện thoại.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>Cách chúng tôi sử dụng thông tin</h2>
+      <ul>
+        <li>Tìm và so sánh bãi đỗ xe gần điểm đến</li>
+        <li>Hiển thị lộ trình đi bộ đến điểm đến và chỗ đã đỗ</li>
+        <li>Ghi lại chỗ đã đỗ (tọa độ, ghi chú, ảnh) và đồng bộ giữa các thiết bị</li>
+        <li>Cải thiện chất lượng và sửa lỗi</li>
+      </ul>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>Dịch vụ bên thứ ba</h2>
+      <p>Ứng dụng sử dụng các dịch vụ bên thứ ba sau để cung cấp tính năng. Mỗi dịch vụ xử lý dữ liệu theo chính sách bảo mật riêng của họ.</p>
+      <ul>
+        <li><strong>Google Maps Platform (Google LLC / Places API, Routes API, Maps SDK):</strong> Nhận vị trí và tiêu chí tìm kiếm của bạn để tìm, so sánh bãi đỗ xe và hiển thị lộ trình đi bộ.</li>
+        <li><strong>Supabase:</strong> Dùng để đồng bộ giữa các thiết bị và lưu trữ dữ liệu qua định danh ẩn danh không cần tài khoản.</li>
+        <li><strong>Sentry:</strong> Dùng để thu thập dữ liệu chẩn đoán cho phân tích lỗi và cải thiện chất lượng (mục đích phân tích).</li>
+      </ul>
+      <p>Các dịch vụ này chỉ được sử dụng trong phạm vi cần thiết để cung cấp tính năng của Ứng dụng. Chúng tôi không bán thông tin người dùng cho bên thứ ba.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>Quyền truy cập</h2>
+      <p>Ứng dụng sử dụng các quyền thiết bị sau để cung cấp tính năng:</p>
+      <ul>
+        <li><strong>Vị trí:</strong> Để tìm, so sánh bãi đỗ xe gần đó và hiển thị lộ trình đi bộ.</li>
+        <li><strong>Máy ảnh:</strong> Để chụp ảnh làm mốc đánh dấu chỗ đã đỗ (tùy chọn).</li>
+      </ul>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>Lưu trữ &amp; xóa dữ liệu</h2>
+      <p>Bản ghi chỗ đã đỗ và cài đặt của bạn được lưu trong ứng dụng và trong dịch vụ đồng bộ (Supabase). Bạn có thể xóa dữ liệu bằng cách xóa bản ghi trong ứng dụng hoặc gỡ cài đặt ứng dụng khỏi thiết bị. Để yêu cầu xóa bất kỳ dữ liệu nào khác, vui lòng liên hệ bên dưới.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>Quyền riêng tư trẻ em</h2>
+      <p>Ứng dụng không dành cho trẻ em dưới 13 tuổi và không cố ý thu thập thông tin cá nhân từ trẻ em.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>Thay đổi chính sách</h2>
+      <p>Chúng tôi có thể cập nhật chính sách này khi cần. Thay đổi sẽ được đăng trên trang này.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">08</span>Liên hệ</h2>
+      <p>Nếu có câu hỏi về chính sách này, vui lòng liên hệ:</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">Liên hệ qua email</div>
+          <a href="mailto:dev@lh.tools">dev@lh.tools</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
