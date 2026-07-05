@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Pitto - Life Hack Tools</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .updated { color: #666; font-size: 13px; margin-bottom: 40px; display: block; }
+    .intro { font-size: 16px; color: #999; margin-bottom: 48px; line-height: 1.8; }
+    .policy-section { margin-bottom: 40px; }
+    .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
+    .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #ec4899; background: rgba(236,72,153,0.1); border: 1px solid rgba(236,72,153,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
+    .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .policy-section ul { margin: 8px 0 8px 20px; color: #999; font-size: 15px; }
+    .policy-section li { margin: 6px 0; line-height: 1.7; }
+    .policy-section strong { color: #ccc; }
+    .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .contact-card .info { flex: 1; }
+    .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
+    .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
+    .contact-card a:hover { color: #ec4899; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/en/">&larr; Pitto</a>
+    <div class="lang-switch">
+      <a href="/privacy/pitto/">JA</a>
+      <a href="/en/privacy/pitto/" class="active">EN</a>
+      <a href="/vi/privacy/pitto/">VI</a>
+    </div>
+  </div>
+  <div class="content">
+    <h1>Privacy Policy</h1>
+    <span class="updated">Last updated: July 5, 2026</span>
+    <p class="intro">This Privacy Policy describes how Life Hack Tools ("we") handles user information in Pitto (a parking notes &amp; navigation app; "the App"). The App requires no account and can be used anonymously. We never share the information we collect with third parties for advertising purposes, nor do we sell it. Data is encrypted in transit.</p>
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>Information We Collect &amp; Use</h2>
+      <p>The App may handle the following information:</p>
+      <ul>
+        <li><strong>Location data (precise current location):</strong> Used to search and compare parking near your destination, and to show walking routes to your destination and to your parked spot. Location data is sent to Google Maps Platform (Places API, Routes API, Maps SDK) for processing.</li>
+        <li><strong>Parked spot records:</strong> We save the coordinates of your parked spot, notes such as floor or section, and photos.</li>
+        <li><strong>Photos:</strong> You can take a photo with the camera as a landmark for your parked spot (optional).</li>
+        <li><strong>Crash logs:</strong> Collected via Sentry to improve app quality (analytics purposes).</li>
+        <li><strong>Anonymous identifier:</strong> An anonymous identifier via Supabase is used to sync across devices without an account. Related data is stored on Supabase servers.</li>
+      </ul>
+      <p>The App does not collect personally identifiable information such as names, email addresses, or phone numbers.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>How We Use Information</h2>
+      <ul>
+        <li>Searching and comparing parking near your destination</li>
+        <li>Showing walking routes to your destination and parked spot</li>
+        <li>Recording your parked spot (coordinates, notes, photos) and syncing across devices</li>
+        <li>Improving app quality and fixing issues</li>
+      </ul>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>Third-Party Services</h2>
+      <p>The App uses the following third-party services to provide its features. Each service handles data according to its own privacy policy.</p>
+      <ul>
+        <li><strong>Google Maps Platform (Google LLC / Places API, Routes API, Maps SDK):</strong> Receives your location and search criteria to search and compare parking and to display walking routes.</li>
+        <li><strong>Supabase:</strong> Used for cross-device sync and data storage via an account-free anonymous identifier.</li>
+        <li><strong>Sentry:</strong> Used to collect diagnostic data for crash analysis and quality improvement (analytics purposes).</li>
+      </ul>
+      <p>These services are used only to the extent necessary to provide the App's features. We do not sell user information to third parties.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>Permissions</h2>
+      <p>The App uses the following device permissions to provide its features:</p>
+      <ul>
+        <li><strong>Location:</strong> To search and compare nearby parking and display walking routes.</li>
+        <li><strong>Camera:</strong> To take a photo as a landmark for your parked spot (optional).</li>
+      </ul>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>Data Storage &amp; Deletion</h2>
+      <p>Your parked spot records and settings are stored in the app and in the sync service (Supabase). You can delete data by removing records within the app or by uninstalling the app from your device. To request deletion of any other data, please contact us below.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>Children's Privacy</h2>
+      <p>The App is not intended for children under 13 and does not knowingly collect personal information from children.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>Changes to This Policy</h2>
+      <p>We may update this policy as needed. Changes will be posted on this page.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">08</span>Contact</h2>
+      <p>For questions about this policy, please contact us:</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">Contact us by email</div>
+          <a href="mailto:dev@lh.tools">dev@lh.tools</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
