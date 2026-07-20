@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InstantID: Ảnh thẻ - Life Hack Tools</title>
+  <meta name="description" content="Ảnh thẻ tại nhà. Chỉ một tấm chụp bằng điện thoại — tự động tách người, đặt lên nền chuẩn ảnh thẻ và xuất đúng kích cỡ bạn cần ở 300 DPI nét căng. In tại tiệm ảnh cũng được.">
+  <meta property="og:title" content="InstantID: Ảnh thẻ - Life Hack Tools">
+  <meta property="og:description" content="Ảnh thẻ, hộ chiếu tại nhà. Nền được xử lý tự động và lưu đúng kích cỡ bạn cần.">
+  <meta property="og:image" content="https://lh.tools/assets/icon-instantid.png">
+  <meta property="og:url" content="https://lh.tools/vi/apps/instantid/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Life Hack Tools">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://lh.tools/vi/apps/instantid/">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/apps/instantid/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/instantid/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/instantid/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/instantid/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 24px;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a {
+      font-size: 12px; padding: 4px 10px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15); color: #888;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 80px 24px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,107,107,0.14) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+    .hero-icon {
+      width: 120px; height: 120px; border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(255,107,107,0.35);
+      margin-bottom: 32px; animation: float 6s ease-in-out infinite; position: relative;
+    }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
+    .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
+    .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: center; position: relative; }
+    .cta a { transition: opacity 0.2s; }
+    .cta a:hover { opacity: 0.8; }
+    .cta img { height: 50px; }
+    .store-soon {
+      display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .badge-placeholder {
+      display: inline-flex; align-items: center; gap: 8px;
+      height: 50px; padding: 0 20px; border-radius: 10px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+      color: #aaa; font-size: 13px; font-weight: 600;
+    }
+    .badge-placeholder svg { width: 18px; height: 18px; opacity: 0.7; }
+    .note {
+      font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: #ff6b6b;
+    }
+    .section { padding: 100px 24px; max-width: 800px; margin: 0 auto; }
+    .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #ff6b6b; margin-bottom: 16px; }
+    .section h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
+    .section p { font-size: 17px; color: #999; line-height: 1.8; }
+    .steps { display: grid; gap: 16px; margin-top: 48px; }
+    .step-card {
+      display: flex; align-items: flex-start; gap: 20px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 24px 28px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .step-card:hover { transform: translateX(4px); border-color: rgba(255,107,107,0.3); background: rgba(255,255,255,0.06); }
+    .step-num {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(255,107,107,0.12); border: 1px solid rgba(255,107,107,0.25);
+      color: #ff6b6b; font-weight: 800; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-body h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .step-body p { font-size: 15px; color: #888; line-height: 1.6; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+    .feature-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 28px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(255,107,107,0.3); background: rgba(255,255,255,0.06); }
+    .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: #777; line-height: 1.6; }
+    .screenshots { padding: 80px 0; overflow: hidden; }
+    .screenshots .section-title, .screenshots h2 { text-align: center; padding: 0 24px; }
+    .screenshot-scroll {
+      display: flex; gap: 20px; overflow-x: auto; padding: 48px 24px;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .screenshot-scroll::-webkit-scrollbar { display: none; }
+    .screenshot-scroll img {
+      height: 500px; border-radius: 24px; scroll-snap-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5); flex-shrink: 0; transition: transform 0.3s;
+    }
+    .screenshot-scroll img:hover { transform: scale(1.02); }
+    .legal-links { text-align: center; padding: 0 24px 40px; }
+    .legal-links a { color: #888; text-decoration: none; font-size: 14px; margin: 0 12px; transition: color 0.2s; }
+    .legal-links a:hover { color: #ff6b6b; }
+    .footer-cta { text-align: center; padding: 100px 24px; position: relative; }
+    .footer-cta::before {
+      content: ''; position: absolute; bottom: 0; left: -50%;
+      width: 200%; height: 100%;
+      background: radial-gradient(ellipse at 50% 100%, rgba(255,107,107,0.06) 0%, transparent 60%);
+    }
+    .footer-cta h2 { font-size: clamp(24px, 5vw, 36px); font-weight: 700; margin-bottom: 32px; position: relative; }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/vi/">&larr; LHTz</a>
+    <div class="lang-switch">
+      <a href="/apps/instantid/">JA</a>
+      <a href="/en/apps/instantid/">EN</a>
+      <a href="/vi/apps/instantid/" class="active">VI</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <img src="/assets/icon-instantid.png" alt="InstantID" class="hero-icon">
+    <h1>InstantID</h1>
+    <p class="subtitle">Ảnh thẻ, ngay tại chỗ.</p>
+    <div class="cta">
+      <!-- Sau khi App Store lên sóng, thay khối store-soon bên dưới bằng badge:
+           <a href="https://apps.apple.com/app/idXXXXXXXXXX"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a> -->
+      <div class="store-soon">
+        <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>App Store</span>
+        <span class="note">Sắp ra mắt</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">About</div>
+    <h2>Không buồng chụp,<br>không ra tiệm.</h2>
+    <p>
+      InstantID giúp bạn khỏi phải ra tiệm chụp ảnh. Dùng ảnh có sẵn hoặc chụp ngay bằng điện thoại — vài chạm là thành ảnh thẻ chuẩn.
+      Ứng dụng tự động tách người và đặt lên nền chuẩn ảnh thẻ, rồi xuất đúng kích cỡ bạn cần cho hộ chiếu, visa, hồ sơ và hơn thế.
+      Mọi xử lý đều diễn ra trên máy của bạn, nên không cần đi đâu và không tốn thêm chi phí.
+    </p>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">How it works</div>
+    <h2>Bốn bước là có ảnh thẻ.</h2>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Chụp hoặc chọn ảnh</h3>
+          <p>Chụp ngay một tấm, hoặc chọn ảnh đã có sẵn trong thư viện của bạn.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Nền sạch, tự động</h3>
+          <p>Tự động tách người và đặt lên nền chuẩn ảnh thẻ — trắng, xanh nhạt, xanh hoặc xám.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Xuất đúng kích cỡ</h3>
+          <p>Hộ chiếu 35×45mm, hồ sơ 30×40mm, các cỡ visa và hơn thế — chọn một cỡ và xuất ở 300 DPI nét căng.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Lưu, chia sẻ hoặc in</h3>
+          <p>Lưu thành ảnh, chia sẻ qua Mail hay LINE, hoặc tạo tờ in cho tiệm ảnh — tùy bạn.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">Features</div>
+    <h2>Ảnh thẻ, dễ dàng hơn.</h2>
+    <div class="features">
+      <div class="feature-card">
+        <span class="feature-icon">🏠</span>
+        <h3>Không cần đi đâu cả</h3>
+        <p>Chỉ cần điện thoại, ở nhà hay bất cứ đâu. Không tiệm, không giờ giấc, không tiền lẻ.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">✂️</span>
+        <h3>Nền sạch, chuẩn</h3>
+        <p>Tự động tách người và đặt lên nền trắng, xanh hoặc xám. Phòng bừa bộn cũng thành tấm ảnh gọn gàng.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📐</span>
+        <h3>Đủ mọi kích cỡ</h3>
+        <p>Hộ chiếu, visa, hồ sơ, thẻ căn cước và hơn thế — ảnh vừa đúng cỡ bạn thật sự cần.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🖼️</span>
+        <h3>300 DPI nét căng</h3>
+        <p>Xuất ở độ phân giải cao, dùng tốt cho cả biểu mẫu online lẫn bản in.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏪</span>
+        <h3>In tại tiệm ảnh</h3>
+        <p>Xếp nhiều ảnh trên tờ cỡ 10×15 hoặc 13×18cm, in tại tiệm, cắt ra dùng.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔒</span>
+        <h3>Riêng tư từ gốc</h3>
+        <p>Mọi xử lý đều trên máy của bạn. Ảnh không bao giờ được tải lên đám mây.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="screenshots fade-in">
+    <div class="section-title">Screenshots</div>
+    <h2>Xem thử nhé.</h2>
+    <div class="screenshot-scroll">
+      <img src="/assets/instantid/screenshots/vi/01-onboarding.png" alt="Không cần đi đâu cả">
+      <img src="/assets/instantid/screenshots/vi/02-home.png" alt="Màn hình chính">
+      <img src="/assets/instantid/screenshots/vi/03-preview.png" alt="Chọn nền và xem trước">
+      <img src="/assets/instantid/screenshots/vi/04-save.png" alt="Lưu đúng kích cỡ">
+      <img src="/assets/instantid/screenshots/vi/05-print.png" alt="Cách in tại tiệm ảnh">
+    </div>
+  </div>
+
+  <div class="footer-cta fade-in">
+    <h2>Làm ảnh thẻ ngay tại nhà.</h2>
+    <div class="cta">
+      <!-- Sau khi App Store lên sóng, thay khối store-soon bên dưới bằng badge:
+           <a href="https://apps.apple.com/app/idXXXXXXXXXX"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a> -->
+      <div class="store-soon">
+        <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>App Store</span>
+        <span class="note">Sắp ra mắt</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-links">
+    <a href="/vi/privacy/instantid/">Chính sách quyền riêng tư</a>
+    <a href="/vi/support/instantid/">Hỗ trợ</a>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
