@@ -461,6 +461,87 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lh.tools/apps/instantid/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/instantid/"/>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/apps/instantid/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/instantid/"/>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/apps/instantid/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/instantid/"/>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/privacy/instantid/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/instantid/"/>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/instantid/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/instantid/"/>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/instantid/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/instantid/"/>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/support/instantid/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/instantid/"/>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/support/instantid/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/instantid/"/>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/support/instantid/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/instantid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/instantid/"/>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://lh.tools/privacy/word-diary/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/word-diary/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/word-diary/"/>
