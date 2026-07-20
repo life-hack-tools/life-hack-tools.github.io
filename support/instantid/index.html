@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サポート - InstantID - Life Hack Tools</title>
-  <meta name="description" content="InstantIDに関するお問い合わせやサポートについて。">
+  <meta name="description" content="InstantID（証明写真）のサポート・よくある質問。保存できないとき、コンビニ印刷の手順、Proの購入と復元、対応サイズ、背景色の変更について。">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
@@ -17,12 +17,11 @@
     .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
     .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
     h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
-    .updated { color: #666; font-size: 13px; margin-bottom: 40px; display: block; }
     .intro { font-size: 16px; color: #999; margin-bottom: 48px; line-height: 1.8; }
-    .section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #dc2626; margin-bottom: 24px; }
+    .section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #ff6b6b; margin-bottom: 24px; }
     .policy-section { margin-bottom: 40px; }
     .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
-    .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #dc2626; background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
+    .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #ff6b6b; background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
     .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
     .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
     .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -30,7 +29,7 @@
     .contact-card .info { flex: 1; }
     .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
     .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
-    .contact-card a:hover { color: #dc2626; }
+    .contact-card a:hover { color: #ff6b6b; }
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
@@ -46,33 +45,41 @@
   </div>
   <div class="content">
     <h1>サポート</h1>
-    <p class="intro">InstantIDに関するお問い合わせやサポートについて</p>
+    <p class="intro">InstantID（証明写真）に関するお問い合わせやサポートについて</p>
     <div class="section-label">よくある質問</div>
     <div class="policy-section fade-in">
-      <h2><span class="num">01</span>背景がうまく切り抜けない</h2>
-      <p>明るい場所で、なるべく無地の壁などを背景にして撮影すると切り抜きの精度が上がります。髪の毛や肩まわりが不自然になる場合は、コントラストのはっきりした場所で撮り直すか、別の写真を選んでお試しください。</p>
+      <h2><span class="num">01</span>証明写真を保存できない</h2>
+      <p>保存には写真ライブラリへのアクセス許可が必要です。端末の「設定」→「InstantID」→「写真」で、追加を許可（または「すべての写真」）に設定してください。作成した証明写真は、お使いの端末の写真アプリ（カメラロール）に保存されます。</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>印刷したら規格サイズと違う</h2>
-      <p>コンビニのマルチコピー機で印刷する際は、必ず「原寸（等倍）」で印刷してください。「用紙に合わせて拡大縮小」がオンになっていると、写真のサイズが規格から外れて使えなくなることがあります。</p>
+      <h2><span class="num">02</span>背景がうまく切り抜けない</h2>
+      <p>明るい場所で、なるべく無地の壁などを背景にして撮影すると、切り抜きの精度が上がります。髪の毛や肩まわりが不自然になる場合は、コントラストのはっきりした場所で撮り直すか、別の写真を選んでお試しください。人物の切り抜きは、端末内（Apple Vision）で処理されます。</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">03</span>保存すると透かしが入る／透かしを消したい</h2>
-      <p>無料版では、保存した写真に透かしが入る場合があります。透かしなしで無制限に保存するには、Pro（買い切り）をご購入ください。一度の購入でずっとお使いいただけます。機種変更などで購入が反映されない場合は、設定画面の「購入を復元」をお試しください。</p>
+      <h2><span class="num">03</span>コンビニで印刷したい</h2>
+      <p>保存画面の「コンビニプリント」からシート画像を作成し、写真アプリに保存します。セブンイレブンは「かんたん netprint」、ローソン・ファミリーマートは「PrintSmash」アプリにシート画像を登録し、店頭のマルチコピー機で「写真プリント」を選んで L判または 2L判で印刷します。印刷時は必ず「原寸（等倍）」で印刷してください。「用紙に合わせて拡大縮小」がオンだと、写真のサイズが規格から外れて使えなくなります。印刷後は、シートのガイド線に沿ってまっすぐ切り取れば完成です。</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">04</span>作成した写真が見当たらない</h2>
-      <p>作成した証明写真は端末内に保存されます。カメラロールから削除したり、アプリをアンインストールすると、これまでの写真が表示されなくなることがあります。大切な写真は、あらかじめ別の場所にも控えておくと安心です。</p>
+      <h2><span class="num">04</span>Proを購入したい／復元したい</h2>
+      <p>無料版では、保存した写真に透かしが入る場合があります。透かしなしで保存するには、買い切りの Pro（¥500）をご購入ください。一度の購入でずっとお使いいただけます。機種変更や再インストールのあとは、購入画面の「購入を復元」から、同じ Apple ID（または Google アカウント）で購入を引き継げます。同じアカウントであれば、料金が二重に請求されることはありません。</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>対応しているサイズは？</h2>
+      <p>履歴書・免許（30×40mm）、パスポート・マイナンバー（35×45mm）をはじめ、各国のビザなど主要な用途の規格サイズに対応しています。用途に合わせてサイズを選んでください。</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>背景の色は変えられますか？</h2>
+      <p>はい。白・薄い青・青・グレーから選べます。人物は自動で切り抜かれ、選んだ背景色に置き換わります。写真の処理はすべて端末内で行われ、外部へ送信されることはありません。</p>
     </div>
 
     <div class="policy-section fade-in">
       <h2>お問い合わせ</h2>
-      <p>上記で解決しない場合は、以下からお問い合わせください。プライバシーに関するご連絡は <a href="https://lh.tools/privacy/instantid/" style="color:#dc2626;text-decoration:none;">プライバシーポリシー</a> をご確認のうえ dev@lh.tools までご連絡ください。</p>
+      <p>上記で解決しない場合は、以下からお問い合わせください。プライバシーに関するご連絡は <a href="https://lh.tools/privacy/instantid/" style="color:#ff6b6b;text-decoration:none;">プライバシーポリシー</a> をご確認のうえ dev@lh.tools までご連絡ください。</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
         <div class="info">
           <div class="label">メールにてお問い合わせ</div>
-          <a href="mailto:info@lh.tools">info@lh.tools</a>
+          <a href="mailto:dev@lh.tools">dev@lh.tools</a>
         </div>
       </div>
     </div>
