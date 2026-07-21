@@ -137,6 +137,8 @@
     .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
 </head>
 <body>
   <div class="nav">

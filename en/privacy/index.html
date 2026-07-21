@@ -215,6 +215,8 @@
       transform: translateY(0);
     }
   </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
 </head>
 <body>
   <div class="nav">
@@ -228,7 +230,7 @@
 
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: March 28, 2026</span>
+    <span class="updated">Last updated: July 21, 2026</span>
 
     <p class="intro">Life Hack Tools ("we", "us", or "our") sets forth this Privacy Policy regarding the handling of user information in the applications ("the App") we provide.</p>
 
@@ -309,6 +311,13 @@
               <td>In transit</td>
             </tr>
             <tr>
+              <th>Pitto</th>
+              <td>Location, photos, diagnostics, anonymous ID</td>
+              <td>Searching and comparing parking, walking-route display, saving and syncing your parking spot, quality improvement</td>
+              <td>None (*3)</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
               <th>Rete</th>
               <td>Email address (shops only), images (shops only), diagnostics, anonymous ID (*2)</td>
               <td>Managing stamp cards and rewards, shop account authentication, quality improvement</td>
@@ -320,7 +329,8 @@
       </div>
       <p class="table-note">*1 Peckish sends location data to an external service (Google Maps Platform) to search for restaurants. This is processing required to provide the feature; we do not sell or share information that identifies users.</p>
       <p class="table-note">*2 Rete is a stamp-card app for shops; only shop owners create an account with an email address and password (visitors need no account and use only an anonymous ID). Images selected by shops are uploaded to cloud storage. The current version does not obtain location data.</p>
-      <p class="table-note">For details, see each app's individual privacy policy (e.g. <a href="/en/privacy/peckish/" style="color:#dc2626;">Peckish</a> / <a href="/en/privacy/rete/" style="color:#dc2626;">Rete</a>).</p>
+      <p class="table-note">*3 Pitto sends location data to an external service (Google Maps Platform) to search and compare parking and display walking routes. Your saved parking record (coordinates, notes, photos) is stored anonymously in Supabase to sync across devices. We do not sell or share information that identifies users.</p>
+      <p class="table-note">For details, see each app's individual privacy policy (e.g. <a href="/en/privacy/peckish/" style="color:#dc2626;">Peckish</a> / <a href="/en/privacy/pitto/" style="color:#dc2626;">Pitto</a> / <a href="/en/privacy/rete/" style="color:#dc2626;">Rete</a>).</p>
     </div>
 
     <div class="policy-section fade-in">
