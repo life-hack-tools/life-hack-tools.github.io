@@ -78,7 +78,7 @@
     .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #d85e42; margin-bottom: 16px; }
     .section h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
     .section p { font-size: 17px; color: #999; line-height: 1.8; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
     .feature-card {
       background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
       border-radius: 16px; padding: 28px;
@@ -105,6 +105,8 @@
       /* feature-icon-svg */
     .feature-icon { color: #d85e42; }
     .feature-icon svg { width: 32px; height: 32px; display: block; }
+      /* features-2x2 */
+    @media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
   </style>
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
