@@ -324,13 +324,21 @@
               <td>なし</td>
               <td>転送時あり</td>
             </tr>
+            <tr>
+              <th>Batto</th>
+              <td>試合・チームの記録（選手名を含む／共有時のみ送信）、診断情報（※4）</td>
+              <td>スコアブックの記録・スコアの共有・品質改善</td>
+              <td>なし</td>
+              <td>転送時あり</td>
+            </tr>
           </tbody>
         </table>
       </div>
       <p class="table-note">※1 Peckish は飲食店検索のため、位置情報を外部サービス（Google Maps Platform）に送信します。これは機能提供のための処理であり、利用者を特定する情報の販売・共有は行いません。</p>
       <p class="table-note">※2 Rete はスタンプカードの店舗向けアプリで、店舗オーナーのみメールアドレスとパスワードでアカウントを作成します（来店者はアカウント不要・匿名IDのみ）。店舗が選択した画像はクラウドストレージにアップロードされます。位置情報は現在のバージョンでは取得しません。</p>
       <p class="table-note">※3 Pitto は駐車場の検索・比較および徒歩ルート表示のため、位置情報を外部サービス（Google Maps Platform）に送信します。停めた場所の記録（座標・メモ・写真）は端末間同期のため Supabase に匿名で保存されます。利用者を特定する情報の販売・共有は行いません。</p>
-      <p class="table-note">各アプリの詳細は、アプリ個別のプライバシーポリシー（例: <a href="/privacy/peckish/" style="color:#dc2626;">Peckish</a> / <a href="/privacy/pitto/" style="color:#dc2626;">Pitto</a> / <a href="/privacy/rete/" style="color:#dc2626;">Rete</a>）をご確認ください。</p>
+      <p class="table-note">※4 Batto は、試合・チームの記録を端末内にのみ保存します。これらが外部へ送信されるのは、利用者が「スコアを共有」を実行したときだけです。共有されたスコア（選手名を含む）は Supabase に保存され、URL を知っている人であれば誰でも閲覧できます。現時点では、共有したスコアをアプリ内から削除する機能はありません（削除のご依頼は dev@lh.tools まで）。</p>
+      <p class="table-note">各アプリの詳細は、アプリ個別のプライバシーポリシー（例: <a href="/privacy/peckish/" style="color:#dc2626;">Peckish</a> / <a href="/privacy/pitto/" style="color:#dc2626;">Pitto</a> / <a href="/privacy/rete/" style="color:#dc2626;">Rete</a> / <a href="/privacy/batto/" style="color:#dc2626;">Batto</a>）をご確認ください。</p>
     </div>
 
     <div class="policy-section fade-in">
