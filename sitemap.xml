@@ -785,6 +785,33 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lh.tools/privacy/batto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/batto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/batto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/batto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/batto/"/>
+    <lastmod>2026-09-11</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/batto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/batto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/batto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/batto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/batto/"/>
+    <lastmod>2026-09-11</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/batto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/batto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/batto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/batto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/batto/"/>
+    <lastmod>2026-09-11</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lh.tools/support/word-diary/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/word-diary/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/word-diary/"/>
