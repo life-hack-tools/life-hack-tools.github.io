@@ -19,6 +19,11 @@ name = "SEND_EMAIL"
 # Everything else is configured on the Worker, never here:
 #   TURNSTILE_SITE_KEY    plain variable (public key)
 #   TURNSTILE_SECRET_KEY  secret
+#   APP_KEYS              secret  JSON map of app slug -> key, for /app-submit
+#                                 e.g. {"batto":"...","instantid":"..."}
+#                                 These ship inside app bundles and are NOT
+#                                 secrets; the rate limiting rule in the README
+#                                 is what actually protects that route.
 #   MAIL_FROM             secret  (e.g. noreply@lh.tools)
 #   MAIL_TO               secret  (private inbox)
 #   RESEND_API_KEY        secret  (optional fallback, see README)

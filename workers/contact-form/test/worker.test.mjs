@@ -174,5 +174,192 @@ await check('delivery failure surfaces as 502, not a silent success', async () =
   eq((await res.json()).error, 'delivery_failed', 'error');
 });
 
+/* ------------------------------------------------------------- /app-submit */
+
+console.log('\n/app-submit (native apps)');
+
+const appEnv = {
+  ...env,
+  APP_KEYS: JSON.stringify({ batto: 'batto-key-aaa', instantid: 'instantid-key-bbb' }),
+};
+
+const appMeta = {
+  appVersion: '1.0.0',
+  buildVersion: '3',
+  runtimeVersion: '1.0.0',
+  platform: 'ios',
+  osVersion: '18.0',
+  locale: 'ja-JP',
+  device: 'iPhone17,1',
+};
+
+const appValid = {
+  app: 'batto',
+  topic: 'bug',
+  message: 'スコア共有を押すと落ちます。3回試して3回とも同じでした。',
+  email: 'player@example.jp',
+  meta: appMeta,
+};
+
+function appPost(body, { key = 'batto-key-aaa', headers = {} } = {}) {
+  const h = { 'Content-Type': 'application/json', 'CF-Connecting-IP': '203.0.113.9', ...headers };
+  if (key !== null) h['X-LHT-App-Key'] = key;
+  return new Request('https://form.lh.tools/app-submit', { method: 'POST', headers: h, body: JSON.stringify(body) });
+}
+
+await check('valid app submission is delivered', async () => {
+  sent = [];
+  const res = await worker.fetch(appPost(appValid), appEnv);
+  eq(res.status, 200, 'status');
+  eq((await res.json()).ok, true, 'ok');
+  eq(sent.length, 1, 'emails sent');
+  eq(sent[0].reply_to, 'player@example.jp', 'reply-to');
+});
+
+await check('subject carries app, topic, version and platform', async () => {
+  eq(sent[0].subject, '[lh.tools app] Batto bug v1.0.0 (ios)', 'subject');
+});
+
+await check('every meta field is rendered into the body', async () => {
+  const text = sent[0].text;
+  const expected = [
+    'App version     : 1.0.0',
+    'Build version   : 3',
+    'Runtime version : 1.0.0',
+    'Platform        : ios',
+    'OS version      : 18.0',
+    'Locale          : ja-JP',
+    'Device          : iPhone17,1',
+  ];
+  for (const line of expected) {
+    if (!text.includes(line)) throw new Error(`body is missing: ${JSON.stringify(line)}\n---\n${text}`);
+  }
+  if (!text.includes('スコア共有を押すと落ちます')) throw new Error('body lost the message');
+  if (!text.includes('Batto (batto)')) throw new Error('body lost the app name');
+});
+
+await check('missing meta fields render as "-" rather than disappearing', async () => {
+  sent = [];
+  await worker.fetch(appPost({ ...appValid, meta: { platform: 'android' } }), appEnv);
+  const text = sent[0].text;
+  if (!text.includes('Platform        : android')) throw new Error('platform lost');
+  if (!text.includes('App version     : -')) throw new Error('missing field not marked');
+});
+
+await check('meta is optional entirely', async () => {
+  sent = [];
+  const res = await worker.fetch(appPost({ app: 'batto', topic: 'feedback', message: 'とても便利に使っています。ありがとう。' }), appEnv);
+  eq(res.status, 200, 'status');
+  eq(sent.length, 1, 'delivered');
+  eq(sent[0].subject, '[lh.tools app] Batto feedback', 'subject without version');
+});
+
+await check('email is optional and omits Reply-To when absent', async () => {
+  sent = [];
+  const res = await worker.fetch(appPost({ ...appValid, email: '' }), appEnv);
+  eq(res.status, 200, 'status');
+  eq(sent[0].reply_to, undefined, 'reply-to omitted');
+  if (!sent[0].text.includes('(not provided')) throw new Error('body should say no reply is possible');
+});
+
+await check('invalid email is rejected when one is supplied', async () => {
+  const res = await worker.fetch(appPost({ ...appValid, email: 'nope' }), appEnv);
+  eq(res.status, 400, 'status');
+  eq((await res.json()).error, 'invalid_email', 'error');
+});
+
+await check('missing app key is rejected', async () => {
+  sent = [];
+  const res = await worker.fetch(appPost(appValid, { key: null }), appEnv);
+  eq(res.status, 401, 'status');
+  eq((await res.json()).error, 'unauthorized', 'error');
+  eq(sent.length, 0, 'nothing delivered');
+});
+
+await check('wrong app key is rejected', async () => {
+  const res = await worker.fetch(appPost(appValid, { key: 'batto-key-aab' }), appEnv);
+  eq(res.status, 401, 'status');
+});
+
+await check("another app's key cannot be used for this app", async () => {
+  const res = await worker.fetch(appPost(appValid, { key: 'instantid-key-bbb' }), appEnv);
+  eq(res.status, 401, 'status');
+});
+
+await check('fails closed when APP_KEYS is unset', async () => {
+  const res = await worker.fetch(appPost(appValid), env);
+  eq(res.status, 401, 'status');
+});
+
+await check('fails closed when APP_KEYS is malformed', async () => {
+  const res = await worker.fetch(appPost(appValid), { ...env, APP_KEYS: 'not json' });
+  eq(res.status, 401, 'status');
+});
+
+await check('unknown app slug is rejected', async () => {
+  const res = await worker.fetch(appPost({ ...appValid, app: 'not-an-app' }), appEnv);
+  eq(res.status, 400, 'status');
+  eq((await res.json()).error, 'unknown_app', 'error');
+});
+
+await check('unknown topic falls back to "other" instead of failing', async () => {
+  sent = [];
+  const res = await worker.fetch(appPost({ ...appValid, topic: 'wat' }), appEnv);
+  eq(res.status, 200, 'status');
+  if (!sent[0].text.includes('Topic   : other')) throw new Error('topic not normalised');
+});
+
+await check('short message is rejected', async () => {
+  const res = await worker.fetch(appPost({ ...appValid, message: 'bad' }), appEnv);
+  eq(res.status, 400, 'status');
+  eq((await res.json()).error, 'message_too_short', 'error');
+});
+
+await check('oversized body is rejected', async () => {
+  const res = await worker.fetch(appPost({ ...appValid, message: 'x'.repeat(40000) }), appEnv);
+  eq(res.status, 400, 'status');
+  eq((await res.json()).error, 'too_large', 'error');
+});
+
+await check('header injection through meta is neutralised', async () => {
+  sent = [];
+  await worker.fetch(appPost({
+    ...appValid,
+    meta: { ...appMeta, device: 'iPhone\r\nBcc: victim@example.com' },
+  }), appEnv);
+  eq(sent.length, 1, 'delivered');
+  if (sent[0].text.split('\n').some((l) => l.startsWith('Bcc:'))) throw new Error('injected header survived');
+  if (/Bcc:/i.test(sent[0].subject)) throw new Error('subject carries injected header');
+});
+
+await check('message keeps its newlines while meta does not', async () => {
+  sent = [];
+  await worker.fetch(appPost({ ...appValid, message: 'line one\nline two\nline three here' }), appEnv);
+  if (!sent[0].text.includes('line one\nline two\nline three here')) throw new Error('message newlines lost');
+});
+
+await check('/app-submit never answers with CORS headers', async () => {
+  const res = await worker.fetch(appPost(appValid, { headers: { Origin: 'https://lh.tools' } }), appEnv);
+  eq(res.headers.get('Access-Control-Allow-Origin'), null, 'no cors for native route');
+});
+
+await check('GET /app-submit is 404', async () => {
+  const res = await worker.fetch(new Request('https://form.lh.tools/app-submit'), appEnv);
+  eq(res.status, 404, 'status');
+});
+
+await check('app route needs no Turnstile token', async () => {
+  sent = [];
+  const res = await worker.fetch(appPost(appValid), appEnv);
+  eq(res.status, 200, 'status');
+  eq(sent.length, 1, 'delivered without any turnstile round trip');
+});
+
+await check('delivery failure surfaces as 502', async () => {
+  const res = await worker.fetch(appPost(appValid), { ...appEnv, RESEND_API_KEY: undefined });
+  eq(res.status, 502, 'status');
+  eq((await res.json()).error, 'delivery_failed', 'error');
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -1,6 +1,7 @@
 # Copy to .dev.vars for `wrangler dev`. Never commit the filled-in file.
 TURNSTILE_SITE_KEY="1x00000000000000000000AA"
 TURNSTILE_SECRET_KEY="1x0000000000000000000000000000000AA"
+APP_KEYS='{"batto":"dev-batto-key"}'
 MAIL_FROM="noreply@lh.tools"
 MAIL_TO="set-me@example.com"
 # RESEND_API_KEY="re_..."

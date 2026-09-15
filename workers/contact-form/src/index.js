@@ -1,18 +1,26 @@
 /**
  * lh.tools contact form Worker
  *
- * Receives submissions from https://lh.tools/contact/ (ja/en/vi) and forwards
- * them to a private inbox so that no email address has to be published on the
- * website.
+ * Single intake point for every "contact us" route we own, forwarding to a
+ * private inbox so that no email address has to be published anywhere.
+ *
+ *   - the website form at https://lh.tools/contact/ (ja/en/vi)
+ *   - the in-app support screen shipped with @life-hack-tools/support
  *
  * Endpoints
- *   GET  /config  -> { turnstileSiteKey }   (public site key, served at runtime
- *                                            so it never has to live in the repo)
- *   POST /submit  -> { ok: true }
+ *   GET  /config      -> { turnstileSiteKey }   (public site key, served at
+ *                                                runtime so it never has to
+ *                                                live in the repo)
+ *   POST /submit      -> browser. Protected by Turnstile + honeypot + time trap.
+ *   POST /app-submit  -> native apps. Turnstile cannot run in React Native, so
+ *                        this route is gated by a per-app key instead. See the
+ *                        note on X-LHT-App-Key below.
  *
  * Configuration (all set on the Worker, never committed):
  *   TURNSTILE_SITE_KEY    var     Turnstile site key (public)
  *   TURNSTILE_SECRET_KEY  secret  Turnstile secret key
+ *   APP_KEYS              secret  JSON map of app slug -> key, e.g.
+ *                                 {"batto":"...","instantid":"..."}
  *   MAIL_FROM             secret  sender address on a zone we own (e.g. noreply@lh.tools)
  *   MAIL_TO               secret  private destination inbox
  *   RESEND_API_KEY        secret  optional; only used when the SEND_EMAIL binding is absent
@@ -35,11 +43,49 @@ const LIMITS = {
   app: 60,
   message: 5000,
   page: 300,
+  meta: 60,
 };
+
+/** Apps allowed to post to /app-submit, slug -> display name. */
+const APPS = {
+  batto: 'Batto',
+  instantid: 'InstantID',
+  pitto: 'Pitto',
+  peckish: 'Peckish',
+  stockhome: 'StockHome',
+  'mahjong-cho': 'mahjong-cho',
+  'word-diary': 'WordDiary',
+  mugg: 'Mugg',
+  rete: 'Rete',
+  'life-calendar': 'Life Calendar',
+  'todo-box': 'TodoBox',
+};
+
+const APP_TOPICS = ['feedback', 'bug', 'question', 'deletion'];
+
+/** Device/build fields we render into the mail body, in display order. */
+const META_FIELDS = [
+  ['appVersion', 'App version'],
+  ['buildVersion', 'Build version'],
+  ['runtimeVersion', 'Runtime version'],
+  ['platform', 'Platform'],
+  ['osVersion', 'OS version'],
+  ['locale', 'Locale'],
+  ['device', 'Device'],
+];
 
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+
+    // Native apps send no Origin (or a literal "null"), so this route does not
+    // do any origin-based gating and never answers with CORS headers. Keeping
+    // it above the CORS handling below is deliberate.
+    if (url.pathname === '/app-submit') {
+      if (request.method !== 'POST') return json({ ok: false, error: 'not_found' }, 404, {});
+      return handleAppSubmit(request, env);
+    }
+
     const origin = request.headers.get('Origin');
     const cors = corsHeaders(origin);
 
@@ -103,13 +149,144 @@ async function handleSubmit(request, env, cors) {
   }
 
   try {
-    await deliver(env, fields, request);
+    await deliver(env, {
+      subject: buildSubject(fields),
+      text: buildBody(fields, request),
+      replyTo: fields.email,
+    });
   } catch (err) {
     console.error('delivery failed', err && err.stack ? err.stack : err);
     return json({ ok: false, error: 'delivery_failed' }, 502, cors);
   }
 
   return json({ ok: true }, 200, cors);
+}
+
+/* --------------------------------------------------------------- app-submit */
+
+/**
+ * In-app feedback from the @life-hack-tools/support screen.
+ *
+ * Turnstile is browser-only, so this route is gated by X-LHT-App-Key instead.
+ * That key ships inside the app bundle and is therefore NOT a secret — anyone
+ * willing to unpack an .ipa/.apk can read it. It exists to raise the floor, not
+ * to authenticate. The real abuse control is the Cloudflare rate limiting rule
+ * on this path (see README); treat that rule as required, not optional.
+ */
+async function handleAppSubmit(request, env) {
+  let payload;
+  try {
+    payload = await readJson(request);
+  } catch (err) {
+    return json({ ok: false, error: err.message === 'too_large' ? 'too_large' : 'bad_request' }, 400, {});
+  }
+
+  const app = clamp(str(payload.app), LIMITS.app).toLowerCase();
+  if (!Object.prototype.hasOwnProperty.call(APPS, app)) {
+    return json({ ok: false, error: 'unknown_app' }, 400, {});
+  }
+
+  if (!verifyAppKey(request, env, app)) {
+    return json({ ok: false, error: 'unauthorized' }, 401, {});
+  }
+
+  // Optional: only present when the user wants a reply.
+  const email = clamp(str(payload.email), LIMITS.email);
+  if (email && !isEmail(email)) {
+    return json({ ok: false, error: 'invalid_email' }, 400, {});
+  }
+
+  const message = clamp(str(payload.message), LIMITS.message, true);
+  if (message.length < 10) {
+    return json({ ok: false, error: 'message_too_short' }, 400, {});
+  }
+
+  const rawTopic = clamp(str(payload.topic), LIMITS.topic).toLowerCase();
+  const topic = APP_TOPICS.includes(rawTopic) ? rawTopic : 'other';
+  const meta = readMeta(payload.meta);
+
+  try {
+    await deliver(env, {
+      subject: buildAppSubject({ app, topic, meta }),
+      text: buildAppBody({ app, topic, email, message, meta }, request),
+      replyTo: email,
+    });
+  } catch (err) {
+    console.error('delivery failed', err && err.stack ? err.stack : err);
+    return json({ ok: false, error: 'delivery_failed' }, 502, {});
+  }
+
+  return json({ ok: true }, 200, {});
+}
+
+function verifyAppKey(request, env, app) {
+  const provided = request.headers.get('X-LHT-App-Key') || '';
+  if (!provided || !env.APP_KEYS) return false;
+
+  let keys;
+  try {
+    keys = JSON.parse(env.APP_KEYS);
+  } catch (err) {
+    console.error('APP_KEYS is not valid JSON');
+    return false;
+  }
+  if (!keys || typeof keys !== 'object') return false;
+
+  const expected = keys[app];
+  if (typeof expected !== 'string' || !expected) return false;
+
+  return timingSafeEqual(provided, expected);
+}
+
+function timingSafeEqual(a, b) {
+  const encoder = new TextEncoder();
+  const left = encoder.encode(a);
+  const right = encoder.encode(b);
+  if (left.length !== right.length) return false;
+  let diff = 0;
+  for (let i = 0; i < left.length; i += 1) diff |= left[i] ^ right[i];
+  return diff === 0;
+}
+
+function readMeta(raw) {
+  const meta = {};
+  if (!raw || typeof raw !== 'object') return meta;
+  for (const [key] of META_FIELDS) {
+    const value = clamp(str(raw[key]), LIMITS.meta);
+    if (value) meta[key] = value;
+  }
+  return meta;
+}
+
+function buildAppSubject({ app, topic, meta }) {
+  const parts = ['[lh.tools app]', APPS[app], topic];
+  if (meta.appVersion) parts.push(`v${meta.appVersion}`);
+  if (meta.platform) parts.push(`(${meta.platform})`);
+  return parts.join(' ');
+}
+
+function buildAppBody({ app, topic, email, message, meta }, request) {
+  const ray = request.headers.get('CF-Ray') || '-';
+  const country = (request.cf && request.cf.country) || '-';
+
+  const lines = [
+    `Topic   : ${topic}`,
+    `App     : ${APPS[app]} (${app})`,
+    `Email   : ${email || '(not provided — no reply possible)'}`,
+    `Country : ${country}`,
+    `Ray     : ${ray}`,
+    `Received: ${new Date().toISOString()}`,
+    '',
+    '--- Build / device ---------------------------------------------',
+  ];
+
+  const width = Math.max(...META_FIELDS.map(([, label]) => label.length));
+  for (const [key, label] of META_FIELDS) {
+    lines.push(`${label.padEnd(width)} : ${meta[key] || '-'}`);
+  }
+
+  lines.push('', '----------------------------------------------------------------', '', message, '');
+  return lines.join('\n');
 }
 
 /* ---------------------------------------------------------------- turnstile */
@@ -138,35 +315,30 @@ async function verifyTurnstile(token, request, env) {
 
 /* ------------------------------------------------------------------ deliver */
 
-async function deliver(env, fields, request) {
+/** `replyTo` is optional — in-app feedback may arrive without an address. */
+async function deliver(env, { subject, text, replyTo }) {
   const from = env.MAIL_FROM;
   const to = env.MAIL_TO;
   if (!from || !to) throw new Error('MAIL_FROM / MAIL_TO are not configured');
 
-  const subject = buildSubject(fields);
-  const text = buildBody(fields, request);
-
   if (env.SEND_EMAIL) {
     const { EmailMessage } = await import('cloudflare:email');
-    const raw = buildMime({ from, to, replyTo: fields.email, subject, text });
+    const raw = buildMime({ from, to, replyTo, subject, text });
     await env.SEND_EMAIL.send(new EmailMessage(from, to, raw));
     return;
   }
 
   if (env.RESEND_API_KEY) {
+    const body = { from: `lh.tools contact <${from}>`, to: [to], subject, text };
+    if (replyTo) body.reply_to = replyTo;
+
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${env.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        from: `lh.tools contact <${from}>`,
-        to: [to],
-        reply_to: fields.email,
-        subject,
-        text,
-      }),
+      body: JSON.stringify(body),
     });
     if (!res.ok) throw new Error(`resend responded ${res.status}: ${await res.text()}`);
     return;
