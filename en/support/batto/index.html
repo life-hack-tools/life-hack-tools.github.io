@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>サポート - Pitto - Life Hack Tools</title>
-  <meta name="description" content="Pittoに関するお問い合わせやサポートについて。">
+  <title>Support - Batto - Life Hack Tools</title>
+  <meta name="description" content="Support and FAQ for Batto (amateur baseball scorebook): scoring without knowing the symbols, where records are stored, sharing and deleting a score, resuming an interrupted game.">
+  <link rel="canonical" href="https://lh.tools/en/support/batto/">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/support/batto/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/support/batto/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/batto/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/support/batto/">
+  <meta property="og:title" content="Support - Batto - Life Hack Tools">
+  <meta property="og:description" content="Support and FAQ for Batto (amateur baseball scorebook): scoring without knowing the symbols, where records are stored, sharing and deleting a score, resuming an interrupted game.">
+  <meta property="og:url" content="https://lh.tools/en/support/batto/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Life Hack Tools">
+  <meta name="twitter:card" content="summary">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
@@ -17,13 +28,15 @@
     .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
     .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
     h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
-    .updated { color: #666; font-size: 13px; margin-bottom: 40px; display: block; }
     .intro { font-size: 16px; color: #999; margin-bottom: 48px; line-height: 1.8; }
     .section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #dc2626; margin-bottom: 24px; }
     .policy-section { margin-bottom: 40px; }
     .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
     .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #dc2626; background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
     .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .policy-section a { color: #dc2626; text-decoration: none; }
+    .policy-section a:hover { color: #ef4444; }
+    .policy-section strong { color: #ccc; }
     .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
     .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .contact-card .mail-icon svg { width: 24px; height: 24px; }
@@ -39,38 +52,56 @@
 </head>
 <body>
   <div class="nav">
-    <a href="/apps/pitto/">&larr; Pitto</a>
+    <a href="/en/">&larr; Life Hack Tools</a>
     <div class="lang-switch">
-      <a href="/support/pitto/" class="active">JA</a>
-      <a href="/en/support/pitto/">EN</a>
-      <a href="/vi/support/pitto/">VI</a>
+      <a href="/support/batto/">JA</a>
+      <a href="/en/support/batto/" class="active">EN</a>
+      <a href="/vi/support/batto/">VI</a>
     </div>
   </div>
   <div class="content">
-    <h1>サポート</h1>
-    <p class="intro">Pittoに関するお問い合わせやサポートについて</p>
-    <div class="section-label">よくある質問</div>
+    <h1>Support</h1>
+    <p class="intro">Help and contact information for Batto (amateur baseball scorebook)</p>
+    <div class="section-label">FAQ</div>
+
     <div class="policy-section fade-in">
-      <h2><span class="num">01</span>駐車場の候補が表示されない</h2>
-      <p>Pittoは現在地や目的地をもとに周辺の駐車場を検索します。端末の設定でPittoに位置情報の利用を許可し、通信環境が良好かご確認ください。電波の弱い場所や対象の駐車場が少ないエリアでは、候補が表示されにくい場合があります。</p>
-    </div>
-    <div class="policy-section fade-in">
-      <h2><span class="num">02</span>現在地がずれる・ずれて記録される</h2>
-      <p>地下駐車場や屋内ではGPSの誤差が大きくなりやすく、現在地が実際とずれることがあります。停めた場所を記録する際は、なるべく入口付近や電波の届く場所でワンタップ保存することをおすすめします。</p>
-    </div>
-    <div class="policy-section fade-in">
-      <h2><span class="num">03</span>停めた場所の記録が消えた</h2>
-      <p>Pittoはアカウント不要の匿名データとして記録を保存しています。アプリを再インストールした場合、匿名データが引き継がれず、これまでの記録が表示されなくなることがあります。大切な記録は、階数・区画のメモや写真とあわせて控えておくと安心です。</p>
+      <h2><span class="num">01</span>I don't know baseball scoring symbols</h2>
+      <p>That's exactly who Batto is built for. You only tap <strong>what actually happened</strong> in each at-bat, and the scorebook symbols are assembled for you behind the scenes. The finished scorebook is written in standard notation, so teammates who do read symbols can follow the whole game at a glance.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2>お問い合わせ</h2>
-      <p>上記で解決しない場合は、以下のお問い合わせフォームからご連絡ください。プライバシーに関するご連絡は <a href="https://lh.tools/privacy/pitto/" style="color:#dc2626;text-decoration:none;">プライバシーポリシー</a> をご確認のうえ、同じフォームよりお送りください。</p>
+      <h2><span class="num">02</span>Where are my games stored?</h2>
+      <p>No account or sign-in is required. Your games and team rosters are stored <strong>only on your device</strong> and are never uploaded automatically. That also means deleting the app deletes your records, so for games you want to keep, create a share link (see below).</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>I closed the app in the middle of a game</h2>
+      <p>The game in progress is saved on your device automatically. Just reopen Batto and you can pick up right where you left off — handy when a phone call comes in or you close the app by accident.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>How do I show the score to my team?</h2>
+      <p>Tap "Share score" and Batto creates a view-only URL that anyone with the link can open. Paste it into your team chat so everyone can go through the game afterwards. Note that a shared score <strong>includes player names</strong>, so share it only with people you trust. Nothing leaves your device unless you share it.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>I want a shared score deleted</h2>
+      <p>Use the contact form below and include the URL of the score you want removed. We handle these individually. See the <a href="https://lh.tools/en/privacy/batto/">Privacy Policy</a> for details.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>Which languages are supported?</h2>
+      <p>Japanese, English and Vietnamese. Batto follows your device language automatically.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2>Contact</h2>
+      <p>If the above doesn't help, please use the contact form below. For bug reports, it helps a lot if you tell us your device (iPhone / Android) and what you were doing when it happened. For privacy-related inquiries, see the <a href="https://lh.tools/en/privacy/batto/">Privacy Policy</a> and send your request through the same form.</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
         <div class="info">
-          <div class="label">フォームにてお問い合わせ</div>
-          <a href="/contact/?app=Pitto">お問い合わせフォーム</a>
+          <div class="label">Contact us via the form</div>
+          <a href="/en/contact/?app=Batto">Contact form</a>
         </div>
       </div>
     </div>
