@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /workers/
 
 Sitemap: https://lh.tools/sitemap.xml

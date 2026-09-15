@@ -1,0 +1,29 @@
+name = "lh-tools-contact-form"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = false
+
+# form.lh.tools — adding this as a custom domain makes Cloudflare create the
+# DNS record automatically on first deploy.
+[[routes]]
+pattern = "form.lh.tools"
+custom_domain = true
+
+# Cloudflare Email Routing "send email" binding.
+# No destination_address is set on purpose: the recipient must not be committed
+# to this repository. It is provided at runtime through the MAIL_TO secret and
+# still has to be a verified Email Routing destination address.
+[[send_email]]
+name = "SEND_EMAIL"
+
+# Everything else is configured on the Worker, never here:
+#   TURNSTILE_SITE_KEY    plain variable (public key)
+#   TURNSTILE_SECRET_KEY  secret
+#   APP_KEYS              secret  JSON map of app slug -> key, for /app-submit
+#                                 e.g. {"batto":"...","instantid":"..."}
+#                                 These ship inside app bundles and are NOT
+#                                 secrets; the rate limiting rule in the README
+#                                 is what actually protects that route.
+#   MAIL_FROM             secret  (e.g. noreply@lh.tools)
+#   MAIL_TO               secret  (private inbox)
+#   RESEND_API_KEY        secret  (optional fallback, see README)
