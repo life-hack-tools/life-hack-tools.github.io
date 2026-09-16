@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ - Life Hack Tools</title>
+  <meta name="description" content="Life Hack Tools の各アプリに関するご質問・不具合のご報告・ご要望・データ削除のご依頼は、こちらのお問い合わせフォームからお送りください。">
+  <link rel="canonical" href="https://lh.tools/contact/">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/contact/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/contact/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/contact/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/contact/">
+  <meta property="og:title" content="お問い合わせ - Life Hack Tools">
+  <meta property="og:description" content="Life Hack Tools の各アプリに関するご質問・不具合のご報告・ご要望・データ削除のご依頼は、こちらのお問い合わせフォームからお送りください。">
+  <meta property="og:url" content="https://lh.tools/contact/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Life Hack Tools">
+  <meta property="og:image" content="https://lh.tools/assets/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+
+    .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .intro { font-size: 16px; color: #999; margin-bottom: 40px; line-height: 1.8; }
+
+    .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-bottom: 20px; transition: border-color 0.3s; }
+    .card:hover { border-color: rgba(255,255,255,0.12); }
+    .card h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+    .card > p { font-size: 15px; color: #999; line-height: 1.8; }
+
+    /* Form */
+    .field { margin-bottom: 22px; }
+    .field label { display: block; font-size: 14px; font-weight: 600; color: #ddd; margin-bottom: 8px; }
+    .tag { font-size: 11px; font-weight: 600; margin-left: 8px; padding: 2px 7px; border-radius: 5px; vertical-align: middle; letter-spacing: 0.5px; }
+    .tag.required { color: #dc2626; background: rgba(220,38,38,0.12); border: 1px solid rgba(220,38,38,0.25); }
+    .tag.optional { color: #777; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #f0f0f0;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 12px 14px;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 18px;
+      padding-right: 40px;
+    }
+    .field select option { background: #141414; color: #f0f0f0; }
+    .field textarea { resize: vertical; min-height: 160px; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: rgba(220,38,38,0.6);
+      background: rgba(255,255,255,0.06);
+    }
+    .field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: rgba(220,38,38,0.8); }
+    .hint { font-size: 13px; color: #666; margin-top: 8px; line-height: 1.6; }
+
+    /* Honeypot — hidden from humans, irresistible to bots */
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    .submit {
+      width: 100%;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      background: #dc2626;
+      border: none;
+      border-radius: 10px;
+      padding: 15px 20px;
+      cursor: pointer;
+      transition: background 0.2s, opacity 0.2s;
+      margin-top: 4px;
+    }
+    .submit:hover:not(:disabled) { background: #ef4444; }
+    .submit:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    .status { font-size: 14px; margin-top: 16px; line-height: 1.7; min-height: 1px; }
+    .status.error { color: #f87171; }
+    .status.success { color: #4ade80; }
+    .privacy-note { font-size: 13px; color: #666; margin-top: 18px; line-height: 1.7; }
+    .privacy-note a { color: #999; text-decoration: underline; text-underline-offset: 2px; }
+    .privacy-note a:hover { color: #dc2626; }
+
+    /* Success panel */
+    .sent { display: none; text-align: center; padding: 24px 8px; }
+    .sent.visible { display: block; }
+    .sent .check { width: 56px; height: 56px; margin: 0 auto 18px; border-radius: 50%; background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); display: flex; align-items: center; justify-content: center; }
+    .sent .check svg { width: 26px; height: 26px; }
+    .sent h2 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .sent p { font-size: 15px; color: #999; }
+
+    /* X contact card (fallback / alternative route) */
+    .contact-card { display: flex; align-items: center; gap: 16px; margin-top: 16px; }
+    .contact-card .x-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .x-icon svg { width: 24px; height: 24px; }
+    .contact-card .info { flex: 1; }
+    .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
+    .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
+    .contact-card a:hover { color: #dc2626; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 480px) {
+      .card { padding: 22px 18px; }
+    }
+  </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/">&larr; LHTz</a>
+    <div class="lang-switch">
+      <a href="/contact/" class="active">JA</a>
+      <a href="/en/contact/">EN</a>
+      <a href="/vi/contact/">VI</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>お問い合わせ</h1>
+    <p class="intro">各アプリについてのご質問、不具合のご報告、ご要望、データ削除のご依頼は、以下のフォームからお送りください。内容を確認のうえ、ご記入いただいたメールアドレス宛にご返信します。</p>
+
+    <div class="card fade-in">
+      <form id="contact-form" novalidate>
+        <div class="field">
+          <label for="topic">お問い合わせの種類</label>
+          <select id="topic" name="topic">
+            <option value="question">アプリの使い方について</option>
+            <option value="bug">不具合の報告</option>
+            <option value="feature">ご要望・フィードバック</option>
+            <option value="deletion">データ削除のご依頼</option>
+            <option value="privacy">プライバシーについて</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="app">対象のアプリ<span class="tag optional">任意</span></label>
+          <select id="app" name="app">
+            <option value="">選択しない</option>
+            <option value="Batto">Batto（草野球スコアブック）</option>
+            <option value="InstantID">InstantID（証明写真）</option>
+            <option value="Pitto">Pitto（駐車場）</option>
+            <option value="Peckish">Peckish（ごはん探し）</option>
+            <option value="StockHome">StockHome（在庫管理）</option>
+            <option value="mahjong-cho">麻雀帖</option>
+            <option value="WordDiary">WordDiary（一語日記）</option>
+            <option value="Mugg">Mugg（カフェ記録）</option>
+            <option value="Rete">Rete（スタンプカード）</option>
+            <option value="Life Calendar">Life Calendar</option>
+            <option value="TodoBox">TodoBox</option>
+            <option value="Other">その他・サイトについて</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="name">お名前<span class="tag optional">任意</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" maxlength="100">
+        </div>
+
+        <div class="field">
+          <label for="email">メールアドレス<span class="tag required">必須</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
+          <p class="hint">ご返信先としてのみ使用します。</p>
+        </div>
+
+        <div class="field">
+          <label for="message">お問い合わせ内容<span class="tag required">必須</span></label>
+          <textarea id="message" name="message" maxlength="5000" required></textarea>
+          <p class="hint">不具合のご報告は、お使いの端末（iPhone / Android）と、起きたときの操作を書いていただけると助かります。</p>
+        </div>
+
+        <div class="hp" aria-hidden="true">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div id="ts-widget"></div>
+
+        <button id="submit" class="submit" type="submit" disabled>読み込み中…</button>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <p class="privacy-note">送信いただいた内容とメールアドレスは、お問い合わせへの対応のためにのみ利用し、第三者に提供することはありません。詳しくは<a href="/privacy/">プライバシーポリシー</a>をご覧ください。</p>
+      </form>
+
+      <div id="sent" class="sent">
+        <div class="check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h2>送信しました</h2>
+        <p>お問い合わせありがとうございます。内容を確認のうえ、ご記入いただいたメールアドレス宛にご返信します。</p>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <h2>X (Twitter) からのご連絡</h2>
+      <p>フォームがうまく動かない場合や、ちょっとしたご連絡は、X のDMでもお受けしています。</p>
+      <div class="contact-card">
+        <div class="x-icon">
+          <svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <div class="info">
+          <div class="label">DMにてお問い合わせ</div>
+          <a href="https://x.com/LifeHackToolz" target="_blank" rel="noopener">@LifeHackToolz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <script>
+  (function () {
+    var ENDPOINT = 'https://form.lh.tools';
+    var LANG = 'ja';
+    var MSG = {
+      loading: '読み込み中…',
+      submit: '送信する',
+      sending: '送信中…',
+      required: 'メールアドレスとお問い合わせ内容は必須です。',
+      invalid_email: 'メールアドレスの形式をご確認ください。',
+      message_too_short: 'お問い合わせ内容は10文字以上でご記入ください。',
+      too_fast: '送信が早すぎるようです。もう一度お試しください。',
+      challenge_failed: '自動送信の判定により受け付けられませんでした。ページを再読み込みしてお試しください。',
+      delivery_failed: '送信に失敗しました。時間をおいてもう一度お試しください。',
+      too_large: '内容が長すぎます。短くしてお試しください。',
+      bad_request: '送信内容を確認できませんでした。入力内容をご確認ください。',
+      network: '通信に失敗しました。ネットワーク環境をご確認のうえ、もう一度お試しください。',
+      unavailable: 'ただいまフォームをご利用いただけません。お手数ですが、下の X のDMからご連絡ください。'
+    };
+
+    var form = document.getElementById('contact-form');
+    var sent = document.getElementById('sent');
+    var button = document.getElementById('submit');
+    var status = document.getElementById('status');
+    var loadedAt = Date.now();
+    var widgetId = null;
+    var pending = null;
+    var busy = false;
+
+    function setStatus(text, kind) {
+      status.textContent = text || '';
+      status.className = 'status' + (kind ? ' ' + kind : '');
+    }
+
+    /* Prefill from the query string, e.g. /contact/?app=Batto&topic=deletion */
+    (function prefill() {
+      var params = new URLSearchParams(window.location.search);
+      ['topic', 'app'].forEach(function (key) {
+        var value = params.get(key);
+        if (!value) return;
+        var select = document.getElementById(key);
+        for (var i = 0; i < select.options.length; i += 1) {
+          if (select.options[i].value.toLowerCase() === value.toLowerCase()) {
+            select.selectedIndex = i;
+            return;
+          }
+        }
+      });
+    })();
+
+    function loadTurnstile(siteKey) {
+      return new Promise(function (resolve, reject) {
+        window.lhTurnstileReady = function () {
+          try {
+            widgetId = window.turnstile.render('#ts-widget', {
+              sitekey: siteKey,
+              execution: 'execute',
+              appearance: 'interaction-only',
+              callback: function (token) { if (pending) { pending(token); pending = null; } },
+              'error-callback': function () { if (pending) { pending(null); pending = null; } },
+              'timeout-callback': function () { if (pending) { pending(null); pending = null; } }
+            });
+            resolve();
+          } catch (err) { reject(err); }
+        };
+        var script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=lhTurnstileReady&render=explicit';
+        script.async = true;
+        script.defer = true;
+        script.onerror = function () { reject(new Error('turnstile script failed')); };
+        document.head.appendChild(script);
+      });
+    }
+
+    function getToken() {
+      return new Promise(function (resolve) {
+        var timer = setTimeout(function () {
+          if (pending) { pending = null; resolve(null); }
+        }, 25000);
+        pending = function (token) { clearTimeout(timer); resolve(token); };
+        try {
+          window.turnstile.reset(widgetId);
+          window.turnstile.execute(widgetId);
+        } catch (err) {
+          clearTimeout(timer);
+          pending = null;
+          resolve(null);
+        }
+      });
+    }
+
+    fetch(ENDPOINT + '/config', { mode: 'cors' })
+      .then(function (res) { return res.json(); })
+      .then(function (config) {
+        if (!config || !config.turnstileSiteKey) throw new Error('missing site key');
+        return loadTurnstile(config.turnstileSiteKey);
+      })
+      .then(function () {
+        button.disabled = false;
+        button.textContent = MSG.submit;
+      })
+      .catch(function () {
+        button.textContent = MSG.submit;
+        setStatus(MSG.unavailable, 'error');
+      });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (busy) return;
+
+      var email = document.getElementById('email');
+      var message = document.getElementById('message');
+      email.removeAttribute('aria-invalid');
+      message.removeAttribute('aria-invalid');
+
+      if (!email.value.trim() || !message.value.trim()) {
+        if (!email.value.trim()) email.setAttribute('aria-invalid', 'true');
+        if (!message.value.trim()) message.setAttribute('aria-invalid', 'true');
+        setStatus(MSG.required, 'error');
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        email.setAttribute('aria-invalid', 'true');
+        setStatus(MSG.invalid_email, 'error');
+        return;
+      }
+      if (message.value.trim().length < 10) {
+        message.setAttribute('aria-invalid', 'true');
+        setStatus(MSG.message_too_short, 'error');
+        return;
+      }
+
+      busy = true;
+      button.disabled = true;
+      button.textContent = MSG.sending;
+      setStatus('');
+
+      getToken().then(function (token) {
+        if (!token) throw { code: 'challenge_failed' };
+        return fetch(ENDPOINT + '/submit', {
+          method: 'POST',
+          mode: 'cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            topic: document.getElementById('topic').value,
+            app: document.getElementById('app').value,
+            name: document.getElementById('name').value,
+            email: email.value,
+            message: message.value,
+            company: document.getElementById('company').value,
+            lang: LANG,
+            page: document.referrer || window.location.href,
+            elapsed: Math.round((Date.now() - loadedAt) / 1000),
+            turnstileToken: token
+          })
+        });
+      }).then(function (res) {
+        return res.json().then(function (body) {
+          if (!res.ok || !body.ok) throw { code: body.error || 'delivery_failed' };
+        });
+      }).then(function () {
+        form.style.display = 'none';
+        sent.classList.add('visible');
+        sent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }).catch(function (err) {
+        busy = false;
+        button.disabled = false;
+        button.textContent = MSG.submit;
+        var code = (err && err.code) || 'network';
+        setStatus(MSG[code] || MSG.network, 'error');
+      });
+    });
+  })();
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>

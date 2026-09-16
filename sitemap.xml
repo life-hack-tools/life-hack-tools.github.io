@@ -1054,4 +1054,58 @@
     <lastmod>2026-07-05</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://lh.tools/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/contact/"/>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/contact/"/>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/contact/"/>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/support/batto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/batto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/batto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/batto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/batto/"/>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/support/batto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/batto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/batto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/batto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/batto/"/>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/support/batto/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/batto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/batto/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/batto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/batto/"/>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>
