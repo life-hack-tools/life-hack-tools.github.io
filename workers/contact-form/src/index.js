@@ -1,8 +1,9 @@
 /**
  * lh.tools contact form Worker
  *
- * Single intake point for every "contact us" route we own, forwarding to a
- * private inbox so that no email address has to be published anywhere.
+ * Single intake point for every "contact us" route we own. Submissions are
+ * posted to a private Slack channel through an Incoming Webhook, so no email
+ * address has to be published anywhere and no mail infrastructure is involved.
  *
  *   - the website form at https://lh.tools/contact/ (ja/en/vi)
  *   - the in-app support screen shipped with @life-hack-tools/support
@@ -21,10 +22,8 @@
  *   TURNSTILE_SECRET_KEY  secret  Turnstile secret key
  *   APP_KEYS              secret  JSON map of app slug -> key, e.g.
  *                                 {"batto":"...","instantid":"..."}
- *   MAIL_FROM             secret  sender address on a zone we own (e.g. noreply@lh.tools)
- *   MAIL_TO               secret  private destination inbox
- *   RESEND_API_KEY        secret  optional; only used when the SEND_EMAIL binding is absent
- *   SEND_EMAIL            binding Cloudflare Email Routing "send email" binding
+ *   SLACK_WEBHOOK_URL     secret  Slack Incoming Webhook URL. The URL itself is
+ *                                 the credential: never commit it, never log it.
  */
 
 const ALLOWED_ORIGINS = [
@@ -63,15 +62,15 @@ const APPS = {
 
 const APP_TOPICS = ['feedback', 'bug', 'question', 'deletion'];
 
-/** Device/build fields we render into the mail body, in display order. */
+/** Build/device fields posted by the app, in display order. */
 const META_FIELDS = [
-  ['appVersion', 'App version'],
-  ['buildVersion', 'Build version'],
-  ['runtimeVersion', 'Runtime version'],
-  ['platform', 'Platform'],
-  ['osVersion', 'OS version'],
-  ['locale', 'Locale'],
-  ['device', 'Device'],
+  'appVersion',
+  'buildVersion',
+  'runtimeVersion',
+  'platform',
+  'osVersion',
+  'locale',
+  'device',
 ];
 
 export default {
@@ -149,11 +148,7 @@ async function handleSubmit(request, env, cors) {
   }
 
   try {
-    await deliver(env, {
-      subject: buildSubject(fields),
-      text: buildBody(fields, request),
-      replyTo: fields.email,
-    });
+    await deliver(env, buildSiteMessage(fields, request));
   } catch (err) {
     console.error('delivery failed', err && err.stack ? err.stack : err);
     return json({ ok: false, error: 'delivery_failed' }, 502, cors);
@@ -206,11 +201,7 @@ async function handleAppSubmit(request, env) {
   const meta = readMeta(payload.meta);
 
   try {
-    await deliver(env, {
-      subject: buildAppSubject({ app, topic, meta }),
-      text: buildAppBody({ app, topic, email, message, meta }, request),
-      replyTo: email,
-    });
+    await deliver(env, buildAppMessage({ app, topic, email, message, meta }, request));
   } catch (err) {
     console.error('delivery failed', err && err.stack ? err.stack : err);
     return json({ ok: false, error: 'delivery_failed' }, 502, {});
@@ -251,42 +242,11 @@ function timingSafeEqual(a, b) {
 function readMeta(raw) {
   const meta = {};
   if (!raw || typeof raw !== 'object') return meta;
-  for (const [key] of META_FIELDS) {
+  for (const key of META_FIELDS) {
     const value = clamp(str(raw[key]), LIMITS.meta);
     if (value) meta[key] = value;
   }
   return meta;
-}
-
-function buildAppSubject({ app, topic, meta }) {
-  const parts = ['[lh.tools app]', APPS[app], topic];
-  if (meta.appVersion) parts.push(`v${meta.appVersion}`);
-  if (meta.platform) parts.push(`(${meta.platform})`);
-  return parts.join(' ');
-}
-
-function buildAppBody({ app, topic, email, message, meta }, request) {
-  const ray = request.headers.get('CF-Ray') || '-';
-  const country = (request.cf && request.cf.country) || '-';
-
-  const lines = [
-    `Topic   : ${topic}`,
-    `App     : ${APPS[app]} (${app})`,
-    `Email   : ${email || '(not provided — no reply possible)'}`,
-    `Country : ${country}`,
-    `Ray     : ${ray}`,
-    `Received: ${new Date().toISOString()}`,
-    '',
-    '--- Build / device ---------------------------------------------',
-  ];
-
-  const width = Math.max(...META_FIELDS.map(([, label]) => label.length));
-  for (const [key, label] of META_FIELDS) {
-    lines.push(`${label.padEnd(width)} : ${meta[key] || '-'}`);
-  }
-
-  lines.push('', '----------------------------------------------------------------', '', message, '');
-  return lines.join('\n');
 }
 
 /* ---------------------------------------------------------------- turnstile */
@@ -315,126 +275,115 @@ async function verifyTurnstile(token, request, env) {
 
 /* ------------------------------------------------------------------ deliver */
 
-/** `replyTo` is optional — in-app feedback may arrive without an address. */
-async function deliver(env, { subject, text, replyTo }) {
-  const from = env.MAIL_FROM;
-  const to = env.MAIL_TO;
-  if (!from || !to) throw new Error('MAIL_FROM / MAIL_TO are not configured');
-
-  if (env.SEND_EMAIL) {
-    const { EmailMessage } = await import('cloudflare:email');
-    const raw = buildMime({ from, to, replyTo, subject, text });
-    await env.SEND_EMAIL.send(new EmailMessage(from, to, raw));
-    return;
+/**
+ * Post to Slack. Fails closed: a missing/invalid webhook URL or any non-2xx
+ * answer throws, and the caller turns that into `delivery_failed` so the app
+ * can fall back to the website form.
+ *
+ * The webhook URL is the credential, so it must never end up in an error
+ * message or a log line.
+ */
+async function deliver(env, text) {
+  const url = env.SLACK_WEBHOOK_URL;
+  if (!url) throw new Error('SLACK_WEBHOOK_URL is not configured');
+  if (!url.startsWith('https://hooks.slack.com/')) {
+    throw new Error('SLACK_WEBHOOK_URL is not a Slack incoming webhook URL');
   }
 
-  if (env.RESEND_API_KEY) {
-    const body = { from: `lh.tools contact <${from}>`, to: [to], subject, text };
-    if (replyTo) body.reply_to = replyTo;
-
-    const res = await fetch('https://api.resend.com/emails', {
+  let res;
+  try {
+    res = await fetch(url, {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${env.RESEND_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text, unfurl_links: false, unfurl_media: false }),
     });
-    if (!res.ok) throw new Error(`resend responded ${res.status}: ${await res.text()}`);
-    return;
+  } catch (err) {
+    // Runtime network errors can echo the request URL; do not pass them on.
+    throw new Error(`slack request failed (${(err && err.name) || 'Error'})`);
   }
 
-  throw new Error('no delivery channel configured (SEND_EMAIL binding or RESEND_API_KEY)');
+  if (!res.ok) {
+    // Slack answers with short codes such as "invalid_payload" or "no_service".
+    const detail = (await res.text().catch(() => '')).slice(0, 100);
+    throw new Error(`slack responded ${res.status}${detail ? `: ${detail}` : ''}`);
+  }
 }
 
-function buildSubject({ topic, app, lang }) {
-  const parts = ['[lh.tools]'];
-  if (app) parts.push(app);
-  parts.push(topic || 'Contact');
-  parts.push(`(${lang})`);
-  return parts.join(' ');
-}
+/* ----------------------------------------------------------------- messages */
 
-function buildBody(fields, request) {
-  const ray = request.headers.get('CF-Ray') || '-';
-  const country = (request.cf && request.cf.country) || '-';
+/*
+ * Every value that came from a visitor or an app goes through `esc()` before it
+ * reaches the message, so `<!channel>`, `<!here>`, `<@U123>` and `<url|label>`
+ * arrive as literal text instead of Slack control sequences. The only raw `<`,
+ * `>` or `&` in a message are the ones written in this file.
+ *
+ * Layout, top to bottom:
+ *   1. one bold line that says where it came from, which app, what kind, which build
+ *   2. the visitor's message, fenced in a quote so it cannot pass for our labels
+ *   3. the reply address alone in a code block (no mailto auto-link, easy to copy)
+ *   4. route-specific details, then a small footer for tracing
+ */
+
+function buildSiteMessage(fields, request) {
+  const title = ['[サイト]', fields.app, fields.topic || 'other'].filter(Boolean).join(' ');
+
   return [
-    `Topic   : ${fields.topic || '-'}`,
-    `App     : ${fields.app || '-'}`,
-    `Name    : ${fields.name || '-'}`,
-    `Email   : ${fields.email}`,
-    `Lang    : ${fields.lang}`,
-    `Page    : ${fields.page || '-'}`,
-    `Country : ${country}`,
-    `Ray     : ${ray}`,
-    `Received: ${new Date().toISOString()}`,
+    `*${esc(title)}*`,
     '',
-    '----------------------------------------------------------------',
+    quote(fields.message),
     '',
-    fields.message,
-    '',
+    ...replyTo(fields.email),
+    `*名前*  ${esc(fields.name) || '-'}`,
+    `*言語*  ${esc(fields.lang)}`,
+    `*送信元ページ*  ${fields.page ? `\`${esc(fields.page)}\`` : '-'}`,
+    footer(request),
   ].join('\n');
 }
 
-/* --------------------------------------------------------------------- mime */
+function buildAppMessage({ app, topic, email, message, meta }, request) {
+  const title = ['[アプリ]', APPS[app], topic];
+  if (meta.appVersion) title.push(`v${meta.appVersion}`);
+  if (meta.platform) title.push(`(${meta.platform})`);
 
-function buildMime({ from, to, replyTo, subject, text }) {
-  const domain = from.split('@')[1] || 'lh.tools';
-  const headers = [
-    `From: ${encodeHeader('lh.tools contact')} <${from}>`,
-    `To: <${to}>`,
-    replyTo ? `Reply-To: <${replyTo}>` : null,
-    `Subject: ${encodeHeader(subject)}`,
-    `Message-ID: <${crypto.randomUUID()}@${domain}>`,
-    `Date: ${rfc5322Date(new Date())}`,
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset="utf-8"',
-    'Content-Transfer-Encoding: base64',
-  ].filter(Boolean);
+  const width = Math.max(...META_FIELDS.map((key) => key.length));
+  const metaLines = META_FIELDS.map((key) => `${key.padEnd(width)} : ${meta[key] || '-'}`);
 
-  return `${headers.join('\r\n')}\r\n\r\n${wrap(base64(text), 76)}\r\n`;
+  return [
+    `*${esc(title.join(' '))}*`,
+    '',
+    quote(message),
+    '',
+    ...replyTo(email),
+    '*ビルド・端末*',
+    codeBlock(metaLines.join('\n')),
+    footer(request),
+  ].join('\n');
 }
 
-/**
- * RFC 2047 encoded-word. ASCII stays readable; anything else is split into
- * chunks small enough that each encoded word stays under the 75 char limit.
- */
-function encodeHeader(value) {
-  // eslint-disable-next-line no-control-regex
-  if (/^[\x20-\x7E]*$/.test(value)) return value;
-
-  const words = [];
-  let chunk = '';
-  for (const char of value) {
-    const next = chunk + char;
-    // 4/3 expansion from base64; keep the encoded word comfortably under 75.
-    if (new TextEncoder().encode(next).length > 39) {
-      words.push(chunk);
-      chunk = char;
-    } else {
-      chunk = next;
-    }
-  }
-  if (chunk) words.push(chunk);
-
-  return words.map((w) => `=?UTF-8?B?${base64(w)}?=`).join('\r\n ');
+function replyTo(email) {
+  return email ? ['*返信先*', codeBlock(email)] : ['*返信先*  なし'];
 }
 
-function rfc5322Date(date) {
-  return date.toUTCString().replace(/GMT$/, '+0000');
+function footer(request) {
+  const ray = request.headers.get('CF-Ray') || '-';
+  const country = (request.cf && request.cf.country) || '-';
+  return esc(`受信 ${new Date().toISOString()} ・ 国 ${country} ・ Ray ${ray}`);
 }
 
-function base64(str) {
-  const bytes = new TextEncoder().encode(str);
-  let binary = '';
-  for (let i = 0; i < bytes.length; i += 1) binary += String.fromCharCode(bytes[i]);
-  return btoa(binary);
+function quote(text) {
+  return esc(text)
+    .split('\n')
+    .map((line) => `>${line}`)
+    .join('\n');
 }
 
-function wrap(value, width) {
-  const lines = [];
-  for (let i = 0; i < value.length; i += width) lines.push(value.slice(i, i + width));
-  return lines.join('\r\n');
+function codeBlock(text) {
+  return `\`\`\`\n${esc(text)}\n\`\`\``;
+}
+
+/** Slack's escaping rules for message text: exactly these three, `&` first. */
+function esc(value) {
+  return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 /* -------------------------------------------------------------------- utils */
@@ -460,9 +409,9 @@ function str(value) {
 }
 
 /**
- * Strip control characters so they cannot be used to inject mail headers or to
- * forge extra lines in the message we send ourselves. Only the message body is
- * allowed to contain newlines, and they are normalised to \n first.
+ * Strip control characters so they cannot be used to forge extra lines in the
+ * message we post. Only the message body is allowed to contain newlines, and
+ * they are normalised to \n first.
  */
 function clamp(value, max, multiline = false) {
   const normalised = value.replace(/\r\n?/g, '\n');
@@ -474,8 +423,12 @@ function clamp(value, max, multiline = false) {
   return cleaned.slice(0, max);
 }
 
+/**
+ * Backticks are refused as well as the usual separators: the reply address is
+ * posted inside a code block, and a backtick would let it close that block.
+ */
 function isEmail(value) {
-  return /^[^\s@,;:<>"']+@[^\s@,;:<>"']+\.[^\s@,;:<>"']+$/.test(value) && !/[\r\n]/.test(value);
+  return /^[^\s@,;:<>"'`]+@[^\s@,;:<>"'`]+\.[^\s@,;:<>"'`]+$/.test(value);
 }
 
 function corsHeaders(origin) {
