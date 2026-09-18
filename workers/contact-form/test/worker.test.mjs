@@ -37,6 +37,26 @@ const realConsoleError = console.error;
 console.error = (...args) => {
   logs.push(args.map((a) => (a && a.stack) || String(a)).join(' '));
 };
+let warns = [];
+console.warn = (...args) => { warns.push(args.join(' ')); };
+
+/**
+ * Stand-in for a Workers Rate Limiting binding: `limit` successes per key,
+ * then failures. Records every key it is asked about.
+ */
+function makeLimiter(limit = 3) {
+  const counts = new Map();
+  const calls = [];
+  return {
+    calls,
+    async limit({ key }) {
+      calls.push(key);
+      const n = (counts.get(key) || 0) + 1;
+      counts.set(key, n);
+      return { success: n <= limit };
+    },
+  };
+}
 
 const env = {
   TURNSTILE_SITE_KEY: '0xTESTSITEKEY',
@@ -67,7 +87,7 @@ const valid = {
 
 let pass = 0, fail = 0;
 async function check(name, fn) {
-  posts = []; logs = []; slackStatus = 200; slackThrows = null; turnstileOk = true;
+  posts = []; logs = []; warns = []; slackStatus = 200; slackThrows = null; turnstileOk = true; seenSiteverify = null;
   try { await fn(); realConsoleError(`  ok   ${name}`); pass += 1; }
   catch (err) { realConsoleError(`  FAIL ${name}\n       ${err.message}`); fail += 1; }
 }
@@ -478,6 +498,169 @@ await check('Slack non-2xx on the app route surfaces as 502', async () => {
   slackStatus = 500;
   const res = await worker.fetch(appPost(appValid), appEnv);
   eq(res.status, 502, 'status');
+});
+
+/* -------------------------------------------------------------- rate limit */
+
+realConsoleError('\nrate limiting');
+
+const limited = () => ({ ...appEnv, APP_RATE_LIMITER: makeLimiter(), FORM_RATE_LIMITER: makeLimiter() });
+const withIp = (ip) => ({ 'CF-Connecting-IP': ip });
+
+function postFrom(ip, body = valid) {
+  return new Request('https://form.lh.tools/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Origin: ORIGIN, 'CF-Connecting-IP': ip },
+    body: JSON.stringify(body),
+  });
+}
+
+await check('/submit under the limit behaves exactly as before', async () => {
+  const e = limited();
+  for (let i = 0; i < 3; i += 1) {
+    const res = await worker.fetch(post(valid), e);
+    eq(res.status, 200, `request ${i + 1}`);
+  }
+  eq(posts.length, 3, 'all three delivered');
+});
+
+await check('/submit over the limit: 429 rate_limited with Retry-After 60', async () => {
+  const e = limited();
+  for (let i = 0; i < 3; i += 1) await worker.fetch(post(valid), e);
+  const res = await worker.fetch(post(valid), e);
+  eq(res.status, 429, 'status');
+  eq(res.headers.get('Retry-After'), '60', 'Retry-After');
+  eq((await res.json()).error, 'rate_limited', 'error');
+});
+
+await check('/submit over the limit calls neither Turnstile nor Slack', async () => {
+  const e = limited();
+  for (let i = 0; i < 3; i += 1) await worker.fetch(post(valid), e);
+  posts = []; seenSiteverify = null;
+  await worker.fetch(post(valid), e);
+  eq(seenSiteverify, null, 'siteverify not called');
+  eq(posts.length, 0, 'nothing posted');
+});
+
+await check('/submit 429 carries CORS so the form can read the error', async () => {
+  const e = limited();
+  for (let i = 0; i < 3; i += 1) await worker.fetch(post(valid), e);
+  const res = await worker.fetch(post(valid), e);
+  eq(res.status, 429, 'status');
+  eq(res.headers.get('Access-Control-Allow-Origin'), ORIGIN, 'cors on 429');
+  eq(res.headers.get('Content-Type'), 'application/json; charset=utf-8', 'json body');
+});
+
+await check('/submit is keyed form:<ip>', async () => {
+  const e = limited();
+  await worker.fetch(post(valid), e);
+  eq(e.FORM_RATE_LIMITER.calls[0], 'form:203.0.113.7', 'key');
+  eq(e.APP_RATE_LIMITER.calls.length, 0, 'app limiter untouched');
+});
+
+await check('/submit is limited before the body is even parsed', async () => {
+  const e = limited();
+  for (let i = 0; i < 3; i += 1) await worker.fetch(post(valid), e);
+  const res = await worker.fetch(new Request('https://form.lh.tools/submit', {
+    method: 'POST', headers: { 'Content-Type': 'text/plain', Origin: ORIGIN, 'CF-Connecting-IP': '203.0.113.7' }, body: 'garbage',
+  }), e);
+  eq(res.status, 429, 'rate limit wins over bad_request');
+});
+
+await check('each IP gets its own bucket', async () => {
+  const e = limited();
+  for (let i = 0; i < 3; i += 1) await worker.fetch(postFrom('198.51.100.1'), e);
+  eq((await worker.fetch(postFrom('198.51.100.1'), e)).status, 429, 'first ip limited');
+  eq((await worker.fetch(postFrom('198.51.100.2'), e)).status, 200, 'second ip unaffected');
+});
+
+await check('no CF-Connecting-IP falls into a shared "unknown" bucket', async () => {
+  const e = limited();
+  const bare = () => new Request('https://form.lh.tools/submit', {
+    method: 'POST', headers: { 'Content-Type': 'application/json', Origin: ORIGIN }, body: JSON.stringify(valid),
+  });
+  await worker.fetch(bare(), e);
+  eq(e.FORM_RATE_LIMITER.calls[0], 'form:unknown', 'form key');
+  await worker.fetch(new Request('https://form.lh.tools/app-submit', {
+    method: 'POST', headers: { 'Content-Type': 'application/json', 'X-LHT-App-Key': 'batto-key-aaa' }, body: JSON.stringify(appValid),
+  }), e);
+  eq(e.APP_RATE_LIMITER.calls[0], 'app:batto:unknown', 'app key');
+});
+
+await check('GET /config and preflight are not counted', async () => {
+  const e = limited();
+  await worker.fetch(new Request('https://form.lh.tools/config', { headers: { Origin: ORIGIN } }), e);
+  await worker.fetch(new Request('https://form.lh.tools/submit', { method: 'OPTIONS', headers: { Origin: ORIGIN } }), e);
+  eq(e.FORM_RATE_LIMITER.calls.length, 0, 'form limiter');
+  eq(e.APP_RATE_LIMITER.calls.length, 0, 'app limiter');
+});
+
+await check('/app-submit is keyed app:<slug>:<ip>', async () => {
+  const e = limited();
+  await worker.fetch(appPost(appValid), e);
+  eq(e.APP_RATE_LIMITER.calls[0], 'app:batto:203.0.113.9', 'key');
+  eq(e.FORM_RATE_LIMITER.calls.length, 0, 'form limiter untouched');
+});
+
+await check('/app-submit over the limit: 429, Retry-After, nothing posted, no CORS', async () => {
+  const e = limited();
+  for (let i = 0; i < 3; i += 1) eq((await worker.fetch(appPost(appValid), e)).status, 200, `request ${i + 1}`);
+  posts = [];
+  const res = await worker.fetch(appPost(appValid), e);
+  eq(res.status, 429, 'status');
+  eq(res.headers.get('Retry-After'), '60', 'Retry-After');
+  eq((await res.json()).error, 'rate_limited', 'error');
+  eq(res.headers.get('Access-Control-Allow-Origin'), null, 'app route stays CORS-free');
+  eq(posts.length, 0, 'nothing posted');
+});
+
+await check('/app-submit is limited before the app key is checked', async () => {
+  const e = limited();
+  for (let i = 0; i < 3; i += 1) {
+    eq((await worker.fetch(appPost(appValid, { key: 'wrong' }), e)).status, 401, `bad key ${i + 1} still counted`);
+  }
+  eq((await worker.fetch(appPost(appValid, { key: 'wrong' }), e)).status, 429, 'then limited');
+  eq((await worker.fetch(appPost(appValid), e)).status, 429, 'the right key does not reopen the bucket');
+});
+
+await check('unknown slugs never reach the limiter (no bucket-per-slug bypass)', async () => {
+  const e = limited();
+  for (const slug of ['x1', 'x2', 'x3', 'x4']) {
+    eq((await worker.fetch(appPost({ ...appValid, app: slug }), e)).status, 400, slug);
+  }
+  eq(e.APP_RATE_LIMITER.calls.length, 0, 'limiter never consulted with a made-up slug');
+});
+
+await check('slug in the key is the normalised one, not the raw input', async () => {
+  const e = limited();
+  await worker.fetch(appPost({ ...appValid, app: '  BATTO ' }), e);
+  eq(e.APP_RATE_LIMITER.calls[0], 'app:batto:203.0.113.9', 'lower-cased and trimmed');
+});
+
+await check('different apps from one IP have separate buckets', async () => {
+  const e = limited();
+  for (let i = 0; i < 3; i += 1) await worker.fetch(appPost(appValid), e);
+  eq((await worker.fetch(appPost(appValid), e)).status, 429, 'batto limited');
+  const res = await worker.fetch(appPost({ ...appValid, app: 'instantid' }, { key: 'instantid-key-bbb' }), e);
+  eq(res.status, 200, 'instantid unaffected');
+});
+
+await check('no binding: requests go through and each route warns only once', async () => {
+  // A fresh module instance, so the "warn once" state starts clean.
+  const fresh = (await import('../src/index.js?rate-limit-warn-once')).default;
+  for (let i = 0; i < 5; i += 1) eq((await fresh.fetch(post(valid), appEnv)).status, 200, `submit ${i + 1}`);
+  for (let i = 0; i < 5; i += 1) eq((await fresh.fetch(appPost(appValid), appEnv)).status, 200, `app ${i + 1}`);
+  eq(posts.length, 10, 'all delivered');
+  eq(warns.filter((w) => w.includes('FORM_RATE_LIMITER')).length, 1, 'form warned once');
+  eq(warns.filter((w) => w.includes('APP_RATE_LIMITER')).length, 1, 'app warned once');
+});
+
+await check('a limiter that throws fails open and is logged', async () => {
+  const e = { ...appEnv, FORM_RATE_LIMITER: { async limit() { throw new Error('binding exploded'); } } };
+  const res = await worker.fetch(post(valid), e);
+  eq(res.status, 200, 'request goes through');
+  eq(posts.length, 1, 'delivered');
+  has(logs.join('\n'), 'FORM_RATE_LIMITER failed', 'logged');
 });
 
 console.error = realConsoleError;

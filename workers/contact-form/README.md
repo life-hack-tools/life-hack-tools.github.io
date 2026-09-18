@@ -24,7 +24,7 @@
    │  + Turnstile トークン                │  + meta（バージョン・端末情報）
    ▼                                      ▼
             form.lh.tools (この Worker)
-      │  検証 → バリデーション → エスケープ・整形
+      │  レート制限 → 検証 → バリデーション → エスケープ・整形
       ▼
    Slack Incoming Webhook（SLACK_WEBHOOK_URL シークレット）
       ▼
@@ -33,17 +33,20 @@
 
 ## エンドポイント
 
-| メソッド | パス | 用途 | 認証 |
-|---|---|---|---|
-| `GET` | `/config` | `{ "turnstileSiteKey": "0x..." }` を返す。サイトキーをリポジトリに置かずに済ませるため | なし |
-| `POST` | `/submit` | サイトのフォーム | Turnstile |
-| `POST` | `/app-submit` | アプリ内サポート画面 | `X-LHT-App-Key` |
+| メソッド | パス | 用途 | 認証 | レート制限 |
+|---|---|---|---|---|
+| `GET` | `/config` | `{ "turnstileSiteKey": "0x..." }` を返す。サイトキーをリポジトリに置かずに済ませるため | なし | なし |
+| `POST` | `/submit` | サイトのフォーム | Turnstile | `form:<IP>` ごとに 3件 / 60秒 |
+| `POST` | `/app-submit` | アプリ内サポート画面 | `X-LHT-App-Key` | `app:<slug>:<IP>` ごとに 3件 / 60秒 |
 
 応答はどちらも `200 {"ok":true}` / エラーは `4xx`・`5xx` の `{"ok":false,"error":"..."}`。
 
 `error` の値: `bad_request` / `too_large` / `too_fast` / `invalid_email` /
 `message_too_short` / `challenge_failed` / `unauthorized` / `unknown_app` /
-`delivery_failed`
+`rate_limited` / `delivery_failed`
+
+**レート制限を超えると `429 rate_limited` + `Retry-After: 60`。** `/submit` の 429 には CORS ヘッダが付くので、
+サイトのフォームは「1分ほど待って」という文言を出せる。詳しくは「[レート制限](#レート制限)」。
 
 **配送は fail closed。** `SLACK_WEBHOOK_URL` が未設定・Slack 以外の URL・Slack が 2xx 以外を返した場合は
 `502 delivery_failed` を返す。受け付けたふりはしない（アプリ側はこれを見てブラウザのフォームへ逃がす）。
@@ -154,8 +157,8 @@ X-LHT-App-Key: <アプリごとのキー>
 ### ⚠ `X-LHT-App-Key` は秘密ではない
 
 アプリのバンドルに入るので、本気で抜く相手には抜かれる。
-**ハードルを上げるためだけのもの**として扱うこと。実質的な防御は
-下記の**レート制限ルール（必須）**に寄せている。
+**ハードルを上げるためだけのもの**として扱うこと。流量の歯止めは
+Worker 内の**レート制限**（下記）が受け持つ。
 
 キーはアプリごとに分けてあるので、1つ漏れても**そのアプリのキーだけ差し替えれば済む**。
 Worker 側は「宣言された `app` に対応するキーかどうか」まで検証するため、
@@ -170,11 +173,12 @@ Batto のキーで InstantID を名乗ることはできない。
 1. **Turnstile**（不可視モード）— 送信時に検証
 2. **ハニーポット** — 隠しフィールド `company` に入力があれば静かに破棄
 3. **時間トラップ** — ページ表示から 3 秒未満の送信を拒否
+4. **レート制限** — `form:<IP>` ごとに 3件 / 60秒（下記）
 
 **`/app-submit`（アプリ）**
 
 1. **アプリごとのキー** — 秘密ではない。ハードル用（上記参照）
-2. **レート制限** — Cloudflare 側。**これが実質的な防御なので必ず設定する**
+2. **レート制限** — `app:<slug>:<IP>` ごとに 3件 / 60秒（下記）
 
 **共通**
 
@@ -188,6 +192,43 @@ Batto のキーで InstantID を名乗ることはできない。
 - **メールアドレスのバッククォート拒否** — 返信先はコードブロックに入るため、それを閉じられる文字は受け付けない
 - **サイズ・文字数制限** — 本文 5,000 文字 / ボディ全体 32KB / meta 各60文字
 - **Webhook URL をログに出さない** — 通信エラーの内容はそのまま流さず、エラー種別だけ記録する
+
+---
+
+## レート制限
+
+**主のレート制限は Worker の中にある。** Workers の
+[Rate Limiting バインディング](https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/)
+を `wrangler.toml` で2本宣言している。
+
+| バインディング | 経路 | キー | 上限 |
+|---|---|---|---|
+| `FORM_RATE_LIMITER` | `/submit` | `form:<IP>` | 3件 / 60秒 |
+| `APP_RATE_LIMITER` | `/app-submit` | `app:<slug>:<IP>` | 3件 / 60秒 |
+
+`<IP>` は `CF-Connecting-IP`。無ければ `unknown`（全員で1つのバケットを共有）。
+
+**判定の位置** — Turnstile の siteverify・Slack への投稿・アプリキーの検証より**前**。上限を超えた要求は外部呼び出しを1回も発生させない。
+
+- `/submit` はルーティング直後、本文を読むより前に判定する
+- `/app-submit` はキーに slug を含むため、本文を読んで **slug が許可リストに入っていることを確かめてから**判定する。
+  未検証の slug をキーに使うと、でたらめな slug を付け替えるだけで毎回新しいバケットが手に入ってしまうため。
+  許可リスト外の slug は外部呼び出しなしで `400 unknown_app` になる
+
+**精度は概算。** バインディングの計数は Cloudflare のロケーション単位で、結果整合。「3件 / 60秒」は目安であって、
+正確な上限ではない（別のロケーションを経由すればその分通る）。`period` に指定できるのは 10 か 60 秒だけ。
+
+**fail open。** レート制限は補助的な防御（本体はアプリキーと Turnstile）なので、バインディングが無い環境
+（ローカルのテストなど）や、判定の呼び出しが例外を投げた場合は**制限をかけずに通す**。
+バインディングが無いときは、そのことを経路ごとに1回だけ `console.warn` する。
+
+**既知の限界**
+
+- IPv6 はアドレス単位で数えるので、`/64` を丸ごと持つ相手はアドレスを変えながら送れる
+- 同じ NAT の内側（会社・学校・モバイル回線など）の利用者は同じバケットに入る
+
+なお Slack の Incoming Webhook 自体にも投稿頻度の上限（おおむね毎秒1件）があり、超えた分は
+Slack が 2xx 以外を返すので `delivery_failed` になる。
 
 ---
 
@@ -246,6 +287,22 @@ npx wrangler deploy
 `wrangler.toml` の `[[routes]]` により `form.lh.tools` のカスタムドメインと、
 **そのサブドメインの DNS レコードだけ**が自動作成される（lh.tools 本体の MX / SPF には触れない）。
 
+`[[ratelimits]]`（レート制限のバインディング）には **wrangler 4.36 以上**が必要。
+デプロイ時の出力に次の2行が出ていれば有効になっている。
+
+```
+env.APP_RATE_LIMITER (3 requests/60s)       Rate Limit
+env.FORM_RATE_LIMITER (3 requests/60s)      Rate Limit
+```
+
+> [!NOTE]
+> **無料プランで Rate Limiting バインディングが使えるかは、公式ドキュメントに明記がない。**
+> デプロイで拒否された場合は、**その旨（エラー文・日付・プラン）をこの README のこの位置に書き残すこと。**
+> その場合は `wrangler.toml` の `[[ratelimits]]` 2本を外せばデプロイでき、Worker はレート制限なしで動く（fail open）。
+> そのときは下記「7. WAF の補助ルール」の重みが増すので、そちらを必ず入れる。
+
+**稼働中の Worker に反映するときは `npx wrangler deploy` だけでよい**（シークレットは再設定不要）。
+
 この時点ではシークレットが無いので、`/config` は `null` を返しサイトのフォームは X DM への案内を表示し、
 送信はすべて失敗する。安全側に倒れているので、そのまま手順5へ。
 
@@ -285,37 +342,26 @@ curl -i -X POST https://form.lh.tools/app-submit \
 そのあと https://lh.tools/contact/ から実際に1通送信し、
 「[サイト] …」が届くこと・返信先アドレスをコピーして自分のメールから返信できることを確認する。
 
-> 手順7のあとに何度も試すと、レート制限に引っかかってしばらく弾かれる。疎通確認は手順7の前に済ませる。
+> 同じ経路を1分間に4回以上試すと、Worker 内のレート制限で `429 rate_limited` になる。1分待てば戻る。
 
-### 7. レート制限（必須）
+### 7. （任意）WAF の補助ルール
+
+主のレート制限は Worker 内にある（「[レート制限](#レート制限)」）。これは Worker に届く前に弾く**補助**。
+無料プランでも作れるのは「ルール1本・カウント期間 10秒・遮断 10秒・IP 単位」だけなので、その範囲で1本だけ作る
+（[Cloudflare のドキュメント](https://developers.cloudflare.com/waf/rate-limiting-rules/)の表）。
 
 Cloudflare ダッシュボード → `lh.tools` → **Security** → **WAF** → **Rate limiting rules**
 
-アプリ経路のキーは秘密ではないため、**このルールが実質的な防御になる**。
-**選べる期間とルール数はプランで変わる**ので、ルール作成画面の **Period** の選択肢を見て、どちらかで作る。
-
-**Period に「10 minutes」がある場合**
-
-| ルール | If | Rate | Action |
-|---|---|---|---|
-| app-submit | `http.host eq "form.lh.tools" and http.request.uri.path eq "/app-submit"` | 5 requests / 10 minutes / IP | Block |
-| submit（任意） | `http.host eq "form.lh.tools" and http.request.uri.path eq "/submit"` | 10 requests / 1 minute / IP | Block |
-
-**Period が「10 seconds」しか無い場合**（Cloudflare のドキュメント上、Free プランはルール1本・期間10秒のみ）
-
-1本で両方の経路を守る。
-
 | 項目 | 値 |
 |---|---|
+| Rule name | `form.lh.tools POST` |
 | If | `http.host eq "form.lh.tools" and http.request.method eq "POST" and http.request.uri.path in {"/submit" "/app-submit"}` |
-| Rate | 2 requests / 10 seconds / IP |
-| Action | Block |
+| Characteristics | IP |
+| Rate | 5 requests / 10 seconds |
+| Action | Block, 10 seconds |
 
-> 10秒窓で2件だと、1つの IP から 10分で最大120件まで通る計算になる（10分5件と比べてかなり緩い）。アプリ経路への実際の流量を見て足りなければ、
-> Worker 側でのレート制限（Durable Objects など）を別途検討する。
-
-なお Slack の Incoming Webhook 自体にも投稿頻度の上限（おおむね毎秒1件）があり、超えた分は
-Slack が 2xx 以外を返すので `delivery_failed` になる。
+> WAF で弾かれた応答には Worker の CORS ヘッダが付かないので、サイトのフォームでは
+> 「通信に失敗しました」と表示される。Worker の上限（3件 / 60秒）より緩くしてあるので、普通の利用で先に当たることはない。
 
 ---
 
@@ -329,7 +375,7 @@ cd workers/contact-form
 node test/worker.test.mjs
 ```
 
-53 件。
+70 件。
 
 - **Slack**: `<!channel>` `<!here>` `<@U…>` `<#C…>` `<!subteam^…>` `<url|label>` が本文・名前・topic・app・ページ・meta の
   どこから入ってもエスケープされること、`&` を最初に変換していること（`&lt;` と打つと `&amp;lt;` になる）、
@@ -337,6 +383,10 @@ node test/worker.test.mjs
   `なし` の表示、meta の整形、単一行項目の改行で偽の行を作れないこと、本文内の偽ラベルが引用に収まること
 - **fail closed**: `SLACK_WEBHOOK_URL` 未設定（ログに原因が出ること）・Slack 以外の URL・Slack の非 2xx・通信エラーで 502、
   **いずれの場合もログに Webhook URL が出ないこと**
+- **レート制限**: 上限超過で 429 `rate_limited` と `Retry-After: 60`、**そのとき Turnstile にも Slack にも fetch しない**こと、
+  `/submit` の 429 に CORS が付くこと、キー（`form:<IP>` / `app:<slug>:<IP>` / IP 無しは `unknown`）、IP ごと・アプリごとに別バケット、
+  `/submit` は本文を読む前・`/app-submit` はアプリキーの検証より前に判定すること、許可リスト外の slug はリミッターに届かないこと、
+  `/config` とプリフライトは数えないこと、バインディング無し・例外時は通すこと（警告は経路ごとに1回）
 - **既存**: CORS・Turnstile 検証・ハニーポット・時間トラップ・アプリキー（未設定/不正 JSON で fail closed、
   他アプリのキー不可）・topic の丸め・各種バリデーション
 
