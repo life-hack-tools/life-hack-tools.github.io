@@ -24,6 +24,10 @@
  *                                 {"batto":"...","instantid":"..."}
  *   SLACK_WEBHOOK_URL     secret  Slack Incoming Webhook URL. The URL itself is
  *                                 the credential: never commit it, never log it.
+ *
+ * Bindings (declared in wrangler.toml):
+ *   APP_RATE_LIMITER      rate limit for /app-submit, keyed app:<slug>:<ip>
+ *   FORM_RATE_LIMITER     rate limit for /submit,     keyed form:<ip>
  */
 
 const ALLOWED_ORIGINS = [
@@ -34,6 +38,9 @@ const ALLOWED_ORIGINS = [
 
 const MAX_BODY_BYTES = 32 * 1024;
 const MIN_FILL_SECONDS = 3;
+
+/** Must match the `period` of both [[ratelimits]] bindings in wrangler.toml. */
+const RATE_LIMIT_PERIOD_SECONDS = 60;
 
 const LIMITS = {
   name: 100,
@@ -105,6 +112,12 @@ export default {
 };
 
 async function handleSubmit(request, env, cors) {
+  // Before anything else, and in particular before Turnstile's siteverify and
+  // the Slack post, so a flood costs us no outbound calls.
+  if (!(await withinRateLimit(env, 'FORM_RATE_LIMITER', `form:${clientIp(request)}`))) {
+    return rateLimited(cors);
+  }
+
   let payload;
   try {
     payload = await readJson(request);
@@ -181,6 +194,13 @@ async function handleAppSubmit(request, env) {
     return json({ ok: false, error: 'unknown_app' }, 400, {});
   }
 
+  // The slug is part of the bucket key, so it is only used once it has passed
+  // the allowlist above — otherwise rotating made-up slugs would hand out a
+  // fresh bucket per request. Still ahead of the key check and the Slack post.
+  if (!(await withinRateLimit(env, 'APP_RATE_LIMITER', `app:${app}:${clientIp(request)}`))) {
+    return rateLimited({});
+  }
+
   if (!verifyAppKey(request, env, app)) {
     return json({ ok: false, error: 'unauthorized' }, 401, {});
   }
@@ -247,6 +267,50 @@ function readMeta(raw) {
     if (value) meta[key] = value;
   }
   return meta;
+}
+
+/* --------------------------------------------------------------- rate limit */
+
+const warnedMissingLimiter = new Set();
+
+/**
+ * Workers Rate Limiting binding (limit 3 / period 60 s, see wrangler.toml).
+ *
+ * This is a secondary control: the app key and Turnstile are the primary ones.
+ * So it fails open — if the binding is absent (local tests, or a deploy that
+ * had to drop it) or the call throws, the request goes through. Counting is
+ * per Cloudflare location and eventually consistent, so the limit is
+ * approximate, not exact.
+ */
+async function withinRateLimit(env, binding, key) {
+  const limiter = env[binding];
+  if (!limiter) {
+    if (!warnedMissingLimiter.has(binding)) {
+      warnedMissingLimiter.add(binding);
+      console.warn(`${binding} binding is not configured; rate limiting is off for this route`);
+    }
+    return true;
+  }
+
+  try {
+    const { success } = await limiter.limit({ key });
+    return success;
+  } catch (err) {
+    console.error(`${binding} failed; letting the request through`, err && err.stack ? err.stack : err);
+    return true;
+  }
+}
+
+function clientIp(request) {
+  return request.headers.get('CF-Connecting-IP') || 'unknown';
+}
+
+/** `headers` carries CORS for /submit so the browser form can read the body. */
+function rateLimited(headers) {
+  return json({ ok: false, error: 'rate_limited' }, 429, {
+    ...headers,
+    'Retry-After': String(RATE_LIMIT_PERIOD_SECONDS),
+  });
 }
 
 /* ---------------------------------------------------------------- turnstile */

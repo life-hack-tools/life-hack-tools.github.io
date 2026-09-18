@@ -10,6 +10,27 @@ workers_dev = false
 pattern = "form.lh.tools"
 custom_domain = true
 
+# Workers Rate Limiting (needs wrangler >= 4.36). This is the primary rate
+# limit for both routes — WAF rate limiting rules on the Free plan only offer
+# a 10 second window, which is too short to matter here.
+#
+# Counting is per Cloudflare location and eventually consistent, so treat
+# "3 per 60 s" as approximate. `period` may only be 10 or 60, and must match
+# RATE_LIMIT_PERIOD_SECONDS in src/index.js (it becomes Retry-After).
+#
+# namespace_id must be unique within the Cloudflare account; two Workers that
+# share one would share counters. No other LHTz Worker declares a rate limit
+# namespace as of 2026-09-18. Do not reuse 72001 / 72002 elsewhere.
+[[ratelimits]]
+name = "APP_RATE_LIMITER"   # /app-submit, keyed app:<slug>:<ip>
+namespace_id = "72001"
+simple = { limit = 3, period = 60 }
+
+[[ratelimits]]
+name = "FORM_RATE_LIMITER"  # /submit, keyed form:<ip>
+namespace_id = "72002"
+simple = { limit = 3, period = 60 }
+
 # Delivery goes to Slack through an Incoming Webhook. There are deliberately no
 # email bindings here: lh.tools mail runs on Google Workspace, and enabling
 # Cloudflare Email Routing on the zone would add conflicting MX / SPF records.
