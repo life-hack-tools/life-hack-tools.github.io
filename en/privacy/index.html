@@ -230,7 +230,7 @@
 
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: July 21, 2026</span>
+    <span class="updated">Last updated: September 18, 2026</span>
 
     <p class="intro">Life Hack Tools ("we", "us", or "our") sets forth this Privacy Policy regarding the handling of user information in the applications ("the App") we provide.</p>
 
@@ -243,7 +243,7 @@
         <li><strong>Automatically generated identifiers:</strong> Anonymous IDs generated within the app (these do not identify a specific individual). Apps that use a backend use this anonymous ID to sync and transfer data</li>
         <li><strong>Diagnostic information:</strong> Crash logs and performance data (to improve app stability)</li>
       </ul>
-      <p>As a rule, our apps <strong>do not collect personally identifiable information such as names, email addresses, or phone numbers.</strong> No account registration is required; where sign-in is needed, only an anonymous ID generated on the device is used. However, some apps (e.g. Rete's features for shops) use an email address to create shop-owner accounts. See "Data Handled by Each App" below for details.</p>
+      <p>As a rule, our apps <strong>do not collect personally identifiable information such as names, email addresses, or phone numbers.</strong> No account registration is required; where sign-in is needed, only an anonymous ID generated on the device is used. However, some apps (e.g. Rete's features for shops) use an email address to create shop-owner accounts. See "Data Handled by Each App" below for details. In addition, when you contact us through the contact form or in-app feedback, we receive the email address (and name) you enter as your reply address so that we can reply (see "Information Received Through Contact and Feedback" below).</p>
     </div>
 
     <div class="policy-section fade-in">
@@ -337,7 +337,7 @@
       <p class="table-note">*1 Peckish sends location data to an external service (Google Maps Platform) to search for restaurants. This is processing required to provide the feature; we do not sell or share information that identifies users.</p>
       <p class="table-note">*2 Rete is a stamp-card app for shops; only shop owners create an account with an email address and password (visitors need no account and use only an anonymous ID). Images selected by shops are uploaded to cloud storage. The current version does not obtain location data.</p>
       <p class="table-note">*3 Pitto sends location data to an external service (Google Maps Platform) to search and compare parking and display walking routes. Your saved parking record (coordinates, notes, photos) is stored anonymously in Supabase to sync across devices. We do not sell or share information that identifies users.</p>
-      <p class="table-note">*4 Batto stores your game and team records only on your device. They are sent externally only when you choose to share a score. A shared score (which includes player names) is stored in Supabase and can be viewed by anyone who knows the URL. There is currently no in-app feature to delete a score you have shared (deletion requests: <a href="/en/contact/?app=Batto&amp;topic=deletion" style="color:#dc2626;">contact form</a>).</p>
+      <p class="table-note">*4 Batto stores your game and team records only on your device. They are sent externally only when you choose to share a score. A shared score (which includes player names) is stored in Supabase and can be viewed by anyone who knows the URL. <strong>You can stop sharing from the "Shared scores" screen in the app.</strong></p>
       <p class="table-note">For details, see each app's individual privacy policy (e.g. <a href="/en/privacy/peckish/" style="color:#dc2626;">Peckish</a> / <a href="/en/privacy/pitto/" style="color:#dc2626;">Pitto</a> / <a href="/en/privacy/rete/" style="color:#dc2626;">Rete</a> / <a href="/en/privacy/batto/" style="color:#dc2626;">Batto</a>).</p>
     </div>
 
@@ -348,6 +348,7 @@
         <li>Providing app functionality and necessary processing</li>
         <li>Data sync and transfer between devices</li>
         <li>Improving app quality and fixing issues</li>
+        <li>Responding to inquiries and feedback</li>
       </ul>
     </div>
 
@@ -371,18 +372,31 @@
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Children's Privacy</h2>
+      <h2><span class="num">07</span>Information Received Through Contact and Feedback</h2>
+      <p>Messages sent through the <a href="/en/contact/" style="color:#dc2626;">contact form</a> on our website, and through in-app feedback (in apps that offer it), pass through our intake service on Cloudflare (form.lh.tools) and arrive in a private channel in our Slack workspace. We receive the following information.</p>
+      <ul>
+        <li><strong>Contact form:</strong> The type of inquiry, the app concerned (optional), your name (optional), your email address (required, for our reply), your message, the page language, and the URL of the page you were viewing before opening the form</li>
+        <li><strong>In-app feedback:</strong> The type (feedback / bug / question / data deletion request), your message, a reply email address (optional; only if you enter one), app name, app version, build number and runtimeVersion, OS (iOS / Android) and OS version, your device's language setting, and your device model</li>
+        <li><strong>Added on receipt (both):</strong> The time received, the country it was sent from (determined by Cloudflare from the IP address), and a Cloudflare request ID</li>
+      </ul>
+      <p>The contact form uses Cloudflare Turnstile to prevent automated submissions. Information handled by Turnstile is subject to Cloudflare's privacy policy. The form also uses the number of seconds between opening the page and sending, only to detect automated submissions; it is not stored.</p>
+      <p>The sender's IP address is used to limit how many messages can be sent in a short period and, for the contact form, for Turnstile verification. It is not included in what reaches Slack, and we do not store it.</p>
+      <p>We use what you send only to respond to your inquiry or feedback and to investigate and improve our apps, and we keep it for as long as needed to handle it. We never sell or provide it to third parties.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">08</span>Children's Privacy</h2>
       <p>The App is not intended for children under the age of 13, and we do not knowingly collect personal information from children.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Changes to This Policy</h2>
+      <h2><span class="num">09</span>Changes to This Policy</h2>
       <p>We may update this policy as needed. Any changes will be published on this page.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Contact Us</h2>
-      <p>For inquiries regarding this policy, please contact us below.</p>
+      <h2><span class="num">10</span>Contact Us</h2>
+      <p>For inquiries regarding this policy, please use our <a href="/en/contact/" style="color:#dc2626;">contact form</a> or send us a DM on X (Twitter) below.</p>
       <div class="contact-card">
         <div class="x-icon">
           <svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>

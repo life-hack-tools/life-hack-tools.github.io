@@ -50,8 +50,8 @@
   </div>
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Effective and last updated: September 11, 2026</span>
-    <p class="intro">Life Hack Tools ("we") sets out the following privacy policy regarding how user information is handled in Batto (a baseball scorebook app; the "App"). The App requires no account registration and no login, and can be used anonymously. Your game records are stored only on your device, and their contents leave your device <strong>only when you choose to share a score</strong>. Separately, we collect crash logs to detect and fix problems in the App. The App shows no advertising and performs no tracking for advertising purposes.</p>
+    <span class="updated">Effective: September 11, 2026 / Last updated: September 18, 2026</span>
+    <p class="intro">Life Hack Tools ("we") sets out the following privacy policy regarding how user information is handled in Batto (a baseball scorebook app; the "App"). The App requires no account registration and no login, and can be used anonymously. Your game records are stored only on your device, and their contents leave your device <strong>only when you choose to share a score</strong>. Separately, we collect crash logs to detect and fix problems in the App. If you send feedback from the "Settings &amp; support" screen, we also receive what you send, together with the app and device information we need to look into it. The App shows no advertising and performs no tracking for advertising purposes.</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Information Stored Only on Your Device</h2>
       <p>The following information is stored only in your device's local storage. <strong>It is never sent anywhere automatically.</strong></p>
@@ -74,13 +74,14 @@
         <li>Structured at-bat event data (inning, batting order position, result of the at-bat, and runner advances)</li>
       </ul>
       <p>That is the full extent of what is sent. No photos, location data or contacts are ever transmitted. All communication is encrypted (HTTPS / TLS).</p>
-      <p>Once shared, this information <strong>remains stored on Supabase's servers.</strong></p>
+      <p>Once shared, this information <strong>remains stored on Supabase's servers until you stop sharing it.</strong></p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>Who Can See a Shared Link, and Deletion</h2>
       <p>When you share a score, a viewing URL is issued. That URL contains a hard-to-guess ID, but <strong>anyone who knows the URL can view the shared score.</strong> The App does not provide any mechanism to restrict who can view it (such as a password or invitation).</p>
       <p>Because shared content includes player names, please be careful about who you send the URL to.</p>
-      <p><strong>At present, the App has no in-app feature for deleting a score you have shared.</strong> If you would like a shared score deleted, please contact us through the form below and we will handle it individually.</p>
+      <p><strong>You can stop sharing a score at any time from the "Shared scores" screen in the app.</strong> Once you do, the link no longer shows anything.</p>
+      <p>The key used to take a score down is stored only on the device that shared it. If that device's copy is lost — for example when you change phones or delete the app — you can no longer take it down from the app. Please use the <a href="/en/contact/?app=Batto&amp;topic=deletion" style="color:#dc2626;">contact form</a> on our support page instead.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">04</span>Crash Log Collection</h2>
@@ -91,10 +92,23 @@
       <p>This does not identify you personally. We do not implement any deliberate transmission of the game data or player names you enter. We never sell the diagnostic information we collect to third parties or provide it for advertising purposes.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>Information We Do Not Collect</h2>
+      <h2><span class="num">05</span>Information Sent When You Send Feedback</h2>
+      <p>From the App's "Settings &amp; support" screen, you can send us feedback, bug reports, questions and data deletion requests. The following information is sent <strong>only when you tap the send button</strong>.</p>
+      <ul>
+        <li><strong>What you write:</strong> The type (feedback / bug / question / data deletion request) and your message</li>
+        <li><strong>Reply email address (optional):</strong> Sent only if you enter one. It is used only to reply to you.</li>
+        <li><strong>App and device information:</strong> App name; app version, build number and runtimeVersion; OS (iOS / Android) and OS version; your device's language setting; and your device model</li>
+      </ul>
+      <p>The app and device information is attached automatically so that we can investigate problems. Your game data, team information and shared scores are never attached automatically (unless you write them in your message).</p>
+      <p>What you send passes through our intake service on Cloudflare (form.lh.tools) and arrives in a private channel in our Slack workspace. On receipt, the time received, the country it was sent from (determined by Cloudflare from the IP address) and a Cloudflare request ID are added.</p>
+      <p>The sender's IP address is used to limit how many messages can be sent in a short period. It is not included in what reaches Slack, and we do not store it.</p>
+      <p>We use what you send only to respond to you and to investigate and improve the App, and we keep it for as long as needed to handle your request. We never sell it to third parties or provide it for advertising purposes. For how the contact form on our website handles information, see the <a href="/en/privacy/" style="color:#dc2626;">Life Hack Tools privacy policy</a>.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>Information We Do Not Collect</h2>
       <p>The App does not collect any of the following.</p>
       <ul>
-        <li>Personally identifiable information such as your name, email address or phone number</li>
+        <li>Personally identifiable information such as your name or phone number (we receive an email address only if you enter one yourself as the reply address for feedback)</li>
         <li>Photos or camera imagery</li>
         <li>Location data</li>
         <li>Contacts (address book)</li>
@@ -102,37 +116,40 @@
       <p>The App also shows no advertising and performs no tracking for advertising purposes. We never sell or share user information with third parties.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Third-Party Services</h2>
+      <h2><span class="num">07</span>Third-Party Services</h2>
       <p>The App uses the following external services to provide its features. Each service handles data in accordance with its own privacy policy.</p>
       <ul>
         <li><strong>Supabase:</strong> Used solely for the score sharing feature (storing shared data and issuing the viewing URL). It is not used for data synchronisation or backup.</li>
         <li><strong>Sentry:</strong> Used to collect diagnostic information for crash analysis and quality improvement (analytics purposes).</li>
+        <li><strong>Cloudflare:</strong> Used to run our feedback intake service (form.lh.tools).</li>
+        <li><strong>Slack:</strong> Used to receive submitted feedback in our private channel.</li>
       </ul>
       <p>Unless you choose to share a score, your game data and team information are never sent externally.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Permissions</h2>
+      <h2><span class="num">08</span>Permissions</h2>
       <p>The App does not require sensitive device permissions such as camera, photo library, location or contacts.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Data Storage &amp; Deletion</h2>
+      <h2><span class="num">09</span>Data Storage &amp; Deletion</h2>
       <ul>
         <li><strong>On-device data (games and team information):</strong> Deleted when you uninstall the App from your device.</li>
-        <li><strong>Shared scores:</strong> Remain stored on Supabase's servers. There is currently no in-app feature to delete them. If you would like them deleted, please contact us through the form below.</li>
+        <li><strong>Shared scores:</strong> Stored on Supabase's servers until you stop sharing them. When you stop sharing from the "Shared scores" screen in the App, they are deleted from the server. If you can no longer do so because this device's copy has been lost, please contact us through the form below.</li>
         <li><strong>Crash logs:</strong> Stored on Sentry's service.</li>
+        <li><strong>Feedback:</strong> Stored in a private channel in our Slack workspace and kept for as long as needed to handle your request.</li>
       </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Children's Privacy</h2>
+      <h2><span class="num">10</span>Children's Privacy</h2>
       <p>The App is intended for people aged 18 and over and is not directed to children. We do not knowingly collect personal information from children.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Changes to This Policy</h2>
+      <h2><span class="num">11</span>Changes to This Policy</h2>
       <p>We may update this policy as needed. Any changes will be published on this page.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">11</span>Contact</h2>
-      <p>For inquiries regarding this policy, or to request deletion of a score you have shared, please contact us below.</p>
+      <h2><span class="num">12</span>Contact</h2>
+      <p>For inquiries regarding this policy, or to request deletion of a score you have shared, please contact us below. You can also send a message from the App's "Settings &amp; support" screen.</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
         <div class="info">
