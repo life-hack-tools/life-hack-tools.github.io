@@ -30,6 +30,13 @@
     .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
     .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
     .contact-card a:hover { color: #dc2626; }
+    .contact-card + .contact-card { margin-top: 12px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .policy-section p + p { margin-top: 12px; }
+    .policy-section p a { color: #dc2626; text-decoration: none; }
+    .policy-section p a:hover { color: #ef4444; }
+    .policy-section strong { color: #ccc; }
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
@@ -55,16 +62,32 @@
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>データが消えた</h2>
-      <p>アプリを再インストールした場合、ローカルデータは削除されます。クラウド同期を有効にしている場合は、ログインすることでデータを復元できます。</p>
+      <p>麻雀帖の記録は端末に保存され、通信できるときには自動でサーバーにも保存されます。</p>
+      <p>機種変更や再インストールのときは、<strong>引き継ぎコード</strong>で記録を移せます。旧端末で 設定 →「データ引き継ぎ」→「引き継ぎコード発行（旧端末）」を開いてコードを発行し、新端末で 設定 →「引き継ぎコード入力（新端末）」に 8 桁の数字を入力してください。コードの有効期限は発行から 10 分です。</p>
+      <p>旧端末が手元に無い場合は、<a href="/contact/?app=mahjong-cho&topic=question">お問い合わせフォーム</a>からご連絡ください。</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>アカウントを削除したい</h2>
-      <p>下記のお問い合わせ先にご連絡ください。</p>
+      <p>アプリの 設定 →「アカウント」→「アカウントとデータを削除」から削除できます。サーバーに保存された対戦記録・プレイヤー・フレンド関係と、この端末のデータがすべて削除されます。<strong>削除は取り消せません。</strong></p>
+      <p>アプリを削除済みなどでアプリから操作できない場合は、<a href="/contact/?app=mahjong-cho&topic=deletion">お問い合わせフォームの「データ削除のご依頼」</a>からご連絡ください。わかる場合は、ユーザー ID（設定 →「操作者設定」→「ユーザーID」）を書き添えてください。</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>「認証移行コード入力」が表示された</h2>
+      <p>アプリの同期を続けるために、サポートが発行する一回限りの<strong>認証移行コード</strong>が必要な状態です。</p>
+      <p><a href="/contact/?app=mahjong-cho&topic=question">お問い合わせフォーム</a>からご連絡ください。ユーザー ID（設定 →「操作者設定」→「ユーザーID」）を書き添えていただくと、対応が早くなります。</p>
+      <p>コードは「XXXX-XXXX-XXXX」の形の英数字 12 文字で、発行から 15 分有効です。設定 →「認証移行コード入力」に入力してください。</p>
     </div>
 
     <div class="policy-section fade-in">
       <h2>お問い合わせ</h2>
-      <p>上記で解決しない場合は、以下からお問い合わせください。</p>
+      <p>上記で解決しない場合は、以下のお問い合わせフォームからご連絡ください。不具合のご報告は、お使いの端末（iPhone / Android）と、起きたときの操作を書いていただけると助かります。X (Twitter) の DM でも受け付けています。</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">フォームにてお問い合わせ</div>
+          <a href="/contact/?app=mahjong-cho&topic=question">お問い合わせフォーム</a>
+        </div>
+      </div>
       <div class="contact-card">
         <div class="x-icon"><svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
         <div class="info">

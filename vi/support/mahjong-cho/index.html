@@ -30,6 +30,13 @@
     .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
     .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
     .contact-card a:hover { color: #dc2626; }
+    .contact-card + .contact-card { margin-top: 12px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .policy-section p + p { margin-top: 12px; }
+    .policy-section p a { color: #dc2626; text-decoration: none; }
+    .policy-section p a:hover { color: #ef4444; }
+    .policy-section strong { color: #ccc; }
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
@@ -55,16 +62,32 @@
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>Dữ liệu của tôi bị mất</h2>
-      <p>Nếu bạn cài lại ứng dụng, dữ liệu cục bộ sẽ bị xóa. Nếu đã bật đồng bộ đám mây, hãy đăng nhập để khôi phục dữ liệu.</p>
+      <p>Mahjong Cho lưu dữ liệu trên thiết bị của bạn, và khi có kết nối mạng thì cũng tự động lưu lên máy chủ.</p>
+      <p>Khi đổi máy hoặc cài lại ứng dụng, bạn có thể chuyển dữ liệu bằng <strong>mã chuyển dữ liệu</strong>. Trên thiết bị cũ, vào Cài đặt → "Chuyển dữ liệu" (データ引き継ぎ) → "Tạo mã chuyển dữ liệu (thiết bị cũ)" (引き継ぎコード発行（旧端末）) để lấy mã. Sau đó trên thiết bị mới, vào Cài đặt → "Nhập mã chuyển dữ liệu (thiết bị mới)" (引き継ぎコード入力（新端末）) và nhập dãy 8 chữ số. Mã có hiệu lực trong 10 phút kể từ khi được tạo.</p>
+      <p>Nếu bạn không còn thiết bị cũ, vui lòng liên hệ qua <a href="/vi/contact/?app=mahjong-cho&topic=question">biểu mẫu liên hệ</a>.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>Tôi muốn xóa tài khoản</h2>
-      <p>Vui lòng liên hệ với chúng tôi bên dưới.</p>
+      <p>Trong ứng dụng, vào Cài đặt → "Tài khoản" (アカウント) → "Xóa tài khoản và dữ liệu" (アカウントとデータを削除). Thao tác này sẽ xóa toàn bộ lịch sử ván đấu, người chơi và quan hệ bạn bè được lưu trên máy chủ, cùng với toàn bộ dữ liệu trên thiết bị này. <strong>Không thể hoàn tác.</strong></p>
+      <p>Nếu bạn không thể thao tác trong ứng dụng (ví dụ đã xóa ứng dụng), vui lòng gửi yêu cầu qua <a href="/vi/contact/?app=mahjong-cho&topic=deletion">biểu mẫu liên hệ, mục "Yêu cầu xóa dữ liệu"</a>. Nếu biết, bạn hãy ghi kèm ID người dùng (Cài đặt → "Cài đặt người thao tác" (操作者設定) → "ID người dùng" (ユーザーID)).</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>Ứng dụng hiển thị "Nhập mã chuyển xác thực" (認証移行コード入力)</h2>
+      <p>Để tiếp tục đồng bộ, ứng dụng cần một <strong>mã chuyển xác thực</strong> dùng một lần do bộ phận hỗ trợ cấp.</p>
+      <p>Vui lòng liên hệ qua <a href="/vi/contact/?app=mahjong-cho&topic=question">biểu mẫu liên hệ</a>. Nếu ghi kèm ID người dùng (Cài đặt → "Cài đặt người thao tác" (操作者設定) → "ID người dùng" (ユーザーID)), chúng tôi sẽ xử lý nhanh hơn.</p>
+      <p>Mã gồm 12 ký tự chữ và số theo dạng "XXXX-XXXX-XXXX", có hiệu lực trong 15 phút kể từ khi được cấp. Hãy nhập mã tại Cài đặt → "Nhập mã chuyển xác thực" (認証移行コード入力).</p>
     </div>
 
     <div class="policy-section fade-in">
       <h2>Liên hệ</h2>
-      <p>Nếu các câu trả lời trên không giúp được, vui lòng liên hệ:</p>
+      <p>Nếu những mục trên chưa giúp được, vui lòng dùng biểu mẫu liên hệ bên dưới. Khi báo lỗi, bạn hãy cho biết thiết bị đang dùng (iPhone / Android) và thao tác lúc xảy ra lỗi để chúng tôi xử lý nhanh hơn. Bạn cũng có thể nhắn tin (DM) cho chúng tôi trên X (Twitter).</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">Liên hệ qua biểu mẫu</div>
+          <a href="/vi/contact/?app=mahjong-cho&topic=question">Biểu mẫu liên hệ</a>
+        </div>
+      </div>
       <div class="contact-card">
         <div class="x-icon"><svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
         <div class="info">

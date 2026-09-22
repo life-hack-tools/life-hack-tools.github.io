@@ -30,6 +30,13 @@
     .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
     .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
     .contact-card a:hover { color: #dc2626; }
+    .contact-card + .contact-card { margin-top: 12px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .policy-section p + p { margin-top: 12px; }
+    .policy-section p a { color: #dc2626; text-decoration: none; }
+    .policy-section p a:hover { color: #ef4444; }
+    .policy-section strong { color: #ccc; }
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
@@ -55,16 +62,32 @@
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>My data is gone</h2>
-      <p>If you reinstalled the app, local data is deleted. If cloud sync is enabled, log in to restore your data.</p>
+      <p>Mahjong Cho saves your records on your device, and also saves them to our server automatically whenever you're online.</p>
+      <p>When you change phones or reinstall the app, you can move your records with a <strong>transfer code</strong>. On your old device, go to Settings → "Data transfer" (データ引き継ぎ) → "Issue transfer code (old device)" (引き継ぎコード発行（旧端末）) to get a code. Then on your new device, go to Settings → "Enter transfer code (new device)" (引き継ぎコード入力（新端末）) and enter the 8-digit number. The code expires 10 minutes after it is issued.</p>
+      <p>If you no longer have your old device, please reach out through the <a href="/en/contact/?app=mahjong-cho&topic=question">contact form</a>.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>I want to delete my account</h2>
-      <p>Please contact us below.</p>
+      <p>In the app, go to Settings → "Account" (アカウント) → "Delete account and data" (アカウントとデータを削除). This deletes your match records, players, and friend connections stored on our server, along with all data on this device. <strong>This cannot be undone.</strong></p>
+      <p>If you can't do this from the app (for example, because you've already deleted it), please send a request through the <a href="/en/contact/?app=mahjong-cho&topic=deletion">contact form under "Data deletion request"</a>. If you know it, please include your user ID (Settings → "Operator settings" (操作者設定) → "User ID" (ユーザーID)).</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>The app is showing "Enter auth migration code" (認証移行コード入力)</h2>
+      <p>This means the app needs a one-time <strong>auth migration code</strong>, issued by our support team, to keep syncing.</p>
+      <p>Please reach out through the <a href="/en/contact/?app=mahjong-cho&topic=question">contact form</a>. Including your user ID (Settings → "Operator settings" (操作者設定) → "User ID" (ユーザーID)) helps us respond faster.</p>
+      <p>The code is 12 letters and numbers in the form "XXXX-XXXX-XXXX" and is valid for 15 minutes after it is issued. Enter it in Settings → "Enter auth migration code" (認証移行コード入力).</p>
     </div>
 
     <div class="policy-section fade-in">
       <h2>Contact</h2>
-      <p>If the above doesn't help, please reach out:</p>
+      <p>If the above doesn't help, please use the contact form below. For bug reports, it helps a lot if you tell us your device (iPhone / Android) and what you were doing when it happened. You can also reach us by DM on X (Twitter).</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">Contact us via the form</div>
+          <a href="/en/contact/?app=mahjong-cho&topic=question">Contact form</a>
+        </div>
+      </div>
       <div class="contact-card">
         <div class="x-icon"><svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
         <div class="info">
