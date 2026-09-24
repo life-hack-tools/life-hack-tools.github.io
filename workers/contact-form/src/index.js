@@ -26,8 +26,19 @@
  *                                 the credential: never commit it, never log it.
  *
  * Bindings (declared in wrangler.toml):
- *   APP_RATE_LIMITER      rate limit for /app-submit, keyed app:<slug>:<ip>
- *   FORM_RATE_LIMITER     rate limit for /submit,     keyed form:<ip>
+ *   APP_RATE_LIMITER      coarse rate limit for /app-submit, keyed app:<slug>:<ip>
+ *   FORM_RATE_LIMITER     coarse rate limit for /submit,     keyed form:<ip>
+ *   RATE_LIMITER          Durable Object namespace, exact counting (see below)
+ *
+ * Two layers of rate limiting, in this order:
+ *
+ *   1. the Rate Limiting bindings above. Counting is per Cloudflare location
+ *      and eventually consistent: measured in production on 2026-09-18, only
+ *      1 of 20 requests sent 1.5 s apart from one IP was refused (Issue #76).
+ *      Cheap, so it stays as a first pass.
+ *   2. the RATE_LIMITER Durable Object. One object per bucket key, so every
+ *      request for that key lands on the same object and the count is exact.
+ *      5 requests per 10 minutes, sliding window.
  */
 
 const ALLOWED_ORIGINS = [
@@ -41,6 +52,16 @@ const MIN_FILL_SECONDS = 3;
 
 /** Must match the `period` of both [[ratelimits]] bindings in wrangler.toml. */
 const RATE_LIMIT_PERIOD_SECONDS = 60;
+
+/**
+ * Exact limit, enforced by the RATE_LIMITER Durable Object.
+ *
+ * Deliberately generous for a human writing in: someone who sends a report,
+ * notices a typo and sends it again is nowhere near 5 in 10 minutes. A script
+ * with a leaked app key is stopped at 5.
+ */
+const PRECISE_LIMIT = 5;
+const PRECISE_WINDOW_MS = 10 * 60 * 1000;
 
 const LIMITS = {
   name: 100,
@@ -114,8 +135,13 @@ export default {
 async function handleSubmit(request, env, cors) {
   // Before anything else, and in particular before Turnstile's siteverify and
   // the Slack post, so a flood costs us no outbound calls.
-  if (!(await withinRateLimit(env, 'FORM_RATE_LIMITER', `form:${clientIp(request)}`))) {
+  const formKey = `form:${clientIp(request)}`;
+  if (!(await withinRateLimit(env, 'FORM_RATE_LIMITER', formKey))) {
     return rateLimited(cors);
+  }
+  const formPrecise = await withinPreciseLimit(env, formKey);
+  if (!formPrecise.success) {
+    return rateLimited(cors, formPrecise.retryAfter);
   }
 
   let payload;
@@ -197,8 +223,13 @@ async function handleAppSubmit(request, env) {
   // The slug is part of the bucket key, so it is only used once it has passed
   // the allowlist above — otherwise rotating made-up slugs would hand out a
   // fresh bucket per request. Still ahead of the key check and the Slack post.
-  if (!(await withinRateLimit(env, 'APP_RATE_LIMITER', `app:${app}:${clientIp(request)}`))) {
+  const appKey = `app:${app}:${clientIp(request)}`;
+  if (!(await withinRateLimit(env, 'APP_RATE_LIMITER', appKey))) {
     return rateLimited({});
+  }
+  const appPrecise = await withinPreciseLimit(env, appKey);
+  if (!appPrecise.success) {
+    return rateLimited({}, appPrecise.retryAfter);
   }
 
   if (!verifyAppKey(request, env, app)) {
@@ -282,6 +313,92 @@ const warnedMissingLimiter = new Set();
  * per Cloudflare location and eventually consistent, so the limit is
  * approximate, not exact.
  */
+/**
+ * Exact sliding-window counter, one Durable Object per bucket key.
+ *
+ * Every request for a key is routed to the same object, so unlike the Rate
+ * Limiting binding this counts exactly (Issue #76). Storage holds at most
+ * PRECISE_LIMIT timestamps; entries that fall out of the window are dropped on
+ * the next request, and an object that empties deletes its storage.
+ *
+ * Written as a plain class on purpose: importing `DurableObject` from
+ * "cloudflare:workers" would make this module unloadable under plain Node,
+ * where the test suite runs.
+ */
+export class RateLimiter {
+  constructor(state) {
+    this.state = state;
+    // Requests to one object interleave at every await, which would let two
+    // callers both read "4 hits" and both write a 5th. Each request waits for
+    // the previous one instead of relying on the runtime to serialise.
+    this.queue = Promise.resolve();
+  }
+
+  async fetch(request) {
+    let limit = PRECISE_LIMIT;
+    let windowMs = PRECISE_WINDOW_MS;
+    try {
+      const body = await request.json();
+      if (Number.isFinite(body.limit) && body.limit > 0) limit = body.limit;
+      if (Number.isFinite(body.windowMs) && body.windowMs > 0) windowMs = body.windowMs;
+    } catch (err) {
+      // Fall back to the defaults above; both sides of this call are ours.
+    }
+
+    const run = this.queue.then(() => this.count(limit, windowMs));
+    // Never let one failure poison the queue for every later request.
+    this.queue = run.then(() => undefined, () => undefined);
+    return json(await run, 200, {});
+  }
+
+  async count(limit, windowMs) {
+    const now = Date.now();
+    const stored = (await this.state.storage.get('hits')) || [];
+    const hits = stored.filter((ts) => now - ts < windowMs);
+
+    if (hits.length >= limit) {
+      // The window frees up when the oldest hit leaves it.
+      const retryAfter = Math.max(1, Math.ceil((windowMs - (now - hits[0])) / 1000));
+      if (hits.length !== stored.length) await this.state.storage.put('hits', hits);
+      return { success: false, retryAfter };
+    }
+
+    hits.push(now);
+    await this.state.storage.put('hits', hits);
+    return { success: true };
+  }
+}
+
+/**
+ * Ask the Durable Object whether this key may pass. Fails open, like the
+ * binding below: a broken counter must not take the contact form down. A
+ * missing binding is logged once so a deploy that dropped it is visible.
+ */
+async function withinPreciseLimit(env, key) {
+  const ns = env.RATE_LIMITER;
+  if (!ns) {
+    if (!warnedMissingLimiter.has('RATE_LIMITER')) {
+      warnedMissingLimiter.add('RATE_LIMITER');
+      console.warn('RATE_LIMITER binding is not configured; exact rate limiting is off');
+    }
+    return { success: true };
+  }
+
+  try {
+    const stub = ns.get(ns.idFromName(key));
+    const res = await stub.fetch('https://rate-limiter/check', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ limit: PRECISE_LIMIT, windowMs: PRECISE_WINDOW_MS }),
+    });
+    const data = await res.json();
+    return data && data.success === false ? data : { success: true };
+  } catch (err) {
+    console.error('RATE_LIMITER failed; letting the request through', err && err.stack ? err.stack : err);
+    return { success: true };
+  }
+}
+
 async function withinRateLimit(env, binding, key) {
   const limiter = env[binding];
   if (!limiter) {
@@ -306,10 +423,10 @@ function clientIp(request) {
 }
 
 /** `headers` carries CORS for /submit so the browser form can read the body. */
-function rateLimited(headers) {
+function rateLimited(headers, retryAfter = RATE_LIMIT_PERIOD_SECONDS) {
   return json({ ok: false, error: 'rate_limited' }, 429, {
     ...headers,
-    'Retry-After': String(RATE_LIMIT_PERIOD_SECONDS),
+    'Retry-After': String(retryAfter),
   });
 }
 
