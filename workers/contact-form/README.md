@@ -197,14 +197,27 @@ Batto のキーで InstantID を名乗ることはできない。
 
 ## レート制限
 
-**主のレート制限は Worker の中にある。** Workers の
-[Rate Limiting バインディング](https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/)
-を `wrangler.toml` で2本宣言している。
+**レート制限は Worker の中に2段ある。** 粗いほうで大半を落とし、**正確なほう（Durable Object）で確実に止める。**
 
-| バインディング | 経路 | キー | 上限 |
-|---|---|---|---|
-| `FORM_RATE_LIMITER` | `/submit` | `form:<IP>` | 3件 / 60秒 |
-| `APP_RATE_LIMITER` | `/app-submit` | `app:<slug>:<IP>` | 3件 / 60秒 |
+| 段 | 仕組み | 経路 | キー | 上限 | 正確さ |
+|---|---|---|---|---|---|
+| 1 | `FORM_RATE_LIMITER`（バインディング） | `/submit` | `form:<IP>` | 3件 / 60秒 | ロケーション単位・結果整合（目安） |
+| 1 | `APP_RATE_LIMITER`（バインディング） | `/app-submit` | `app:<slug>:<IP>` | 3件 / 60秒 | 同上 |
+| 2 | `RATE_LIMITER`（Durable Object） | 両方 | 上と同じキー | **5件 / 10分**（スライディング） | **正確** |
+
+> [!IMPORTANT]
+> **バインディングだけでは実運用でほぼ効かなかった（Issue #76）。**
+> 2026-09-18 に本番で計測: 同一 IP から 1.5 秒間隔で 20 件送って **429 は 1 件だけ**。
+> [Rate Limiting バインディング](https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/)
+> は「ロケーション単位・結果整合で、正確な計数を意図していない」と公式に書かれている。
+> **上限が小さい用途では、これ単体を防御として数えてはいけない。**
+>
+> Durable Object は1つのキーにつき1つのオブジェクトに集約されるので、**数え漏れが無い。**
+> SQLite 版の Durable Object は無料プランで使える。上限と窓は `src/index.js` の
+> `PRECISE_LIMIT` / `PRECISE_WINDOW_MS`。
+
+`Retry-After` は、Durable Object が断ったときは**一番古い1件が窓から出るまでの残り秒数**、
+バインディングが断ったときは 60。
 
 `<IP>` は `CF-Connecting-IP`。無ければ `unknown`（全員で1つのバケットを共有）。
 
@@ -288,12 +301,17 @@ npx wrangler deploy
 **そのサブドメインの DNS レコードだけ**が自動作成される（lh.tools 本体の MX / SPF には触れない）。
 
 `[[ratelimits]]`（レート制限のバインディング）には **wrangler 4.36 以上**が必要。
-デプロイ時の出力に次の2行が出ていれば有効になっている。
+デプロイ時の出力に次の3行が出ていれば両方の段が有効になっている。
 
 ```
 env.APP_RATE_LIMITER (3 requests/60s)       Rate Limit
 env.FORM_RATE_LIMITER (3 requests/60s)      Rate Limit
+env.RATE_LIMITER (RateLimiter)              Durable Object
 ```
+
+**初回デプロイでは `[[migrations]]`（tag = "v1"）により `RateLimiter` クラスが作られる。**
+クラス名を変えるときは、名前を変えるだけでなく `renamed_classes` の migration を足すこと
+（そうしないと、それまでの計数を持つオブジェクトが行方不明になる）。
 
 > [!NOTE]
 > **無料プランで Rate Limiting バインディングが使えるかは、公式ドキュメントに明記がない。**
@@ -342,7 +360,8 @@ curl -i -X POST https://form.lh.tools/app-submit \
 そのあと https://lh.tools/contact/ から実際に1通送信し、
 「[サイト] …」が届くこと・返信先アドレスをコピーして自分のメールから返信できることを確認する。
 
-> 同じ経路を1分間に4回以上試すと、Worker 内のレート制限で `429 rate_limited` になる。1分待てば戻る。
+> 同じ経路を1分間に4回以上試すと、まずバインディングで `429 rate_limited` になる（1分待てば戻る）。
+> **10分のあいだに6回以上**試すと Durable Object のほうに当たり、`Retry-After` の秒数（最大10分）待つことになる。
 
 ### 7. （任意）WAF の補助ルール
 
@@ -361,7 +380,7 @@ Cloudflare ダッシュボード → `lh.tools` → **Security** → **WAF** →
 | Action | Block, 10 seconds |
 
 > WAF で弾かれた応答には Worker の CORS ヘッダが付かないので、サイトのフォームでは
-> 「通信に失敗しました」と表示される。Worker の上限（3件 / 60秒）より緩くしてあるので、普通の利用で先に当たることはない。
+> 「通信に失敗しました」と表示される。Worker の上限より緩くしてあるので、普通の利用で先に当たることはない。
 
 ---
 
@@ -383,7 +402,11 @@ node test/worker.test.mjs
   `なし` の表示、meta の整形、単一行項目の改行で偽の行を作れないこと、本文内の偽ラベルが引用に収まること
 - **fail closed**: `SLACK_WEBHOOK_URL` 未設定（ログに原因が出ること）・Slack 以外の URL・Slack の非 2xx・通信エラーで 502、
   **いずれの場合もログに Webhook URL が出ないこと**
-- **レート制限**: 上限超過で 429 `rate_limited` と `Retry-After: 60`、**そのとき Turnstile にも Slack にも fetch しない**こと、
+- **正確なレート制限（Durable Object）**: バインディングが通しても6件目で 429 になること、Issue #76 の
+  「20件連投」が5件で止まること、`Retry-After` が一番古い1件の残り時間になること、窓が過ぎれば再び送れること、
+  キーごとに別オブジェクトになること、バインディング無し・例外時は通すこと、
+  **1つのオブジェクトに同時に来ても数え間違えないこと**
+- **レート制限（バインディング）**: 上限超過で 429 `rate_limited` と `Retry-After: 60`、**そのとき Turnstile にも Slack にも fetch しない**こと、
   `/submit` の 429 に CORS が付くこと、キー（`form:<IP>` / `app:<slug>:<IP>` / IP 無しは `unknown`）、IP ごと・アプリごとに別バケット、
   `/submit` は本文を読む前・`/app-submit` はアプリキーの検証より前に判定すること、許可リスト外の slug はリミッターに届かないこと、
   `/config` とプリフライトは数えないこと、バインディング無し・例外時は通すこと（警告は経路ごとに1回）

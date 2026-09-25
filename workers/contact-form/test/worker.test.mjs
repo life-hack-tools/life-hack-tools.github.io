@@ -4,7 +4,7 @@
  * No dependencies — Node 18+ provides Request/Response/FormData, and both
  * Turnstile verification and the Slack webhook are stubbed through global fetch.
  */
-import worker from '../src/index.js';
+import worker, { RateLimiter } from '../src/index.js';
 
 const ORIGIN = 'https://lh.tools';
 // Obviously fake. The real webhook URL is a secret and must never be committed.
@@ -662,6 +662,135 @@ await check('a limiter that throws fails open and is logged', async () => {
   eq(posts.length, 1, 'delivered');
   has(logs.join('\n'), 'FORM_RATE_LIMITER failed', 'logged');
 });
+
+/* ------------------------------------------------- exact limit (Durable Object) */
+
+realConsoleError('\nexact rate limiting (Durable Object)');
+
+/** Just enough of a Durable Object state for RateLimiter: key-value storage. */
+function makeState() {
+  const store = new Map();
+  return {
+    storage: {
+      async get(key) { return store.get(key); },
+      async put(key, value) { store.set(key, value); },
+      async deleteAll() { store.clear(); },
+    },
+  };
+}
+
+/** Stand-in for a Durable Object namespace: one real RateLimiter per name. */
+function makeDurableNamespace() {
+  const objects = new Map();
+  const names = [];
+  return {
+    names,
+    objects,
+    idFromName(name) { names.push(name); return { name }; },
+    get(id) {
+      let object = objects.get(id.name);
+      if (!object) { object = new RateLimiter(makeState()); objects.set(id.name, object); }
+      return { fetch: (url, init) => object.fetch(new Request(url, init)) };
+    },
+  };
+}
+
+/** Coarse binding set high on purpose, so the Durable Object is what refuses. */
+const exact = () => ({ ...appEnv, APP_RATE_LIMITER: makeLimiter(100), FORM_RATE_LIMITER: makeLimiter(100), RATE_LIMITER: makeDurableNamespace() });
+
+await check('/submit: 5 pass, the 6th is refused even though the binding allows it', async () => {
+  const e = exact();
+  for (let i = 0; i < 5; i += 1) eq((await worker.fetch(post(valid), e)).status, 200, `request ${i + 1}`);
+  const res = await worker.fetch(post(valid), e);
+  eq(res.status, 429, 'sixth');
+  eq((await res.json()).error, 'rate_limited', 'error');
+  eq(posts.length, 5, 'only five delivered');
+});
+
+await check('the 20-per-40-seconds burst from Issue #76 is stopped after 5', async () => {
+  const e = exact();
+  let ok = 0, refused = 0;
+  for (let i = 0; i < 20; i += 1) {
+    const res = await worker.fetch(appPost(appValid), e);
+    if (res.status === 200) ok += 1; else if (res.status === 429) refused += 1;
+  }
+  eq(ok, 5, 'delivered');
+  eq(refused, 15, 'refused');
+});
+
+await check('Retry-After counts down to when the oldest hit leaves the window', async () => {
+  const realNow = Date.now;
+  try {
+    let now = realNow();
+    Date.now = () => now;
+    const e = exact();
+    for (let i = 0; i < 5; i += 1) await worker.fetch(post(valid), e);
+    now += 4 * 60 * 1000;                      // 4 minutes into a 10 minute window
+    const res = await worker.fetch(post(valid), e);
+    eq(res.status, 429, 'status');
+    eq(res.headers.get('Retry-After'), String(6 * 60), 'six minutes left');
+    eq(res.headers.get('Access-Control-Allow-Origin'), ORIGIN, 'cors on 429');
+  } finally { Date.now = realNow; }
+});
+
+await check('the window slides: sending is possible again once the hits age out', async () => {
+  const realNow = Date.now;
+  try {
+    let now = realNow();
+    Date.now = () => now;
+    const e = exact();
+    for (let i = 0; i < 5; i += 1) await worker.fetch(post(valid), e);
+    eq((await worker.fetch(post(valid), e)).status, 429, 'blocked inside the window');
+    now += 10 * 60 * 1000 + 1000;
+    eq((await worker.fetch(post(valid), e)).status, 200, 'allowed after the window');
+  } finally { Date.now = realNow; }
+});
+
+await check('each key gets its own object: ip, and app slug on /app-submit', async () => {
+  const e = exact();
+  for (let i = 0; i < 5; i += 1) await worker.fetch(postFrom('198.51.100.5'), e);
+  eq((await worker.fetch(postFrom('198.51.100.5'), e)).status, 429, 'same ip refused');
+  eq((await worker.fetch(postFrom('198.51.100.6'), e)).status, 200, 'other ip unaffected');
+  eq(e.RATE_LIMITER.names.includes('form:198.51.100.5'), true, 'form key');
+  await worker.fetch(appPost(appValid), e);
+  eq(e.RATE_LIMITER.names.includes('app:batto:203.0.113.9'), true, 'app key carries the slug');
+});
+
+await check('the refused request calls neither Turnstile nor Slack', async () => {
+  const e = exact();
+  for (let i = 0; i < 5; i += 1) await worker.fetch(post(valid), e);
+  posts = []; seenSiteverify = null;
+  eq((await worker.fetch(post(valid), e)).status, 429, 'status');
+  eq(seenSiteverify, null, 'siteverify not called');
+  eq(posts.length, 0, 'nothing posted');
+});
+
+await check('a missing RATE_LIMITER binding fails open and warns once', async () => {
+  const e = { ...appEnv, FORM_RATE_LIMITER: makeLimiter(100) };
+  eq((await worker.fetch(post(valid), e)).status, 200, 'request goes through');
+  eq(warns.filter((w) => w.includes('RATE_LIMITER binding is not configured')).length <= 1, true, 'warned at most once');
+});
+
+await check('a Durable Object that throws fails open and is logged', async () => {
+  const e = {
+    ...appEnv,
+    FORM_RATE_LIMITER: makeLimiter(100),
+    RATE_LIMITER: { idFromName() { return {}; }, get() { throw new Error('object exploded'); } },
+  };
+  eq((await worker.fetch(post(valid), e)).status, 200, 'request goes through');
+  eq(posts.length, 1, 'delivered');
+  has(logs.join('\n'), 'RATE_LIMITER failed', 'logged');
+});
+
+await check('RateLimiter counts exactly under concurrent calls to one object', async () => {
+  const object = new RateLimiter(makeState());
+  const hit = () => object.fetch(new Request('https://rate-limiter/check', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ limit: 5, windowMs: 600000 }),
+  })).then((r) => r.json());
+  const results = await Promise.all(Array.from({ length: 12 }, hit));
+  eq(results.filter((r) => r.success).length, 5, 'exactly five passed');
+});
+
 
 console.error = realConsoleError;
 console.log(`\n${pass} passed, ${fail} failed`);

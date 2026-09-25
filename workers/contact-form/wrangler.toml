@@ -10,13 +10,30 @@ workers_dev = false
 pattern = "form.lh.tools"
 custom_domain = true
 
-# Workers Rate Limiting (needs wrangler >= 4.36). This is the primary rate
-# limit for both routes — WAF rate limiting rules on the Free plan only offer
-# a 10 second window, which is too short to matter here.
+# Exact rate limiting: one Durable Object per bucket key (form:<ip> /
+# app:<slug>:<ip>), 5 requests per 10 minutes, sliding window. Every request
+# for a key reaches the same object, so the count is exact — unlike the
+# bindings below (Issue #76). SQLite-backed Durable Objects are available on
+# the Free plan; the KV-style storage API used in src/index.js works there.
 #
-# Counting is per Cloudflare location and eventually consistent, so treat
-# "3 per 60 s" as approximate. `period` may only be 10 or 60, and must match
-# RATE_LIMIT_PERIOD_SECONDS in src/index.js (it becomes Retry-After).
+# The limit and the window live in src/index.js (PRECISE_LIMIT /
+# PRECISE_WINDOW_MS), not here.
+[[durable_objects.bindings]]
+name = "RATE_LIMITER"
+class_name = "RateLimiter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RateLimiter"]
+
+# Workers Rate Limiting (needs wrangler >= 4.36). This is the FIRST pass only —
+# it is cheap, but counting is per Cloudflare location and eventually
+# consistent. Measured in production on 2026-09-18: only 1 of 20 requests sent
+# 1.5 s apart from one IP was refused. The Durable Object above is what
+# actually holds the line (Issue #76).
+#
+# `period` may only be 10 or 60, and must match RATE_LIMIT_PERIOD_SECONDS in
+# src/index.js (it becomes Retry-After when this layer is the one that refuses).
 #
 # namespace_id must be unique within the Cloudflare account; two Workers that
 # share one would share counters. No other LHTz Worker declares a rate limit
