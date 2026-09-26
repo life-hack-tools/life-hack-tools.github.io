@@ -488,6 +488,60 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lh.tools/apps/yane/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/yane/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/yane/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/yane/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/yane/"/>
+    <lastmod>2026-09-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/apps/yane/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/yane/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/yane/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/yane/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/yane/"/>
+    <lastmod>2026-09-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/apps/yane/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/yane/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/yane/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/yane/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/yane/"/>
+    <lastmod>2026-09-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/privacy/yane/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/yane/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/yane/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/yane/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/yane/"/>
+    <lastmod>2026-09-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/yane/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/yane/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/yane/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/yane/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/yane/"/>
+    <lastmod>2026-09-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/yane/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/yane/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/yane/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/yane/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/yane/"/>
+    <lastmod>2026-09-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lh.tools/apps/batto/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/batto/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/batto/"/>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー - Yane - Life Hack Tools</title>
+  <meta name="description" content="Yane（同居の割り勘と家事当番）のプライバシーポリシー。アカウント登録は不要で、世帯のデータを見られるのは同じ世帯のメンバーだけです。広告・分析ツールは使いません。">
+  <link rel="canonical" href="https://lh.tools/privacy/yane/">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/yane/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/yane/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/yane/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/yane/">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .updated { color: #666; font-size: 13px; margin-bottom: 40px; display: block; }
+    .intro { font-size: 16px; color: #999; margin-bottom: 48px; line-height: 1.8; }
+    .policy-section { margin-bottom: 40px; }
+    .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
+    .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #d9774f; background: rgba(217,119,79,0.1); border: 1px solid rgba(217,119,79,0.25); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
+    .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .policy-section p + p { margin-top: 8px; }
+    .policy-section ul { margin: 8px 0 8px 20px; color: #999; font-size: 15px; }
+    .policy-section li { margin: 6px 0; line-height: 1.7; }
+    .policy-section strong { color: #ccc; }
+    .policy-section a { color: #d9774f; }
+    .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 24px; display: flex; align-items: center; gap: 16px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .contact-card .info { flex: 1; }
+    .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
+    .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
+    .contact-card a:hover { color: #d9774f; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/apps/yane/">&larr; Yane</a>
+    <div class="lang-switch">
+      <a href="/privacy/yane/" class="active">JA</a>
+      <a href="/en/privacy/yane/">EN</a>
+      <a href="/vi/privacy/yane/">VI</a>
+    </div>
+  </div>
+  <div class="content">
+    <h1>プライバシーポリシー</h1>
+    <span class="updated">最終更新日: 2026年9月26日</span>
+    <p class="intro">Life Hack Tools（以下「当団体」）は、Yane（同居の割り勘と家事当番／以下「本アプリ」）における利用者の情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。本アプリは、ルームシェア・同棲・シェアハウスで暮らす人が、お金と家事の記録を共有するためのアプリです。アカウント登録は不要です。世帯のデータを閲覧・編集できるのは同じ世帯のメンバーだけで、当団体が利用者の情報を第三者へ販売・提供することはありません。本アプリは広告を表示しません。</p>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>アカウントと識別子</h2>
+      <p>本アプリはアカウント登録を必要としません。起動時に、Google が提供する Firebase Authentication の匿名認証によって、端末ごとの識別子を作成します。この識別子は、利用者がどの世帯のメンバーであるかを判別するために使います。</p>
+      <p>メールアドレス、電話番号、氏名の入力を求めることはありません。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>保存する情報</h2>
+      <p>本アプリは、世帯で共有するために、利用者が入力した以下の情報を保存します。</p>
+      <ul>
+        <li><strong>世帯と同居人:</strong> 世帯の名前と通貨、同居人の表示名と色。表示名は利用者が付ける呼び名で、実名である必要はありません。</li>
+        <li><strong>お金の記録:</strong> 立替の記録（題名・金額・日付・支払った人・分担）、その変更履歴、精算の記録。</li>
+        <li><strong>家事の当番:</strong> 家事の名前・間隔・順番・完了の記録。</li>
+        <li><strong>共有の日用品:</strong> 共有の日用品の在庫と、買い出しリスト。</li>
+        <li><strong>招待と参加:</strong> 招待コードと、世帯への参加の申請（機種変更の際に、同居人の枠を新しい端末へ付け替える申請を含みます）。</li>
+      </ul>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>保存場所</h2>
+      <p>前項の情報は、Google が提供する Cloud Firestore に保存します。保存先のリージョンは東京（asia-northeast1）で、本アプリ専用のプロジェクトを使っています。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>情報を閲覧できる人</h2>
+      <p>世帯のデータを本アプリで閲覧・編集できるのは、<strong>同じ世帯のメンバーだけ</strong>です。この制限は、Cloud Firestore のセキュリティルールによって行っています。</p>
+      <p>当団体が利用者の情報を第三者へ販売したり、提供したりすることはありません。本アプリは広告を表示しません。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>利用しないもの</h2>
+      <p>本アプリは、以下のものを利用していません。</p>
+      <ul>
+        <li>分析ツール</li>
+        <li>広告 SDK</li>
+        <li>クラッシュレポートのサービス（現時点）</li>
+      </ul>
+      <p>また、位置情報、連絡先（アドレス帳）、写真、カメラ、マイクは使いません。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>通知</h2>
+      <p>家事の当番のお知らせは、端末の中だけで予約する<strong>ローカル通知</strong>です。サーバーからプッシュ通知を送ることはありません。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>端末に保存する情報</h2>
+      <p>本アプリは、お使いの端末に以下の情報を保存します。</p>
+      <ul>
+        <li>表示言語の設定</li>
+        <li>ログイン状態（匿名認証）</li>
+      </ul>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">08</span>データの削除</h2>
+      <p>アプリの「メンバー」画面から、世帯を抜けることができます。</p>
+      <p>ただし、世帯のデータのうち、他のメンバーとの貸し借りの記録は、揉め事を防ぐために世帯に残ることがあります。</p>
+      <p>すべてのデータの削除を希望される場合は、下記のお問い合わせ先までご連絡ください。内容を確認のうえ、対応いたします。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">09</span>アプリ内課金</h2>
+      <p>現在、本アプリに課金はありません。</p>
+      <p>将来、世帯プラン（サブスクリプション）を導入する予定です。決済は Apple または Google が行い、当団体がクレジットカードの情報を受け取ることはありません。導入時には、本ポリシーを更新します。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">10</span>お子様のプライバシー</h2>
+      <p>本アプリは、18歳未満の方を対象としていません。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">11</span>ポリシーの変更</h2>
+      <p>当団体は、必要に応じて本ポリシーを変更することがあります。変更した場合は、本ページにてお知らせします。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">12</span>運営者とお問い合わせ</h2>
+      <p>本アプリの運営者は Life Hack Tools です。本ポリシーに関するお問い合わせ、およびデータの削除のご依頼は、以下のフォームよりご連絡ください。</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">フォームにてお問い合わせ</div>
+          <a href="/contact/?app=Yane&amp;topic=privacy">お問い合わせフォーム</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
