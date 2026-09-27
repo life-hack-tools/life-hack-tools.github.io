@@ -23,6 +23,9 @@
     .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
     .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #dc2626; background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
     .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .policy-section p + p, .policy-section ul + p { margin-top: 12px; }
+    .policy-section a { color: #f0f0f0; }
+    .policy-section ul { font-size: 15px; color: #999; line-height: 1.8; padding-left: 20px; margin-top: 8px; }
     .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
     .contact-card .x-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .contact-card .x-icon svg { width: 24px; height: 24px; }
@@ -59,7 +62,30 @@
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>アカウントを削除したい</h2>
-      <p>下記のお問い合わせ先にご連絡ください。</p>
+      <p>アプリからいつでも削除できます。手順は下の「<a href="#delete-account">アカウントとデータの削除</a>」をご覧ください。</p>
+    </div>
+
+    <div class="section-label" id="delete-account">アカウントとデータの削除</div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>アプリから削除する</h2>
+      <p>［プロフィール］タブの［データ引き継ぎ］を開き、画面のいちばん下にある［アカウントを削除］をタップします。確認が2回表示されるので、内容を確認して進めると、その場で削除されます。</p>
+      <p>削除すると元に戻せません。削除後のアプリは、はじめて使うときと同じ状態に戻ります。</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>アプリが手元にない場合</h2>
+      <p><a href="mailto:dev@lh.tools?subject=Mugg%20%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%89%8A%E9%99%A4%E3%81%AE%E4%BE%9D%E9%A0%BC">dev@lh.tools</a> 宛てに、件名を「Mugg アカウント削除の依頼」として、<strong>復元コード</strong>（アプリの［データ引き継ぎ］→［復元コードを表示］で確認できる英数字）を添えてご連絡ください。Mugg はメールアドレスを登録せずに使えるため、復元コードでアカウントを特定します。</p>
+      <p>内容を確認したうえで、アプリからの削除と同じ内容を削除し、完了をメールでお知らせします。</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>削除されるデータと保持期間</h2>
+      <p>次のデータは、削除の操作をした時点ですぐにサーバーから削除されます。</p>
+      <ul>
+        <li>チェックイン（写真・メモ・Wi-Fi／電源／混み具合などの記録）</li>
+        <li>アップロードした写真（プロフィール写真を含む）</li>
+        <li>プロフィール（表示名など）とレビュー</li>
+        <li>Apple／Google との連携情報、復元コード、データ引き継ぎ用のコード</li>
+      </ul>
+      <p>カフェの店名・住所など、特定の利用者に結び付かない店舗の情報は削除されません。店ごとの Wi-Fi 速度の平均値のように、利用者を区別せずにまとめた数値には、削除前の計測結果が反映されたまま残ります（ここから個人は特定できません）。</p>
     </div>
 
     <div class="policy-section fade-in">

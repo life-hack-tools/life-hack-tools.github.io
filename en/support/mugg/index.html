@@ -23,6 +23,9 @@
     .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
     .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #dc2626; background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
     .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .policy-section p + p, .policy-section ul + p { margin-top: 12px; }
+    .policy-section a { color: #f0f0f0; }
+    .policy-section ul { font-size: 15px; color: #999; line-height: 1.8; padding-left: 20px; margin-top: 8px; }
     .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
     .contact-card .x-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .contact-card .x-icon svg { width: 24px; height: 24px; }
@@ -59,7 +62,30 @@
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>I want to delete my account</h2>
-      <p>Please contact us below.</p>
+      <p>You can delete it from the app at any time. See <a href="#delete-account">Deleting your account and data</a> below.</p>
+    </div>
+
+    <div class="section-label" id="delete-account">Deleting your account and data</div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>Delete from the app</h2>
+      <p>Open the <strong>Profile</strong> tab, tap <strong>Transfer Data</strong>, and tap <strong>Delete account</strong> at the very bottom of the screen. After two confirmations your account is deleted immediately.</p>
+      <p>Deletion cannot be undone. Afterwards the app returns to the state it was in when first installed.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>If you no longer have the app</h2>
+      <p>Email <a href="mailto:dev@lh.tools?subject=Mugg%20account%20deletion%20request">dev@lh.tools</a> with the subject "Mugg account deletion request" and include your <strong>recovery code</strong> (shown in the app under Transfer Data &rarr; Show Recovery Code). Mugg can be used without an email address, so we identify your account by its recovery code.</p>
+      <p>Once we have checked your request, we delete the same data as the in-app deletion and let you know by email when it is done.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>What is deleted, and how long it is kept</h2>
+      <p>The following data is deleted from our servers immediately when the deletion runs:</p>
+      <ul>
+        <li>Your check-ins (photos, notes, Wi-Fi / power / crowd records)</li>
+        <li>Photos you uploaded, including your profile photo</li>
+        <li>Your profile (display name and so on) and your reviews</li>
+        <li>Your Apple / Google link, your recovery code, and any data transfer codes</li>
+      </ul>
+      <p>Cafe information that is not tied to any user, such as cafe names and addresses, is not deleted. Figures that combine everyone's input without telling users apart, such as a cafe's average Wi-Fi speed, keep including measurements made before the deletion (they cannot identify you).</p>
     </div>
 
     <div class="policy-section fade-in">
