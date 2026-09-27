@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chính sách quyền riêng tư - Batto - Life Hack Tools</title>
-  <meta name="description" content="Chính sách quyền riêng tư của Batto, ứng dụng ghi sổ điểm bóng chày. Dữ liệu trận đấu chỉ lưu trên máy và chỉ rời khỏi máy khi bạn chọn chia sẻ tỉ số (hoặc tự xuất ra tệp). Không quảng cáo, không theo dõi.">
+  <meta name="description" content="Chính sách quyền riêng tư của Batto, ứng dụng ghi sổ điểm bóng chày. Dữ liệu trận đấu, đội và lịch thi đấu được lưu theo một mã định danh ẩn danh, trên cả máy của bạn lẫn máy chủ Firebase của chúng tôi. Không quảng cáo, không theo dõi.">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
@@ -50,41 +50,42 @@
   </div>
   <div class="content">
     <h1>Chính sách quyền riêng tư</h1>
-    <span class="updated">Có hiệu lực: 11 tháng 9 năm 2026 / Cập nhật lần cuối: 25 tháng 9 năm 2026</span>
-    <p class="intro">Life Hack Tools ("chúng tôi") quy định chính sách quyền riêng tư sau đây về cách xử lý thông tin người dùng trong Batto (ứng dụng ghi sổ điểm bóng chày; "Ứng dụng"). Ứng dụng không yêu cầu đăng ký tài khoản hay đăng nhập, và có thể dùng ẩn danh. Dữ liệu trận đấu chỉ được lưu trên máy của bạn, và nội dung đó chỉ rời khỏi máy <strong>khi bạn chọn chia sẻ tỉ số</strong>. Tuy nhiên, nếu bạn chọn xuất một trận đấu, Ứng dụng sẽ chuyển dữ liệu trận đấu thành tệp CSV hoặc JSON và chuyển đến nơi bạn chọn (nơi lưu tệp hoặc một ứng dụng khác). Tệp này không bao giờ được gửi đến máy chủ của chúng tôi. Ngoài ra, chúng tôi thu thập nhật ký sự cố và dữ liệu đo hiệu năng để phát hiện, sửa lỗi và cải thiện tốc độ hoạt động của Ứng dụng. Khi bạn gửi góp ý từ màn hình "Cài đặt &amp; hỗ trợ", chúng tôi cũng nhận được nội dung bạn gửi, cùng với thông tin về ứng dụng và thiết bị cần thiết để kiểm tra. Ứng dụng không hiển thị quảng cáo và không theo dõi cho mục đích quảng cáo.</p>
+    <span class="updated">Có hiệu lực: 11 tháng 9 năm 2026 / Cập nhật lần cuối: 28 tháng 9 năm 2026</span>
+    <p class="intro">Life Hack Tools ("chúng tôi") quy định chính sách quyền riêng tư sau đây về cách xử lý thông tin người dùng trong Batto (ứng dụng ghi sổ điểm bóng chày; "Ứng dụng"). Ứng dụng không yêu cầu đăng ký tài khoản hay đăng nhập: khi khởi động, Ứng dụng tự động tạo một mã định danh ẩn danh cho máy của bạn. Dữ liệu trận đấu, đội và lịch thi đấu trước tiên được lưu trên máy của bạn, sau đó được tự động gửi đến máy chủ Firebase (Google Cloud Firestore) của chúng tôi tùy theo tình trạng kết nối. Tuy nhiên, nếu bạn chọn xuất một trận đấu, Ứng dụng sẽ chuyển dữ liệu trận đấu thành tệp CSV hoặc JSON và chuyển đến nơi bạn chọn (nơi lưu tệp hoặc một ứng dụng khác). Tệp này không bao giờ được gửi đến máy chủ của chúng tôi. Ngoài ra, chúng tôi thu thập nhật ký sự cố và dữ liệu đo hiệu năng để phát hiện, sửa lỗi và cải thiện tốc độ hoạt động của Ứng dụng. Khi bạn gửi góp ý từ màn hình "Cài đặt &amp; hỗ trợ", chúng tôi cũng nhận được nội dung bạn gửi, cùng với thông tin về ứng dụng và thiết bị cần thiết để kiểm tra. Ứng dụng không hiển thị quảng cáo và không theo dõi cho mục đích quảng cáo.</p>
     <div class="policy-section fade-in">
-      <h2><span class="num">01</span>Thông tin chỉ lưu trên máy của bạn</h2>
-      <p>Những thông tin sau chỉ được lưu trong bộ nhớ trên máy của bạn. <strong>Chúng không bao giờ được gửi đi tự động.</strong></p>
+      <h2><span class="num">01</span>Thông tin lưu trên máy và trên máy chủ (trận đấu, đội, lịch thi đấu)</h2>
+      <p>Khi khởi động, Ứng dụng tự động tạo một mã định danh ẩn danh cho từng máy. Không có màn hình đăng nhập. Những thông tin sau trước tiên được lưu trên máy của bạn, sau đó được tự động gửi đến máy chủ Firebase (Google Cloud Firestore, khu vực Tokyo, dự án batto-lht) của chúng tôi, tùy theo tình trạng kết nối. Dữ liệu đã có sẵn trên máy từ trước khi cập nhật sẽ được gửi lên máy chủ trong lần mở Ứng dụng đầu tiên sau khi cập nhật.</p>
       <ul>
-        <li><strong>Dữ liệu trận đấu đang ghi:</strong> Nội dung trận đấu bạn đang ghi (hiệp, số điểm, kết quả từng lượt đánh, v.v.) được lưu trên máy (khóa lưu trữ: batto.activeGame.v1).</li>
-        <li><strong>Thông tin đội:</strong> Tên đội, thứ tự đánh, tên cầu thủ và số áo được lưu trên máy (khóa lưu trữ: batto.teamProfiles.v1).</li>
-        <li><strong>Các trận đã ghi:</strong> Nội dung các trận đấu bạn đã ghi (tên đội, số điểm, kết quả từng lượt đánh, v.v.) được lưu trên máy, tối đa 100 trận. Bạn có thể xóa từng trận trong màn hình "Trận đã ghi".</li>
-        <li><strong>Bản lưu các tỉ số đã chia sẻ:</strong> Với mỗi tỉ số bạn chia sẻ, URL, tiêu đề (tên đội và tỉ số), thời điểm chia sẻ và khóa dùng để ngừng chia sẻ được lưu trên máy, tối đa 50 mục.</li>
+        <li><strong>Dữ liệu trận đấu:</strong> Kết quả từng lượt đánh, người chạy, số điểm và các dữ liệu tương tự; thứ tự đánh và vị trí phòng thủ; tên và tên cầu thủ của cả hai đội; cách trận đấu kết thúc; ngày giờ diễn ra trận đấu (khóa lưu trữ: batto.activeGame.v1 và các khóa khác).</li>
+        <li><strong>Thông tin đội:</strong> Tên đội, tên cầu thủ, số áo, thứ tự đánh và vị trí phòng thủ trước đó (khóa lưu trữ: batto.teamProfiles.v1).</li>
+        <li><strong>Lịch thi đấu:</strong> Nội dung bạn nhập cho một trận đã lên lịch, như ngày giờ, đối thủ và địa điểm.</li>
+        <li><strong>Mã định danh ẩn danh:</strong> Một ID được tạo tự động cho từng máy.</li>
       </ul>
-      <p>Dữ liệu này chỉ tồn tại trên máy của bạn và sẽ bị xóa khi bạn gỡ cài đặt Ứng dụng.</p>
-      <p>Tuy nhiên, nếu bạn chọn xuất một trận trong màn hình "Trận đã ghi", Ứng dụng sẽ chuyển dữ liệu của trận đó (bao gồm tên cầu thủ) thành tệp CSV hoặc JSON và chuyển đến nơi bạn chọn (nơi lưu tệp hoặc một ứng dụng khác). Tệp này không bao giờ được gửi đến máy chủ của chúng tôi.</p>
+      <p>Những thông tin sau không bao giờ được gửi lên máy chủ, chỉ lưu trên máy của bạn.</p>
+      <ul>
+        <li><strong>Tên của người ghi trận:</strong> Tên bạn nhập cho chính mình trong bước hướng dẫn ban đầu.</li>
+        <li><strong>Mã định danh của lịch thông báo:</strong> Chỉ dùng để quản lý các nhắc nhở đã đặt lịch trên máy của bạn.</li>
+      </ul>
+      <p><strong>Các trận đã ghi:</strong> Tối đa 100 trận được lưu trên máy. Một trận đã được gửi lên máy chủ vẫn có thể được đọc lại từ máy chủ ngay cả sau khi biến mất khỏi danh sách trên máy. Xóa một trận trong màn hình "Trận đã ghi" cũng xóa trận đó khỏi máy chủ (vẫn còn lại dấu vết đã xóa).</p>
+      <p>Dữ liệu trên máy chủ được giới hạn bởi các quy tắc bảo mật của Firebase, sao cho chỉ chủ sở hữu của mã định danh ẩn danh đó mới có thể đọc hoặc ghi.</p>
+      <p>Mã định danh ẩn danh được lưu trên máy của bạn (trên iOS, mã này nằm trong bản sao lưu iCloud). Nếu mã này bị mất — ví dụ khi bạn đổi máy — bạn có thể không còn truy cập được các dữ liệu trước đó từ Ứng dụng.</p>
+      <p>Nếu bạn chọn xuất một trận trong màn hình "Trận đã ghi", Ứng dụng sẽ chuyển dữ liệu của trận đó (bao gồm tên cầu thủ) thành tệp CSV hoặc JSON và chuyển đến nơi bạn chọn (nơi lưu tệp hoặc một ứng dụng khác). Tệp này không bao giờ được gửi đến máy chủ của chúng tôi.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>Thông tin được gửi đi khi bạn chia sẻ tỉ số</h2>
-      <p>Dữ liệu trận đấu và thông tin đội mà bạn nhập chỉ được gửi ra bên ngoài <strong>khi bạn chọn chia sẻ tỉ số</strong>. Khi đó, các thông tin sau được gửi tới máy chủ của Supabase, trong phạm vi cần thiết để cung cấp tính năng chia sẻ.</p>
+      <h2><span class="num">02</span>Thông tin được lưu trên máy chủ (Firebase)</h2>
+      <p>Những gì máy chủ Firebase của chúng tôi lưu trữ chính là dữ liệu trận đấu, đội và lịch thi đấu được mô tả ở mục 01, cùng với mã định danh ẩn danh. Mọi kết nối đều được mã hóa (HTTPS / TLS).</p>
       <ul>
-        <li>Tên của cả hai đội</li>
-        <li>Số điểm của cả hai đội</li>
-        <li>Hiệp đấu và trạng thái tiến triển của trận đấu</li>
-        <li>Tiêu đề trận đấu</li>
-        <li><strong>Thứ tự đánh (danh sách tên cầu thủ của cả hai đội)</strong> — tùy theo nội dung bạn nhập, đây có thể là tên thật</li>
-        <li>12 mục nhật ký lượt đánh gần nhất (văn bản hiển thị có chứa tên cầu thủ, ví dụ: "Đầu hiệp 1 — Kenta Sato: đánh an toàn về trái … 1 điểm!")</li>
-        <li>Dữ liệu có cấu trúc của sự kiện lượt đánh (hiệp, vị trí trong thứ tự đánh, kết quả lượt đánh và việc chạy tiến gôn của người chạy)</li>
+        <li><strong>Được gửi đi:</strong> Dữ liệu trận đấu (kết quả từng lượt đánh, người chạy, số điểm, v.v.), thứ tự đánh và vị trí phòng thủ, tên và tên cầu thủ của cả hai đội, cách trận đấu kết thúc, ngày giờ trận đấu, thông tin lịch thi đấu (ngày giờ, đối thủ, địa điểm và các nội dung khác bạn nhập), và mã định danh ẩn danh.</li>
+        <li><strong>Không được gửi đi:</strong> Tên của người ghi trận (nhập trong bước hướng dẫn ban đầu), và mã định danh của lịch thông báo. Ảnh, vị trí và danh bạ cũng không bao giờ được gửi đi. "Địa điểm" trong lịch thi đấu chỉ là văn bản bạn nhập, không phải dữ liệu vị trí (GPS).</li>
       </ul>
-      <p>Đó là toàn bộ những gì được gửi đi. Ảnh, vị trí hay danh bạ không bao giờ được truyền đi. Mọi kết nối đều được mã hóa (HTTPS / TLS).</p>
-      <p>Sau khi được chia sẻ, những thông tin này <strong>được lưu trên máy chủ của Supabase cho đến khi bạn ngừng chia sẻ.</strong></p>
+      <p>Dữ liệu trên máy chủ gắn với mã định danh ẩn danh của máy bạn, và <strong>chỉ chủ sở hữu của mã định danh đó mới có thể đọc hoặc ghi</strong> — điều này được đảm bảo bởi các quy tắc bảo mật của Firebase.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">03</span>Ai có thể xem liên kết đã chia sẻ, và việc xóa</h2>
-      <p>Khi bạn chia sẻ tỉ số, một URL để xem sẽ được tạo ra. URL đó chứa một mã khó đoán, nhưng <strong>bất kỳ ai biết URL đều có thể xem tỉ số đã chia sẻ.</strong> Ứng dụng không cung cấp cơ chế giới hạn người xem (như mật khẩu hay lời mời).</p>
-      <p>Vì nội dung chia sẻ có chứa tên cầu thủ, bạn hãy cân nhắc kỹ khi gửi URL cho người khác.</p>
-      <p><strong>Bạn có thể ngừng chia sẻ tỉ số bất cứ lúc nào trong màn hình "Tỉ số đã chia sẻ" của ứng dụng.</strong> Sau khi ngừng, liên kết sẽ không còn hiển thị nội dung nào.</p>
-      <p>Khóa dùng để gỡ tỉ số xuống chỉ được lưu trên máy đã chia sẻ. Nếu bản lưu trên máy bị mất — ví dụ khi bạn đổi điện thoại hoặc xóa ứng dụng — bạn sẽ không gỡ xuống được từ ứng dụng nữa. Trong trường hợp đó, vui lòng liên hệ qua <a href="/vi/contact/?app=Batto&amp;topic=deletion" style="color:#dc2626;">biểu mẫu</a> trên trang hỗ trợ.</p>
+      <h2><span class="num">03</span>Thông tin được công khai qua liên kết chia sẻ</h2>
+      <p>Khi bạn chia sẻ một trận đấu, một mã định danh công khai được tạo ra cho trận đó, và liên kết chia sẻ trỏ đến chính trận đấu đó. <strong>Mỗi khi liên kết được mở, nó hiển thị nội dung mới nhất tại thời điểm đó.</strong> Trong lúc trận đấu đang được ghi, trang chia sẻ cũng tự động tải lại. Chia sẻ cùng một trận đấu nhiều lần luôn tạo ra cùng một liên kết.</p>
+      <p>Ứng dụng không cung cấp cơ chế giới hạn người xem trang chia sẻ (như mật khẩu hay lời mời). <strong>Bất kỳ ai biết URL đều có thể xem nội dung đã chia sẻ.</strong></p>
+      <p>Trang chia sẻ hiển thị tên cầu thủ của cả hai đội. Tuy nhiên, <strong>tên của người ghi trận và địa điểm trong lịch thi đấu không bao giờ hiển thị trên trang chia sẻ.</strong> Vì có chứa tên cầu thủ, bạn hãy cân nhắc kỹ khi gửi URL cho người khác.</p>
+      <p>Bạn có thể ngừng chia sẻ một trận đấu bất cứ lúc nào trong màn hình "Tỉ số đã chia sẻ" của Ứng dụng. Sau khi ngừng, trang chia sẻ đó sẽ không còn xem được nữa (bản ghi trận đấu không bị xóa). Các bản sao của những liên kết đã chia sẻ trước đây đã được chuyển sang Firebase và vẫn xem được. Nếu muốn gỡ, vui lòng liên hệ qua biểu mẫu bên dưới.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">04</span>Nhật ký sự cố và đo hiệu năng</h2>
@@ -114,7 +115,7 @@
       <ul>
         <li>Thông tin nhận dạng cá nhân như tên hay số điện thoại (địa chỉ email chỉ được nhận khi bạn tự nhập làm địa chỉ phản hồi lúc gửi góp ý)</li>
         <li>Ảnh hoặc hình ảnh từ camera</li>
-        <li>Dữ liệu vị trí</li>
+        <li>Dữ liệu vị trí ("địa điểm" trong lịch thi đấu được lưu dưới dạng văn bản do bạn nhập, không phải dữ liệu vị trí)</li>
         <li>Danh bạ (sổ địa chỉ)</li>
       </ul>
       <p>Ứng dụng cũng không hiển thị quảng cáo và không thực hiện theo dõi cho mục đích quảng cáo. Chúng tôi không bao giờ bán hay chia sẻ thông tin người dùng cho bên thứ ba.</p>
@@ -123,12 +124,13 @@
       <h2><span class="num">07</span>Dịch vụ bên thứ ba</h2>
       <p>Ứng dụng sử dụng các dịch vụ bên ngoài sau để cung cấp tính năng. Mỗi dịch vụ xử lý dữ liệu theo chính sách quyền riêng tư riêng của họ.</p>
       <ul>
-        <li><strong>Supabase:</strong> Chỉ được dùng cho tính năng chia sẻ tỉ số (lưu dữ liệu đã chia sẻ và tạo URL để xem). Không dùng cho việc đồng bộ hay sao lưu dữ liệu.</li>
+        <li><strong>Firebase (Google):</strong> Dùng để lưu trữ dữ liệu trận đấu, đội và lịch thi đấu của bạn, cũng như cho tính năng chia sẻ tỉ số (lưu dữ liệu đã chia sẻ và cung cấp trang xem). Dữ liệu được lưu trong khu vực Tokyo của Google Cloud Firestore.</li>
+        <li><strong>Supabase:</strong> Ứng dụng hiện không còn gửi dữ liệu đến đây (trước đây được dùng cho tính năng chia sẻ tỉ số; các bản sao liên kết chia sẻ trước đây đã được chuyển sang Firebase).</li>
         <li><strong>Sentry:</strong> Dùng để thu thập thông tin chẩn đoán cho việc phân tích sự cố và đo hiệu năng (mục đích cải thiện chất lượng / phân tích).</li>
         <li><strong>Cloudflare:</strong> Dùng để vận hành hệ thống tiếp nhận góp ý (form.lh.tools).</li>
         <li><strong>Slack:</strong> Dùng để nhận các góp ý đã được tiếp nhận trong kênh riêng tư của chúng tôi.</li>
       </ul>
-      <p>Nếu bạn không chọn chia sẻ tỉ số, dữ liệu trận đấu và thông tin đội của bạn không bao giờ được gửi ra bên ngoài (nếu bạn chọn xuất một trận, tệp chỉ được chuyển đến nơi bạn chọn và không được gửi đến máy chủ của chúng tôi).</p>
+      <p>Như đã nêu ở mục 01, dữ liệu trận đấu, đội và lịch thi đấu của bạn được tự động gửi đến máy chủ Firebase của chúng tôi (nếu bạn chọn xuất một trận, tệp chỉ được chuyển đến nơi bạn chọn và không được gửi đến máy chủ của chúng tôi).</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">08</span>Quyền truy cập</h2>
@@ -138,8 +140,9 @@
     <div class="policy-section fade-in">
       <h2><span class="num">09</span>Lưu trữ &amp; xóa dữ liệu</h2>
       <ul>
-        <li><strong>Dữ liệu trên máy (trận đấu và thông tin đội):</strong> Bị xóa khi bạn gỡ cài đặt Ứng dụng khỏi máy.</li>
-        <li><strong>Tỉ số đã chia sẻ:</strong> Được lưu trên máy chủ của Supabase cho đến khi bạn ngừng chia sẻ. Khi bạn ngừng chia sẻ trong màn hình "Tỉ số đã chia sẻ" của Ứng dụng, dữ liệu sẽ bị xóa khỏi máy chủ. Nếu không thể gỡ xuống vì bản lưu trên máy đã bị mất, vui lòng liên hệ chúng tôi qua biểu mẫu bên dưới.</li>
+        <li><strong>Dữ liệu chỉ lưu trên máy (tên người ghi trận, lịch thông báo, v.v.):</strong> Bị xóa khi bạn gỡ cài đặt Ứng dụng khỏi máy.</li>
+        <li><strong>Dữ liệu trên máy chủ (trận đấu, đội, lịch thi đấu):</strong> <strong>Không bị xóa</strong> khi bạn gỡ cài đặt Ứng dụng khỏi máy. Xóa một trận trong màn hình "Trận đã ghi" cũng xóa trận đó khỏi máy chủ. Ứng dụng không có thao tác xóa toàn bộ dữ liệu (tương đương xóa tài khoản) ngay trong ứng dụng, vì vậy vui lòng gửi yêu cầu qua biểu mẫu liên hệ bên dưới. Chúng tôi có thể hỏi thêm một vài thông tin để xác nhận đó là yêu cầu của chính bạn.</li>
+        <li><strong>Tỉ số đã chia sẻ:</strong> Ngừng chia sẻ trong màn hình "Tỉ số đã chia sẻ" của Ứng dụng khiến trang chia sẻ đó không còn xem được (bản ghi trận đấu không bị xóa).</li>
         <li><strong>Nhật ký sự cố và dữ liệu đo hiệu năng:</strong> Được lưu trên dịch vụ của Sentry.</li>
         <li><strong>Góp ý:</strong> Được lưu trong kênh riêng tư trên Slack của chúng tôi và được giữ trong thời gian cần thiết để xử lý.</li>
       </ul>
@@ -154,7 +157,7 @@
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">12</span>Liên hệ</h2>
-      <p>Nếu có thắc mắc về chính sách này, hoặc muốn yêu cầu xóa một tỉ số đã chia sẻ, vui lòng liên hệ chúng tôi bên dưới. Bạn cũng có thể gửi từ màn hình "Cài đặt &amp; hỗ trợ" của Ứng dụng.</p>
+      <p>Nếu có thắc mắc về chính sách này, muốn yêu cầu xóa một tỉ số đã chia sẻ, hoặc muốn yêu cầu xóa dữ liệu của bạn trên máy chủ, vui lòng liên hệ chúng tôi bên dưới. Bạn cũng có thể gửi từ màn hình "Cài đặt &amp; hỗ trợ" của Ứng dụng.</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
         <div class="info">
