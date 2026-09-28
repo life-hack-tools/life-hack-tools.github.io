@@ -125,7 +125,7 @@
       <p>The App uses the following external services to provide its features. Each service handles data in accordance with its own privacy policy.</p>
       <ul>
         <li><strong>Firebase (Google):</strong> Used to store your game, team and schedule records, and for the score sharing feature (storing shared data and serving the viewing page). Data is stored in Google Cloud Firestore's Tokyo region.</li>
-        <li><strong>Supabase:</strong> The App no longer sends any data here (it was previously used for score sharing; copies of previously issued share links have been migrated to Firebase).</li>
+        <li><strong>Supabase:</strong> The App no longer sends any data here (it was previously used for score sharing; copies of previously issued share links have been migrated to Firebase). The original data of those earlier shares still remains on Supabase and will be cleaned up by us; if you want it deleted now, please contact us through the form below.</li>
         <li><strong>Sentry:</strong> Used to collect diagnostic information for crash analysis and performance monitoring (quality improvement / analytics purposes).</li>
         <li><strong>Cloudflare:</strong> Used to run our feedback intake service (form.lh.tools).</li>
         <li><strong>Slack:</strong> Used to receive submitted feedback in our private channel.</li>
@@ -141,7 +141,7 @@
       <h2><span class="num">09</span>Data Storage &amp; Deletion</h2>
       <ul>
         <li><strong>Data kept only on your device (your name as scorer, notification schedules, etc.):</strong> Deleted when you uninstall the App from your device.</li>
-        <li><strong>Data on our servers (games, teams, schedule):</strong> <strong>Not deleted</strong> when you uninstall the App from your device. Deleting a game from the "Past games" screen also deletes it from the server. The App has no in-app option to delete all your data (equivalent to account deletion); please request this through the contact form below. We may ask you a few questions to confirm your identity.</li>
+        <li><strong>Data on our servers (games, teams, schedule):</strong> <strong>Not deleted</strong> when you uninstall the App. Deleting a game from the "Past games" screen also deletes it from the server. <strong>You can delete all of your data on the server at any time with "Delete all my data on the server" in the "Saving to the server" section of the App's Settings &amp; support screen.</strong> This deletes your games, teams and schedule on the server, the games you shared (their share links stop working), older shares made from this device, and your anonymous identifier. Data on your device is kept. After deletion, nothing is saved to the server; if you turn "Save to the server" back on, saving starts again with a new anonymous identifier (earlier share links do not come back).</li>
         <li><strong>Shared scores:</strong> Stopping sharing from the "Shared scores" screen in the App makes that shared page no longer viewable (the game record itself is not deleted).</li>
         <li><strong>Crash logs and performance data:</strong> Stored on Sentry's service.</li>
         <li><strong>Feedback:</strong> Stored in a private channel in our Slack workspace and kept for as long as needed to handle your request.</li>
