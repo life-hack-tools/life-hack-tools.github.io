@@ -75,7 +75,7 @@
       <h2><span class="num">02</span>Information Stored on Our Servers (Firebase)</h2>
       <p>What our Firebase servers store is the game, team and schedule information described in section 01, together with the anonymous identifier. All communication is encrypted (HTTPS / TLS).</p>
       <ul>
-        <li><strong>Sent:</strong> Game records (at-bat results, runners, scores and so on), batting order and fielding, both teams' names and player names, how the game ended, the game's date and time, the other team's record you imported (see section 01), schedule details (date/time, opponent, location and other text you enter), and the anonymous identifier.</li>
+        <li><strong>Sent:</strong> Game records (at-bat results, runners, scores and so on), batting order and fielding, both teams' names and player names, how the game ended, the game's date and time, the other team's record you imported (see section 01), schedule details (date/time, opponent, location and other text you enter), and the anonymous identifier. If you create a team page, the content shown on it (see section 04) and its settings (the page identifier, whether to show the place of upcoming games, and each game's "Hide from team page" mark) are also sent.</li>
         <li><strong>Not sent:</strong> Your name as the scorer (entered during onboarding), and notification schedule identifiers. Photos, location data and contacts are never sent either. A schedule's "location" is stored as text you typed, not as location data (GPS).</li>
       </ul>
       <p>Data on the server is tied to your device's anonymous identifier, and <strong>only the owner of that identifier can read or write it</strong> — this is enforced by Firebase security rules.</p>
@@ -89,7 +89,23 @@
       <p>You can stop sharing a game at any time from the "Shared scores" screen in the App. Once you do, that shared page can no longer be viewed (the game record itself is not deleted). Copies of links you shared previously have been moved to Firebase and remain viewable. You can also revoke them from the "Shared scores" screen on the device you shared them from. If you no longer have that device (after changing phones or deleting the App), please contact us through the form below.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">04</span>Crash Logs and Performance Monitoring</h2>
+      <h2><span class="num">04</span>Information Made Public on a Team Page</h2>
+      <p>If you create a "Team page" for your own team from the team screen in the App, a page for that team is created (batto.lh.tools/teams/…). The link (URL) uses a hard-to-guess identifier, and <strong>anyone who knows the URL can view the page without logging in.</strong> The page is set not to appear in search engines (noindex). The App does not provide any mechanism to restrict who can view it (such as a password or invitation).</p>
+      <p>A team page shows the following information about that team.</p>
+      <ul>
+        <li><strong>Team name</strong></li>
+        <li><strong>Game results:</strong> Date, opponent team name, batting first or second, score, win/loss, and how the game ended (called off, rain-shortened, etc.), plus the win–loss record, runs scored and runs allowed counted from them. Games marked "Hide from team page" are left out of both the results and the stats. A game that is still being recorded is shown as in progress, with its score, only if you have shared it.</li>
+        <li><strong>Upcoming games:</strong> Date and time, opponent team name, batting first or second (up to 20). The place is shown only if you choose "Also show the place of upcoming games" (it is not shown at first).</li>
+        <li><strong>Stats for each player:</strong> The player's name and totals for batting (batting average, hits, home runs, RBIs, strikeouts, etc.) and pitching (innings pitched, strikeouts, runs allowed, etc.), for each year and for all time.</li>
+        <li><strong>Links to scorebooks:</strong> For games whose score you have shared, a link to that game's shared page (with player names; see section 03).</li>
+      </ul>
+      <p><strong>Your name as the scorer, schedule notes, the game's location, at-bat-by-at-bat records, batting orders and uniform numbers are never shown on a team page.</strong> Because player names are shown, please be careful about who you send the URL to.</p>
+      <p>The team page is updated automatically from your device, for example when a game ends or the schedule changes. It is built from the games on your device (up to 100), so older games that are no longer on your device also disappear from the team page. The page content is stored on our Firebase servers, together with the anonymous identifier of the device that created it and an internal identifier of the team, which are used to confirm who owns the page (they are not shown on the page).</p>
+      <p>You can turn off the team page at any time from the team screen in the App. Once it is off, the link can no longer be viewed (if you are offline, it is turned off once you are back online, and until then the old page may still be visible). If you create it again, it gets a new link. The team page is also deleted when you delete that team or use "Delete all my data on the server". While saving to the server is off, you cannot create a team page, and an existing team page is not updated (it can still be viewed with its last content until you turn it off).</p>
+      <p><strong>If your anonymous identifier changes — for example because you delete and reinstall the App — you can no longer turn off or update a team page you created before from the App.</strong> In that case, please contact us through the form below. If you tell us the page's link, we will delete it.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>Crash Logs and Performance Monitoring</h2>
       <p>The App collects the following diagnostic information via Sentry in order to detect and fix problems in the App and to improve how it runs (quality improvement / analytics purposes).</p>
       <ul>
         <li><strong>Crash and error information:</strong> Error information at the time of a crash or error, your device model, OS version, app version and similar diagnostic information that Sentry collects automatically.</li>
@@ -98,7 +114,7 @@
       <p>We use Sentry with settings that keep personally identifiable information from being sent. We also do not implement any deliberate transmission of the game data or player names you enter. We never sell the diagnostic information we collect to third parties or provide it for advertising purposes.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>Information Sent When You Send Feedback</h2>
+      <h2><span class="num">06</span>Information Sent When You Send Feedback</h2>
       <p>From the App's "Settings &amp; support" screen, you can send us feedback, bug reports, questions and data deletion requests. The following information is sent <strong>only when you tap the send button</strong>.</p>
       <ul>
         <li><strong>What you write:</strong> The type (feedback / bug / question / data deletion request) and your message</li>
@@ -111,7 +127,7 @@
       <p>We use what you send only to respond to you and to investigate and improve the App, and we keep it for as long as needed to handle your request. We never sell it to third parties or provide it for advertising purposes. For how the contact form on our website handles information, see the <a href="/en/privacy/" style="color:#dc2626;">Life Hack Tools privacy policy</a>.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Information We Do Not Collect</h2>
+      <h2><span class="num">07</span>Information We Do Not Collect</h2>
       <p>The App does not collect any of the following.</p>
       <ul>
         <li>Personally identifiable information such as your name or phone number (we receive an email address only if you enter one yourself as the reply address for feedback)</li>
@@ -122,10 +138,10 @@
       <p>The App also shows no advertising and performs no tracking for advertising purposes. We never sell or share user information with third parties.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Third-Party Services</h2>
+      <h2><span class="num">08</span>Third-Party Services</h2>
       <p>The App uses the following external services to provide its features. Each service handles data in accordance with its own privacy policy.</p>
       <ul>
-        <li><strong>Firebase (Google):</strong> Used to store your game, team and schedule records, and for the score sharing feature (storing shared data and serving the viewing page). Data is stored in Google Cloud Firestore's Tokyo region.</li>
+        <li><strong>Firebase (Google):</strong> Used to store your game, team and schedule records, for the score sharing feature (storing shared data and serving the viewing page), and to store the content of team pages. Data is stored in Google Cloud Firestore's Tokyo region.</li>
         <li><strong>Sentry:</strong> Used to collect diagnostic information for crash analysis and performance monitoring (quality improvement / analytics purposes).</li>
         <li><strong>Cloudflare:</strong> Used to run our feedback intake service (form.lh.tools).</li>
         <li><strong>Slack:</strong> Used to receive submitted feedback in our private channel.</li>
@@ -133,32 +149,33 @@
       <p>As described in section 01, your game, team and schedule records are automatically sent to our Firebase servers.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Permissions</h2>
+      <h2><span class="num">09</span>Permissions</h2>
       <p>The App does not require sensitive device permissions such as camera, photo library, location or contacts.</p>
       <p><strong>Notifications (optional)</strong>: when you add a scheduled game, the App may ask for permission to remind you the day before and on the day. Reminders are scheduled on your device only; neither the schedule nor any notification identifier is sent to a server. Every other feature works without this permission, and you can revoke it at any time in your device settings.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Data Storage &amp; Deletion</h2>
+      <h2><span class="num">10</span>Data Storage &amp; Deletion</h2>
       <ul>
         <li><strong>Data kept only on your device (your name as scorer, notification schedules, etc.):</strong> Deleted when you uninstall the App from your device.</li>
-        <li><strong>Data on our servers (games, teams, schedule, shared games, anonymous identifier):</strong> <strong>Kept until you delete it. We do not set a retention period or delete it automatically.</strong> <strong>Not deleted</strong> when you uninstall the App. Deleting a game from the "Past games" screen also deletes it from the server (a marker showing that it was deleted remains, and this marker is likewise kept until you delete it). <strong>You can delete all of your data on the server at any time with "Delete all my data on the server" in the "Saving to the server" section of the App's Settings &amp; support screen.</strong> This deletes your games, teams and schedule on the server (including imported records of the other team and deletion markers), the games you shared (their share links stop working), older shares made from this device, and your anonymous identifier. Data on your device is kept. After deletion, nothing is saved to the server; if you turn "Save to the server" back on, saving starts again with a new anonymous identifier (earlier share links do not come back).</li>
+        <li><strong>Data on our servers (games, teams, schedule, shared games, team pages, anonymous identifier):</strong> <strong>Kept until you delete it. We do not set a retention period or delete it automatically.</strong> <strong>Not deleted</strong> when you uninstall the App. Deleting a game from the "Past games" screen also deletes it from the server (a marker showing that it was deleted remains, and this marker is likewise kept until you delete it). <strong>You can delete all of your data on the server at any time with "Delete all my data on the server" in the "Saving to the server" section of the App's Settings &amp; support screen.</strong> This deletes your games, teams and schedule on the server (including imported records of the other team and deletion markers), the games you shared (their share links stop working), your team pages (their links stop working), older shares made from this device, and your anonymous identifier. Data on your device is kept. After deletion, nothing is saved to the server; if you turn "Save to the server" back on, saving starts again with a new anonymous identifier (earlier share links do not come back).</li>
         <li><strong>Shared scores:</strong> Stopping sharing from the "Shared scores" screen in the App makes that shared page no longer viewable (the game record itself is not deleted).</li>
+        <li><strong>Team pages:</strong> Turning off a team page from the team screen in the App makes it no longer viewable (your game records are not deleted). It is also deleted when you delete that team or use "Delete all my data on the server". If you can no longer turn it off from the App — for example after deleting and reinstalling the App — please send us the page's link through the form below, and we will delete it.</li>
         <li><strong>Imported records of the other team:</strong> Deleted when you tap "Remove" in that game's scorebook or delete the game. "Delete all my data on the server" also deletes them from the server. They are not removed when the other team stops sharing.</li>
         <li><strong>Crash logs and performance data:</strong> Stored on Sentry's service.</li>
         <li><strong>Feedback:</strong> Stored in a private channel in our Slack workspace and kept for as long as needed to handle your request.</li>
       </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Children's Privacy</h2>
+      <h2><span class="num">11</span>Children's Privacy</h2>
       <p>The App is intended for people aged 18 and over and is not directed to children. We do not knowingly collect personal information from children.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">11</span>Changes to This Policy</h2>
+      <h2><span class="num">12</span>Changes to This Policy</h2>
       <p>We may update this policy as needed. Any changes will be published on this page.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">12</span>Contact</h2>
-      <p>For inquiries regarding this policy, to request deletion of a score you have shared, or to request deletion of your data on our servers, please contact us below. You can also send a message from the App's "Settings &amp; support" screen.</p>
+      <h2><span class="num">13</span>Contact</h2>
+      <p>For inquiries regarding this policy, to request deletion of a score or team page you have shared, or to request deletion of your data on our servers, please contact us below. You can also send a message from the App's "Settings &amp; support" screen.</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
         <div class="info">
