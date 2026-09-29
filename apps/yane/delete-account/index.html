@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アカウントの削除 - Yane - Life Hack Tools</title>
+  <meta name="description" content="Yane（同居の割り勘と家事当番）のアカウントを削除する方法。アプリの「メンバー」画面から削除できます。アプリを開けない場合は、お問い合わせフォームからご依頼ください。">
+  <link rel="canonical" href="https://lh.tools/apps/yane/delete-account/">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/apps/yane/delete-account/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/yane/delete-account/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/yane/delete-account/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/yane/delete-account/">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 24px; }
+    .intro { font-size: 16px; color: #999; margin-bottom: 48px; line-height: 1.8; }
+    .policy-section { margin-bottom: 40px; }
+    .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
+    .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #d9774f; background: rgba(217,119,79,0.1); border: 1px solid rgba(217,119,79,0.25); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
+    .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .policy-section p + p, .policy-section ol + p, .policy-section ul + p { margin-top: 8px; }
+    .policy-section ul, .policy-section ol { margin: 8px 0 8px 20px; color: #999; font-size: 15px; }
+    .policy-section li { margin: 6px 0; line-height: 1.7; }
+    .policy-section strong { color: #ccc; }
+    .policy-section a { color: #d9774f; }
+    .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 24px; display: flex; align-items: center; gap: 16px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .contact-card .info { flex: 1; }
+    .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
+    .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
+    .contact-card a:hover { color: #d9774f; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/apps/yane/">&larr; Yane</a>
+    <div class="lang-switch">
+      <a href="/apps/yane/delete-account/" class="active">JA</a>
+      <a href="/en/apps/yane/delete-account/">EN</a>
+      <a href="/vi/apps/yane/delete-account/">VI</a>
+    </div>
+  </div>
+  <div class="content">
+    <h1>アカウントの削除</h1>
+    <p class="intro">Yane（同居の割り勘と家事当番）のアカウントと、それに結び付くデータを削除する方法をご案内します。本アプリの運営者は Life Hack Tools です。</p>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>アプリの中で削除する</h2>
+      <ol>
+        <li>Yane を開き、「メンバー」画面（家のメンバー一覧の画面）を開きます。</li>
+        <li>画面の一番下にある「アカウントを削除」を押します。</li>
+        <li>確認の画面で「削除する」を押します。</li>
+      </ol>
+      <p>削除は元に戻せません。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>削除されるもの</h2>
+      <p>どの家に参加していても、以下は削除されます。</p>
+      <ul>
+        <li>Yane のアカウント（Firebase Authentication のユーザー）。Apple または Google のアカウントと連携している場合は、その結び付きも削除されます。Apple と連携している場合は、Apple 側のサインインの許可も取り消します。</li>
+        <li>参加しているすべての家での在籍</li>
+        <li>端末に保存していた設定と、家事のお知らせ</li>
+      </ul>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>家に残るもの・消えるもの</h2>
+      <p>参加しているそれぞれの家について、同居人が参加しているかどうかで扱いが変わります。</p>
+      <ul>
+        <li><strong>ほかに同居人が参加している家:</strong> あなたは家を出て、家の中でのあなたの名前は消え、「退会した人」と表示されます。立替・精算・家事の記録は、同居人の残高が変わらないよう、家に残ります。これらの記録での名前も「退会した人」となり、あなたと結び付く情報は残りません。</li>
+        <li><strong>参加しているのがあなただけの家:</strong> 家ごと、記録もすべて削除されます。アプリを入れていない「名前だけの同居人」は、参加している人に数えません。削除はサーバーで行い、おおむね1時間以内に完了します。その家の招待コードは、アカウントを削除した時点で使えなくなり、名前だけの同居人も、あとから参加することはできなくなります。</li>
+      </ul>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>アプリを削除した・開けない場合</h2>
+      <p>アプリを削除してしまった場合や、アプリを開けない場合は、下記のお問い合わせフォームで、お問い合わせの種類に「データ削除のご依頼」、対象のアプリに「Yane」を選び、「アカウント削除の依頼」とお送りください。受け付けから<strong>30日以内</strong>に対応します。</p>
+      <p>アカウントを特定するため、連携した Apple または Google のアカウントのメールアドレス（Apple の「メールを非公開」を選んだ場合は、中継用のアドレス）をご記入ください。</p>
+      <p>アカウントを連携していない場合は、アプリの中の「アカウントを削除」から削除してください。連携していないアカウントは、アプリを削除したあとでは、私たちの側からも本人を特定できません（家の中のあなたの名前も含めて、あなたと結び付く情報を探す手がかりがありません）。</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">フォームにてご依頼</div>
+          <a href="/contact/?app=Yane&amp;topic=deletion">お問い合わせフォーム</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>関連情報</h2>
+      <p>情報の取り扱いについては、<a href="/privacy/yane/">プライバシーポリシー</a>をご覧ください。</p>
+    </div>
+  </div>
+  <script>
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>

@@ -23,6 +23,9 @@
     .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
     .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #dc2626; background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
     .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .policy-section p + p, .policy-section ul + p { margin-top: 12px; }
+    .policy-section a { color: #f0f0f0; }
+    .policy-section ul { font-size: 15px; color: #999; line-height: 1.8; padding-left: 20px; margin-top: 8px; }
     .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
     .contact-card .x-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .contact-card .x-icon svg { width: 24px; height: 24px; }
@@ -59,7 +62,30 @@
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>Tôi muốn xóa tài khoản</h2>
-      <p>Vui lòng liên hệ với chúng tôi bên dưới.</p>
+      <p>Bạn có thể xóa tài khoản trong ứng dụng bất cứ lúc nào. Xem mục <a href="#delete-account">Xóa tài khoản và dữ liệu</a> bên dưới.</p>
+    </div>
+
+    <div class="section-label" id="delete-account">Xóa tài khoản và dữ liệu</div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>Xóa trong ứng dụng</h2>
+      <p>Mở tab <strong>Hồ sơ</strong>, chọn <strong>Chuyển dữ liệu</strong>, rồi nhấn <strong>Xóa tài khoản</strong> ở cuối màn hình. Sau hai lần xác nhận, tài khoản sẽ bị xóa ngay lập tức.</p>
+      <p>Không thể hoàn tác sau khi xóa. Ứng dụng sẽ trở về trạng thái như lúc mới cài đặt.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>Nếu bạn không còn ứng dụng</h2>
+      <p>Gửi email đến <a href="mailto:dev@lh.tools?subject=Y%C3%AAu%20c%E1%BA%A7u%20x%C3%B3a%20t%C3%A0i%20kho%E1%BA%A3n%20Mugg">dev@lh.tools</a> với tiêu đề "Yêu cầu xóa tài khoản Mugg" và kèm theo <strong>mã khôi phục</strong> (xem trong ứng dụng tại Chuyển dữ liệu &rarr; Hiện mã khôi phục). Mugg có thể dùng mà không cần địa chỉ email, nên chúng tôi xác định tài khoản của bạn bằng mã khôi phục.</p>
+      <p>Sau khi kiểm tra yêu cầu, chúng tôi sẽ xóa cùng những dữ liệu như khi xóa trong ứng dụng và thông báo cho bạn qua email khi hoàn tất.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>Dữ liệu bị xóa và thời gian lưu giữ</h2>
+      <p>Các dữ liệu sau sẽ bị xóa khỏi máy chủ ngay khi thực hiện xóa:</p>
+      <ul>
+        <li>Các lượt check-in (ảnh, ghi chú, thông tin Wi-Fi / ổ cắm điện / mức độ đông)</li>
+        <li>Ảnh bạn đã tải lên, bao gồm ảnh hồ sơ</li>
+        <li>Hồ sơ (tên hiển thị, v.v.) và các đánh giá</li>
+        <li>Liên kết Apple / Google, mã khôi phục và các mã chuyển dữ liệu</li>
+      </ul>
+      <p>Thông tin quán không gắn với người dùng nào, như tên và địa chỉ quán, sẽ không bị xóa. Các số liệu tổng hợp không phân biệt người dùng, như tốc độ Wi-Fi trung bình của quán, vẫn bao gồm các lần đo trước khi xóa (không thể dùng để nhận diện bạn).</p>
     </div>
 
     <div class="policy-section fade-in">

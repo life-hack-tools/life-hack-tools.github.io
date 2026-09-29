@@ -60,17 +60,28 @@
   </div>
   <div class="content">
     <h1>Chính sách bảo mật</h1>
-    <span class="updated">Cập nhật lần cuối: 26 tháng 9 năm 2026</span>
+    <span class="updated">Cập nhật lần cuối: 28 tháng 9 năm 2026</span>
     <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Yane: Chia tiền &amp; việc nhà ("Ứng dụng"). Ứng dụng giúp những người sống chung — bạn cùng phòng, cặp đôi và nhà ở ghép — chia sẻ ghi chép về tiền bạc và việc nhà. Bạn không cần tạo tài khoản. Chỉ thành viên trong cùng một nhà mới có thể xem và chỉnh sửa dữ liệu của nhà đó, và chúng tôi không bao giờ bán hay cung cấp thông tin người dùng cho bên thứ ba. Ứng dụng không hiển thị quảng cáo.</p>
 
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Tài khoản và mã định danh</h2>
       <p>Ứng dụng không yêu cầu tạo tài khoản. Khi khởi động, Ứng dụng tạo một mã định danh cho mỗi thiết bị bằng tính năng đăng nhập ẩn danh của Firebase Authentication, một dịch vụ do Google cung cấp. Mã định danh này dùng để xác định bạn là thành viên của nhà nào.</p>
-      <p>Chúng tôi không bao giờ yêu cầu bạn nhập địa chỉ email, số điện thoại hay họ tên.</p>
+      <p>Chúng tôi không bao giờ yêu cầu bạn nhập địa chỉ email, số điện thoại hay họ tên. Việc liên kết với tài khoản Apple hoặc Google là không bắt buộc (xem mục tiếp theo).</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>Thông tin chúng tôi lưu trữ</h2>
+      <h2><span class="num">02</span>Liên kết tài khoản (không bắt buộc)</h2>
+      <p>Bạn có thể dùng Ứng dụng mà không cần đăng ký. Nếu muốn, bạn có thể liên kết với tài khoản Apple hoặc Google (trên iPhone là Apple và Google, trên Android là Google). Sau khi liên kết, bạn có thể quay lại cùng nhà và ghi chép của mình sau khi đổi điện thoại hoặc cài lại Ứng dụng.</p>
+      <p>Khi bạn liên kết, chúng tôi nhận các thông tin sau và lưu trong Firebase Authentication:</p>
+      <ul>
+        <li>Mã định danh người dùng do Apple hoặc Google cấp</li>
+        <li>Địa chỉ email do Apple hoặc Google cung cấp (nếu bạn chọn "Ẩn địa chỉ email" với Apple, đó là địa chỉ chuyển tiếp)</li>
+      </ul>
+      <p>Địa chỉ email của bạn không được hiển thị cho những người ở cùng, và chúng tôi không dùng nó để liên lạc hay quảng cáo.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>Thông tin chúng tôi lưu trữ</h2>
       <p>Để chia sẻ trong nhà, Ứng dụng lưu các thông tin sau do bạn nhập:</p>
       <ul>
         <li><strong>Nhà và người ở cùng:</strong> tên và đơn vị tiền tệ của nhà, tên hiển thị và màu của từng người ở cùng. Tên hiển thị là cách bạn tự đặt để gọi nhau, không cần là tên thật.</li>
@@ -82,18 +93,18 @@
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">03</span>Nơi lưu trữ dữ liệu</h2>
+      <h2><span class="num">04</span>Nơi lưu trữ dữ liệu</h2>
       <p>Các thông tin trên được lưu trong Cloud Firestore, một dịch vụ do Google cung cấp. Dữ liệu được lưu tại khu vực Tokyo (asia-northeast1), trong một dự án chỉ dành riêng cho Ứng dụng.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">04</span>Ai có thể xem thông tin của bạn</h2>
+      <h2><span class="num">05</span>Ai có thể xem thông tin của bạn</h2>
       <p>Trong Ứng dụng, dữ liệu của một nhà <strong>chỉ có thể được xem và chỉnh sửa bởi các thành viên của nhà đó</strong>. Giới hạn này được thực thi bằng quy tắc bảo mật (security rules) của Cloud Firestore.</p>
       <p>Chúng tôi không bao giờ bán hay cung cấp thông tin người dùng cho bên thứ ba. Ứng dụng không hiển thị quảng cáo.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>Những gì chúng tôi không sử dụng</h2>
+      <h2><span class="num">06</span>Những gì chúng tôi không sử dụng</h2>
       <p>Ứng dụng không sử dụng:</p>
       <ul>
         <li>Công cụ phân tích</li>
@@ -104,44 +115,54 @@
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Thông báo</h2>
+      <h2><span class="num">07</span>Thông báo</h2>
       <p>Thông báo đến lượt làm việc nhà là <strong>thông báo cục bộ</strong>, chỉ được hẹn giờ trên thiết bị của bạn. Chúng tôi không gửi thông báo đẩy từ máy chủ.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Thông tin lưu trên thiết bị của bạn</h2>
+      <h2><span class="num">08</span>Thông tin lưu trên thiết bị của bạn</h2>
       <p>Ứng dụng lưu các thông tin sau trên thiết bị của bạn:</p>
       <ul>
         <li>Cài đặt ngôn ngữ hiển thị</li>
-        <li>Trạng thái đăng nhập (đăng nhập ẩn danh)</li>
+        <li>Trạng thái đăng nhập (đăng nhập ẩn danh, hoặc đăng nhập bằng tài khoản đã liên kết)</li>
       </ul>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Xóa dữ liệu</h2>
-      <p>Bạn có thể rời khỏi nhà từ màn hình "Thành viên" trong Ứng dụng.</p>
-      <p>Tuy nhiên, trong dữ liệu của nhà, các ghi chép về khoản nợ qua lại giữa bạn và các thành viên khác có thể vẫn được giữ lại trong nhà để tránh tranh chấp.</p>
-      <p>Nếu bạn muốn xóa toàn bộ dữ liệu, vui lòng liên hệ với chúng tôi qua biểu mẫu bên dưới. Chúng tôi sẽ xem xét và xử lý yêu cầu của bạn.</p>
+      <h2><span class="num">09</span>Xóa tài khoản và dữ liệu</h2>
+      <p>Bạn có thể xóa tài khoản bằng cách nhấn "Xoá tài khoản" ở cuối màn hình "Thành viên" (màn hình danh sách thành viên trong nhà), rồi nhấn "Xoá" để xác nhận. Dù bạn tham gia nhà nào, những mục sau đều bị xóa:</p>
+      <ul>
+        <li>Tài khoản của bạn trong Ứng dụng (người dùng trong Firebase Authentication). Nếu bạn đã liên kết với tài khoản Apple hoặc Google, liên kết đó cũng bị xóa. Nếu bạn đã liên kết với tài khoản Apple, chúng tôi cũng thu hồi quyền đăng nhập bằng Apple của Ứng dụng ở phía Apple.</li>
+        <li>Tư cách thành viên của bạn trong tất cả các nhà bạn đang tham gia</li>
+        <li>Các cài đặt lưu trên thiết bị và thông báo việc nhà</li>
+      </ul>
+      <p>Dữ liệu của từng nhà bạn đang tham gia được xử lý như sau:</p>
+      <ul>
+        <li><strong>Nhà có người ở cùng khác đã tham gia:</strong> Bạn rời khỏi nhà, tên của bạn trong nhà bị xóa và được hiển thị là "Người đã xoá tài khoản". Các ghi chép về khoản trả hộ, thanh toán và việc nhà vẫn được giữ trong nhà để số dư của những người ở cùng không bị thay đổi. Trong các ghi chép đó, tên của bạn cũng được hiển thị là "Người đã xoá tài khoản", và không còn thông tin nào gắn với bạn.</li>
+        <li><strong>Nhà chỉ có mình bạn tham gia:</strong> Toàn bộ nhà cùng tất cả các ghi chép sẽ bị xóa. Những người ở cùng chỉ được thêm bằng tên và chưa cài Ứng dụng không được tính là đã tham gia. Việc xóa được thực hiện trên máy chủ và thường hoàn tất trong vòng khoảng 1 giờ. Mã mời của nhà đó sẽ không dùng được nữa ngay khi bạn xóa tài khoản, nên những người ở cùng chỉ được thêm bằng tên cũng không thể tham gia sau này.</li>
+      </ul>
+      <p>Nếu bạn đã gỡ Ứng dụng hoặc không thể mở Ứng dụng, vui lòng gửi "Yêu cầu xóa tài khoản" qua biểu mẫu liên hệ bên dưới. Chúng tôi sẽ xử lý trong vòng 30 ngày kể từ khi nhận được yêu cầu. Để xác định tài khoản của bạn, vui lòng ghi địa chỉ email của tài khoản Apple hoặc Google mà bạn đã liên kết.</p>
+      <p>Xem chi tiết tại trang <a href="/vi/apps/yane/delete-account/">Xóa tài khoản</a>.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Mua hàng trong ứng dụng</h2>
+      <h2><span class="num">10</span>Mua hàng trong ứng dụng</h2>
       <p>Hiện tại, Ứng dụng không có khoản thu phí nào.</p>
       <p>Trong tương lai, chúng tôi dự định ra mắt gói dành cho nhà (gói đăng ký). Việc thanh toán sẽ do Apple hoặc Google thực hiện, và chúng tôi không nhận thông tin thẻ tín dụng của bạn. Chúng tôi sẽ cập nhật chính sách này khi ra mắt gói.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Quyền riêng tư của trẻ em</h2>
+      <h2><span class="num">11</span>Quyền riêng tư của trẻ em</h2>
       <p>Ứng dụng không dành cho người dưới 18 tuổi.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">11</span>Thay đổi chính sách</h2>
+      <h2><span class="num">12</span>Thay đổi chính sách</h2>
       <p>Chúng tôi có thể thay đổi chính sách này khi cần thiết. Khi có thay đổi, chúng tôi sẽ thông báo trên trang này.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">12</span>Đơn vị vận hành và liên hệ</h2>
+      <h2><span class="num">13</span>Đơn vị vận hành và liên hệ</h2>
       <p>Ứng dụng do Life Hack Tools vận hành. Nếu bạn có câu hỏi về chính sách này hoặc muốn yêu cầu xóa dữ liệu, vui lòng liên hệ qua biểu mẫu bên dưới.</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
