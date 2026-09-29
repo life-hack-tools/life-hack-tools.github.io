@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Support - Batto - Life Hack Tools</title>
-  <meta name="description" content="Support and FAQ for Batto (amateur baseball scorebook): scoring without knowing the symbols, where records are stored, sharing and deleting a score, resuming an interrupted game.">
+  <meta name="description" content="Support and FAQ for Batto (amateur baseball scorebook): scoring without knowing the symbols, where records are stored, sharing and deleting a score, matching with the other team's record, resuming an interrupted game.">
   <link rel="canonical" href="https://lh.tools/en/support/batto/">
   <link rel="alternate" hreflang="ja" href="https://lh.tools/support/batto/">
   <link rel="alternate" hreflang="en" href="https://lh.tools/en/support/batto/">
   <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/batto/">
   <link rel="alternate" hreflang="x-default" href="https://lh.tools/support/batto/">
   <meta property="og:title" content="Support - Batto - Life Hack Tools">
-  <meta property="og:description" content="Support and FAQ for Batto (amateur baseball scorebook): scoring without knowing the symbols, where records are stored, sharing and deleting a score, resuming an interrupted game.">
+  <meta property="og:description" content="Support and FAQ for Batto (amateur baseball scorebook): scoring without knowing the symbols, where records are stored, sharing and deleting a score, matching with the other team's record, resuming an interrupted game.">
   <meta property="og:url" content="https://lh.tools/en/support/batto/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Life Hack Tools">
@@ -37,6 +37,8 @@
     .policy-section a { color: #dc2626; text-decoration: none; }
     .policy-section a:hover { color: #ef4444; }
     .policy-section strong { color: #ccc; }
+    .policy-section ol { font-size: 15px; color: #999; line-height: 1.8; padding-left: 1.4em; margin: 8px 0; }
+    .policy-section li { margin-bottom: 6px; }
     .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
     .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .contact-card .mail-icon svg { width: 24px; height: 24px; }
@@ -93,7 +95,19 @@
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Which languages are supported?</h2>
+      <h2><span class="num">06</span>How do I match with the other team's record?</h2>
+      <p>If the other team also records the game in Batto, paste their share link to see their batting from their own record. This works once the game is over.</p>
+      <ol>
+        <li>After the game, both teams send each other a link with “Share score” (via LINE or any chat app).</li>
+        <li>In your app, open the scorebook of that game (Games tab at the bottom → “Past games” → “Open scorebook”). On the other team's sheet, tap “Match with their record”.</li>
+        <li>Paste the link you received and tap “Load”. Pasting the whole message is fine. If a screen asks whether it is the same game, check it and tap “Match”.</li>
+        <li>Their batting is now shown from their own record. Innings where the runs differ get a yellow box in “Runs by inning”. If they fix their record, tap “Reload” to bring in the changes. Tap “Remove” to take it off at any time.</li>
+      </ol>
+      <p>Their record is never changed. What you load, such as the other team's player names, is saved on this device and in your game data on the server. If they stop sharing, the record you loaded before stays until you tap “Remove” or delete the game. Their at-bats do not appear on the page you share.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>Which languages are supported?</h2>
       <p>Japanese, English and Vietnamese. At first Batto follows your device language automatically. To change it in the app, choose one under “Language” in the Settings tab at the bottom.</p>
     </div>
 
