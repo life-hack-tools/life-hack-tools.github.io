@@ -60,8 +60,8 @@
   </div>
   <div class="content">
     <h1>Chính sách bảo mật</h1>
-    <span class="updated">Cập nhật lần cuối: 28 tháng 9 năm 2026</span>
-    <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Yane: Chia tiền &amp; việc nhà ("Ứng dụng"). Ứng dụng giúp những người sống chung — bạn cùng phòng, cặp đôi và nhà ở ghép — chia sẻ ghi chép về tiền bạc và việc nhà. Bạn không cần tạo tài khoản. Chỉ thành viên trong cùng một nhà mới có thể xem và chỉnh sửa dữ liệu của nhà đó, và chúng tôi không bao giờ bán hay cung cấp thông tin người dùng cho bên thứ ba. Ứng dụng không hiển thị quảng cáo.</p>
+    <span class="updated">Cập nhật lần cuối: 1 tháng 10 năm 2026</span>
+    <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Yane: Chia tiền &amp; việc nhà ("Ứng dụng"). Ứng dụng giúp những người sống chung — bạn cùng phòng, cặp đôi và nhà ở ghép — chia sẻ ghi chép về tiền bạc và việc nhà, và liên lạc với nhau. Bạn không cần tạo tài khoản. Chỉ thành viên trong cùng một nhà mới có thể xem và chỉnh sửa dữ liệu của nhà đó, và chúng tôi không bao giờ bán hay cung cấp thông tin người dùng cho bên thứ ba. Ứng dụng không hiển thị quảng cáo.</p>
 
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Tài khoản và mã định danh</h2>
@@ -88,48 +88,114 @@
         <li><strong>Ghi chép tiền bạc:</strong> các khoản trả hộ (tiêu đề, số tiền, ngày, người trả và cách chia), lịch sử thay đổi của chúng, và ghi chép thanh toán.</li>
         <li><strong>Phân công việc nhà:</strong> tên, chu kỳ và thứ tự của từng việc nhà, cùng ghi chép hoàn thành.</li>
         <li><strong>Đồ dùng chung:</strong> số lượng đồ dùng chung trong nhà và danh sách đi chợ.</li>
+        <li><strong>Bình luận và Thông báo trong nhà:</strong> bình luận về các ghi chép (khoản trả hộ, việc nhà, đồ dùng, thanh toán) và nội dung đăng trong "Thông báo trong nhà" mà mọi thành viên trong nhà đều xem được, kèm người đăng và thời gian đăng (mục 05).</li>
+        <li><strong>Ảnh:</strong> ảnh đính kèm bình luận hoặc Thông báo trong nhà (mục 04).</li>
+        <li><strong>"Nhờ Yane nhắc":</strong> các lời nhắc đã gửi và bản ghi về người đã nhờ (mục 06).</li>
+        <li><strong>Báo cáo:</strong> các báo cáo bạn gửi (mục 07).</li>
+        <li><strong>Đăng ký thông báo:</strong> đăng ký thiết bị của bạn để nhận thông báo đẩy (mục 08).</li>
         <li><strong>Lời mời và tham gia:</strong> mã mời và yêu cầu tham gia nhà (bao gồm yêu cầu chuyển vị trí của một người ở cùng sang thiết bị mới khi đổi điện thoại).</li>
       </ul>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">04</span>Nơi lưu trữ dữ liệu</h2>
-      <p>Các thông tin trên được lưu trong Cloud Firestore, một dịch vụ do Google cung cấp. Dữ liệu được lưu tại khu vực Tokyo (asia-northeast1), trong một dự án chỉ dành riêng cho Ứng dụng.</p>
+      <h2><span class="num">04</span>Ảnh</h2>
+      <p>Bạn có thể đính kèm ảnh bạn chọn hoặc chụp vào bình luận và Thông báo trong nhà. Ứng dụng chỉ dùng thư viện ảnh hoặc máy ảnh khi bạn thao tác đính kèm ảnh.</p>
+      <ul>
+        <li>Trước khi gửi, ảnh được thu nhỏ ngay trên thiết bị thành tệp JPEG có cạnh dài 1600 pixel. Khi đó, <strong>dữ liệu EXIF, bao gồm thông tin vị trí như nơi chụp ảnh, sẽ bị xóa.</strong></li>
+        <li>Ảnh đã thu nhỏ được lưu trong Firebase Storage, một dịch vụ do Google cung cấp, tại khu vực Tokyo.</li>
+        <li>Ảnh <strong>chỉ có thể được xem bởi những người đang là thành viên của nhà đó</strong>.</li>
+        <li>Nếu bạn xóa một nội dung có đính kèm ảnh, ảnh vẫn được lưu lại như một phần ghi chép của nhà (ảnh không còn hiển thị trong bình luận hay thông báo đó). Ảnh sẽ bị xóa cùng với nhà khi nhà giải thể (khi người tham gia cuối cùng xóa tài khoản).</li>
+      </ul>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>Ai có thể xem thông tin của bạn</h2>
-      <p>Trong Ứng dụng, dữ liệu của một nhà <strong>chỉ có thể được xem và chỉnh sửa bởi các thành viên của nhà đó</strong>. Giới hạn này được thực thi bằng quy tắc bảo mật (security rules) của Cloud Firestore.</p>
+      <h2><span class="num">05</span>Bình luận và Thông báo trong nhà</h2>
+      <p>Trong Ứng dụng, bạn có thể đăng trong "Thông báo trong nhà" (bảng tin mà mọi thành viên trong nhà đều xem được) và bình luận về các ghi chép (khoản trả hộ, việc nhà, đồ dùng, thanh toán). Nội dung được lưu trong Cloud Firestore.</p>
+      <ul>
+        <li>Khi bạn xóa một nội dung, phần chữ sẽ bị xóa và tại vị trí đó sẽ còn lại một dòng "đã bị xoá".</li>
+        <li>Nội dung của người đã rời nhà hoặc đã xóa tài khoản vẫn được giữ lại như một phần ghi chép của nhà. Chúng sẽ bị xóa cùng với nhà khi nhà giải thể.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>"Nhờ Yane nhắc"</h2>
+      <p>"Nhờ Yane nhắc" là tính năng gửi một lời nhắc soạn sẵn đến mọi thành viên trong nhà dưới tên Yane, mà không hiển thị tên của người đã nhờ. Các thành viên trong nhà không thấy ai là người nhờ.</p>
+      <p>Tuy nhiên, để điều tra việc lạm dụng như quấy rối, chúng tôi lưu lại bản ghi về người đã nhờ, và <strong>chỉ đơn vị vận hành mới xem được</strong> bản ghi này.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>Báo cáo</h2>
+      <p>Khi bạn báo cáo một bình luận hoặc một nội dung trong Thông báo trong nhà, các thông tin sau sẽ được gửi đến đơn vị vận hành. Thông báo này được gửi đến một kênh giới hạn người xem trong Slack, công cụ chúng tôi dùng để liên lạc nội bộ.</p>
+      <ul>
+        <li>Lý do báo cáo</li>
+        <li>Nội dung bị báo cáo (phần chữ, và có ảnh hay không)</li>
+        <li>ID trong nhà của người đăng và người báo cáo</li>
+        <li>ID của nhà</li>
+      </ul>
+      <p>Tên hiển thị của những người ở cùng và tên của nhà không được đưa vào thông báo này. Đơn vị vận hành có thể xem nội dung bị báo cáo và ảnh đính kèm trong phạm vi cần thiết để xử lý báo cáo.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">08</span>Thông báo</h2>
+      <p>Nếu bạn cho phép thông báo, chúng tôi sẽ gửi <strong>thông báo đẩy</strong> khi một thành viên trong nhà đăng trong Thông báo trong nhà hoặc viết bình luận, và khi có lời nhắc từ "Nhờ Yane nhắc". Để làm điều này, chúng tôi lưu các thông tin sau cho từng thiết bị trong Cloud Firestore. Chỉ bạn và máy chủ gửi thông báo của chúng tôi mới đọc được các thông tin này.</p>
+      <ul>
+        <li>Mã thông báo (token) của thiết bị</li>
+        <li>Ngôn ngữ hiển thị (dùng cho nội dung thông báo)</li>
+        <li>Cài đặt nhận thông báo theo từng loại</li>
+        <li>ID của những người ở cùng mà bạn đã ẩn trên thiết bị đó (chúng tôi không gửi thông báo từ họ cho bạn)</li>
+      </ul>
+      <p>Thông báo được chuyển tiếp qua dịch vụ thông báo của Expo và được gửi đến thiết bị của bạn qua dịch vụ thông báo của Apple hoặc Google. Nội dung thông báo gồm tên của nhà, tên hiển thị của người đăng và một phần nội dung. Bạn có thể tắt thông báo bất cứ lúc nào trong phần cài đặt của thiết bị.</p>
+      <p>Thông báo đến lượt làm việc nhà vẫn là <strong>thông báo cục bộ</strong>, chỉ được hẹn giờ trên thiết bị của bạn.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">09</span>Báo cáo sự cố</h2>
+      <p>Để phát hiện và sửa lỗi, Ứng dụng gửi thông tin lỗi đến Sentry. Thông tin này gồm chi tiết lỗi, màn hình hoặc thao tác xảy ra lỗi, kiểu máy, phiên bản hệ điều hành và phiên bản ứng dụng. Để kiểm tra tốc độ hoạt động, Ứng dụng cũng có thể gửi thời gian thực hiện của một số thao tác.</p>
+      <p>Ứng dụng được thiết lập để <strong>không gửi nội dung bạn nhập</strong>, như tiêu đề khoản trả hộ, tên hiển thị của người ở cùng hay bình luận. Sentry lưu trữ dữ liệu này tại Hoa Kỳ.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">10</span>Nơi lưu trữ dữ liệu và dịch vụ bên ngoài</h2>
+      <p>Dữ liệu của nhà được lưu trong Cloud Firestore, còn ảnh được lưu trong Firebase Storage. Cả hai đều là dịch vụ do Google cung cấp; dữ liệu được lưu tại khu vực Tokyo (asia-northeast1), trong một dự án chỉ dành riêng cho Ứng dụng. Việc gửi thông báo, tiếp nhận báo cáo, "Nhờ Yane nhắc" và xóa các nhà đã giải thể được thực hiện bởi máy chủ của chúng tôi trên Google Cloud Run.</p>
+      <p>Ứng dụng sử dụng dịch vụ của các công ty sau, và ủy thác cho họ xử lý thông tin trong phạm vi cần thiết để cung cấp các dịch vụ đó:</p>
+      <ul>
+        <li><strong>Google:</strong> Firebase (Authentication, Cloud Firestore, Storage), Cloud Run, đăng nhập bằng Google và dịch vụ thông báo của Android</li>
+        <li><strong>Apple:</strong> Đăng nhập bằng Apple và dịch vụ thông báo của iPhone</li>
+        <li><strong>Expo:</strong> chuyển tiếp thông báo đẩy</li>
+        <li><strong>Sentry:</strong> báo cáo lỗi</li>
+        <li><strong>Slack:</strong> gửi thông tin báo cáo đến đơn vị vận hành</li>
+      </ul>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">11</span>Ai có thể xem thông tin của bạn</h2>
+      <p>Trong Ứng dụng, dữ liệu của một nhà (bao gồm bình luận, Thông báo trong nhà và ảnh) <strong>chỉ có thể được xem và chỉnh sửa bởi những người đang là thành viên của nhà đó</strong>. Giới hạn này được thực thi bằng quy tắc bảo mật (security rules) của Cloud Firestore và Firebase Storage. Thành viên đã rời nhà sẽ không còn xem được dữ liệu của nhà đó.</p>
       <p>Chúng tôi không bao giờ bán hay cung cấp thông tin người dùng cho bên thứ ba. Ứng dụng không hiển thị quảng cáo.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Những gì chúng tôi không sử dụng</h2>
+      <h2><span class="num">12</span>Những gì chúng tôi không sử dụng</h2>
       <p>Ứng dụng không sử dụng:</p>
       <ul>
         <li>Công cụ phân tích</li>
         <li>SDK quảng cáo</li>
-        <li>Dịch vụ báo cáo sự cố (tại thời điểm này)</li>
       </ul>
-      <p>Ứng dụng cũng không sử dụng vị trí, danh bạ, ảnh, máy ảnh hay micro của bạn.</p>
+      <p>Ứng dụng cũng không sử dụng vị trí, danh bạ hay micro của bạn. Thư viện ảnh và máy ảnh chỉ được dùng khi bạn đính kèm ảnh (mục 04).</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Thông báo</h2>
-      <p>Thông báo đến lượt làm việc nhà là <strong>thông báo cục bộ</strong>, chỉ được hẹn giờ trên thiết bị của bạn. Chúng tôi không gửi thông báo đẩy từ máy chủ.</p>
-    </div>
-
-    <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Thông tin lưu trên thiết bị của bạn</h2>
+      <h2><span class="num">13</span>Thông tin lưu trên thiết bị của bạn</h2>
       <p>Ứng dụng lưu các thông tin sau trên thiết bị của bạn:</p>
       <ul>
         <li>Cài đặt ngôn ngữ hiển thị</li>
         <li>Trạng thái đăng nhập (đăng nhập ẩn danh, hoặc đăng nhập bằng tài khoản đã liên kết)</li>
+        <li>Cài đặt nhận thông báo theo từng loại, và ID của những người ở cùng mà bạn đã ẩn</li>
+        <li>Các thông báo việc nhà đã hẹn giờ</li>
       </ul>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Xóa tài khoản và dữ liệu</h2>
+      <h2><span class="num">14</span>Xóa tài khoản và dữ liệu</h2>
       <p>Bạn có thể xóa tài khoản bằng cách nhấn "Xoá tài khoản" ở cuối màn hình "Thành viên" (màn hình danh sách thành viên trong nhà), rồi nhấn "Xoá" để xác nhận. Dù bạn tham gia nhà nào, những mục sau đều bị xóa:</p>
       <ul>
         <li>Tài khoản của bạn trong Ứng dụng (người dùng trong Firebase Authentication). Nếu bạn đã liên kết với tài khoản Apple hoặc Google, liên kết đó cũng bị xóa. Nếu bạn đã liên kết với tài khoản Apple, chúng tôi cũng thu hồi quyền đăng nhập bằng Apple của Ứng dụng ở phía Apple.</li>
@@ -138,31 +204,31 @@
       </ul>
       <p>Dữ liệu của từng nhà bạn đang tham gia được xử lý như sau:</p>
       <ul>
-        <li><strong>Nhà có người ở cùng khác đã tham gia:</strong> Bạn rời khỏi nhà, tên của bạn trong nhà bị xóa và được hiển thị là "Người đã xoá tài khoản". Các ghi chép về khoản trả hộ, thanh toán và việc nhà vẫn được giữ trong nhà để số dư của những người ở cùng không bị thay đổi. Trong các ghi chép đó, tên của bạn cũng được hiển thị là "Người đã xoá tài khoản", và không còn thông tin nào gắn với bạn.</li>
-        <li><strong>Nhà chỉ có mình bạn tham gia:</strong> Toàn bộ nhà cùng tất cả các ghi chép sẽ bị xóa. Những người ở cùng chỉ được thêm bằng tên và chưa cài Ứng dụng không được tính là đã tham gia. Việc xóa được thực hiện trên máy chủ và thường hoàn tất trong vòng khoảng 1 giờ. Mã mời của nhà đó sẽ không dùng được nữa ngay khi bạn xóa tài khoản, nên những người ở cùng chỉ được thêm bằng tên cũng không thể tham gia sau này.</li>
+        <li><strong>Nhà có người ở cùng khác đã tham gia:</strong> Bạn rời khỏi nhà, tên của bạn trong nhà bị xóa và được hiển thị là "Người đã xoá tài khoản". Các ghi chép về khoản trả hộ, thanh toán và việc nhà vẫn được giữ trong nhà để số dư của những người ở cùng không bị thay đổi. Bình luận, nội dung trong Thông báo trong nhà mà bạn đã viết và ảnh bạn đã đính kèm cũng được giữ lại trong nhà. Trong các ghi chép đó, tên của bạn cũng được hiển thị là "Người đã xoá tài khoản", và không còn thông tin nào gắn với bạn.</li>
+        <li><strong>Nhà chỉ có mình bạn tham gia:</strong> Toàn bộ nhà cùng tất cả các ghi chép, bình luận, Thông báo trong nhà và ảnh sẽ bị xóa. Những người ở cùng chỉ được thêm bằng tên và chưa cài Ứng dụng không được tính là đã tham gia. Việc xóa được thực hiện trên máy chủ và thường hoàn tất trong vòng khoảng 1 giờ. Mã mời của nhà đó sẽ không dùng được nữa ngay khi bạn xóa tài khoản, nên những người ở cùng chỉ được thêm bằng tên cũng không thể tham gia sau này.</li>
       </ul>
       <p>Nếu bạn đã gỡ Ứng dụng hoặc không thể mở Ứng dụng, vui lòng gửi "Yêu cầu xóa tài khoản" qua biểu mẫu liên hệ bên dưới. Chúng tôi sẽ xử lý trong vòng 30 ngày kể từ khi nhận được yêu cầu. Để xác định tài khoản của bạn, vui lòng ghi địa chỉ email của tài khoản Apple hoặc Google mà bạn đã liên kết.</p>
       <p>Xem chi tiết tại trang <a href="/vi/apps/yane/delete-account/">Xóa tài khoản</a>.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Mua hàng trong ứng dụng</h2>
+      <h2><span class="num">15</span>Mua hàng trong ứng dụng</h2>
       <p>Hiện tại, Ứng dụng không có khoản thu phí nào.</p>
       <p>Trong tương lai, chúng tôi dự định ra mắt gói dành cho nhà (gói đăng ký). Việc thanh toán sẽ do Apple hoặc Google thực hiện, và chúng tôi không nhận thông tin thẻ tín dụng của bạn. Chúng tôi sẽ cập nhật chính sách này khi ra mắt gói.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">11</span>Quyền riêng tư của trẻ em</h2>
+      <h2><span class="num">16</span>Quyền riêng tư của trẻ em</h2>
       <p>Ứng dụng không dành cho người dưới 18 tuổi.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">12</span>Thay đổi chính sách</h2>
+      <h2><span class="num">17</span>Thay đổi chính sách</h2>
       <p>Chúng tôi có thể thay đổi chính sách này khi cần thiết. Khi có thay đổi, chúng tôi sẽ thông báo trên trang này.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">13</span>Đơn vị vận hành và liên hệ</h2>
+      <h2><span class="num">18</span>Đơn vị vận hành và liên hệ</h2>
       <p>Ứng dụng do Life Hack Tools vận hành. Nếu bạn có câu hỏi về chính sách này hoặc muốn yêu cầu xóa dữ liệu, vui lòng liên hệ qua biểu mẫu bên dưới.</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
