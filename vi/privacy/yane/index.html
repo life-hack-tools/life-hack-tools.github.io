@@ -60,24 +60,27 @@
   </div>
   <div class="content">
     <h1>Chính sách bảo mật</h1>
-    <span class="updated">Cập nhật lần cuối: 1 tháng 10 năm 2026</span>
+    <span class="updated">Cập nhật lần cuối: 2 tháng 10 năm 2026</span>
     <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Yane: Chia tiền &amp; việc nhà ("Ứng dụng"). Ứng dụng giúp những người sống chung — bạn cùng phòng, cặp đôi và nhà ở ghép — chia sẻ ghi chép về tiền bạc và việc nhà, và liên lạc với nhau. Bạn không cần tạo tài khoản. Chỉ thành viên trong cùng một nhà mới có thể xem và chỉnh sửa dữ liệu của nhà đó, và chúng tôi không bao giờ bán hay cung cấp thông tin người dùng cho bên thứ ba. Ứng dụng không hiển thị quảng cáo.</p>
 
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Tài khoản và mã định danh</h2>
       <p>Ứng dụng không yêu cầu tạo tài khoản. Khi khởi động, Ứng dụng tạo một mã định danh cho mỗi thiết bị bằng tính năng đăng nhập ẩn danh của Firebase Authentication, một dịch vụ do Google cung cấp. Mã định danh này dùng để xác định bạn là thành viên của nhà nào.</p>
-      <p>Chúng tôi không bao giờ yêu cầu bạn nhập địa chỉ email, số điện thoại hay họ tên. Việc liên kết với tài khoản Apple hoặc Google là không bắt buộc (xem mục tiếp theo).</p>
+      <p>Chúng tôi không bao giờ yêu cầu bạn nhập địa chỉ email, số điện thoại hay họ tên. Việc liên kết với tài khoản Apple, Google hoặc LINE là không bắt buộc (xem mục tiếp theo).</p>
     </div>
 
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>Liên kết tài khoản (không bắt buộc)</h2>
-      <p>Bạn có thể dùng Ứng dụng mà không cần đăng ký. Nếu muốn, bạn có thể liên kết với tài khoản Apple hoặc Google (trên iPhone là Apple và Google, trên Android là Google). Sau khi liên kết, bạn có thể quay lại cùng nhà và ghi chép của mình sau khi đổi điện thoại hoặc cài lại Ứng dụng.</p>
+      <p>Bạn có thể dùng Ứng dụng mà không cần đăng ký. Nếu muốn, bạn có thể liên kết với tài khoản Apple, Google hoặc LINE (trên iPhone là Apple, Google và LINE, trên Android là Google và LINE). Sau khi liên kết, bạn có thể quay lại cùng nhà và ghi chép của mình sau khi đổi điện thoại hoặc cài lại Ứng dụng.</p>
+      <p>Việc liên kết với LINE sử dụng LINE Login (OpenID Connect) do LY Corporation cung cấp. Việc xác thực được thực hiện qua Firebase Authentication (Identity Platform) của Google.</p>
       <p>Khi bạn liên kết, chúng tôi nhận các thông tin sau và lưu trong Firebase Authentication:</p>
       <ul>
-        <li>Mã định danh người dùng do Apple hoặc Google cấp</li>
+        <li>Mã định danh người dùng do Apple, Google hoặc LINE cấp</li>
         <li>Địa chỉ email do Apple hoặc Google cung cấp (nếu bạn chọn "Ẩn địa chỉ email" với Apple, đó là địa chỉ chuyển tiếp)</li>
+        <li>Tên hiển thị LINE của bạn (nếu bạn liên kết với tài khoản LINE)</li>
       </ul>
-      <p>Địa chỉ email của bạn không được hiển thị cho những người ở cùng, và chúng tôi không dùng nó để liên lạc hay quảng cáo.</p>
+      <p>Chúng tôi không nhận địa chỉ email của bạn từ LINE (chúng tôi không đăng ký quyền lấy địa chỉ email).</p>
+      <p>Địa chỉ email và tên hiển thị LINE của bạn không được hiển thị cho những người ở cùng, và chúng tôi không dùng chúng để liên lạc hay quảng cáo.</p>
     </div>
 
     <div class="policy-section fade-in">
@@ -161,6 +164,7 @@
       <ul>
         <li><strong>Google:</strong> Firebase (Authentication, Cloud Firestore, Storage), Cloud Run, đăng nhập bằng Google và dịch vụ thông báo của Android</li>
         <li><strong>Apple:</strong> Đăng nhập bằng Apple và dịch vụ thông báo của iPhone</li>
+        <li><strong>LY Corporation:</strong> LINE Login (đăng nhập bằng LINE)</li>
         <li><strong>Expo:</strong> chuyển tiếp thông báo đẩy</li>
         <li><strong>Sentry:</strong> báo cáo lỗi</li>
         <li><strong>Slack:</strong> gửi thông tin báo cáo đến đơn vị vận hành</li>
@@ -198,7 +202,7 @@
       <h2><span class="num">14</span>Xóa tài khoản và dữ liệu</h2>
       <p>Bạn có thể xóa tài khoản bằng cách nhấn "Xoá tài khoản" ở cuối màn hình "Thành viên" (màn hình danh sách thành viên trong nhà), rồi nhấn "Xoá" để xác nhận. Dù bạn tham gia nhà nào, những mục sau đều bị xóa:</p>
       <ul>
-        <li>Tài khoản của bạn trong Ứng dụng (người dùng trong Firebase Authentication). Nếu bạn đã liên kết với tài khoản Apple hoặc Google, liên kết đó cũng bị xóa. Nếu bạn đã liên kết với tài khoản Apple, chúng tôi cũng thu hồi quyền đăng nhập bằng Apple của Ứng dụng ở phía Apple.</li>
+        <li>Tài khoản của bạn trong Ứng dụng (người dùng trong Firebase Authentication). Nếu bạn đã liên kết với tài khoản Apple, Google hoặc LINE, liên kết đó cũng bị xóa. Nếu bạn đã liên kết với tài khoản Apple, chúng tôi cũng thu hồi quyền đăng nhập bằng Apple của Ứng dụng ở phía Apple.</li>
         <li>Tư cách thành viên của bạn trong tất cả các nhà bạn đang tham gia</li>
         <li>Các cài đặt lưu trên thiết bị và thông báo việc nhà</li>
       </ul>
@@ -207,7 +211,7 @@
         <li><strong>Nhà có người ở cùng khác đã tham gia:</strong> Bạn rời khỏi nhà, tên của bạn trong nhà bị xóa và được hiển thị là "Người đã xoá tài khoản". Các ghi chép về khoản trả hộ, thanh toán và việc nhà vẫn được giữ trong nhà để số dư của những người ở cùng không bị thay đổi. Bình luận, nội dung trong Thông báo trong nhà mà bạn đã viết và ảnh bạn đã đính kèm cũng được giữ lại trong nhà. Trong các ghi chép đó, tên của bạn cũng được hiển thị là "Người đã xoá tài khoản", và không còn thông tin nào gắn với bạn.</li>
         <li><strong>Nhà chỉ có mình bạn tham gia:</strong> Toàn bộ nhà cùng tất cả các ghi chép, bình luận, Thông báo trong nhà và ảnh sẽ bị xóa. Những người ở cùng chỉ được thêm bằng tên và chưa cài Ứng dụng không được tính là đã tham gia. Việc xóa được thực hiện trên máy chủ và thường hoàn tất trong vòng khoảng 1 giờ. Mã mời của nhà đó sẽ không dùng được nữa ngay khi bạn xóa tài khoản, nên những người ở cùng chỉ được thêm bằng tên cũng không thể tham gia sau này.</li>
       </ul>
-      <p>Nếu bạn đã gỡ Ứng dụng hoặc không thể mở Ứng dụng, vui lòng gửi "Yêu cầu xóa tài khoản" qua biểu mẫu liên hệ bên dưới. Chúng tôi sẽ xử lý trong vòng 30 ngày kể từ khi nhận được yêu cầu. Để xác định tài khoản của bạn, vui lòng ghi địa chỉ email của tài khoản Apple hoặc Google mà bạn đã liên kết.</p>
+      <p>Nếu bạn đã gỡ Ứng dụng hoặc không thể mở Ứng dụng, vui lòng gửi "Yêu cầu xóa tài khoản" qua biểu mẫu liên hệ bên dưới. Chúng tôi sẽ xử lý trong vòng 30 ngày kể từ khi nhận được yêu cầu. Để xác định tài khoản của bạn, vui lòng ghi địa chỉ email của tài khoản Apple hoặc Google mà bạn đã liên kết. Nếu bạn đã liên kết với tài khoản LINE, vui lòng cho biết điều đó và ghi tên hiển thị LINE của bạn.</p>
       <p>Xem chi tiết tại trang <a href="/vi/apps/yane/delete-account/">Xóa tài khoản</a>.</p>
     </div>
 
