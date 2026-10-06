@@ -2,8 +2,8 @@
   Batto の紹介ページ（/apps/batto/ ・ /en/apps/batto/ ・ /vi/apps/batto/）が読み込む。
   Google Play のバッジを出す・出さないは、このファイルの最後の1行で切り替える（ja/en/vi 共通）。
 
-  出す（今）  : 最後の行はコメントのまま
-  出さない    : 最後の行の前後のコメント記号を消して、次の1行だけにする
+  出す        : 最後の行を消す（またはコメントに戻す）
+  出さない（今）: 最後の行を次の1行にしておく
                 .google-play-badge { display: none !important; }
 */
-/* .google-play-badge { display: none !important; } */
+.google-play-badge { display: none !important; }
