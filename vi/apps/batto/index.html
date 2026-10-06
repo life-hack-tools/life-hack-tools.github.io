@@ -76,30 +76,6 @@
     .cta a:hover { opacity: 0.8; }
     .cta img { height: 50px; }
     .cta img[src*="google-play"] { height: 74px; margin: -12px 0; }
-    .coming-soon {
-      display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
-    }
-    .coming-soon .badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .badge-placeholder {
-      display: inline-flex; align-items: center; gap: 8px;
-      height: 50px; padding: 0 20px; border-radius: 10px;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
-      color: #aaa; font-size: 13px; font-weight: 600;
-    }
-    .testflight-link {
-      display: inline-flex; align-items: center; height: 50px; padding: 0 20px; border-radius: 10px;
-      background: #e25544; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none;
-    }
-    .badge-placeholder svg { width: 20px; height: 20px; opacity: 0.7; }
-    .note {
-      font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      color: #e25544;
-    }
-    @media (max-width: 600px) {
-      .coming-soon { width: 100%; }
-      .coming-soon .badges { width: min(280px, 100%); flex-direction: column; }
-      .testflight-link, .badge-placeholder { justify-content: center; }
-    }
     .section { padding: 100px 24px; max-width: 800px; margin: 0 auto; }
     .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #e25544; margin-bottom: 16px; }
     .section h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
@@ -158,6 +134,7 @@
     .feature-icon { color: #e25544; }
     .feature-icon svg { width: 32px; height: 32px; display: block; }
   </style>
+  <link rel="stylesheet" href="/assets/batto/store-badges.css">
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
 </head>
@@ -176,16 +153,8 @@
     <h1>Batto</h1>
     <p class="subtitle">Ghi trận đấu không cần ký hiệu.</p>
     <div class="cta">
-      <!-- Sau khi phát hành, thay khối coming-soon bên dưới bằng các huy hiệu này (CTA cuối trang cũng vậy):
-           <a href="https://apps.apple.com/app/id6810795440"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
-           <a href="https://play.google.com/store/apps/details?id=tools.lh.batto"><img src="/assets/google-play-badge.png" alt="Tải xuống trên Google Play"></a> -->
-      <div class="coming-soon">
-        <div class="badges">
-          <a class="testflight-link" href="https://testflight.apple.com/join/jv6c28Qu">Dùng thử bản beta cho iPhone</a>
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1 1 0 0 0-.6.92v17.36a1 1 0 0 0 .6.92l9.9-9.6-9.9-9.6zM14.9 12.9l2.9 1.68-11.2 6.44 8.3-8.12zm3.9-2.3 2.9 1.68a1.1 1.1 0 0 1 0 1.9l-2.9 1.68-3.1-3.13 3.1-3.13v.01L15.7 8.4l3.1 2.2zM6.6 3.14 17.8 9.58l-2.9 2.92L6.6 3.14z"/></svg>Google Play</span>
-        </div>
-        <span class="note">Bản Android sắp ra mắt</span>
-      </div>
+      <a href="https://apps.apple.com/app/id6810795440"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
+      <a class="google-play-badge" href="https://play.google.com/store/apps/details?id=tools.lh.batto"><img src="/assets/google-play-badge.png" alt="Tải xuống trên Google Play"></a>
     </div>
   </div>
 
@@ -195,7 +164,7 @@
     <p>
       Batto là ứng dụng ghi điểm cho bóng chày phong trào, dành cho người chưa từng học ký hiệu sổ điểm.
       Ứng dụng chỉ hỏi “Kết quả của người đánh?” và “Bóng đi đâu?”. Bạn chạm vào sân để trả lời, còn sổ điểm đúng chuẩn mà người có kinh nghiệm đọc được sẽ tự động hình thành.
-      Batto được làm cho những ai được nhờ ghi điểm mà không biết phải ghi thế nào. Không cần tài khoản — mở ra là dùng được ngay.
+      Batto được làm cho những ai được nhờ ghi điểm mà không biết phải ghi thế nào. Không cần tài khoản, miễn phí và không quảng cáo — mở ra là dùng được ngay.
     </p>
   </div>
 
@@ -207,7 +176,7 @@
         <div class="step-num">1</div>
         <div class="step-body">
           <h3>Chọn kết quả của người đánh</h3>
-          <p>Chọn Bóng vào sân, Strikeout hoặc Walk / HBP. Nếu là strikeout hay walk, chỉ một chạm là xong lượt đánh.</p>
+          <p>Chọn Bóng vào sân, Loại 3 strike hoặc Bốn bóng / Bị trúng. Nếu là strikeout hay walk, chỉ một chạm là xong lượt đánh.</p>
         </div>
       </div>
       <div class="step-card">
@@ -251,12 +220,17 @@
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3" /> <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /> <circle cx="18" cy="5" r="3" /></svg></span>
         <h3>Tự tính người chạy tiến gôn</h3>
-        <p>Batto tự tính và đề xuất vị trí của từng người chạy. Chỉ cần chạm để sửa khi khác, vậy là xong.</p>
+        <p>Batto tự tính và đề xuất vị trí của từng người chạy. Kiểm tra người chạy sau mỗi lượt đánh, chỉ cần chạm để sửa khi khác, vậy là xong. Ghi được cả cướp gôn và tiến gôn do bóng lọt.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4" /> <path d="M4 7h16" /> <path d="m16 21 4-4-4-4" /> <path d="M20 17H4" /></svg></span>
-        <h3>Ghi cả thay người</h3>
-        <p>Ghi cả người đánh thay, người chạy thay, đổi vị trí phòng ngự và đổi người ném.</p>
+        <h3>Strike 3 lọt và thay người</h3>
+        <p>Ghi cả strike 3 bị lọt (người đánh chạy lên gôn 1), người đánh thay, người chạy thay, đổi vị trí phòng ngự và đổi người ném.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 12h11" /> <path d="M10 18h11" /> <path d="M10 6h11" /> <path d="M4 10h2" /> <path d="M4 6h1v4" /> <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" /></svg></span>
+        <h3>Xem thứ tự đánh và người đánh tiếp theo</h3>
+        <p>Trong lúc ghi, thứ tự đánh hôm nay và người đánh tiếp theo luôn hiện trên màn hình. Có thể bỏ qua lượt của người chưa đến hoặc đã về.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M3 9h18" /> <path d="M3 15h18" /> <path d="M9 3v18" /> <path d="M15 3v18" /></svg></span>
@@ -279,9 +253,19 @@
         <p>Gửi tỷ số cho đồng đội qua liên kết. Người chưa cài ứng dụng cũng xem được bằng trình duyệt, và có thể in hoặc lưu thành ảnh.</p>
       </div>
       <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /> <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg></span>
+        <h3>Ghép với ghi chép của đội đối thủ</h3>
+        <p>Nếu đội đối thủ cũng dùng Batto, chỉ cần dán liên kết chia sẻ của họ để xem lượt đánh của họ theo ghi chép của chính họ.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" /> <path d="M4 22v-7" /></svg></span>
+        <h3>Trang đội</h3>
+        <p>Kết quả, lịch thi đấu và thống kê từng cầu thủ, cả đội xem qua một liên kết. Chỉ người có liên kết mới xem được, không cần cài ứng dụng.</p>
+      </div>
+      <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></span>
         <h3>Lưu nhiều đội và thứ tự đánh</h3>
-        <p>Lưu nhiều đội và cầu thủ để dùng lại cho trận sau, hoặc nhập danh sách từ tệp CSV xuất từ Excel hay bảng tính. Dán đội hình được gửi qua tin nhắn để lập thứ tự đánh hôm nay, hoặc gửi đội hình của bạn dưới dạng văn bản.</p>
+        <p>Lưu nhiều đội và cầu thủ để dùng lại cho trận sau. Sao chép danh sách từ Excel hay Google Sheets rồi dán vào là xong (tệp CSV cũng được). Dán đội hình được gửi qua tin nhắn để lập thứ tự đánh hôm nay, hoặc gửi đội hình của bạn dưới dạng văn bản.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /> <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg></span>
@@ -289,9 +273,19 @@
         <p>Thêm lịch thi đấu và nhận nhắc vào tối hôm trước và trước giờ thi đấu, để không bao giờ quên.</p>
       </div>
       <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></svg></span>
+        <h3>Tiếng Nhật, tiếng Anh và tiếng Việt</h3>
+        <p>Ứng dụng có tiếng Nhật, tiếng Anh và tiếng Việt. Đổi ngôn ngữ trong Cài đặt.</p>
+      </div>
+      <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5V19A9 3 0 0 0 21 19V5" /> <path d="M3 12A9 3 0 0 0 21 12" /></svg></span>
-        <h3>Dữ liệu của bạn</h3>
-        <p>Không cần tài khoản. Trận đấu, đội và lịch được lưu trên máy và trên máy chủ của chúng tôi. Bạn có thể ngừng lưu lên máy chủ bất cứ lúc nào trong Cài đặt, và xóa toàn bộ dữ liệu trên máy chủ. Tên người ghi điểm chỉ lưu trên máy.</p>
+        <h3>Không cần đăng nhập</h3>
+        <p>Không cần tài khoản, không cần đăng nhập. Trận đấu, đội và lịch được lưu trên máy và trên máy chủ của chúng tôi. Để xóa dữ liệu trên máy chủ, hãy gửi “Yêu cầu xóa dữ liệu” từ “Góp ý &amp; câu hỏi thường gặp” trong Cài đặt. Người khác chỉ xem được các trận bạn chia sẻ và trang đội bạn tạo. Tên người ghi điểm chỉ lưu trên máy.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /></svg></span>
+        <h3>Miễn phí, không quảng cáo</h3>
+        <p>Mọi tính năng đều miễn phí và không có quảng cáo. Bạn ghi điểm bằng một tay trong lúc xem trận, nên không có gì làm phiền.</p>
       </div>
     </div>
   </div>
@@ -303,7 +297,9 @@
       <img src="/assets/batto/screenshots/vi/01-record.webp" alt="Chỉ cần chọn kết quả của người đánh" width="828" height="1800" loading="lazy">
       <img src="/assets/batto/screenshots/vi/02-zone.webp" alt="Bóng đi đâu? Chạm vào sân" width="828" height="1800" loading="lazy">
       <img src="/assets/batto/screenshots/vi/03-runners.webp" alt="Ứng dụng tự tính người chạy tiến gôn" width="828" height="1800" loading="lazy">
+      <img src="/assets/batto/screenshots/vi/04-scorebook.webp" alt="Sổ điểm đúng chuẩn mà người có kinh nghiệm đọc được, tự động hoàn thành" width="828" height="1800" loading="lazy">
       <img src="/assets/batto/screenshots/vi/05-explain.webp" alt="Chạm vào ô trong sổ điểm để xem giải thích bằng lời" width="828" height="1800" loading="lazy">
+      <img src="/assets/batto/screenshots/vi/06-team.webp" alt="Lưu đội và thứ tự đánh, dán danh sách cầu thủ" width="828" height="1800" loading="lazy">
       <img src="/assets/batto/screenshots/vi/08-share.webp" alt="Cùng nhau xem lại trận đấu qua liên kết chia sẻ" width="828" height="1800" loading="lazy">
     </div>
   </div>
@@ -311,13 +307,8 @@
   <div class="footer-cta fade-in">
     <h2>Trận tới, thử làm người ghi điểm nhé.</h2>
     <div class="cta">
-      <div class="coming-soon">
-        <div class="badges">
-          <a class="testflight-link" href="https://testflight.apple.com/join/jv6c28Qu">Dùng thử bản beta cho iPhone</a>
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1 1 0 0 0-.6.92v17.36a1 1 0 0 0 .6.92l9.9-9.6-9.9-9.6zM14.9 12.9l2.9 1.68-11.2 6.44 8.3-8.12zm3.9-2.3 2.9 1.68a1.1 1.1 0 0 1 0 1.9l-2.9 1.68-3.1-3.13 3.1-3.13v.01L15.7 8.4l3.1 2.2zM6.6 3.14 17.8 9.58l-2.9 2.92L6.6 3.14z"/></svg>Google Play</span>
-        </div>
-        <span class="note">Bản Android sắp ra mắt</span>
-      </div>
+      <a href="https://apps.apple.com/app/id6810795440"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
+      <a class="google-play-badge" href="https://play.google.com/store/apps/details?id=tools.lh.batto"><img src="/assets/google-play-badge.png" alt="Tải xuống trên Google Play"></a>
     </div>
   </div>
 
