@@ -76,30 +76,6 @@
     .cta a:hover { opacity: 0.8; }
     .cta img { height: 50px; }
     .cta img[src*="google-play"] { height: 74px; margin: -12px 0; }
-    .coming-soon {
-      display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
-    }
-    .coming-soon .badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .badge-placeholder {
-      display: inline-flex; align-items: center; gap: 8px;
-      height: 50px; padding: 0 20px; border-radius: 10px;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
-      color: #aaa; font-size: 13px; font-weight: 600;
-    }
-    .testflight-link {
-      display: inline-flex; align-items: center; height: 50px; padding: 0 20px; border-radius: 10px;
-      background: #e25544; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none;
-    }
-    .badge-placeholder svg { width: 20px; height: 20px; opacity: 0.7; }
-    .note {
-      font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      color: #e25544;
-    }
-    @media (max-width: 600px) {
-      .coming-soon { width: 100%; }
-      .coming-soon .badges { width: min(280px, 100%); flex-direction: column; }
-      .testflight-link, .badge-placeholder { justify-content: center; }
-    }
     .section { padding: 100px 24px; max-width: 800px; margin: 0 auto; }
     .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #e25544; margin-bottom: 16px; }
     .section h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
@@ -158,6 +134,7 @@
     .feature-icon { color: #e25544; }
     .feature-icon svg { width: 32px; height: 32px; display: block; }
   </style>
+  <link rel="stylesheet" href="/assets/batto/store-badges.css">
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
 </head>
@@ -176,16 +153,8 @@
     <h1>Batto</h1>
     <p class="subtitle">記号を知らなくても、試合を記録できる。</p>
     <div class="cta">
-      <!-- ストア公開後は、下の coming-soon ブロックを次のバッジに差し替える（フッターCTAも同様）:
-           <a href="https://apps.apple.com/app/id6810795440"><img src="/assets/app-store-badge.svg" alt="App Store でダウンロード"></a>
-           <a href="https://play.google.com/store/apps/details?id=tools.lh.batto"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a> -->
-      <div class="coming-soon">
-        <div class="badges">
-          <a class="testflight-link" href="https://testflight.apple.com/join/jv6c28Qu">iPhoneベータ版を試す</a>
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1 1 0 0 0-.6.92v17.36a1 1 0 0 0 .6.92l9.9-9.6-9.9-9.6zM14.9 12.9l2.9 1.68-11.2 6.44 8.3-8.12zm3.9-2.3 2.9 1.68a1.1 1.1 0 0 1 0 1.9l-2.9 1.68-3.1-3.13 3.1-3.13v.01L15.7 8.4l3.1 2.2zM6.6 3.14 17.8 9.58l-2.9 2.92L6.6 3.14z"/></svg>Google Play</span>
-        </div>
-        <span class="note">Android版は近日公開</span>
-      </div>
+      <a href="https://apps.apple.com/app/id6810795440"><img src="/assets/app-store-badge.svg" alt="App Store でダウンロード"></a>
+      <a class="google-play-badge" href="https://play.google.com/store/apps/details?id=tools.lh.batto"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a>
     </div>
   </div>
 
@@ -195,7 +164,7 @@
     <p>
       Battoは、野球のスコアブックの記号を知らない人でも試合を記録できる、草野球向けのスコアアプリです。
       聞かれるのは「バッターの結果は？」「どこに飛んだ？」だけ。図をタップして答えていけば、経験者が見ても読める本格的なスコアブックが自動でできあがります。
-      記録係を任されたけれど、書き方がわからない。そんな人のために作りました。アカウント登録なしで、すぐに使えます。
+      記録係を任されたけれど、書き方がわからない。そんな人のために作りました。アカウント登録なし・無料・広告なしで、すぐに使えます。
     </p>
   </div>
 
@@ -251,12 +220,17 @@
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3" /> <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /> <circle cx="18" cy="5" r="3" /></svg></span>
         <h3>走者の進塁は自動で</h3>
-        <p>進塁はアプリが計算して提案。違うときだけタップで直せば、それで確定です。</p>
+        <p>進塁はアプリが計算して提案。打席のあとに走者を確かめて、違うときだけタップで直せば、それで確定です。盗塁やボールをそらしたときも記録できます。</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4" /> <path d="M4 7h16" /> <path d="m16 21 4-4-4-4" /> <path d="M20 17H4" /></svg></span>
-        <h3>選手の交代もそのまま</h3>
-        <p>代打・代走、守備の交代、投手の交代も記録できます。</p>
+        <h3>振り逃げ・代打・代走も</h3>
+        <p>振り逃げ、代打・代走、守備の交代、投手の交代も記録できます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 12h11" /> <path d="M10 18h11" /> <path d="M10 6h11" /> <path d="M4 10h2" /> <path d="M4 6h1v4" /> <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" /></svg></span>
+        <h3>打順と次の打者が見える</h3>
+        <p>記録中も、今日の打順と次の打者を画面で確かめられます。来ていない人・帰った人の番は飛ばせます。</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M3 9h18" /> <path d="M3 15h18" /> <path d="M9 3v18" /> <path d="M15 3v18" /></svg></span>
@@ -279,9 +253,19 @@
         <p>試合結果は共有リンクで仲間へ。アプリを入れていない人も、ブラウザで見られて、印刷や画像での保存もできます。</p>
       </div>
       <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /> <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg></span>
+        <h3>相手チームの記録と合わせる</h3>
+        <p>相手チームもBattoで記録していたら、相手の共有リンクを貼るだけで、相手の攻撃も相手の記録で見られます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" /> <path d="M4 22v-7" /></svg></span>
+        <h3>チームページ</h3>
+        <p>試合の結果・予定・選手ごとの成績を、1つのリンクでチーム全員に。リンクを知っている人だけが見られて、アプリを入れていなくても開けます。</p>
+      </div>
+      <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></span>
         <h3>複数のチームと打順を保存</h3>
-        <p>複数のチームと選手を登録して、次の試合でもそのまま。ExcelやスプレッドシートのCSV名簿も取り込めます。LINEで届いたオーダーを貼るだけで、今日の打順もできます。作った打順を文字で送ることも。</p>
+        <p>複数のチームと選手を登録して、次の試合でもそのまま。ExcelやGoogleスプレッドシートの名簿は、コピーして貼り付けるだけで取り込めます（CSVファイルも可）。LINEで届いたオーダーを貼るだけで、今日の打順もできます。作った打順を文字で送ることも。</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /> <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg></span>
@@ -289,9 +273,19 @@
         <p>試合の予定を入れておくと、前日の夜と試合前に通知。うっかり忘れを防げます。</p>
       </div>
       <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></svg></span>
+        <h3>日本語・英語・ベトナム語</h3>
+        <p>アプリは日本語・英語・ベトナム語に対応。言語は設定で切り替えられます。</p>
+      </div>
+      <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5V19A9 3 0 0 0 21 19V5" /> <path d="M3 12A9 3 0 0 0 21 12" /></svg></span>
-        <h3>データの保存</h3>
-        <p>アカウント登録は不要。試合・チーム・予定は端末とサーバーに保存されます。サーバーへの保存は設定でいつでも止められ、サーバーのデータを全部消すこともできます。記録する人の名前は端末の中だけに保存します。</p>
+        <h3>ログイン不要</h3>
+        <p>アカウント登録もログインも不要です。試合・チーム・予定は端末とサーバーに保存されます。サーバーのデータを消したいときは、設定の「お問い合わせ・よくある質問」から「データの削除依頼」を送ってください。ほかの人が見られるのは、あなたが共有した試合と、作ったチームページだけです。記録する人の名前は端末の中だけに保存します。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /></svg></span>
+        <h3>無料・広告なし</h3>
+        <p>すべての機能を無料で使えます。広告も出ません。試合中に片手で記録するアプリだから、邪魔になるものは入れていません。</p>
       </div>
     </div>
   </div>
@@ -303,7 +297,9 @@
       <img src="/assets/batto/screenshots/ja/01-record.webp" alt="バッターの結果を押すだけ" width="828" height="1800" loading="lazy">
       <img src="/assets/batto/screenshots/ja/02-zone.webp" alt="どこに飛んだ？ 図をタップ" width="828" height="1800" loading="lazy">
       <img src="/assets/batto/screenshots/ja/03-runners.webp" alt="走者の進塁はアプリが計算" width="828" height="1800" loading="lazy">
+      <img src="/assets/batto/screenshots/ja/04-scorebook.webp" alt="経験者も読めるスコアブックが自動でできる" width="828" height="1800" loading="lazy">
       <img src="/assets/batto/screenshots/ja/05-explain.webp" alt="スコアブックのマスをタップすると、ことばで解説" width="828" height="1800" loading="lazy">
+      <img src="/assets/batto/screenshots/ja/06-team.webp" alt="チームと打順を登録。名簿は貼り付けで取り込める" width="828" height="1800" loading="lazy">
       <img src="/assets/batto/screenshots/ja/08-share.webp" alt="共有リンクで、みんなで見返せる" width="828" height="1800" loading="lazy">
     </div>
   </div>
@@ -311,13 +307,8 @@
   <div class="footer-cta fade-in">
     <h2>次の試合、<br>記録係をやってみよう。</h2>
     <div class="cta">
-      <div class="coming-soon">
-        <div class="badges">
-          <a class="testflight-link" href="https://testflight.apple.com/join/jv6c28Qu">iPhoneベータ版を試す</a>
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1 1 0 0 0-.6.92v17.36a1 1 0 0 0 .6.92l9.9-9.6-9.9-9.6zM14.9 12.9l2.9 1.68-11.2 6.44 8.3-8.12zm3.9-2.3 2.9 1.68a1.1 1.1 0 0 1 0 1.9l-2.9 1.68-3.1-3.13 3.1-3.13v.01L15.7 8.4l3.1 2.2zM6.6 3.14 17.8 9.58l-2.9 2.92L6.6 3.14z"/></svg>Google Play</span>
-        </div>
-        <span class="note">Android版は近日公開</span>
-      </div>
+      <a href="https://apps.apple.com/app/id6810795440"><img src="/assets/app-store-badge.svg" alt="App Store でダウンロード"></a>
+      <a class="google-play-badge" href="https://play.google.com/store/apps/details?id=tools.lh.batto"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a>
     </div>
   </div>
 
