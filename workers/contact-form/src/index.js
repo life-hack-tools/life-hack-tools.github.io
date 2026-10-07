@@ -86,6 +86,7 @@ const APPS = {
   rete: 'Rete',
   'life-calendar': 'Life Calendar',
   'todo-box': 'TodoBox',
+  ruga: 'Ruga',
 };
 
 const APP_TOPICS = ['feedback', 'bug', 'question', 'deletion'];
