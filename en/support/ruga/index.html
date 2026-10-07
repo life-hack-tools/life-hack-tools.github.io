@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support - Ruga - Life Hack Tools</title>
+  <meta name="description" content="Help and support for Ruga.">
+  <link rel="canonical" href="https://lh.tools/en/support/ruga/">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/support/ruga/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/support/ruga/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/ruga/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/support/ruga/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .updated { color: #666; font-size: 13px; margin-bottom: 40px; display: block; }
+    .intro { font-size: 16px; color: #999; margin-bottom: 48px; line-height: 1.8; }
+    .section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #2fa58a; margin-bottom: 24px; }
+    .policy-section { margin-bottom: 40px; }
+    .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
+    .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #2fa58a; background: rgba(47,165,138,0.1); border: 1px solid rgba(47,165,138,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
+    .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .contact-card .info { flex: 1; }
+    .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
+    .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
+    .contact-card a:hover { color: #2fa58a; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  
+    .policy-section li strong, .policy-section p strong { color: #ccc; }
+    .policy-section a { color: #2fa58a; text-decoration: none; }
+    .policy-section a:hover { text-decoration: underline; }
+  </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/en/apps/ruga/">&larr; Ruga</a>
+    <div class="lang-switch">
+      <a href="/support/ruga/">JA</a>
+      <a href="/en/support/ruga/" class="active">EN</a>
+      <a href="/vi/support/ruga/">VI</a>
+    </div>
+  </div>
+  <div class="content">
+    <h1>Support</h1>
+    <p class="intro">Help and support for Ruga, a bus departure time and walking time app</p>
+    <div class="section-label">FAQ</div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>I have not allowed location, or Ruga cannot find where I am</h2>
+      <p>Ruga uses your location to pick nearby bus stops and to work out your walking time. Even if you have not allowed location, you can choose a stop yourself and see its timetable. To choose from where you are, open your device settings and let Ruga use your location while you are using the app. Approximate location works too.</p>
+      <p>If your location cannot be found, for example indoors, try again or choose a stop.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>&ldquo;Your location is outside the supported area&rdquo; appears</h2>
+      <p>For now, Ruga supports Keio Bus around Hashimoto Station (between Hashimoto Station and Minami-osawa Station). You will see this message when you are outside that area.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>How is the walking time calculated?</h2>
+      <p>The walking time from where you are to the bus stop is calculated on your device. Your location is not sent to a server. You can choose your walking pace: slow, normal or brisk. If you allow only approximate location, Ruga allows a little extra time. If you choose a stop without using location, it uses a provisional walking time.</p>
+      <p>Ruga recommends only the buses you can catch without rushing.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>&ldquo;Waiting for update&rdquo; or &ldquo;previous data&rdquo; is shown</h2>
+      <p>When there is no connection, or the timetable cannot be brought up to date, Ruga shows the timetable it fetched last time and marks it as older data. In that case it does not recommend a bus as &ldquo;you can make it comfortably.&rdquo; Please open the app again where you have a connection.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>The timetable looks different from the real one</h2>
+      <p>The timetable is based on Keio Bus data from the Public Transportation Open Data Center (ODPT). We do not guarantee that it is accurate or complete. Please also check the notice at the bus stop and Keio Bus&rsquo;s own information.</p>
+      <p>For questions about what the app shows, please use the form below to contact Ruga support, not Keio Bus.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>I want to delete what is saved</h2>
+      <p>Ruga has no accounts. What is saved on your device is the stop and direction you chose, your walking pace setting, and a temporary copy of the timetables. These are removed when you delete the app. See the <a href="https://lh.tools/en/privacy/ruga/">Privacy Policy</a> for details.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>Which languages are supported?</h2>
+      <p>Japanese, English and Vietnamese.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2>Contact</h2>
+      <p>If the above does not help, please use the contact form below. When reporting a problem, it helps us if you tell us your device (iPhone / Android) and what you did when it happened. For privacy-related requests, please read the <a href="https://lh.tools/en/privacy/ruga/">Privacy Policy</a> and send your request through the same form.</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">Contact us by form</div>
+          <a href="/en/contact/?app=Ruga">Contact form</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>

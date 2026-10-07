@@ -596,6 +596,33 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lh.tools/apps/ruga/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/ruga/"/>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/apps/ruga/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/ruga/"/>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/apps/ruga/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/ruga/"/>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lh.tools/privacy/instantid/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/instantid/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/instantid/"/>
@@ -920,6 +947,33 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lh.tools/privacy/ruga/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/ruga/"/>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/ruga/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/ruga/"/>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/ruga/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/ruga/"/>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lh.tools/support/word-diary/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/word-diary/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/word-diary/"/>
@@ -1214,6 +1268,33 @@
     <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/batto/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/batto/"/>
     <lastmod>2026-09-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/support/ruga/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/ruga/"/>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/support/ruga/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/ruga/"/>
+    <lastmod>2026-10-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/support/ruga/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/ruga/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/ruga/"/>
+    <lastmod>2026-10-07</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>
