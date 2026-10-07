@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zobo - Life Hack Tools</title>
+  <meta name="description" content="Không ai quên chìa khóa, ví hay điện thoại. Zobo chỉ nhắc đúng những điều khác mọi ngày, như hộ chiếu, thẻ khám bệnh, bếp và khóa cửa, chỉ trong một dòng.">
+  <meta property="og:title" content="Zobo - Life Hack Tools">
+  <meta property="og:description" content="Bạn không quên chìa khóa. Bạn quên những thứ khác mọi ngày. Zobo chỉ nhắc đúng thứ đó.">
+  <meta property="og:image" content="https://lh.tools/assets/ogp/zobo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://lh.tools/vi/apps/zobo/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Life Hack Tools">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@LifeHackToolz">
+  <meta name="twitter:image" content="https://lh.tools/assets/ogp/zobo.png">
+  <link rel="canonical" href="https://lh.tools/vi/apps/zobo/">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/apps/zobo/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/zobo/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/zobo/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/zobo/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 24px;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a {
+      font-size: 12px; padding: 4px 10px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15); color: #888;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 80px 24px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(127,163,199,0.12) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+    .hero-icon {
+      width: 120px; height: 120px; border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(127,163,199,0.3);
+      margin-bottom: 32px; animation: float 6s ease-in-out infinite; position: relative;
+    }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
+    .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
+    .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: center; position: relative; }
+    .cta a { transition: opacity 0.2s; }
+    .cta a:hover { opacity: 0.8; }
+    .cta img { height: 50px; }
+    .cta img[src*="google-play"] { height: 74px; margin: -12px 0; }
+    .store-soon {
+      display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .coming-soon {
+      display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .coming-soon .badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .badge-placeholder {
+      display: inline-flex; align-items: center; gap: 8px;
+      height: 50px; padding: 0 20px; border-radius: 10px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+      color: #aaa; font-size: 13px; font-weight: 600;
+    }
+    .badge-placeholder svg { width: 20px; height: 20px; opacity: 0.7; }
+    .note {
+      font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: #7fa3c7;
+    }
+    .section { padding: 100px 24px; max-width: 800px; margin: 0 auto; }
+    .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #7fa3c7; margin-bottom: 16px; }
+    .section h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
+    .section p { font-size: 17px; color: #999; line-height: 1.8; }
+    .steps { display: grid; gap: 16px; margin-top: 48px; }
+    .step-card {
+      display: flex; align-items: flex-start; gap: 20px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 24px 28px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .step-card:hover { transform: translateX(4px); border-color: rgba(127,163,199,0.3); background: rgba(255,255,255,0.06); }
+    .step-num {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(127,163,199,0.12); border: 1px solid rgba(127,163,199,0.25);
+      color: #7fa3c7; font-weight: 800; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-body h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .step-body p { font-size: 15px; color: #888; line-height: 1.6; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+    .feature-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 28px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(127,163,199,0.3); background: rgba(255,255,255,0.06); }
+    .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: #777; line-height: 1.6; }
+    .screenshots { padding: 80px 0; overflow: hidden; }
+    .screenshots .section-title, .screenshots h2 { text-align: center; padding: 0 24px; }
+    .screenshot-scroll {
+      display: flex; gap: 20px; overflow-x: auto; padding: 48px 24px;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .screenshot-scroll::-webkit-scrollbar { display: none; }
+    .screenshot-scroll img {
+      height: 500px; border-radius: 24px; scroll-snap-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5); flex-shrink: 0; transition: transform 0.3s;
+    }
+    .screenshot-scroll img:hover { transform: scale(1.02); }
+    .legal-links { text-align: center; padding: 0 24px 40px; }
+    .legal-links a { color: #888; text-decoration: none; font-size: 14px; margin: 0 12px; transition: color 0.2s; }
+    .legal-links a:hover { color: #7fa3c7; }
+    .footer-cta { text-align: center; padding: 100px 24px; position: relative; overflow: hidden; }
+    .footer-cta::before {
+      content: ''; position: absolute; bottom: 0; left: -50%;
+      width: 200%; height: 100%;
+      background: radial-gradient(ellipse at 50% 100%, rgba(127,163,199,0.06) 0%, transparent 60%);
+    }
+    .footer-cta h2 { font-size: clamp(24px, 5vw, 36px); font-weight: 700; margin-bottom: 32px; position: relative; }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+      /* feature-icon-svg */
+    .feature-icon { color: #7fa3c7; }
+    .feature-icon svg { width: 32px; height: 32px; display: block; }
+  
+    .about-note { font-size: 13px; color: #666; margin-top: 24px; line-height: 1.7; }
+    .feature-icon { color: #7fa3c7; }
+    .feature-icon svg { width: 32px; height: 32px; display: block; }
+  </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/vi/">&larr; LHTz</a>
+    <div class="lang-switch">
+      <a href="/apps/zobo/">JA</a>
+      <a href="/en/apps/zobo/">EN</a>
+      <a href="/vi/apps/zobo/" class="active">VI</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <img src="/assets/icon-zobo.png" alt="Zobo" class="hero-icon">
+    <h1>Zobo</h1>
+    <p class="subtitle">Chỉ nhắc điều khác mọi ngày</p>
+    <div class="cta">
+      <div class="coming-soon">
+        <div class="badges">
+          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App Store</span>
+          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
+        </div>
+        <span class="note">Sắp ra mắt</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">About</div>
+    <h2>Không liệt kê tất cả.<br>Chỉ điều khác mọi ngày.</h2>
+    <p>
+      Không ai quên chìa khóa, ví hay điện thoại. Thứ bạn quên là món đồ không mang hằng ngày, vào một ngày khác mọi ngày. Zobo là ứng dụng danh sách kiểm tra trước khi ra khỏi nhà. Ứng dụng chỉ nhắc, trong một dòng, những việc thuộc về ngày hôm đó, như hộ chiếu, thẻ khám bệnh, bếp và khóa cửa. Không cần tài khoản, không có quảng cáo, và dữ liệu chỉ nằm trên thiết bị của bạn.
+    </p>
+    <p class="about-note">* Linh vật là Zobo, chú voi con, vì voi không bao giờ quên.</p>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">How it works</div>
+    <h2>Ba bước, nhẹ nhàng.</h2>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Tạo kế hoạch</h3>
+          <p>Chọn Chuyến bay, Khám bệnh, Du lịch hoặc Kế hoạch, rồi nhập tên, ngày và giờ khởi hành. Tùy loại, các mục chỉ thuộc về ngày hôm đó sẽ được thêm sẵn.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Chỉ xem việc của lúc này</h3>
+          <p>Việc cần làm được chia thành "tuần này", "hôm trước", "sáng hôm đó" và "tại sân bay". Bạn chỉ thấy việc của lúc này, những việc sau cứ để sau.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Đánh dấu rồi lên đường</h3>
+          <p>Vào ngày đi, bạn đánh dấu từng mục. Mỗi lần đánh dấu đều lưu kèm giờ, nên nếu sau khi ra khỏi nhà bạn thấy lo, chỉ cần xem lại là xong.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">Features</div>
+    <h2>Không thúc ép, ngay từ thiết kế.</h2>
+    <div class="features">
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span>
+        <h3>Chỉ điều khác mọi ngày</h3>
+        <p>Đồ dùng hằng ngày không nằm trong danh sách. Chỉ những gì thuộc về ngày hôm đó được hiện ra, nên danh sách ngắn và bạn dùng được lâu.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg></span>
+        <h3>Chia theo thời gian</h3>
+        <p>Việc cần làm được chia thành "tuần này", "hôm trước", "sáng hôm đó" và "tại sân bay". Với chuyến bay quốc tế, hạn hộ chiếu và làm thủ tục trực tuyến được thêm sẵn.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
+        <h3>Chuẩn bị từ tối hôm trước</h3>
+        <p>Thêm đồ cho sáng mai ngay tối nay. Sáng ra chỉ cần xem lại.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg></span>
+        <h3>Có ghi nhận để yên tâm</h3>
+        <p>Mỗi lần đánh dấu đều lưu kèm thời gian. Lỡ trên đường thấy lo, xem lại là xong.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
+        <h3>Nhắc nhẹ nhàng</h3>
+        <p>Mỗi kế hoạch tối đa hai lời nhắc, vào 20 giờ hôm trước và 7 giờ sáng hôm đó. Không đếm số để hối bạn, và ngày không có kế hoạch thì không hiện gì.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></span>
+        <h3>Dữ liệu chỉ nằm trên thiết bị</h3>
+        <p>Không cần tài khoản, không có quảng cáo. Kế hoạch và nội dung đã đánh dấu được lưu trên thiết bị và không được gửi đi đâu. Hỗ trợ Tiếng Việt, English và 日本語.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="screenshots fade-in">
+    <div class="section-title">Screenshots</div>
+    <h2>Xem nhanh.</h2>
+    <div class="screenshot-scroll">
+      <img src="/assets/zobo/screenshots/vi/01-daycheck.webp" alt="Ngày khởi hành: chỉ hiện hộ chiếu, bếp và khóa cửa" loading="lazy">
+      <img src="/assets/zobo/screenshots/vi/02-home.webp" alt="Màn hình chính: không có chìa khóa hay ví trong danh sách" loading="lazy">
+      <img src="/assets/zobo/screenshots/vi/03-prep.webp" alt="Những việc sau cứ để sau" loading="lazy">
+      <img src="/assets/zobo/screenshots/vi/04-receipt.webp" alt="Ghi nhận giờ đã đánh dấu" loading="lazy">
+      <img src="/assets/zobo/screenshots/vi/05-empty.webp" alt="Ngày không có kế hoạch thì không hiện gì" loading="lazy">
+    </div>
+  </div>
+
+  <div class="footer-cta fade-in">
+    <h2>Chỉ nhắc điều khác mọi ngày.</h2>
+    <div class="cta">
+      <div class="coming-soon">
+        <div class="badges">
+          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App Store</span>
+          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
+        </div>
+        <span class="note">Sắp ra mắt</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-links">
+    <a href="/vi/privacy/zobo/">Chính sách quyền riêng tư</a>
+    <a href="/vi/support/zobo/">Hỗ trợ</a>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>

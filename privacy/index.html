@@ -338,6 +338,13 @@
               <td>なし</td>
               <td>転送時あり</td>
             </tr>
+            <tr>
+              <th>Zobo</th>
+              <td>予定・チェック項目・チェックした時刻（端末内にのみ保存）、インストールID（更新の確認用）（※6）</td>
+              <td>出かける前の持ち物・家のことの確認、通知、アプリの更新配信</td>
+              <td>なし</td>
+              <td>転送時あり</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -346,7 +353,8 @@
       <p class="table-note">※3 Pitto は駐車場の検索・比較および徒歩ルート表示のため、位置情報を外部サービス（Google Maps Platform）に送信します。停めた場所の記録（座標・メモ・写真）は端末間同期のため Supabase に匿名で保存されます。利用者を特定する情報の販売・共有は行いません。</p>
       <p class="table-note">※4 Batto は、試合・チーム（選手名を含む）・予定の記録を、端末と Firebase（Google Cloud Firestore・東京リージョン）に保存します。アカウント登録は不要で、端末ごとに見えない匿名IDを自動で作り、サーバー上のデータはその ID の持ち主だけが読み書きできます。サーバーへの保存はアプリの設定で止められ、サーバー上のデータもいつでも全部消せます。記録する人の名前は端末内にのみ保存します。「スコアを共有」した試合は、URL を知っている人であれば誰でも閲覧できます。<strong>共有はアプリの「共有したスコア」画面から取り消せます。</strong>また、自チームの「チームページ」を作ったときは、チーム名・試合の結果・予定・選手ごとの成績（選手名を含む）が、URL を知っている人であれば誰でも閲覧できるページとして公開されます（検索エンジンには表示しません）。<strong>チームページはアプリのチームの画面から止められます。</strong></p>
       <p class="table-note">※5 Ruga は、位置情報を、近くの停留所を選んだり停留所までの徒歩時間を計算したりするためだけに、端末内で使います。<strong>位置情報はサーバーへ送信せず、保存もしません。</strong>「おおよその位置」の許可でも利用できます。時刻表は、当団体が Google Cloud 上で運用する Ruga の時刻表サーバーから取得します。このとき、位置情報や選んだ停留所など、利用者に関わる情報は送りません。時刻表サーバーは IP アドレスなどの接続元の情報を記録しませんが、通信の仕組み上、IP アドレスがクラウド事業者（Google）のログに一定期間残ることがあります。アプリの不具合の調査のため、エラーの内容・アプリのバージョン・OS の種類などの診断情報を Sentry（Functional Software, Inc.）に送ります。利用者を識別する情報や位置情報は含めず、広告や追跡には使いません。また、アプリの更新の有無を確認するため、ランダムに生成したインストール ID を Expo（EAS Update、650 Industries, Inc.）に送ります。端末内には、選んだ停留所と方面、歩く速さの設定、時刻表の一時保存（キャッシュ）を保存し、これらはアプリを削除すると消えます。アプリ内の問い合わせから利用者ご自身が送信した場合に限り、本文・アプリのバージョンとビルド番号・OS の種類とバージョン・端末の機種・言語・連絡先（入力した場合のみ）を、お問い合わせ対応のために当団体へ送ります。アカウント登録・広告・トラッキングはありません。詳しくは<a href="/privacy/ruga/" style="color:#dc2626;">Ruga のプライバシーポリシー</a>をご確認ください。</p>
-      <p class="table-note">各アプリの詳細は、アプリ個別のプライバシーポリシー（例: <a href="/privacy/peckish/" style="color:#dc2626;">Peckish</a> / <a href="/privacy/pitto/" style="color:#dc2626;">Pitto</a> / <a href="/privacy/rete/" style="color:#dc2626;">Rete</a> / <a href="/privacy/batto/" style="color:#dc2626;">Batto</a> / <a href="/privacy/ruga/" style="color:#dc2626;">Ruga</a>）をご確認ください。</p>
+      <p class="table-note">※6 Zobo は、予定の名前・日付・出発時刻・行き先、チェックリストの項目、チェックした時刻を、端末の中にだけ保存し、当団体のサーバーへは送りません。通知は端末の中で予約するローカル通知で、プッシュ通知用のトークンは取得しません。「データを書き出す」は、利用者が選んだときだけファイルを作り、端末の共有画面を開きます（自動では送信しません）。アプリの更新の有無を確認するため、ランダムに生成したインストール ID、アプリのバージョン、OS の種類などを Expo（EAS Update、650 Industries, Inc.）に送ります。クラッシュログの送信、利用状況の分析、広告、アカウント登録、トラッキングはありません。詳しくは<a href="/privacy/zobo/" style="color:#dc2626;">Zobo のプライバシーポリシー</a>をご確認ください。</p>
+      <p class="table-note">各アプリの詳細は、アプリ個別のプライバシーポリシー（例: <a href="/privacy/peckish/" style="color:#dc2626;">Peckish</a> / <a href="/privacy/pitto/" style="color:#dc2626;">Pitto</a> / <a href="/privacy/rete/" style="color:#dc2626;">Rete</a> / <a href="/privacy/batto/" style="color:#dc2626;">Batto</a> / <a href="/privacy/ruga/" style="color:#dc2626;">Ruga</a> / <a href="/privacy/zobo/" style="color:#dc2626;">Zobo</a>）をご確認ください。</p>
     </div>
 
     <div class="policy-section fade-in">

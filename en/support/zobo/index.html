@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support - Zobo - Life Hack Tools</title>
+  <meta name="description" content="Help and support for Zobo.">
+  <link rel="canonical" href="https://lh.tools/en/support/zobo/">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/support/zobo/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/support/zobo/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/zobo/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/support/zobo/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .updated { color: #666; font-size: 13px; margin-bottom: 40px; display: block; }
+    .intro { font-size: 16px; color: #999; margin-bottom: 48px; line-height: 1.8; }
+    .section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #7fa3c7; margin-bottom: 24px; }
+    .policy-section { margin-bottom: 40px; }
+    .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
+    .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #7fa3c7; background: rgba(127,163,199,0.1); border: 1px solid rgba(127,163,199,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
+    .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .contact-card .info { flex: 1; }
+    .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
+    .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
+    .contact-card a:hover { color: #7fa3c7; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  
+    .policy-section li strong, .policy-section p strong { color: #ccc; }
+    .policy-section a { color: #7fa3c7; text-decoration: none; }
+    .policy-section a:hover { text-decoration: underline; }
+  </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/en/apps/zobo/">&larr; Zobo</a>
+    <div class="lang-switch">
+      <a href="/support/zobo/">JA</a>
+      <a href="/en/support/zobo/" class="active">EN</a>
+      <a href="/vi/support/zobo/">VI</a>
+    </div>
+  </div>
+  <div class="content">
+    <h1>Support</h1>
+    <p class="intro">Help and support for Zobo, a packing checklist app</p>
+    <div class="section-label">FAQ</div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>I am not getting notifications</h2>
+      <p>Zobo reminds you at most twice per plan, at 8 pm the day before and at 7 am on the day. To receive them, allow notifications for Zobo in your device settings. The app asks for permission after you create your first plan.</p>
+      <p>Notifications are not scheduled for times that have already passed. For example, for a plan you create the evening before departure, the 8 pm notification is skipped and only the 7 am one on the day is scheduled. On days with no plans, nothing is shown.</p>
+      <p>If notifications disappeared because Android force-stopped the app, open Zobo once and the reminders are scheduled again automatically.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>How do I add, edit, or delete a plan?</h2>
+      <p>On the home screen, tap "Add a plan", then enter the type (Flight, Hospital, Trip, or Plan), name, date, and departure time. You can change a plan with "Edit" on the plan screen.</p>
+      <p>To delete a plan, tap the trash icon on its card on the home screen. The check records for that plan are deleted too.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>How do I add, rename, or delete an item?</h2>
+      <p>In the checklist, tap "+ Add item" to add your own item. Use the "···" at the right of an item to rename or delete it.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>My keys and wallet are not on the list</h2>
+      <p>Zobo leaves out everyday items (keys, wallet, phone) and shows only what is different that day. For a flight, for example, it adds passport validity, visa and entry rules, online check-in, packing, charging a power bank, your passport, stove, door lock, and boarding pass. For a hospital visit it adds the patient card, insurance card, and door lock. For a trip it adds packing, charging, stove, and door lock. "Plan" starts blank. Add anything else you need as your own item.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>I cannot check items under "Morning of" or "At the airport"</h2>
+      <p>The "Day before" tab opens the day before, and the "Morning of" and "At the airport" tabs open on the day of departure. Until then you can still add items to them, to set things up the night before.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>How do I change the language?</h2>
+      <p>Tap the globe icon at the top right of the home screen to open Settings, then choose English, 日本語, or Tiếng Việt under "Language". At first, Zobo follows your device language (English if it is not one of these three).</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>Is my data backed up?</h2>
+      <p>Zobo has no account, and your data is stored only on your device. If you delete the app or switch phones, it is not carried over as it is.</p>
+      <p>Use "Export my data" in Settings to create a file with your plans, items, and check times, and save it anywhere through the share sheet. On a new device or after reinstalling, choose "Import my data" and pick that file to restore it. Plans with the same ID are replaced, and your other plans stay as they are.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">08</span>Where can I see my check record?</h2>
+      <p>The time of each check is recorded per plan. Open it with "See the record" on the home screen.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">09</span>I want to delete my saved data</h2>
+      <p>Zobo has no account, and your data exists only on your device. You can delete plans and items in the app, and deleting the app removes everything stored on your device. See the <a href="https://lh.tools/en/privacy/zobo/">Privacy Policy</a> for details.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">10</span>Which languages are supported?</h2>
+      <p>English, Japanese, and Vietnamese.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2>Contact us</h2>
+      <p>If the above does not solve your problem, please contact us using the form below. When reporting a problem, it helps to tell us your device (iPhone / Android) and what you were doing when it happened. For privacy matters, please read the <a href="https://lh.tools/en/privacy/zobo/">Privacy Policy</a> and then send us a message through the same form.</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">Contact us by form</div>
+          <a href="/en/contact/?app=Zobo">Contact form</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
