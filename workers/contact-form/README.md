@@ -149,7 +149,7 @@ X-LHT-App-Key: <アプリごとのキー>
 ### 許可しているアプリ
 
 `batto` / `instantid` / `pitto` / `peckish` / `stockhome` / `mahjong-cho` /
-`word-diary` / `mugg` / `rete` / `life-calendar` / `todo-box`
+`word-diary` / `mugg` / `rete` / `life-calendar` / `todo-box` / `ruga`
 
 アプリを追加するときは `src/index.js` の `APPS` に slug と表示名を足し、
 `APP_KEYS` にそのアプリのキーを足す。
