@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サポート - Ruga - Life Hack Tools</title>
+  <meta name="description" content="Rugaに関するお問い合わせやサポートについて。">
+  <link rel="canonical" href="https://lh.tools/support/ruga/">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/support/ruga/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/support/ruga/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/ruga/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/support/ruga/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .updated { color: #666; font-size: 13px; margin-bottom: 40px; display: block; }
+    .intro { font-size: 16px; color: #999; margin-bottom: 48px; line-height: 1.8; }
+    .section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #2fa58a; margin-bottom: 24px; }
+    .policy-section { margin-bottom: 40px; }
+    .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
+    .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #2fa58a; background: rgba(47,165,138,0.1); border: 1px solid rgba(47,165,138,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
+    .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .contact-card .info { flex: 1; }
+    .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
+    .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
+    .contact-card a:hover { color: #2fa58a; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  
+    .policy-section li strong, .policy-section p strong { color: #ccc; }
+    .policy-section a { color: #2fa58a; text-decoration: none; }
+    .policy-section a:hover { text-decoration: underline; }
+  </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/apps/ruga/">&larr; Ruga</a>
+    <div class="lang-switch">
+      <a href="/support/ruga/" class="active">JA</a>
+      <a href="/en/support/ruga/">EN</a>
+      <a href="/vi/support/ruga/">VI</a>
+    </div>
+  </div>
+  <div class="content">
+    <h1>サポート</h1>
+    <p class="intro">Ruga（バス停の発車時刻＆徒歩時間アプリ）に関するお問い合わせやサポートについて</p>
+    <div class="section-label">よくある質問</div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>位置情報を許可していない／現在地が取れない</h2>
+      <p>Ruga は、近くのバス停を選ぶときと、徒歩時間を計算するときに現在地を使います。位置情報を許可していなくても、バス停を自分で選んで時刻表を見ることができます。現在地から選びたいときは、端末の設定で、Ruga がアプリを使っているときに位置情報を使えるようにしてください。「おおよその位置」でも使えます。</p>
+      <p>屋内などで位置が取れないときは、もう一度試すか、バス停を選んでください。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>「現在地は対応エリア外です」と出る</h2>
+      <p>Ruga が対応しているのは、いまのところ橋本駅周辺（橋本駅と南大沢駅のあいだ）の京王バスです。現在地がこの範囲の外にあるときは、このように表示されます。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>徒歩時間はどう計算していますか</h2>
+      <p>現在地からバス停までの徒歩時間は、端末の中で計算します。位置情報はサーバーへ送りません。歩く速さは「ゆっくり・ふつう・せかせか」から選べます。おおよその位置を許可したときは、多めに見積もります。位置情報を使わずにバス停を選んだときは、仮の徒歩時間で計算します。</p>
+      <p>Ruga は、急がなくても間に合う便だけをおすすめします。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>「更新待ち」と出る／前回のデータと表示される</h2>
+      <p>通信できないときや、時刻表を最新にできないときは、前回取得した時刻表を、前回のデータであることを示して表示します。このとき、「余裕で間に合う」というおすすめは出しません。通信できる場所で、もう一度アプリを開いてください。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>時刻表が実際と違うように見える</h2>
+      <p>時刻表は、公共交通オープンデータセンター（ODPT）から取得した京王バスのデータをもとにしています。正確性・完全性は保証されません。バス停の掲示や、京王バスの案内もあわせてご確認ください。</p>
+      <p>アプリの表示内容についてのお問い合わせは、京王バスではなく、下記のフォームから Ruga のサポートへお願いします。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>保存されたデータを消したい</h2>
+      <p>Ruga にアカウントはありません。端末の中に保存されるのは、選んだバス停と方面、歩く速さの設定、時刻表の一時保存です。これらは、アプリを削除すると消えます。詳しくは<a href="https://lh.tools/privacy/ruga/">プライバシーポリシー</a>をご確認ください。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>対応している言語は？</h2>
+      <p>日本語・英語・ベトナム語に対応しています。</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2>お問い合わせ</h2>
+      <p>上記で解決しない場合は、以下のお問い合わせフォームからご連絡ください。不具合のご報告は、お使いの端末（iPhone / Android）と、起きたときの操作を書いていただけると助かります。プライバシーに関するご連絡は <a href="https://lh.tools/privacy/ruga/">プライバシーポリシー</a> をご確認のうえ、同じフォームよりお送りください。</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">フォームにてお問い合わせ</div>
+          <a href="/contact/?app=Ruga">お問い合わせフォーム</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
