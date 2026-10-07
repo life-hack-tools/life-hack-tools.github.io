@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hỗ trợ - Zobo - Life Hack Tools</title>
+  <meta name="description" content="Trợ giúp và hỗ trợ cho Zobo.">
+  <link rel="canonical" href="https://lh.tools/vi/support/zobo/">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/support/zobo/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/support/zobo/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/zobo/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/support/zobo/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .content { max-width: 700px; margin: 0 auto; padding: 100px 24px 80px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .updated { color: #666; font-size: 13px; margin-bottom: 40px; display: block; }
+    .intro { font-size: 16px; color: #999; margin-bottom: 48px; line-height: 1.8; }
+    .section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #7fa3c7; margin-bottom: 24px; }
+    .policy-section { margin-bottom: 40px; }
+    .policy-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #e0e0e0; display: flex; align-items: center; gap: 10px; }
+    .policy-section h2 .num { font-size: 12px; font-weight: 600; color: #7fa3c7; background: rgba(127,163,199,0.1); border: 1px solid rgba(127,163,199,0.2); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; }
+    .policy-section p { font-size: 15px; color: #999; line-height: 1.8; }
+    .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; margin-top: 48px; display: flex; align-items: center; gap: 16px; }
+    .contact-card .mail-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card .mail-icon svg { width: 24px; height: 24px; }
+    .contact-card .info { flex: 1; }
+    .contact-card .label { font-size: 13px; color: #666; margin-bottom: 4px; }
+    .contact-card a { color: #f0f0f0; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; }
+    .contact-card a:hover { color: #7fa3c7; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  
+    .policy-section li strong, .policy-section p strong { color: #ccc; }
+    .policy-section a { color: #7fa3c7; text-decoration: none; }
+    .policy-section a:hover { text-decoration: underline; }
+  </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/vi/apps/zobo/">&larr; Zobo</a>
+    <div class="lang-switch">
+      <a href="/support/zobo/">JA</a>
+      <a href="/en/support/zobo/">EN</a>
+      <a href="/vi/support/zobo/" class="active">VI</a>
+    </div>
+  </div>
+  <div class="content">
+    <h1>Hỗ trợ</h1>
+    <p class="intro">Trợ giúp và hỗ trợ cho Zobo, ứng dụng kiểm tra đồ mang theo</p>
+    <div class="section-label">Câu hỏi thường gặp</div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">01</span>Tôi không nhận được thông báo</h2>
+      <p>Zobo nhắc bạn tối đa hai lần cho mỗi kế hoạch, vào 20 giờ hôm trước và 7 giờ sáng hôm đó. Để nhận thông báo, hãy cho phép Zobo gửi thông báo trong phần cài đặt của thiết bị. Ứng dụng sẽ xin quyền sau khi bạn tạo kế hoạch đầu tiên.</p>
+      <p>Thông báo không được đặt lịch cho những thời điểm đã qua. Ví dụ, với kế hoạch tạo vào tối hôm trước ngày khởi hành, thông báo 20 giờ sẽ bị bỏ qua và chỉ còn thông báo 7 giờ sáng hôm đó. Ngày không có kế hoạch thì không hiện gì.</p>
+      <p>Nếu Android buộc dừng ứng dụng khiến thông báo bị mất, bạn chỉ cần mở Zobo một lần là lịch nhắc sẽ tự động được đặt lại.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">02</span>Cách thêm, sửa, xóa kế hoạch</h2>
+      <p>Ở màn hình chính, nhấn "Thêm kế hoạch", rồi nhập loại (Chuyến bay, Khám bệnh, Du lịch hoặc Kế hoạch), tên, ngày và giờ khởi hành. Bạn có thể sửa kế hoạch bằng nút "Sửa" trên màn hình kế hoạch.</p>
+      <p>Để xóa kế hoạch, nhấn biểu tượng thùng rác trên thẻ kế hoạch ở màn hình chính. Ghi nhận đánh dấu của kế hoạch đó cũng bị xóa.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">03</span>Cách thêm, đổi tên, xóa một mục</h2>
+      <p>Trong danh sách chuẩn bị, nhấn "+ Thêm mục" để thêm mục của riêng bạn. Dùng dấu "···" ở bên phải mỗi mục để đổi tên hoặc xóa.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">04</span>Chìa khóa và ví không có trong danh sách</h2>
+      <p>Zobo không đưa các món dùng hằng ngày (chìa khóa, ví, điện thoại) vào danh sách mà chỉ hiện những gì khác mọi ngày. Ví dụ với chuyến bay, ứng dụng thêm sẵn hạn hộ chiếu, kiểm tra visa và điều kiện nhập cảnh, làm thủ tục trực tuyến, sắp hành lý, sạc pin dự phòng, hộ chiếu, bếp, khóa cửa và thẻ lên máy bay. Với khám bệnh là thẻ khám bệnh, thẻ bảo hiểm và khóa cửa. Với du lịch là sắp hành lý, sạc pin, bếp và khóa cửa. Loại "Kế hoạch" bắt đầu từ danh sách trống. Còn thiếu gì, bạn hãy tự thêm thành mục của riêng mình.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">05</span>Tôi không đánh dấu được mục ở "Sáng hôm đó" hoặc "Tại sân bay"</h2>
+      <p>Thẻ "Hôm trước" mở vào ngày hôm trước, còn thẻ "Sáng hôm đó" và "Tại sân bay" mở vào ngày khởi hành. Trước đó bạn vẫn thêm được mục vào các thẻ này để chuẩn bị từ tối hôm trước.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">06</span>Cách đổi ngôn ngữ</h2>
+      <p>Nhấn biểu tượng quả địa cầu ở góc trên bên phải màn hình chính để mở Cài đặt, rồi chọn Tiếng Việt, English hoặc 日本語 trong mục "Ngôn ngữ". Ban đầu Zobo theo ngôn ngữ của thiết bị (dùng English nếu không thuộc ba ngôn ngữ này).</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>Dữ liệu của tôi có được sao lưu không?</h2>
+      <p>Zobo không có tài khoản và dữ liệu chỉ nằm trên thiết bị của bạn. Nếu bạn xóa ứng dụng hoặc đổi điện thoại, dữ liệu sẽ không tự được chuyển sang.</p>
+      <p>Hãy dùng "Xuất dữ liệu" trong Cài đặt để tạo tệp chứa kế hoạch, các mục và thời điểm đánh dấu, rồi lưu ở bất cứ đâu qua bảng chia sẻ. Trên thiết bị mới hoặc sau khi cài lại, chọn "Nhập dữ liệu" và chọn tệp đó để khôi phục. Kế hoạch trùng sẽ được thay bằng nội dung nhập vào, các kế hoạch khác vẫn giữ nguyên.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">08</span>Xem ghi nhận đánh dấu ở đâu?</h2>
+      <p>Thời điểm mỗi lần đánh dấu được ghi lại theo từng kế hoạch. Mở bằng "Xem ghi nhận" ở màn hình chính.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">09</span>Tôi muốn xóa dữ liệu đã lưu</h2>
+      <p>Zobo không có tài khoản và dữ liệu chỉ nằm trên thiết bị của bạn. Bạn có thể xóa kế hoạch và các mục ngay trong ứng dụng, và khi xóa ứng dụng, mọi thông tin lưu trên thiết bị sẽ bị xóa. Xem thêm tại <a href="https://lh.tools/vi/privacy/zobo/">Chính sách quyền riêng tư</a>.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2><span class="num">10</span>Ứng dụng hỗ trợ những ngôn ngữ nào?</h2>
+      <p>Tiếng Việt, tiếng Anh và tiếng Nhật.</p>
+    </div>
+
+    <div class="policy-section fade-in">
+      <h2>Liên hệ</h2>
+      <p>Nếu những mục trên chưa giải quyết được vấn đề, vui lòng liên hệ với chúng tôi qua biểu mẫu bên dưới. Khi báo lỗi, bạn cho chúng tôi biết thiết bị đang dùng (iPhone / Android) và thao tác khi xảy ra lỗi sẽ rất hữu ích. Về quyền riêng tư, vui lòng đọc <a href="https://lh.tools/vi/privacy/zobo/">Chính sách quyền riêng tư</a> rồi gửi tin nhắn qua cùng biểu mẫu này.</p>
+      <div class="contact-card">
+        <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="info">
+          <div class="label">Liên hệ qua biểu mẫu</div>
+          <a href="/vi/contact/?app=Zobo">Biểu mẫu liên hệ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
