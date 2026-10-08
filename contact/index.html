@@ -291,6 +291,14 @@
           }
         }
       });
+      /* IDs an app could not send in-app (Batto #422: the anonymous ID of a data deletion request).
+         Only these names and ID-like values. Put under the message the same way the app adds them. */
+      var extras = ['firebaseUid', 'legacyShares'].map(function (key) {
+        var value = params.get(key);
+        return value && /^[A-Za-z0-9_,-]{1,900}$/.test(value) ? key + ': ' + value : null;
+      }).filter(Boolean);
+      var message = document.getElementById('message');
+      if (extras.length && !message.value) message.value = '\n\n---\n' + extras.join('\n');
     })();
 
     function loadTurnstile(siteKey) {
