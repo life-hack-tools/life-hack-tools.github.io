@@ -795,3 +795,13 @@ await check('RateLimiter counts exactly under concurrent calls to one object', a
 console.error = realConsoleError;
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
+
+await check('a per-app APP_KEY_<SLUG> secret works without touching APP_KEYS, and only for its own app', async () => {
+  const withSingle = { ...env, APP_KEY_TAALI: 'taali-key-ccc' };
+  const ok = await worker.fetch(appPost({ ...appValid, app: 'taali' }, { key: 'taali-key-ccc' }), withSingle);
+  assert.equal(ok.status, 200);
+  const other = await worker.fetch(appPost({ ...appValid, app: 'batto' }, { key: 'taali-key-ccc' }), withSingle);
+  assert.equal(other.status, 401);
+  const noSecret = await worker.fetch(appPost({ ...appValid, app: 'taali' }, { key: 'taali-key-ccc' }), env);
+  assert.equal(noSecret.status, 401);
+});

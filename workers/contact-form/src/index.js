@@ -20,6 +20,8 @@
  * Configuration (all set on the Worker, never committed):
  *   TURNSTILE_SITE_KEY    var     Turnstile site key (public)
  *   TURNSTILE_SECRET_KEY  secret  Turnstile secret key
+ *   APP_KEY_<SLUG>        secret  (optional) key of ONE app, e.g. APP_KEY_TAALI. Wins over APP_KEYS.
+ *                                 Lets a new app be added without re-entering every existing key.
  *   APP_KEYS              secret  JSON map of app slug -> key, e.g.
  *                                 {"batto":"...","instantid":"..."}
  *   SLACK_WEBHOOK_URL     secret  Slack Incoming Webhook URL. The URL itself is
@@ -263,22 +265,37 @@ async function handleAppSubmit(request, env) {
   return json({ ok: true }, 200, {});
 }
 
-function verifyAppKey(request, env, app) {
-  const provided = request.headers.get('X-LHT-App-Key') || '';
-  if (!provided || !env.APP_KEYS) return false;
+/** Single-app secret name: APP_KEY_<SLUG>, e.g. taali -> APP_KEY_TAALI, mahjong-cho -> APP_KEY_MAHJONG_CHO. */
+function perAppSecretName(app) {
+  return `APP_KEY_${String(app).toUpperCase().replace(/[^A-Z0-9]/g, '_')}`;
+}
 
+/**
+ * The expected key for an app: the APP_KEY_<SLUG> secret if set, otherwise the APP_KEYS JSON map.
+ * Cloudflare secrets cannot be read back, so adding an app through the JSON map means re-entering every
+ * existing key; a per-app secret lets a new app be added without touching the others.
+ */
+function expectedAppKey(env, app) {
+  const single = env[perAppSecretName(app)];
+  if (typeof single === 'string' && single) return single;
+  if (!env.APP_KEYS) return null;
   let keys;
   try {
     keys = JSON.parse(env.APP_KEYS);
   } catch (err) {
     console.error('APP_KEYS is not valid JSON');
-    return false;
+    return null;
   }
-  if (!keys || typeof keys !== 'object') return false;
-
+  if (!keys || typeof keys !== 'object') return null;
   const expected = keys[app];
-  if (typeof expected !== 'string' || !expected) return false;
+  return typeof expected === 'string' && expected ? expected : null;
+}
 
+function verifyAppKey(request, env, app) {
+  const provided = request.headers.get('X-LHT-App-Key') || '';
+  if (!provided) return false;
+  const expected = expectedAppKey(env, app);
+  if (!expected) return false;
   return timingSafeEqual(provided, expected);
 }
 
