@@ -66,20 +66,23 @@
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Account and Identifier</h2>
       <p>The App does not require you to create an account. When the App starts, it creates an identifier for each device using anonymous sign-in with Firebase Authentication, a service provided by Google. This identifier is used to determine which home you are a member of.</p>
-      <p>We never ask you to enter an email address, phone number or name. Linking an Apple, Google or LINE account is optional (see the next section).</p>
+      <p>We never ask you to enter an email address, phone number or name. Linking an Apple, Google, LINE or Zalo account is optional (see the next section).</p>
     </div>
 
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>Linking an Account (Optional)</h2>
-      <p>You can use the App without signing up. If you wish, you can link an Apple, Google or LINE account (Apple, Google and LINE on iPhone; Google and LINE on Android). Once linked, you can get back to the same homes and records after changing phones or reinstalling the App.</p>
+      <p>You can use the App without signing up. If you wish, you can link an Apple, Google, LINE or Zalo account (Apple, Google, LINE and Zalo on iPhone; Google, LINE and Zalo on Android; Zalo is available only when you use the App from within Vietnam). Once linked, you can get back to the same homes and records after changing phones or reinstalling the App.</p>
       <p>Linking with LINE uses LINE Login (OpenID Connect), provided by LY Corporation. Authentication goes through Google's Firebase Authentication (Identity Platform).</p>
+      <p>Linking with Zalo uses Zalo's login, provided by Zalo Group (VNG Corporation). Our relay server (Google Cloud Run, Tokyo region) passes the authorization code obtained from the Zalo login to Zalo and confirms your Zalo ID. Because Zalo returns IDs only to requests from IP addresses in Vietnam, this confirmation request reaches Zalo by way of your device (the connection between our relay server and Zalo is encrypted, so its contents cannot be read on your device). We then sign you in with Firebase Authentication based on the confirmed ID. The relay server does not store your Zalo ID.</p>
+      <p>To decide whether to show the Zalo login button, when you open the sign-in or linking screen, the App uses the same mechanism to check whether Zalo can be reached (that is, whether you are using the App from within Vietnam). No Zalo ID is received during this check, and location data is not used.</p>
       <p>When you link an account, we receive the following information and store it in Firebase Authentication:</p>
       <ul>
-        <li>The user identifier issued by Apple, Google or LINE</li>
+        <li>The user identifier issued by Apple, Google, LINE or Zalo</li>
         <li>The email address provided by Apple or Google (if you choose "Hide My Email" with Apple, a relay address)</li>
         <li>Your LINE display name (if you link a LINE account)</li>
       </ul>
       <p>We do not receive your email address from LINE (we have not applied for permission to obtain it).</p>
+      <p>From Zalo, we receive only your Zalo ID. We do not receive your display name, email address, phone number or photo.</p>
       <p>Your email address and LINE display name are never shown to your housemates, and we do not use them to contact you or for advertising.</p>
     </div>
 
@@ -159,12 +162,13 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">10</span>Where Data Is Stored and External Services</h2>
-      <p>Home data is stored in Cloud Firestore and photos in Firebase Storage. Both are services provided by Google; the data is stored in the Tokyo region (asia-northeast1), in a project used only for the App. Sending notifications, receiving reports, "Ask Yane", deleting dissolved homes and compiling usage statistics (section 12) are handled by our server on Google Cloud Run.</p>
+      <p>Home data is stored in Cloud Firestore and photos in Firebase Storage. Both are services provided by Google; the data is stored in the Tokyo region (asia-northeast1), in a project used only for the App. Sending notifications, receiving reports, "Ask Yane", confirming Zalo logins, deleting dissolved homes and compiling usage statistics (section 12) are handled by our server on Google Cloud Run.</p>
       <p>The App uses services from the following companies, which handle information on our behalf only to the extent necessary to provide those services:</p>
       <ul>
         <li><strong>Google:</strong> Firebase (Authentication, Cloud Firestore and Storage), Cloud Run, Sign in with Google, and Android's notification service</li>
         <li><strong>Apple:</strong> Sign in with Apple and iPhone's notification service</li>
         <li><strong>LY Corporation:</strong> LINE Login</li>
+        <li><strong>Zalo (VNG Corporation):</strong> Log in with Zalo</li>
         <li><strong>Expo:</strong> relaying push notifications</li>
         <li><strong>Sentry:</strong> error reporting</li>
         <li><strong>Slack:</strong> notifying the operator of reports</li>
@@ -205,9 +209,9 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">15</span>Deleting Your Account and Data</h2>
-      <p>You can delete your account by tapping "Delete account" at the bottom of the "Members" screen (the list of members in your home) and then tapping "Delete" to confirm. Whichever homes you belong to, the following is deleted:</p>
+      <p>To delete your account, tap your home's name at the top left of any tab to open the Home screen, then open "Account". Tap "Delete" in the "Delete" section at the bottom of the screen, then tap "Delete" again to confirm. Whichever homes you belong to, the following is deleted:</p>
       <ul>
-        <li>Your account in the App (your Firebase Authentication user). If you linked an Apple, Google or LINE account, that link is deleted as well. If you linked an Apple account, we also revoke the App's Sign in with Apple authorization on Apple's side.</li>
+        <li>Your account in the App (your Firebase Authentication user). If you linked an Apple, Google, LINE or Zalo account, that link is deleted as well. If you linked an Apple account, we also revoke the App's Sign in with Apple authorization on Apple's side.</li>
         <li>Your membership in every home you belong to</li>
         <li>Settings stored on your device, and chore reminders</li>
       </ul>
@@ -216,7 +220,7 @@
         <li><strong>A home that other housemates have joined:</strong> You leave the home, your name within it is removed, and you are shown as "Former member". Expense, settlement and chore records stay in the home so that your housemates' balances do not change. Comments and notes in House notes you wrote, and photos you attached, also stay in the home. In those records your name is also shown as "Former member", and no information linked to you remains.</li>
         <li><strong>A home that only you have joined:</strong> The home is deleted along with all of its records, comments, notes in House notes and photos. Housemates added by name only, who have not installed the App, are not counted as having joined. The deletion is carried out on our server and is usually completed within about an hour. The home's invite codes stop working as soon as you delete your account, so housemates added by name only can no longer join later.</li>
       </ul>
-      <p>If you have already deleted the App or cannot open it, please send an "Account deletion request" via the contact form below. We will handle it within 30 days of receiving it. To identify your account, please include the email address of the Apple or Google account you linked. If you linked a LINE account, please say so and include your LINE display name.</p>
+      <p>If you have already deleted the App or cannot open it, please send an "Account deletion request" via the contact form below. We will handle it within 30 days of receiving it. To identify your account, please include the email address of the Apple or Google account you linked. If you linked a LINE account, please say so and include your LINE display name. If you linked a Zalo account, please say so.</p>
       <p>For details, see <a href="/en/apps/yane/delete-account/">Delete Your Account</a>.</p>
     </div>
 
