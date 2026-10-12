@@ -151,8 +151,14 @@ X-LHT-App-Key: <アプリごとのキー>
 `batto` / `instantid` / `pitto` / `peckish` / `stockhome` / `mahjong-cho` /
 `word-diary` / `mugg` / `rete` / `life-calendar` / `todo-box` / `ruga` / `taali`
 
-アプリを追加するときは `src/index.js` の `APPS` に slug と表示名を足し、
-`APP_KEYS` にそのアプリのキーを足す。
+アプリを追加するときは `src/index.js` の `APPS` に slug と表示名を足し、キーを登録する。
+
+- **新しいアプリ（推奨）**: そのアプリ専用のシークレット `APP_KEY_<SLUG>` を1つ足す
+  （例 `taali` → `APP_KEY_TAALI`、`mahjong-cho` → `APP_KEY_MAHJONG_CHO`）。
+  `npx wrangler secret put APP_KEY_TAALI` で済み、**既存アプリのキーに触れない**。
+  Cloudflare のシークレットは読み出せないので、`APP_KEYS` の JSON に足す方式は
+  全アプリのキーを入れ直す必要があり、控えが無いと事故になる。
+- `APP_KEY_<SLUG>` があればそれを優先し、無ければ `APP_KEYS` の JSON を見る。
 
 ### ⚠ `X-LHT-App-Key` は秘密ではない
 
