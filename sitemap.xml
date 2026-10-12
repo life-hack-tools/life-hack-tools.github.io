@@ -1378,4 +1378,85 @@
     <lastmod>2026-10-07</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://lh.tools/apps/taali/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/taali/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/taali/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/taali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/taali/"/>
+    <lastmod>2026-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/apps/taali/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/taali/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/taali/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/taali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/taali/"/>
+    <lastmod>2026-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/apps/taali/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/taali/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/taali/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/taali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/taali/"/>
+    <lastmod>2026-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/privacy/taali/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/taali/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/taali/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/taali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/taali/"/>
+    <lastmod>2026-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/taali/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/taali/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/taali/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/taali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/taali/"/>
+    <lastmod>2026-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/taali/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/taali/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/taali/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/taali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/taali/"/>
+    <lastmod>2026-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/support/taali/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/taali/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/taali/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/taali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/taali/"/>
+    <lastmod>2026-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/support/taali/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/taali/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/taali/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/taali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/taali/"/>
+    <lastmod>2026-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/support/taali/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/taali/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/taali/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/taali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/taali/"/>
+    <lastmod>2026-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>
