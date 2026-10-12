@@ -87,6 +87,7 @@ const APPS = {
   'life-calendar': 'Life Calendar',
   'todo-box': 'TodoBox',
   ruga: 'Ruga',
+  taali: 'Taali',
 };
 
 const APP_TOPICS = ['feedback', 'bug', 'question', 'deletion'];
