@@ -66,20 +66,23 @@
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>アカウントと識別子</h2>
       <p>本アプリはアカウント登録を必要としません。起動時に、Google が提供する Firebase Authentication の匿名認証によって、端末ごとの識別子を作成します。この識別子は、利用者がどの家のメンバーであるかを判別するために使います。</p>
-      <p>メールアドレス、電話番号、氏名の入力を求めることはありません。Apple、Google または LINE のアカウントとの連携は任意です（次項）。</p>
+      <p>メールアドレス、電話番号、氏名の入力を求めることはありません。Apple、Google、LINE または Zalo のアカウントとの連携は任意です（次項）。</p>
     </div>
 
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>アカウントの連携（任意）</h2>
-      <p>本アプリは、登録なしでも使えます。希望する場合は、Apple、Google または LINE のアカウントと連携できます（iPhone では Apple・Google・LINE、Android では Google・LINE）。連携すると、機種変更やアプリの入れ直しのあとも、同じ家と記録に戻れます。</p>
+      <p>本アプリは、登録なしでも使えます。希望する場合は、Apple、Google、LINE または Zalo のアカウントと連携できます（iPhone では Apple・Google・LINE・Zalo、Android では Google・LINE・Zalo。Zalo はベトナム国内からの利用時のみ）。連携すると、機種変更やアプリの入れ直しのあとも、同じ家と記録に戻れます。</p>
       <p>LINE との連携には、LY Corporation が提供する「LINE ログイン」（OpenID Connect）を使い、認証は Google の Firebase Authentication（Identity Platform）を通して行います。</p>
+      <p>Zalo との連携には、Zalo Group（VNG Corporation）が提供する Zalo のログインを使います。Zalo のログインで得た認可コードを、当団体の中継サーバー（Google Cloud Run・東京リージョン）が Zalo に渡し、利用者の Zalo の ID を確認します。Zalo は ID をベトナム国内の IP アドレスからの問い合わせにしか返さないため、この確認の通信は、利用者の端末を経由して Zalo に届きます（中継サーバーと Zalo の間の通信は暗号化されており、端末で中身を見ることはできません）。確認した ID をもとに、Firebase Authentication でサインインします。中継サーバーは Zalo の ID を保存しません。</p>
+      <p>Zalo でのログインのボタンを表示するかどうかを決めるため、ログインや連携の画面を開いたときに、同じ仕組みで Zalo に届くかどうか（ベトナム国内からの利用かどうか）を確かめます。このとき、Zalo の ID は受け取りません。また、位置情報は使いません。</p>
       <p>連携したときに受け取る情報は、以下のとおりです。これらは Firebase Authentication に保存します。</p>
       <ul>
-        <li>Apple、Google または LINE が発行する、利用者の識別子</li>
+        <li>Apple、Google、LINE または Zalo が発行する、利用者の識別子</li>
         <li>Apple または Google から提供されるメールアドレス（Apple の「メールを非公開」を選んだ場合は、中継用のアドレス）</li>
         <li>LINE の表示名（LINE と連携した場合）</li>
       </ul>
       <p>LINE からは、メールアドレスを受け取りません（メールアドレスの取得の権限を申請していません）。</p>
+      <p>Zalo からは、Zalo の ID だけを受け取ります。表示名、メールアドレス、電話番号、写真は受け取りません。</p>
       <p>メールアドレスと LINE の表示名は同居人に表示しません。また、連絡や広告には使いません。</p>
     </div>
 
@@ -159,12 +162,13 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">10</span>保存場所と外部のサービス</h2>
-      <p>家のデータは Cloud Firestore に、写真は Firebase Storage に保存します。どちらも Google が提供するサービスで、保存先のリージョンは東京（asia-northeast1）、本アプリ専用のプロジェクトを使っています。通知の送信、通報の受け付け、「Yane が伝える」、解散した家の削除、利用状況の集計（12項）は、Google Cloud Run 上の当団体のサーバーで行います。</p>
+      <p>家のデータは Cloud Firestore に、写真は Firebase Storage に保存します。どちらも Google が提供するサービスで、保存先のリージョンは東京（asia-northeast1）、本アプリ専用のプロジェクトを使っています。通知の送信、通報の受け付け、「Yane が伝える」、Zalo でのログインの確認、解散した家の削除、利用状況の集計（12項）は、Google Cloud Run 上の当団体のサーバーで行います。</p>
       <p>本アプリは、以下の事業者のサービスを利用しており、サービスの提供に必要な範囲で、情報の取り扱いを委託しています。</p>
       <ul>
         <li><strong>Google:</strong> Firebase（Authentication・Cloud Firestore・Storage）、Cloud Run、Google でのサインイン、Android の通知サービス</li>
         <li><strong>Apple:</strong> Apple でサインイン、iPhone の通知サービス</li>
         <li><strong>LY Corporation:</strong> LINE ログイン</li>
+        <li><strong>Zalo（VNG Corporation）:</strong> Zalo でのログイン</li>
         <li><strong>Expo:</strong> プッシュ通知の中継</li>
         <li><strong>Sentry:</strong> エラーの報告</li>
         <li><strong>Slack:</strong> 通報の運営への連絡</li>
@@ -205,9 +209,9 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">15</span>アカウントとデータの削除</h2>
-      <p>アプリの「メンバー」画面（家のメンバー一覧の画面）の一番下にある「アカウントを削除」を押し、確認で「削除する」を押すと、アカウントを削除できます。どの家に参加していても、以下は削除されます。</p>
+      <p>各タブの左上にある家の名前を押して「家」の画面を開き、「アカウント」を開きます。画面の一番下の「削除」にある「削除する」を押し、確認で「削除する」を押すと、アカウントを削除できます。どの家に参加していても、以下は削除されます。</p>
       <ul>
-        <li>本アプリのアカウント（Firebase Authentication のユーザー）。Apple、Google または LINE のアカウントと連携している場合は、その結び付きも削除されます。Apple と連携している場合は、Apple 側のサインインの許可も取り消します。</li>
+        <li>本アプリのアカウント（Firebase Authentication のユーザー）。Apple、Google、LINE または Zalo のアカウントと連携している場合は、その結び付きも削除されます。Apple と連携している場合は、Apple 側のサインインの許可も取り消します。</li>
         <li>参加しているすべての家での在籍</li>
         <li>端末に保存していた設定と、家事のお知らせ</li>
       </ul>
@@ -216,7 +220,7 @@
         <li><strong>ほかに同居人が参加している家:</strong> あなたは家を出て、家の中でのあなたの名前は消え、「退会した人」と表示されます。立替・精算・家事の記録は、同居人の残高が変わらないよう、家に残ります。あなたが書いたコメントや「家の連絡」、付けた写真も家に残ります。これらの記録での名前も「退会した人」となり、あなたと結び付く情報は残りません。</li>
         <li><strong>参加しているのがあなただけの家:</strong> 家ごと、記録・コメント・「家の連絡」・写真もすべて削除されます。アプリを入れていない「名前だけの同居人」は、参加している人に数えません。削除はサーバーで行い、おおむね1時間以内に完了します。その家の招待コードは、アカウントを削除した時点で使えなくなり、名前だけの同居人も、あとから参加することはできなくなります。</li>
       </ul>
-      <p>アプリを削除してしまった場合や、アプリを開けない場合は、下記のお問い合わせフォームから「アカウント削除の依頼」とお送りください。受け付けから30日以内に対応します。アカウントを特定するため、連携した Apple または Google のアカウントのメールアドレスをご記入ください。LINE と連携している場合は、その旨と LINE の表示名をご記入ください。</p>
+      <p>アプリを削除してしまった場合や、アプリを開けない場合は、下記のお問い合わせフォームから「アカウント削除の依頼」とお送りください。受け付けから30日以内に対応します。アカウントを特定するため、連携した Apple または Google のアカウントのメールアドレスをご記入ください。LINE と連携している場合は、その旨と LINE の表示名をご記入ください。Zalo と連携している場合は、その旨をご記入ください。</p>
       <p>詳しくは「<a href="/apps/yane/delete-account/">アカウントの削除</a>」のページをご覧ください。</p>
     </div>
 
