@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>プライバシーポリシー - Ruga - Life Hack Tools</title>
-  <meta name="description" content="Ruga のプライバシーポリシー。位置情報は端末の中だけで使い、サーバーへ送りません。">
+  <meta name="description" content="Ruga のプライバシーポリシー。位置情報の利用、旅程検索、端末内に保存する情報について説明します。">
   <link rel="canonical" href="https://lh.tools/privacy/ruga/">
   <link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/ruga/">
   <link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/ruga/">
@@ -59,21 +59,21 @@
   </div>
   <div class="content">
     <h1>プライバシーポリシー</h1>
-    <span class="updated">最終更新日: 2026年10月7日</span>
+    <span class="updated">最終更新日: 2026年10月15日</span>
     <p class="intro">Life Hack Tools（以下「当団体」）は、Ruga（バス停の発車時刻＆徒歩時間アプリ／以下「本アプリ」）における利用者の情報の取り扱いについて、以下のとおり定めます。本アプリはアカウント登録が不要で、広告もトラッキングもありません。データは転送時に暗号化されます。</p>
     <div class="policy-section fade-in">
-      <h2><span class="num">01</span>位置情報（端末の中だけで使います）</h2>
-      <p>本アプリは、近くのバス停を選ぶことと、バス停までの徒歩時間を計算することのためだけに、現在地を使います。計算は端末の中で行い、<strong>位置情報はサーバーへ送信せず、保存もしません。</strong>「おおよその位置」の許可でも使えます。</p>
-      <p>位置情報を許可しない場合も、バス停を自分で選んで使えます。</p>
+      <h2><span class="num">01</span>位置情報</h2>
+      <p>Ruga は、バス停までの徒歩時間を端末内で計算するために位置情報を使います。現在地または選んだ起点から近くのバス停を探すときは、起点の座標を暗号化した通信で当団体の Ruga Gateway（Google Cloud 上で運用）へ送ります。Gateway は検索に必要な間だけ座標を処理し、当団体は保存せず、アプリケーションログにも記録しません。通信の仕組み上、IP アドレスなどがクラウド事業者のログに一定期間残る場合があります。「おおよその位置」の許可でも利用できます。</p>
+      <p>位置情報を許可しない場合も、停留所を手動で選んで基本の時刻表を利用できます。</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>時刻表の取得</h2>
-      <p>発車時刻は、当団体が Google Cloud 上で運用する Ruga の時刻表サーバーから取得します。このとき、位置情報や選んだバス停など、利用者に関わる情報は送りません。</p>
-      <p>時刻表サーバーは IP アドレスなどの接続元の情報を記録しませんが、通信の仕組み上、IP アドレスがクラウド事業者（Google）のログに一定期間残ることがあります。</p>
+      <h2><span class="num">02</span>検索・時刻表・地図</h2>
+      <p>目的地の候補を表示するため、入力した検索語を Ruga Gateway 経由で Google Places API（Google）へ送ります。検索語は Ruga Gateway のアプリケーションログやサーバー保存領域には記録しません。選んだ停留所・方面を使って時刻表を取得します。Gateway のアプリケーションログにはリクエストの経路、応答状態、処理時間を記録しますが、座標や検索語は含めません。</p>
+      <p>「Google マップで開く」をタップした場合、起点の座標と選んだ目的地を Google マップへ送るリンクを開きます。Google における情報の取り扱いは <a href="https://policies.google.com/privacy?hl=ja">Google のプライバシーポリシー</a>をご確認ください。</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>端末に保存する情報</h2>
-      <p>選んだバス停と方面、歩く速さの設定、取得した時刻表の一時保存（キャッシュ）を、端末の中に保存します。これらはアプリを削除すると消えます。</p>
+      <p>選んだバス停と方面、歩く速さの設定、取得した時刻表の一時保存（キャッシュ）、選んだ起点（場所名と座標）、最近選んだ目的地の履歴（最大 8 件）を端末の中に保存します。目的地の履歴は新しい検索で入れ替わり、起点は現在地に戻すと削除されます。端末のアプリデータを消去するか、アプリを削除すると端末内の情報は消えます。</p>
       <p>通信できないときは、一時保存した前回の時刻表を、前回のデータであることを示して表示します。このとき、「余裕で間に合う」というおすすめは出しません。</p>
     </div>
     <div class="policy-section fade-in">

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chính sách bảo mật - Ruga - Life Hack Tools</title>
-  <meta name="description" content="Chính sách bảo mật của Ruga. Vị trí của bạn chỉ được dùng trên thiết bị và không bao giờ được gửi lên máy chủ.">
+  <meta name="description" content="Chính sách bảo mật của Ruga, gồm việc dùng vị trí, tìm hành trình và thông tin lưu trên thiết bị.">
   <link rel="canonical" href="https://lh.tools/vi/privacy/ruga/">
   <link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/ruga/">
   <link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/ruga/">
@@ -59,21 +59,21 @@
   </div>
   <div class="content">
     <h1>Chính sách bảo mật</h1>
-    <span class="updated">Cập nhật lần cuối: 7 tháng 10, 2026</span>
+    <span class="updated">Cập nhật lần cuối: 15 tháng 10, 2026</span>
     <p class="intro">Chính sách này mô tả cách Life Hack Tools (&ldquo;chúng tôi&rdquo;) xử lý thông tin của bạn trong Ruga, ứng dụng xem giờ xe buýt và thời gian đi bộ đến trạm (&ldquo;Ứng dụng&rdquo;). Ứng dụng không cần tài khoản, không có quảng cáo và không theo dõi người dùng. Dữ liệu được mã hóa khi truyền đi.</p>
     <div class="policy-section fade-in">
-      <h2><span class="num">01</span>Vị trí của bạn (chỉ dùng ngay trên thiết bị)</h2>
-      <p>Ruga chỉ dùng vị trí của bạn để chọn trạm xe buýt gần đó và tính thời gian đi bộ đến trạm. Việc tính toán diễn ra ngay trên thiết bị. <strong>Vị trí không bao giờ được gửi lên máy chủ và không được lưu lại.</strong> Ruga vẫn dùng được khi bạn chỉ cho phép vị trí gần đúng.</p>
-      <p>Nếu bạn không cho phép vị trí, bạn vẫn có thể tự chọn trạm và dùng Ứng dụng.</p>
+      <h2><span class="num">01</span>Vị trí của bạn</h2>
+      <p>Ruga dùng vị trí của bạn để tính thời gian đi bộ đến trạm ngay trên thiết bị. Khi bạn dùng vị trí hiện tại hoặc điểm xuất phát đã chọn để tìm các trạm gần đó, Ruga gửi tọa độ qua kết nối được mã hóa đến Ruga Gateway của chúng tôi, vận hành trên Google Cloud. Gateway chỉ xử lý tọa độ trong thời gian cần thiết cho việc tìm kiếm; chúng tôi không lưu tọa độ và không ghi chúng vào nhật ký ứng dụng. Do cách hoạt động của dịch vụ mạng, địa chỉ IP và thông tin kết nối khác có thể còn trong nhật ký của nhà cung cấp đám mây một thời gian. Vị trí gần đúng cũng sử dụng được.</p>
+      <p>Nếu bạn không cấp quyền vị trí, bạn vẫn có thể tự chọn trạm và dùng các chức năng xem giờ xe buýt cơ bản.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>Cách lấy giờ xe buýt</h2>
-      <p>Giờ khởi hành được lấy từ máy chủ giờ xe buýt của Ruga, do chúng tôi vận hành trên Google Cloud. Khi đó, Ứng dụng không gửi bất kỳ thông tin nào liên quan đến bạn, như vị trí hay trạm bạn đã chọn.</p>
-      <p>Máy chủ giờ xe buýt không ghi lại nguồn truy cập như địa chỉ IP. Tuy nhiên, do cách thức hoạt động của kết nối mạng, địa chỉ IP của bạn có thể còn lại trong nhật ký của nhà cung cấp đám mây (Google) trong một khoảng thời gian nhất định.</p>
+      <h2><span class="num">02</span>Tìm kiếm, giờ xe buýt và bản đồ</h2>
+      <p>Để gợi ý điểm đến, Ruga gửi nội dung bạn nhập qua Gateway đến Google Places API. Ruga không lưu nội dung tìm kiếm trong nhật ký ứng dụng hoặc vùng lưu trữ máy chủ của Gateway. Ruga gửi trạm và hướng bạn chọn để lấy giờ xe buýt. Nhật ký ứng dụng của Gateway chỉ lưu đường dẫn yêu cầu, trạng thái phản hồi và thời gian xử lý, không có tọa độ hay nội dung tìm kiếm.</p>
+      <p>Nếu bạn nhấn <strong>Mở trong Google Maps</strong>, Ruga mở một liên kết gửi tọa độ điểm xuất phát và điểm đến bạn chọn đến Google Maps. Để biết Google xử lý dữ liệu này ra sao, hãy xem <a href="https://policies.google.com/privacy?hl=vi">Chính sách quyền riêng tư của Google</a>.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>Thông tin được lưu trên thiết bị</h2>
-      <p>Ruga lưu trên thiết bị trạm và hướng bạn đã chọn, thiết lập tốc độ đi bộ và bản lưu tạm (bộ nhớ đệm) của giờ xe buýt đã lấy về. Các dữ liệu này sẽ bị xóa khi bạn xóa Ứng dụng.</p>
+      <p>Ruga lưu trên thiết bị trạm và hướng bạn đã chọn, thiết lập tốc độ đi bộ, bản lưu tạm giờ xe buýt, điểm xuất phát đã chọn (tên và tọa độ) và tối đa tám điểm đến gần đây. Điểm đến cũ được thay thế khi bạn tìm kiếm điểm mới; điểm xuất phát đã chọn bị xóa khi bạn chuyển lại sang vị trí hiện tại. Xóa dữ liệu Ứng dụng trong cài đặt thiết bị hoặc gỡ Ứng dụng để xóa thông tin lưu trên thiết bị.</p>
       <p>Khi không có kết nối mạng, Ruga hiển thị giờ xe buýt đã lưu lần trước và ghi rõ đây là dữ liệu cũ. Lúc đó, Ruga không đề xuất chuyến nào là &ldquo;đi bây giờ vẫn kịp thong thả&rdquo;.</p>
     </div>
     <div class="policy-section fade-in">
