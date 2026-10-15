@@ -792,6 +792,15 @@ await check('RateLimiter counts exactly under concurrent calls to one object', a
 });
 
 
+await check('Gigful requires its own key and labels support requests correctly', async () => {
+  const enabled = { ...env, APP_KEY_GIGFUL: 'gigful-test-only-key' };
+  const result = await worker.fetch(appPost({ ...appValid, app: 'gigful' }, { key: 'gigful-test-only-key' }), enabled);
+  eq(result.status, 200, 'own app key accepted');
+  has(JSON.stringify(posts[0].body), 'Gigful', 'human-readable app name');
+  const denied = await worker.fetch(appPost({ ...appValid, app: 'gigful' }, { key: 'gigful-test-only-key' }), env);
+  eq(denied.status, 401, 'unconfigured key fails closed');
+});
+
 console.error = realConsoleError;
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

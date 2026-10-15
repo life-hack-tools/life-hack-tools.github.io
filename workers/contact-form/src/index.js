@@ -90,6 +90,7 @@ const APPS = {
   'todo-box': 'TodoBox',
   ruga: 'Ruga',
   taali: 'Taali',
+  gigful: 'Gigful',
 };
 
 const APP_TOPICS = ['feedback', 'bug', 'question', 'deletion'];
