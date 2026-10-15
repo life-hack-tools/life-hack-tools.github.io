@@ -60,12 +60,12 @@
   </div>
   <div class="content">
     <h1>Chính sách bảo mật</h1>
-    <span class="updated">Cập nhật lần cuối: 12 tháng 10 năm 2026</span>
+    <span class="updated">Cập nhật lần cuối: 15 tháng 10 năm 2026</span>
     <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Yane: Chia tiền &amp; việc nhà ("Ứng dụng"). Ứng dụng giúp những người sống chung — bạn cùng phòng, cặp đôi và nhà ở ghép — chia sẻ ghi chép về tiền bạc và việc nhà, và liên lạc với nhau. Bạn không cần tạo tài khoản. Chỉ thành viên trong cùng một nhà mới có thể xem và chỉnh sửa dữ liệu của nhà đó, và chúng tôi không bao giờ bán hay cung cấp thông tin người dùng cho bên thứ ba. Ứng dụng không hiển thị quảng cáo.</p>
 
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Tài khoản và mã định danh</h2>
-      <p>Ứng dụng không yêu cầu tạo tài khoản. Khi khởi động, Ứng dụng tạo một mã định danh cho mỗi thiết bị bằng tính năng đăng nhập ẩn danh của Firebase Authentication, một dịch vụ do Google cung cấp. Mã định danh này dùng để xác định bạn là thành viên của nhà nào.</p>
+      <p>Ứng dụng không yêu cầu tạo tài khoản. Khi khởi động, Ứng dụng tạo một mã định danh cho mỗi thiết bị bằng tính năng đăng nhập ẩn danh của Firebase Authentication, một dịch vụ do Google cung cấp. Mã định danh này dùng để xác định bạn là thành viên của nhà nào. Mã này cũng được dùng làm ID người dùng ẩn danh để quản lý việc mua Gói nhà (mục 16).</p>
       <p>Chúng tôi không bao giờ yêu cầu bạn nhập địa chỉ email, số điện thoại hay họ tên. Việc liên kết với tài khoản Apple, Google, LINE hoặc Zalo là không bắt buộc (xem mục tiếp theo).</p>
     </div>
 
@@ -100,6 +100,7 @@
         <li><strong>Báo cáo:</strong> các báo cáo bạn gửi (mục 07).</li>
         <li><strong>Đăng ký thông báo:</strong> đăng ký thiết bị của bạn để nhận thông báo đẩy (mục 08).</li>
         <li><strong>Lời mời và tham gia:</strong> mã mời và yêu cầu tham gia nhà (bao gồm yêu cầu chuyển vị trí của một người ở cùng sang thiết bị mới khi đổi điện thoại).</li>
+        <li><strong>Gói nhà:</strong> thời hạn và trạng thái của Gói nhà, người đang thanh toán, thời hạn dùng thử, và mức sử dụng của từng nhà (các con số như số lượng ảnh). Các thông tin này do máy chủ của chúng tôi ghi (mục 16).</li>
       </ul>
     </div>
 
@@ -162,13 +163,14 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">10</span>Nơi lưu trữ dữ liệu và dịch vụ bên ngoài</h2>
-      <p>Dữ liệu của nhà được lưu trong Cloud Firestore, còn ảnh được lưu trong Firebase Storage. Cả hai đều là dịch vụ do Google cung cấp; dữ liệu được lưu tại khu vực Tokyo (asia-northeast1), trong một dự án chỉ dành riêng cho Ứng dụng. Việc gửi thông báo, tiếp nhận báo cáo, "Nhờ Yane nhắc", xác nhận đăng nhập bằng Zalo, xóa các nhà đã giải thể và tổng hợp số liệu sử dụng (mục 12) được thực hiện bởi máy chủ của chúng tôi trên Google Cloud Run.</p>
+      <p>Dữ liệu của nhà được lưu trong Cloud Firestore, còn ảnh được lưu trong Firebase Storage. Cả hai đều là dịch vụ do Google cung cấp; dữ liệu được lưu tại khu vực Tokyo (asia-northeast1), trong một dự án chỉ dành riêng cho Ứng dụng. Việc gửi thông báo, tiếp nhận báo cáo, "Nhờ Yane nhắc", xác nhận đăng nhập bằng Zalo, xóa các nhà đã giải thể, tổng hợp số liệu sử dụng (mục 12), áp dụng gói đăng ký Gói nhà và đếm mức sử dụng (mục 16) được thực hiện bởi máy chủ của chúng tôi trên Google Cloud Run.</p>
       <p>Ứng dụng sử dụng dịch vụ của các công ty sau, và ủy thác cho họ xử lý thông tin trong phạm vi cần thiết để cung cấp các dịch vụ đó:</p>
       <ul>
-        <li><strong>Google:</strong> Firebase (Authentication, Cloud Firestore, Storage), Cloud Run, đăng nhập bằng Google và dịch vụ thông báo của Android</li>
-        <li><strong>Apple:</strong> Đăng nhập bằng Apple và dịch vụ thông báo của iPhone</li>
+        <li><strong>Google:</strong> Firebase (Authentication, Cloud Firestore, Storage), Cloud Run, đăng nhập bằng Google, dịch vụ thông báo của Android và thanh toán qua Google Play</li>
+        <li><strong>Apple:</strong> Đăng nhập bằng Apple, dịch vụ thông báo của iPhone và thanh toán qua App Store</li>
         <li><strong>LY Corporation:</strong> LINE Login (đăng nhập bằng LINE)</li>
         <li><strong>Zalo (VNG Corporation):</strong> đăng nhập bằng Zalo</li>
+        <li><strong>RevenueCat, Inc. (Hoa Kỳ):</strong> quản lý giao dịch mua trong ứng dụng (mục 16)</li>
         <li><strong>Expo:</strong> chuyển tiếp thông báo đẩy</li>
         <li><strong>Sentry:</strong> báo cáo lỗi</li>
         <li><strong>Slack:</strong> gửi thông tin báo cáo đến đơn vị vận hành</li>
@@ -190,7 +192,7 @@
       <h2><span class="num">13</span>Những gì chúng tôi không sử dụng</h2>
       <p>Ứng dụng không sử dụng:</p>
       <ul>
-        <li>Công cụ phân tích của bên thứ ba (việc tổng hợp nêu ở mục 12 được thực hiện trên máy chủ của chúng tôi)</li>
+        <li>Công cụ phân tích của bên thứ ba (việc tổng hợp nêu ở mục 12 được thực hiện trên máy chủ của chúng tôi; RevenueCat chỉ được dùng để quản lý giao dịch mua, xem mục 16)</li>
         <li>SDK quảng cáo</li>
       </ul>
       <p>Ứng dụng cũng không sử dụng vị trí, danh bạ hay micro của bạn. Thư viện ảnh và máy ảnh chỉ được dùng khi bạn đính kèm ảnh (mục 04).</p>
@@ -204,6 +206,7 @@
         <li>Trạng thái đăng nhập (đăng nhập ẩn danh, hoặc đăng nhập bằng tài khoản đã liên kết)</li>
         <li>Cài đặt nhận thông báo theo từng loại, và ID của những người ở cùng mà bạn đã ẩn</li>
         <li>Các thông báo việc nhà đã hẹn giờ</li>
+        <li>Trạng thái mua Gói nhà (do SDK của RevenueCat lưu)</li>
       </ul>
     </div>
 
@@ -220,14 +223,37 @@
         <li><strong>Nhà có người ở cùng khác đã tham gia:</strong> Bạn rời khỏi nhà, tên của bạn trong nhà bị xóa và được hiển thị là "Người đã xoá tài khoản". Các ghi chép về khoản trả hộ, thanh toán và việc nhà vẫn được giữ trong nhà để số dư của những người ở cùng không bị thay đổi. Bình luận, nội dung trong Thông báo trong nhà mà bạn đã viết và ảnh bạn đã đính kèm cũng được giữ lại trong nhà. Trong các ghi chép đó, tên của bạn cũng được hiển thị là "Người đã xoá tài khoản", và không còn thông tin nào gắn với bạn.</li>
         <li><strong>Nhà chỉ có mình bạn tham gia:</strong> Toàn bộ nhà cùng tất cả các ghi chép, bình luận, Thông báo trong nhà và ảnh sẽ bị xóa. Những người ở cùng chỉ được thêm bằng tên và chưa cài Ứng dụng không được tính là đã tham gia. Việc xóa được thực hiện trên máy chủ và thường hoàn tất trong vòng khoảng 1 giờ. Mã mời của nhà đó sẽ không dùng được nữa ngay khi bạn xóa tài khoản, nên những người ở cùng chỉ được thêm bằng tên cũng không thể tham gia sau này.</li>
       </ul>
+      <p><strong>Nếu bạn đã mua Gói nhà:</strong> Xóa tài khoản không tự động hủy gói đăng ký trên App Store hoặc Google Play. Vui lòng hủy trong phần quản lý gói đăng ký của cửa hàng (mục 16). Nhà mà bạn đang thanh toán vẫn dùng Gói nhà đến hết kỳ bạn đã trả tiền. Bản ghi về việc gói đăng ký của bạn được áp dụng cho nhà nào và bản ghi dùng thử (mục 16) sẽ được xóa trên máy chủ của chúng tôi, thường trong vòng khoảng 1 ngày sau khi bạn xóa tài khoản. Cửa hàng và RevenueCat vẫn giữ ghi chép mua hàng dưới dạng hồ sơ giao dịch. Nếu bạn muốn xóa ghi chép tại RevenueCat, vui lòng liên hệ qua biểu mẫu bên dưới.</p>
       <p>Nếu bạn đã gỡ Ứng dụng hoặc không thể mở Ứng dụng, vui lòng gửi "Yêu cầu xóa tài khoản" qua biểu mẫu liên hệ bên dưới. Chúng tôi sẽ xử lý trong vòng 30 ngày kể từ khi nhận được yêu cầu. Để xác định tài khoản của bạn, vui lòng ghi địa chỉ email của tài khoản Apple hoặc Google mà bạn đã liên kết. Nếu bạn đã liên kết với tài khoản LINE, vui lòng cho biết điều đó và ghi tên hiển thị LINE của bạn. Nếu bạn đã liên kết với tài khoản Zalo, vui lòng cho biết điều đó.</p>
       <p>Xem chi tiết tại trang <a href="/vi/apps/yane/delete-account/">Xóa tài khoản</a>.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">16</span>Mua hàng trong ứng dụng</h2>
-      <p>Hiện tại, Ứng dụng không có khoản thu phí nào.</p>
-      <p>Trong tương lai, chúng tôi dự định ra mắt gói dành cho nhà (gói đăng ký). Việc thanh toán sẽ do Apple hoặc Google thực hiện, và chúng tôi không nhận thông tin thẻ tín dụng của bạn. Chúng tôi sẽ cập nhật chính sách này khi ra mắt gói.</p>
+      <h2><span class="num">16</span>Mua hàng trong ứng dụng (Gói nhà)</h2>
+      <p>Ứng dụng có Gói nhà, một gói đăng ký áp dụng cho từng nhà. Khi một thành viên trong nhà mua gói trên App Store hoặc Google Play, mọi thành viên của nhà đó đều được dùng. Việc ghi chép, chia sẻ với mọi người và xuất dữ liệu vẫn dùng được mà không cần Gói nhà.</p>
+      <p>Việc thanh toán do Apple hoặc Google thực hiện. Chúng tôi không bao giờ nhận thông tin thẻ tín dụng hay thông tin thanh toán khác của bạn. Thông tin thanh toán được xử lý theo chính sách quyền riêng tư của Apple hoặc Google.</p>
+      <p>Để quản lý giao dịch mua, chúng tôi sử dụng dịch vụ của RevenueCat, Inc. (Hoa Kỳ). Chỉ những thông tin sau được chuyển cho RevenueCat. Chúng tôi không chuyển họ tên, thông tin liên lạc như địa chỉ email hay số điện thoại, hay nội dung ghi chép của nhà. RevenueCat lưu trữ dữ liệu này tại Hoa Kỳ.</p>
+      <ul>
+        <li>ID người dùng ẩn danh do Ứng dụng gán (mã định danh nêu ở mục 01)</li>
+        <li>Lịch sử mua (sản phẩm, ngày mua, ngày hết hạn và mã giao dịch của cửa hàng)</li>
+        <li>Thông tin cần thiết để xử lý giao dịch mua, như hệ điều hành của thiết bị và phiên bản ứng dụng</li>
+      </ul>
+      <p>Về cách RevenueCat xử lý thông tin, xem <a href="https://www.revenuecat.com/privacy">Chính sách quyền riêng tư của RevenueCat</a>.</p>
+      <p>Ngay sau khi mua và mỗi khi trạng thái gói đăng ký thay đổi, máy chủ của chúng tôi (Google Cloud Run) nhận trạng thái gói đăng ký từ RevenueCat và ghi các thông tin sau vào dữ liệu của nhà. Mọi thành viên trong nhà đều xem được các thông tin này.</p>
+      <ul>
+        <li>Thời hạn và trạng thái của Gói nhà (có tự động gia hạn hay không, đã hủy, có vấn đề thanh toán, v.v.), sản phẩm và cửa hàng</li>
+        <li>Người đang thanh toán (vị trí của thành viên đó trong nhà). <strong>Tên hiển thị của người đang thanh toán sẽ hiển thị cho các thành viên trong nhà</strong> ("[tên] đang thanh toán").</li>
+        <li>Thời hạn dùng thử</li>
+      </ul>
+      <p>Ngoài ra, chúng tôi lưu các bản ghi sau trên máy chủ, chỉ đơn vị vận hành mới xem được:</p>
+      <ul>
+        <li>Gói đăng ký được áp dụng cho nhà nào và thời điểm áp dụng (mỗi gói đăng ký chỉ áp dụng cho một nhà, và chỉ chuyển sang nhà khác được 30 ngày một lần)</li>
+        <li>Các nhà đã dùng thử, và mã định danh của người quản lý nhà tại thời điểm bắt đầu dùng thử (để tránh việc dùng thử lặp lại bằng cách tạo lại nhà). Bản ghi này vẫn được giữ khi nhà giải thể, và bị xóa khi người đó xóa tài khoản.</li>
+        <li>Bản ghi xử lý thông báo từ RevenueCat (loại và thời điểm nhận; xóa sau 90 ngày)</li>
+      </ul>
+      <p><strong>Dùng thử:</strong> Mỗi nhà được dùng thử Gói nhà miễn phí 30 ngày, một lần. Bản dùng thử do máy chủ của chúng tôi cấp cho nhà; không cần mua trên cửa hàng hay đăng ký thẻ tín dụng, và khi hết hạn sẽ không tự động chuyển sang trả phí.</p>
+      <p><strong>Mức sử dụng:</strong> Để xác định phạm vi dùng miễn phí, máy chủ của chúng tôi đếm số lượng ảnh, số lần "Nhờ Yane nhắc", số khoản chi định kỳ, v.v. của từng nhà và lưu các con số này vào dữ liệu của nhà. Chúng tôi chỉ lưu các con số.</p>
+      <p><strong>Hủy gói:</strong> Để hủy Gói nhà, hãy dùng phần quản lý gói đăng ký của App Store hoặc Google Play. <strong>Xóa tài khoản trong Ứng dụng không tự động hủy gói đăng ký trên cửa hàng.</strong> Nếu người đang thanh toán rời nhà hoặc xóa tài khoản, nhà vẫn dùng Gói nhà đến hết kỳ đã trả tiền và sẽ không được gia hạn ở lần gia hạn tiếp theo. Tuy nhiên, gói đăng ký trên cửa hàng vẫn tiếp tục, nên vui lòng hủy nếu bạn không còn cần đến.</p>
     </div>
 
     <div class="policy-section fade-in">
