@@ -60,12 +60,12 @@
   </div>
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: October 12, 2026</span>
+    <span class="updated">Last updated: October 15, 2026</span>
     <p class="intro">This Privacy Policy describes how Life Hack Tools ("we") handles user information in Yane: Roommate Bills &amp; Chores ("the App"). The App lets people who live together — roommates, couples and shared houses — share their records of money and chores and keep in touch with each other. No account is required. Only members of the same home can view and edit that home's data, and we never sell or provide user information to third parties. The App shows no ads.</p>
 
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Account and Identifier</h2>
-      <p>The App does not require you to create an account. When the App starts, it creates an identifier for each device using anonymous sign-in with Firebase Authentication, a service provided by Google. This identifier is used to determine which home you are a member of.</p>
+      <p>The App does not require you to create an account. When the App starts, it creates an identifier for each device using anonymous sign-in with Firebase Authentication, a service provided by Google. This identifier is used to determine which home you are a member of. It is also used as the anonymous user ID for managing Home plan purchases (section 16).</p>
       <p>We never ask you to enter an email address, phone number or name. Linking an Apple, Google, LINE or Zalo account is optional (see the next section).</p>
     </div>
 
@@ -100,6 +100,7 @@
         <li><strong>Reports:</strong> reports you send (section 07).</li>
         <li><strong>Notification registrations:</strong> the registration of your device for push notifications (section 08).</li>
         <li><strong>Invitations and joining:</strong> invite codes and requests to join a home (including requests to move a housemate's slot to a new device when changing phones).</li>
+        <li><strong>Home plan:</strong> the Home plan's expiry date and status, who is paying, the end date of the free trial, and each home's usage (counts such as the number of photos). These are written by our server (section 16).</li>
       </ul>
     </div>
 
@@ -162,13 +163,14 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">10</span>Where Data Is Stored and External Services</h2>
-      <p>Home data is stored in Cloud Firestore and photos in Firebase Storage. Both are services provided by Google; the data is stored in the Tokyo region (asia-northeast1), in a project used only for the App. Sending notifications, receiving reports, "Ask Yane", confirming Zalo logins, deleting dissolved homes and compiling usage statistics (section 12) are handled by our server on Google Cloud Run.</p>
+      <p>Home data is stored in Cloud Firestore and photos in Firebase Storage. Both are services provided by Google; the data is stored in the Tokyo region (asia-northeast1), in a project used only for the App. Sending notifications, receiving reports, "Ask Yane", confirming Zalo logins, deleting dissolved homes, compiling usage statistics (section 12), and applying Home plan subscriptions and counting usage (section 16) are handled by our server on Google Cloud Run.</p>
       <p>The App uses services from the following companies, which handle information on our behalf only to the extent necessary to provide those services:</p>
       <ul>
-        <li><strong>Google:</strong> Firebase (Authentication, Cloud Firestore and Storage), Cloud Run, Sign in with Google, and Android's notification service</li>
-        <li><strong>Apple:</strong> Sign in with Apple and iPhone's notification service</li>
+        <li><strong>Google:</strong> Firebase (Authentication, Cloud Firestore and Storage), Cloud Run, Sign in with Google, Android's notification service, and Google Play billing</li>
+        <li><strong>Apple:</strong> Sign in with Apple, iPhone's notification service, and App Store payments</li>
         <li><strong>LY Corporation:</strong> LINE Login</li>
         <li><strong>Zalo (VNG Corporation):</strong> Log in with Zalo</li>
+        <li><strong>RevenueCat, Inc. (United States):</strong> managing in-app purchases (section 16)</li>
         <li><strong>Expo:</strong> relaying push notifications</li>
         <li><strong>Sentry:</strong> error reporting</li>
         <li><strong>Slack:</strong> notifying the operator of reports</li>
@@ -190,7 +192,7 @@
       <h2><span class="num">13</span>What We Do Not Use</h2>
       <p>The App does not use:</p>
       <ul>
-        <li>Third-party analytics tools (the statistics described in section 12 are compiled on our own servers)</li>
+        <li>Third-party analytics tools (the statistics described in section 12 are compiled on our own servers; RevenueCat is used only to manage purchases, see section 16)</li>
         <li>Advertising SDKs</li>
       </ul>
       <p>The App also does not use your location, contacts or microphone. It uses your photo library and camera only when you attach a photo (section 04).</p>
@@ -204,6 +206,7 @@
         <li>Your sign-in state (anonymous sign-in, or sign-in with a linked account)</li>
         <li>Your settings for which types of notifications to receive, and the IDs of housemates you have hidden</li>
         <li>Scheduled chore reminders</li>
+        <li>The status of your Home plan purchases (stored by the RevenueCat SDK)</li>
       </ul>
     </div>
 
@@ -220,14 +223,37 @@
         <li><strong>A home that other housemates have joined:</strong> You leave the home, your name within it is removed, and you are shown as "Former member". Expense, settlement and chore records stay in the home so that your housemates' balances do not change. Comments and notes in House notes you wrote, and photos you attached, also stay in the home. In those records your name is also shown as "Former member", and no information linked to you remains.</li>
         <li><strong>A home that only you have joined:</strong> The home is deleted along with all of its records, comments, notes in House notes and photos. Housemates added by name only, who have not installed the App, are not counted as having joined. The deletion is carried out on our server and is usually completed within about an hour. The home's invite codes stop working as soon as you delete your account, so housemates added by name only can no longer join later.</li>
       </ul>
+      <p><strong>If you have purchased the Home plan:</strong> Deleting your account does not automatically cancel your App Store or Google Play subscription. Please cancel it in your store's subscription settings (section 16). A home you were paying for stays on the Home plan until the end of the period you paid for. Our records of which home your subscription was applied to and of the free trial (section 16) are deleted on our server, usually within about a day of deleting your account. The store and RevenueCat keep records of your purchases as transaction records. If you would like your records at RevenueCat deleted, please contact us via the form below.</p>
       <p>If you have already deleted the App or cannot open it, please send an "Account deletion request" via the contact form below. We will handle it within 30 days of receiving it. To identify your account, please include the email address of the Apple or Google account you linked. If you linked a LINE account, please say so and include your LINE display name. If you linked a Zalo account, please say so.</p>
       <p>For details, see <a href="/en/apps/yane/delete-account/">Delete Your Account</a>.</p>
     </div>
 
     <div class="policy-section fade-in">
-      <h2><span class="num">16</span>In-App Purchases</h2>
-      <p>There are currently no purchases in the App.</p>
-      <p>We plan to introduce a home plan (subscription) in the future. Payments will be processed by Apple or Google, and we will not receive your credit card information. We will update this policy when the plan is introduced.</p>
+      <h2><span class="num">16</span>In-App Purchases (Home Plan)</h2>
+      <p>The App offers the Home plan, a subscription for each home. When one member of a home purchases it on the App Store or Google Play, every member of that home can use it. Recording, sharing with everyone and exporting your data are available without the Home plan.</p>
+      <p>Payments are processed by Apple or Google. We never receive your credit card or other payment information. Payment information is handled in accordance with Apple's or Google's privacy policy.</p>
+      <p>To manage purchases, we use a service provided by RevenueCat, Inc. (United States). Only the following information is passed to RevenueCat. We do not pass your name, contact details such as your email address or phone number, or the content of your home's records. RevenueCat stores this data in the United States.</p>
+      <ul>
+        <li>The anonymous user ID assigned by the App (the identifier described in section 01)</li>
+        <li>Your purchase history (product, purchase date, expiry date and the store's transaction ID)</li>
+        <li>Information needed to process purchases, such as your device's OS and app version</li>
+      </ul>
+      <p>For how RevenueCat handles information, see the <a href="https://www.revenuecat.com/privacy">RevenueCat Privacy Policy</a>.</p>
+      <p>Right after a purchase, and whenever the status of a subscription changes, our server (Google Cloud Run) receives the subscription status from RevenueCat and writes the following to the home's data. All members of the home can see it.</p>
+      <ul>
+        <li>The Home plan's expiry date and status (whether it renews automatically, has been canceled, has a billing issue, etc.), the product and the store</li>
+        <li>Who is paying (that member's slot in the home). <strong>The paying member's display name is shown to the members of the home</strong> ("[name] is paying").</li>
+        <li>The end date of the free trial</li>
+      </ul>
+      <p>We also keep the following on our server as records that only the operator can see:</p>
+      <ul>
+        <li>Which home a subscription is applied to, and when it was applied (a subscription can be applied to only one home, and it can be moved to another home only once every 30 days)</li>
+        <li>Homes that have used the free trial, and the identifier of the home's owner at the time the trial was started (to prevent the trial from being repeated by recreating a home). This record is kept even if the home is dissolved, and is deleted when that person deletes their account.</li>
+        <li>Records of processing notifications from RevenueCat (their type and when they were received; deleted after 90 days)</li>
+      </ul>
+      <p><strong>Free trial:</strong> Each home can try the Home plan free for 30 days, once. The trial is granted to the home by our server; no store purchase or credit card is required, and it does not turn into a paid plan automatically when it ends.</p>
+      <p><strong>Usage:</strong> To determine what can be used for free, our server counts things such as the number of photos, the number of "Ask Yane" announcements and the number of recurring expenses in each home, and stores these counts in the home's data. Only the counts are stored.</p>
+      <p><strong>Cancellation:</strong> To cancel the Home plan, use the subscription settings of the App Store or Google Play. <strong>Deleting your account in the App does not automatically cancel your store subscription.</strong> If the paying member leaves the home or deletes their account, the home stays on the Home plan until the end of the paid period and is not extended at the next renewal. The store subscription itself continues, however, so please cancel it if you no longer need it.</p>
     </div>
 
     <div class="policy-section fade-in">
