@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - Ruga - Life Hack Tools</title>
-  <meta name="description" content="Privacy policy for Ruga. Your location is used only on your device and never sent to a server.">
+  <meta name="description" content="Privacy policy for Ruga, including location use, journey search, and information stored on your device.">
   <link rel="canonical" href="https://lh.tools/en/privacy/ruga/">
   <link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/ruga/">
   <link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/ruga/">
@@ -59,21 +59,21 @@
   </div>
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: October 7, 2026</span>
+    <span class="updated">Last updated: October 15, 2026</span>
     <p class="intro">This policy explains how Life Hack Tools (&ldquo;we&rdquo;) handles your information in Ruga, a bus departure time and walking time app (&ldquo;the app&rdquo;). The app needs no account, and it has no ads and no tracking. Data is encrypted in transit.</p>
     <div class="policy-section fade-in">
-      <h2><span class="num">01</span>Your location (used only on your device)</h2>
-      <p>Ruga uses your location only to pick bus stops near you and to work out how long it takes to walk to your stop. This is calculated on your device. <strong>Your location is never sent to a server and is not saved.</strong> Ruga also works if you allow only approximate location.</p>
-      <p>If you do not allow location, you can still choose a stop yourself and use the app.</p>
+      <h2><span class="num">01</span>Your location</h2>
+      <p>Ruga uses your location to calculate walking time to a bus stop on your device. When you use your current or chosen starting point to find nearby stops, Ruga sends its coordinates over an encrypted connection to our Ruga Gateway, which we operate on Google Cloud. The Gateway processes coordinates only as long as needed for the search; we do not store them or include them in application logs. Due to how network services work, your IP address and other connection information may remain in the cloud provider&rsquo;s logs for a period of time. Approximate location also works.</p>
+      <p>If you do not allow location, you can still choose a stop manually and use basic timetable features.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">02</span>How timetables are fetched</h2>
-      <p>Departure times are fetched from Ruga&rsquo;s timetable server, which we run on Google Cloud. These requests carry no information about you, such as your location or the stops you have chosen.</p>
-      <p>The timetable server does not record where requests come from, such as IP addresses. But because of how network connections work, your IP address may remain in the cloud provider&rsquo;s (Google&rsquo;s) logs for a certain period.</p>
+      <h2><span class="num">02</span>Search, timetables, and maps</h2>
+      <p>To suggest destinations, Ruga sends the text you enter through our Gateway to the Google Places API. Ruga does not store search text in the Gateway&rsquo;s application logs or server storage. Ruga sends the selected stop and direction to fetch timetable data. Gateway application logs contain the request route, response status, and processing time, but not coordinates or search text.</p>
+      <p>If you tap <strong>Open in Google Maps</strong>, Ruga opens a link that sends your starting coordinates and chosen destination to Google Maps. For information about Google&rsquo;s handling of this data, see <a href="https://policies.google.com/privacy">Google&rsquo;s Privacy Policy</a>.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>What is saved on your device</h2>
-      <p>Ruga saves the stop and direction you chose, your walking pace setting, and a temporary copy (cache) of the timetables it fetched. These are removed when you delete the app.</p>
+      <p>Ruga saves the stop and direction you chose, your walking pace setting, a temporary copy (cache) of fetched timetables, a chosen starting place (name and coordinates), and up to eight recent destinations on your device. Recent destinations are replaced by new searches; the chosen starting place is removed when you switch back to your current location. Clear the app&rsquo;s data or delete the app to remove information stored on the device.</p>
       <p>When there is no connection, Ruga shows the last saved timetable and clearly marks it as older data. In that case it does not recommend a bus as &ldquo;you can make it comfortably.&rdquo;</p>
     </div>
     <div class="policy-section fade-in">
