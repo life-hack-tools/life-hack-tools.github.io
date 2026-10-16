@@ -49,43 +49,59 @@
   </div>
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: June 16, 2026</span>
+    <span class="updated">Last updated: October 17, 2026</span>
     <p class="intro">This Privacy Policy describes how Life Hack Tools ("we") handles user information in Peckish ("the App").</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Information We Collect</h2>
-      <p>The App may handle the following information:</p>
+      <p>The App handles the following information:</p>
       <ul>
-        <li><strong>Location data:</strong> Used to suggest restaurants near your current location. Your location is sent to a third-party service (Google Maps Platform) to search for restaurants, but is not stored on our servers on an ongoing basis.</li>
-        <li><strong>Auto-generated data:</strong> An anonymous ID needed for the app to function (not used to identify you personally)</li>
+        <li><strong>Anonymous ID:</strong> A random anonymous ID created for each installation of the App. It is not a device identifier or advertising ID. The App has no login.</li>
+        <li><strong>Usage records:</strong> Records of in-app actions, such as choosing a candidate, opening the map, or tapping "I went!". These are stored on our server together with the anonymous ID.</li>
+        <li><strong>Post-visit feedback:</strong> Your answers to questions such as "Would you go again?". These are stored on our server together with the restaurant's information (name, address, and category) and the anonymous ID.</li>
+        <li><strong>Location and search terms:</strong> Used to find restaurants near your current location and sent to Google Maps Platform (Places API) through our relay server. To manage costs and request volume, our server records your location rounded to about 1 km and your search terms, without linking them to the anonymous ID. Your precise location is not stored.</li>
+        <li><strong>Proof of purchase:</strong> If you use the optional "Buy the developer a meal", it is sent to our server to verify the payment (it is not stored; see "04 Data Storage").</li>
         <li><strong>Diagnostic data:</strong> Crash logs and performance data for improving app stability</li>
       </ul>
       <p>The App does not collect personally identifiable information such as names, email addresses, or phone numbers.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>How We Use Information</h2>
+      <p>We use the information only for the following purposes:</p>
       <ul>
         <li>Searching for and suggesting restaurants near your location</li>
-        <li>Providing app functionality</li>
+        <li>Improving suggestions and the App (usage records and post-visit feedback)</li>
+        <li>Calculating and displaying the "Peckish star"</li>
+        <li>Managing Places API costs and request volume</li>
+        <li>Verifying in-app payments</li>
         <li>Improving app quality and fixing issues</li>
       </ul>
+      <p>Post-visit feedback is aggregated per restaurant and shown to other users in the App as the "Peckish star" (the percentage and number of people who would go again). It is never shown in a way that identifies any individual or anonymous ID.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>Third-Party Services</h2>
       <p>The App uses the following third-party services to provide its features:</p>
       <ul>
-        <li><strong>Google Maps Platform (Places API):</strong> Receives your location and search criteria to find nearby restaurants.</li>
-        <li><strong>Supabase:</strong> Used for backend processing (anonymous authentication and generating restaurant candidates).</li>
+        <li><strong>Google Maps Platform (Places API):</strong> Receives your location and search terms through our relay server to find nearby restaurants.</li>
+        <li><strong>Google Cloud (Cloud Run and Firestore, Tokyo region):</strong> Hosts the server we operate, used for backend processing and data storage.</li>
+        <li><strong>Apple (App Store) / Google (Google Play):</strong> Process in-app payments.</li>
         <li><strong>Sentry:</strong> Used to collect diagnostic data for crash analysis and quality improvement.</li>
       </ul>
       <p>These services are used only to the extent necessary to provide the App's features. We do not sell user information to third parties.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">04</span>Data Storage</h2>
-      <p>Settings such as your language preference are stored in the device's local storage. Location data is used only for restaurant searches and is not stored on an ongoing basis.</p>
+      <p><strong>Stored on our server (Google Cloud, Tokyo region):</strong></p>
+      <ul>
+        <li>Usage records (linked to the anonymous ID)</li>
+        <li>Post-visit feedback and restaurant information (name, address, and category) (linked to the anonymous ID)</li>
+        <li>Location rounded to about 1 km and search terms (not linked to the anonymous ID)</li>
+      </ul>
+      <p><strong>Stored only on your device:</strong> Settings such as language, learned preferences, your Food Log, themes, recent search terms, and records of completed transactions. These are deleted when you uninstall the App.</p>
+      <p><strong>In-app payments:</strong> The optional "Buy the developer a meal" is a one-time tip with no rewards. Payments are processed by Apple (App Store) or Google (Google Play), and we never receive card numbers or other payment information. To verify that a payment is valid, the proof of purchase issued by the store is sent to our server and checked with the store, but the proof of purchase is not stored on our server. Records of completed transactions are stored only on your device.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">05</span>Data Deletion</h2>
-      <p>Users can delete local data by uninstalling the app. To request deletion of any other data, please contact us below.</p>
+      <p>Data stored on your device can be deleted by uninstalling the App. Usage records and post-visit feedback on our server are linked to the anonymous ID. To request deletion of this data, please contact us below.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">06</span>Children's Privacy</h2>
