@@ -49,43 +49,59 @@
   </div>
   <div class="content">
     <h1>Chính sách bảo mật</h1>
-    <span class="updated">Cập nhật lần cuối: 16 tháng 6, 2026</span>
+    <span class="updated">Cập nhật lần cuối: 17 tháng 10, 2026</span>
     <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Peckish ("Ứng dụng").</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Thông tin chúng tôi thu thập</h2>
-      <p>Ứng dụng có thể xử lý các thông tin sau:</p>
+      <p>Ứng dụng xử lý các thông tin sau:</p>
       <ul>
-        <li><strong>Dữ liệu vị trí:</strong> Được dùng để gợi ý nhà hàng gần vị trí hiện tại của bạn. Vị trí của bạn được gửi đến dịch vụ bên thứ ba (Google Maps Platform) để tìm nhà hàng, nhưng không được lưu trữ lâu dài trên máy chủ của chúng tôi.</li>
-        <li><strong>Dữ liệu tự động tạo:</strong> ID ẩn danh cần thiết để ứng dụng hoạt động (không dùng để nhận dạng cá nhân bạn)</li>
+        <li><strong>ID ẩn danh:</strong> Một ID ẩn danh ngẫu nhiên được tạo cho mỗi lần cài đặt Ứng dụng. Đây không phải mã định danh thiết bị hay mã quảng cáo. Ứng dụng không có chức năng đăng nhập.</li>
+        <li><strong>Lịch sử sử dụng:</strong> Ghi nhận các thao tác trong ứng dụng, như chọn một gợi ý, mở bản đồ hoặc nhấn "Đã đến!". Dữ liệu này được lưu trên máy chủ của chúng tôi cùng với thông tin quán liên quan (như tên quán) và ID ẩn danh.</li>
+        <li><strong>Cảm nhận sau khi đến quán:</strong> Câu trả lời của bạn cho những câu hỏi như "Bạn có muốn quay lại không?". Dữ liệu này được lưu trên máy chủ của chúng tôi cùng với thông tin quán (tên, địa chỉ, loại hình) và ID ẩn danh.</li>
+        <li><strong>Vị trí và từ khóa tìm kiếm:</strong> Được dùng để tìm quán ăn gần vị trí hiện tại của bạn và được gửi đến Google Maps Platform (Places API) thông qua máy chủ trung gian của chúng tôi. Để quản lý chi phí và số lượt gọi, máy chủ của chúng tôi ghi lại vị trí đã được làm tròn đến khoảng 1 km cùng từ khóa tìm kiếm, mà không gắn với ID ẩn danh. Vị trí chính xác của bạn không được lưu.</li>
+        <li><strong>Bằng chứng mua hàng:</strong> Nếu bạn dùng tính năng tùy chọn "Mời nhà phát triển một bữa ăn", bằng chứng này được gửi đến máy chủ của chúng tôi để xác minh thanh toán (không được lưu; xem mục "04 Lưu trữ dữ liệu").</li>
         <li><strong>Dữ liệu chẩn đoán:</strong> Nhật ký lỗi và dữ liệu hiệu suất để cải thiện độ ổn định</li>
       </ul>
       <p>Ứng dụng không thu thập thông tin nhận dạng cá nhân như tên, email hoặc số điện thoại.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>Cách chúng tôi sử dụng thông tin</h2>
+      <p>Chúng tôi chỉ sử dụng thông tin cho các mục đích sau:</p>
       <ul>
-        <li>Tìm kiếm và gợi ý nhà hàng gần vị trí của bạn</li>
-        <li>Cung cấp chức năng ứng dụng</li>
+        <li>Tìm kiếm và gợi ý quán ăn gần vị trí của bạn</li>
+        <li>Cải thiện gợi ý và Ứng dụng (lịch sử sử dụng và cảm nhận sau khi đến quán)</li>
+        <li>Tổng hợp và hiển thị "Peckish star"</li>
+        <li>Quản lý chi phí và số lượt gọi Places API</li>
+        <li>Xác minh thanh toán trong ứng dụng</li>
         <li>Cải thiện chất lượng và sửa lỗi</li>
       </ul>
+      <p>Cảm nhận sau khi đến quán được tổng hợp theo từng quán và hiển thị cho người dùng khác trong Ứng dụng dưới dạng "Peckish star" (tỷ lệ và số người muốn quay lại). Thông tin này không bao giờ được hiển thị theo cách có thể nhận ra một cá nhân hay ID ẩn danh nào.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">03</span>Dịch vụ bên thứ ba</h2>
       <p>Ứng dụng sử dụng các dịch vụ bên thứ ba sau để cung cấp tính năng:</p>
       <ul>
-        <li><strong>Google Maps Platform (Places API):</strong> Nhận vị trí và tiêu chí tìm kiếm của bạn để tìm nhà hàng gần đó.</li>
-        <li><strong>Supabase:</strong> Dùng cho xử lý backend (xác thực ẩn danh và tạo danh sách nhà hàng).</li>
+        <li><strong>Google Maps Platform (Places API):</strong> Nhận vị trí và từ khóa tìm kiếm của bạn thông qua máy chủ trung gian của chúng tôi để tìm quán ăn gần đó.</li>
+        <li><strong>Google Cloud (Cloud Run và Firestore, khu vực Tokyo):</strong> Nơi đặt máy chủ do chúng tôi vận hành, dùng cho xử lý backend và lưu trữ dữ liệu.</li>
+        <li><strong>Apple (App Store) / Google (Google Play):</strong> Xử lý thanh toán trong ứng dụng.</li>
         <li><strong>Sentry:</strong> Dùng để thu thập dữ liệu chẩn đoán cho phân tích lỗi và cải thiện chất lượng.</li>
       </ul>
       <p>Các dịch vụ này chỉ được sử dụng trong phạm vi cần thiết để cung cấp tính năng của Ứng dụng. Chúng tôi không bán thông tin người dùng cho bên thứ ba.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">04</span>Lưu trữ dữ liệu</h2>
-      <p>Các cài đặt như tùy chọn ngôn ngữ được lưu trong bộ nhớ cục bộ của thiết bị. Dữ liệu vị trí chỉ được dùng để tìm nhà hàng và không được lưu trữ lâu dài.</p>
+      <p><strong>Lưu trên máy chủ của chúng tôi (Google Cloud, khu vực Tokyo):</strong></p>
+      <ul>
+        <li>Lịch sử sử dụng (gắn với ID ẩn danh)</li>
+        <li>Cảm nhận sau khi đến quán và thông tin quán (tên, địa chỉ, loại hình) (gắn với ID ẩn danh)</li>
+        <li>Vị trí đã làm tròn đến khoảng 1 km và từ khóa tìm kiếm (không gắn với ID ẩn danh)</li>
+      </ul>
+      <p><strong>Chỉ lưu trên thiết bị của bạn:</strong> Các cài đặt như ngôn ngữ, sở thích đã học, Sổ tay ẩm thực (bao gồm các Thử thách hôm nay đã hoàn thành), từ khóa tìm kiếm gần đây và lịch sử giao dịch đã hoàn tất. Những dữ liệu này sẽ bị xóa khi bạn gỡ cài đặt Ứng dụng.</p>
+      <p><strong>Thanh toán trong ứng dụng:</strong> Tính năng tùy chọn "Mời nhà phát triển một bữa ăn" là một lần ủng hộ riêng lẻ và không kèm đặc quyền nào. Thanh toán do Apple (App Store) hoặc Google (Google Play) xử lý, và chúng tôi không nhận số thẻ hay bất kỳ thông tin thanh toán nào. Để xác minh thanh toán hợp lệ, bằng chứng mua hàng do cửa hàng cấp sẽ được gửi đến máy chủ của chúng tôi để đối chiếu với cửa hàng, nhưng bằng chứng này không được lưu trên máy chủ. Lịch sử giao dịch đã hoàn tất chỉ được lưu trên thiết bị của bạn.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">05</span>Xóa dữ liệu</h2>
-      <p>Người dùng có thể xóa dữ liệu cục bộ bằng cách gỡ cài đặt ứng dụng. Để yêu cầu xóa bất kỳ dữ liệu nào khác, vui lòng liên hệ bên dưới.</p>
+      <p>Dữ liệu lưu trên thiết bị có thể được xóa bằng cách gỡ cài đặt Ứng dụng. Lịch sử sử dụng và cảm nhận sau khi đến quán trên máy chủ của chúng tôi được gắn với ID ẩn danh. Nếu bạn muốn yêu cầu xóa những dữ liệu này, vui lòng liên hệ bên dưới.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">06</span>Quyền riêng tư trẻ em</h2>
