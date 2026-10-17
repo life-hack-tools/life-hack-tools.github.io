@@ -56,7 +56,7 @@
       <p>The App handles the following information:</p>
       <ul>
         <li><strong>Anonymous ID:</strong> A random anonymous ID created for each installation of the App. It is not a device identifier or advertising ID. The App has no login.</li>
-        <li><strong>Usage records:</strong> Records of in-app actions, such as choosing a candidate, opening the map, or tapping "I went!". These are stored on our server together with the anonymous ID.</li>
+        <li><strong>Usage records:</strong> Records of in-app actions, such as choosing a candidate, opening the map, or tapping "I went!". These are stored on our server together with the restaurant involved (such as its name) and the anonymous ID.</li>
         <li><strong>Post-visit feedback:</strong> Your answers to questions such as "Would you go again?". These are stored on our server together with the restaurant's information (name, address, and category) and the anonymous ID.</li>
         <li><strong>Location and search terms:</strong> Used to find restaurants near your current location and sent to Google Maps Platform (Places API) through our relay server. To manage costs and request volume, our server records your location rounded to about 1 km and your search terms, without linking them to the anonymous ID. Your precise location is not stored.</li>
         <li><strong>Proof of purchase:</strong> If you use the optional "Buy the developer a meal", it is sent to our server to verify the payment (it is not stored; see "04 Data Storage").</li>
@@ -96,7 +96,7 @@
         <li>Post-visit feedback and restaurant information (name, address, and category) (linked to the anonymous ID)</li>
         <li>Location rounded to about 1 km and search terms (not linked to the anonymous ID)</li>
       </ul>
-      <p><strong>Stored only on your device:</strong> Settings such as language, learned preferences, your Food Log, themes, recent search terms, and records of completed transactions. These are deleted when you uninstall the App.</p>
+      <p><strong>Stored only on your device:</strong> Settings such as language, learned preferences, your Food Log (including completed Today's Quests), recent search terms, and records of completed transactions. These are deleted when you uninstall the App.</p>
       <p><strong>In-app payments:</strong> The optional "Buy the developer a meal" is a one-time tip with no rewards. Payments are processed by Apple (App Store) or Google (Google Play), and we never receive card numbers or other payment information. To verify that a payment is valid, the proof of purchase issued by the store is sent to our server and checked with the store, but the proof of purchase is not stored on our server. Records of completed transactions are stored only on your device.</p>
     </div>
     <div class="policy-section fade-in">
