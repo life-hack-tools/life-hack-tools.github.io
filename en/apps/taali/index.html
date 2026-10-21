@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taali: Dance Practice Player - Life Hack Tools</title>
-  <meta name="description" content="A practice player for dance teams. Cue, loop and medley just the sections you want, with simple previous/next controls and tempo control. Works with YouTube songs.">
+  <meta name="description" content="A practice player for dance teams. Cue, loop and medley just the sections you want, with simple previous/next controls and tempo control. Works with YouTube songs, and with audio files on your device (File mode).">
   <meta property="og:title" content="Taali: Dance Practice Player - Life Hack Tools">
   <meta property="og:description" content="Practice just the chorus or chain several songs. Loop, tempo control and virtual medley.">
   <meta property="og:image" content="https://lh.tools/assets/ogp/taali.png">
@@ -160,6 +160,7 @@
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
 </head>
 <body>
+  <!-- TODO(release): ファイルモード（v1.1.0）は、ストア公開と同時にこのブランチをマージして反映する。先にマージしない。 -->
   <div class="nav">
     <a href="/">&larr; LHTz</a>
     <div class="lang-switch">
@@ -190,7 +191,7 @@
     <p>
       Skip the long intro and start from where the dance begins. Repeat just the chorus. Chain a few songs into a medley for your showcase. Taali takes the friction out of rehearsal for dance teams. Search for a song by name or paste a YouTube URL. No account is needed.
     </p>
-    <p class="about-note">* An internet connection is required. Songs play in the official YouTube player, so videos that do not allow embedded playback cannot be played.</p>
+    <p class="about-note">* YouTube mode needs an internet connection. Songs play in the official YouTube player, so videos that do not allow embedded playback cannot be played. File mode may also make a small network request to check the connection.</p>
   </div>
 
   <div class="section fade-in">
@@ -255,8 +256,13 @@
         <h3>Share your setlist</h3>
         <p>Share a link via LINE or any app and teammates open it with the same settings. Share a cue sheet of songs and sections as plain text.</p>
       </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+        <h3>File mode</h3>
+        <p>Pick audio files already on your device and practice with the same sections, loops, medleys and tempo control, plus beat marks and bar-head snapping. The files are not sent off your device. A now-playing notification keeps it going with the screen locked (Android).</p>
+      </div>
     </div>
-    <p class="about-note">Taali never saves or merges audio. It only controls the playback position of the official YouTube player, so views count as usual.</p>
+    <p class="about-note">In YouTube mode, Taali never saves or merges audio. It only controls the playback position of the official YouTube player, so views count as usual. In File mode, the audio files you choose stay on your device and are never uploaded. Use only files you are allowed to play. File mode does not show the YouTube player, so no YouTube ads appear there (in YouTube mode, ads can still appear even with YouTube Premium).</p>
   </div>
 
   <div class="screenshots fade-in">
