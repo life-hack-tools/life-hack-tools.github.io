@@ -230,7 +230,7 @@
 
   <div class="content">
     <h1>プライバシーポリシー</h1>
-    <span class="updated">最終更新日: 2026年10月18日</span>
+    <span class="updated">最終更新日: 2026年10月23日</span>
 
     <p class="intro">Life Hack Tools（以下「当団体」）は、当団体が提供するアプリケーション（以下「本アプリ」）における利用者の個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。</p>
 
@@ -248,7 +248,7 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>アプリ別の取り扱いデータ</h2>
-      <p>各アプリが取り扱うデータの種別と用途は以下のとおりです。いずれのアプリも、利用者のデータを第三者に販売・共有することはありません。通信はすべて暗号化（HTTPS / TLS）されます。</p>
+      <p>各アプリが取り扱うデータの種別と用途は以下のとおりです。外部サービスへの送信・処理は各アプリの説明をご確認ください。利用者のデータを販売しません。通信は暗号化（HTTPS / TLS）されます。</p>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead>
@@ -363,7 +363,7 @@
               <th>NutriShot</th>
               <td>撮影・選択した食事の写真（解析のため Google に送信）、料理名・推定重量・PFC・kcal の記録（端末内にのみ保存）</td>
               <td>食事の写真からの料理名・栄養素の推定と食事記録の管理</td>
-              <td>なし（※9）</td>
+              <td>Google（Gemini / Firebase）、RevenueCat、Expo（※9）</td>
               <td>転送時あり</td>
             </tr>
           </tbody>
@@ -377,7 +377,7 @@
       <p class="table-note">※6 Zobo は、予定の名前・日付・出発時刻・行き先、チェックリストの項目、チェックした時刻を、端末の中にだけ保存し、当団体のサーバーへは送りません。通知は端末の中で予約するローカル通知で、プッシュ通知用のトークンは取得しません。「データを書き出す」は、利用者が選んだときだけファイルを作り、端末の共有画面を開きます（自動では送信しません）。アプリの更新の有無を確認するため、ランダムに生成したインストール ID、アプリのバージョン、OS の種類などを Expo（EAS Update、650 Industries, Inc.）に送ります。クラッシュログの送信、利用状況の分析、広告、アカウント登録、トラッキングはありません。詳しくは<a href="/privacy/zobo/" style="color:#dc2626;">Zobo のプライバシーポリシー</a>をご確認ください。</p>
       <p class="table-note">※7 Yane は、家の名前と通貨、メンバーの表示名、立替・精算・家事・共有の日用品（在庫と買い出しリスト）の記録、コメントと「家の連絡」（チャット）、写真（任意）を、Firebase（Cloud Firestore・Firebase Storage、東京リージョン）に保存します。アカウント登録は不要で、Firebase Authentication の匿名認証による ID を使います。Apple・Google・LINE・Zalo のアカウントとの連携は任意で（Zalo はベトナム国内からの利用時のみ）、連携した場合は、そのアカウントの ID（Apple・Google ではメールアドレス、LINE では表示名も。Zalo は ID のみ）を Firebase Authentication に保存します。家のデータを閲覧・編集できるのは、同じ家のメンバーだけです。サービスの改善と料金プランの設計のため、家ごとのメンバー数・記録や写真の件数などを、家や個人を特定できない形で集計することがあります（家の名前・表示名・記録の内容は含みません）。家ごとのサブスクリプション「家プラン」があり、決済は App Store または Google Play が行います（当団体はクレジットカードの情報を受け取りません）。購入の管理には RevenueCat（米国）を使い、匿名の ID と購入の履歴だけを渡します。広告と外部の分析ツールはありません。詳しくは<a href="/privacy/yane/" style="color:#dc2626;">Yane のプライバシーポリシー</a>をご確認ください。</p>
       <p class="table-note">※8 Taali は、セットリスト（曲・区間・並び順）と設定を端末の中にだけ保存し、当団体のサーバーへは送りません。曲名で検索したときだけ、検索語を当団体のAPI（Cloudflare Workers）経由で YouTube Data API（Google）に送ります。検索語は利用者と結びつけず、サーバー側に保存しません（同一検索の結果を短時間キャッシュし、アクセス制限のため IP アドレスを一時的に処理することがあります）。動画は YouTube 公式の埋め込みプレーヤーで再生するため、YouTube が独自に広告の表示や視聴データの取得を行うことがあります（本アプリ自体は広告を表示せず、音声・動画の保存や変換も行いません）。アプリの更新の有無を確認するため、ランダムに生成したインストール ID などを Expo（EAS Update、650 Industries, Inc.）に送ります。アカウント登録・広告SDK・トラッキング・解析SDKはありません。詳しくは<a href="/privacy/taali/" style="color:#dc2626;">Taali のプライバシーポリシー</a>をご確認ください。</p>
-      <p class="table-note">※9 NutriShot は、利用者が撮影または選んだ食事の写真を、料理名・推定重量・たんぱく質・脂質・炭水化物・カロリー（kcal）を推定するために、Google の生成 AI API（Gemini）に送信します。1回の解析で送るのは写真1枚のみです。送信の前に、アプリ内で同意を求めます。同意はアプリの設定「AI 解析への同意」からいつでも取り消せます。取り消した後は、写真を送る前に改めて同意を求めます。Google に送られた写真の取り扱い（Google における保存期間を含みます）は、Google の利用規約およびプライバシーポリシーに従います（<a href="https://policies.google.com/privacy" style="color:#dc2626;">Google のプライバシーポリシー</a>）。食事の写真と記録は端末内にのみ保存し、当団体のサーバーには保存しません。アカウント登録は不要です。診断情報の送信や分析ツールはありません。</p>
+      <p class="table-note">※9 NutriShot は同意後に食事写真1枚をGoogle Geminiへ送信します。Firebaseを使う解析では不正利用防止の証明情報と日次呼び出し件数を処理します。食事履歴は端末内に保存し、購入管理にRevenueCat、更新配信にExpoを使います。<a href="/privacy/nutrishot/" style="color:#dc2626;">NutriShot専用ポリシー</a>をご確認ください。</p>
       <p class="table-note">各アプリの詳細は、アプリ個別のプライバシーポリシー（例: <a href="/privacy/peckish/" style="color:#dc2626;">Peckish</a> / <a href="/privacy/pitto/" style="color:#dc2626;">Pitto</a> / <a href="/privacy/rete/" style="color:#dc2626;">Rete</a> / <a href="/privacy/batto/" style="color:#dc2626;">Batto</a> / <a href="/privacy/ruga/" style="color:#dc2626;">Ruga</a> / <a href="/privacy/zobo/" style="color:#dc2626;">Zobo</a> / <a href="/privacy/yane/" style="color:#dc2626;">Yane</a>）をご確認ください。</p>
     </div>
 
@@ -403,7 +403,7 @@
 
     <div class="policy-section fade-in">
       <h2><span class="num">05</span>第三者提供</h2>
-      <p>当団体は、利用者の情報を第三者に提供、販売、共有することはありません。ただし、法令に基づく場合を除きます。</p>
+      <p>当団体は利用者の情報を販売しません。サービスの提供に必要な外部サービスへの送信・処理は、アプリ別の説明と個別ポリシーに記載します。NutriShotの写真送信は送信前の明示同意に基づきます。法令に基づく開示を行う場合があります。</p>
     </div>
 
     <div class="policy-section fade-in">
