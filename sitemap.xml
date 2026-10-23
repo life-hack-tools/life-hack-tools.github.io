@@ -1513,4 +1513,67 @@
     <lastmod>2026-10-21</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://lh.tools/privacy/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/nutrishot/"/>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/nutrishot/"/>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/nutrishot/"/>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/apps/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/apps/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/apps/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/support/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/support/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/support/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/nutrishot/"/>
+  </url>
 </urlset>
