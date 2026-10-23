@@ -1460,6 +1460,60 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lh.tools/privacy/aske/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/aske/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/aske/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/aske/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/aske/"/>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/aske/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/aske/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/aske/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/aske/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/aske/"/>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/aske/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/aske/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/aske/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/aske/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/aske/"/>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/support/aske/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/aske/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/aske/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/aske/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/aske/"/>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/support/aske/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/aske/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/aske/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/aske/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/aske/"/>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/support/aske/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/aske/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/aske/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/aske/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/aske/"/>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lh.tools/privacy/nutrishot/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/nutrishot/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/nutrishot/"/>
