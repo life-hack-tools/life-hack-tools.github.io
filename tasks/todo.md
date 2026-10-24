@@ -2,7 +2,7 @@
 - [x] NutriShot PR #44のコードとAnthropic公式の商用API方針を確認
 - [x] ja/en/viの専用privacy・アプリページ・共通privacyの該当箇所を更新
 - [x] 9ページのHTML言語/内部リンク/localhost HTTP200と本文一致を確認、専用privacy3言語をChromeで表示確認
-- [ ] PR作成
+- [x] PR #175作成。公開はマージ承認後に確認
 - [ ] ユーザーのマージ承認後に公開ページを照合（本作業で勝手にマージしない）
 
 # NutriShot の専用ポリシー（#168 / PR #169）
