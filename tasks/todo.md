@@ -1,3 +1,10 @@
+## 2026-10-24 NutriShot Claude移行（#174）
+- [x] NutriShot PR #44のコードとAnthropic公式の商用API方針を確認
+- [x] ja/en/viの専用privacy・アプリページ・共通privacyの該当箇所を更新
+- [x] 9ページのHTML言語/内部リンク/localhost HTTP200と本文一致を確認、専用privacy3言語をChromeで表示確認
+- [x] PR #175作成。公開はマージ承認後に確認
+- [ ] ユーザーのマージ承認後に公開ページを照合（本作業で勝手にマージしない）
+
 # NutriShot の専用ポリシー（#168 / PR #169）
 
 - [x] NutriShot main / PR #32、Gemini/Firebase/RevenueCat/Expoの公式資料を照合
