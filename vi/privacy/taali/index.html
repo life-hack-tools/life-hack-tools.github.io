@@ -59,11 +59,11 @@
   </div>
   <div class="content">
     <h1>Chính sách quyền riêng tư</h1>
-    <span class="updated">Cập nhật lần cuối: 13 tháng 10 năm 2026</span>
+    <span class="updated">Cập nhật lần cuối: 22 tháng 10 năm 2026</span>
     <p class="intro">Chính sách này mô tả cách Life Hack Tools (&ldquo;chúng tôi&rdquo;) xử lý thông tin của bạn trong Taali: Phát nhạc tập nhảy (&ldquo;Ứng dụng&rdquo;). Ứng dụng không cần tài khoản, không thu thập thông tin cá nhân (trừ nội dung bạn chủ động gửi qua biểu mẫu liên hệ trong ứng dụng) và không có SDK quảng cáo, theo dõi hay phân tích.</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Nguyên tắc cơ bản</h2>
-      <p>Ứng dụng không có đăng nhập hay tài khoản. Chúng tôi không thu thập thông tin cá nhân như họ tên hay vị trí. Chúng tôi chỉ nhận địa chỉ email khi chính bạn nhập trong biểu mẫu liên hệ trong ứng dụng (xem mục 07). Ứng dụng không có cơ chế quảng cáo, không theo dõi hành vi người dùng và không có SDK phân tích.</p>
+      <p>Ứng dụng không có đăng nhập hay tài khoản. Chúng tôi không thu thập thông tin cá nhân như họ tên hay vị trí. Chúng tôi chỉ nhận địa chỉ email khi chính bạn nhập trong biểu mẫu liên hệ trong ứng dụng (xem mục 09). Ứng dụng không có cơ chế quảng cáo, không theo dõi hành vi người dùng và không có SDK phân tích.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>Thông tin lưu trên thiết bị</h2>
@@ -83,36 +83,60 @@
       <p>Ứng dụng không tải xuống, lưu, chuyển đổi hay xuất âm thanh hoặc video. Ứng dụng chỉ điều khiển vị trí phát.</p>
       <p>Việc bạn sử dụng YouTube trong Ứng dụng chịu sự điều chỉnh của <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">Điều khoản dịch vụ của YouTube</a>. Về cách Google xử lý dữ liệu, xem <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Chính sách quyền riêng tư của Google</a>.</p>
     </div>
+    <!-- TODO(release): 公開日を 1.1.0 のストア公開日に合わせて更新する。 -->
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Kiểm tra cập nhật</h2>
+      <h2><span class="num">06</span>Chế độ tệp (phát tệp âm thanh trên thiết bị)</h2>
+      <p>Ngoài chế độ YouTube, Ứng dụng có &ldquo;chế độ tệp&rdquo; để phát các tệp âm thanh bạn đã có trên thiết bị.</p>
+      <ul>
+        <li>Ứng dụng chỉ xử lý những tệp âm thanh do chính bạn chọn trong màn hình chọn tệp của hệ thống. Ứng dụng không xin và không dùng quyền truy cập thư viện ảnh/nhạc hay bộ nhớ nói chung của thiết bị.</li>
+        <li>Tệp bạn chọn được sao chép vào vùng lưu trữ riêng của Ứng dụng. Chúng tôi không gửi âm thanh hay tên tệp tới máy chủ của chúng tôi hoặc bên nào khác. Việc phân tích tốc độ và nhịp cũng được thực hiện ngay trên thiết bị.</li>
+        <li>Tệp đã sao chép sẽ bị xóa khi bạn xóa bài khỏi danh sách (nếu không danh sách nào khác dùng) hoặc khi bạn gỡ Ứng dụng.</li>
+        <li>Chức năng chia sẻ ở chế độ tệp chỉ gửi danh sách bài dưới dạng văn bản, không gửi tệp.</li>
+        <li>Chế độ tệp không phải là tính năng để lấy, tải xuống, ghi âm hay chuyển đổi âm thanh từ YouTube hoặc dịch vụ khác. Chỉ dùng tệp bạn được phép phát.</li>
+        <li>Danh sách của chế độ YouTube và chế độ tệp tách biệt. Chế độ tệp không hiển thị trình phát YouTube, nên quảng cáo và việc thu thập dữ liệu xem đi kèm phát nhúng YouTube không xảy ra ở chế độ tệp.</li>
+        <li>Ngay cả ở chế độ tệp, Ứng dụng có thể tải một hình ảnh nhỏ từ máy chủ hình ảnh của YouTube, ví dụ khi khởi động, để kiểm tra kết nối. Ứng dụng cũng có thể gửi thông tin sự cố như mô tả ở mục 10.</li>
+      </ul>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>Thông báo khi đang phát và dịch vụ nền (Android)</h2>
+      <p>Khi chế độ tệp đang phát, Ứng dụng chạy dịch vụ nền của Android (phát media) và hiển thị thông báo &ldquo;đang phát&rdquo; (tên bài và nút tạm dừng) để nhạc không bị dừng khi khóa màn hình hoặc dùng ứng dụng khác.</p>
+      <ul>
+        <li>Dịch vụ và thông báo chỉ chạy sau khi bạn bắt đầu phát ở chế độ tệp. Chúng dừng và thông báo biến mất khi bạn tạm dừng, dừng, kết thúc danh sách hoặc chuyển chế độ. Chúng không chạy ở chế độ YouTube.</li>
+        <li>Trên Android 13 trở lên, Ứng dụng có thể xin quyền hiển thị thông báo. Nếu bạn từ chối, việc phát vẫn tiếp tục; chỉ là thông báo không hiển thị.</li>
+        <li>Tính năng này không thu thập hay gửi bất kỳ thông tin nào.</li>
+      </ul>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">08</span>Kiểm tra cập nhật</h2>
       <p>Để kiểm tra có bản cập nhật hay không, chúng tôi gửi thông tin kỹ thuật như ID cài đặt được tạo ngẫu nhiên, phiên bản ứng dụng và loại hệ điều hành đến Expo (EAS Update, 650 Industries, Inc.). Thông tin này không bao gồm danh sách bài hay từ khóa tìm kiếm.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Liên hệ trong ứng dụng</h2>
+      <h2><span class="num">09</span>Liên hệ trong ứng dụng</h2>
       <p>Khi bạn gửi tin nhắn từ mục "Liên hệ" trong ứng dụng, nội dung tin nhắn, địa chỉ email (tùy chọn), phiên bản ứng dụng, loại hệ điều hành và tên mẫu thiết bị sẽ được gửi đến máy chủ liên hệ của chúng tôi (Cloudflare Workers) và thông báo tới công cụ làm việc của nhóm. Chúng tôi chỉ dùng để phản hồi và điều tra sự cố, không dùng cho quảng cáo hay theo dõi. Địa chỉ email là tùy chọn. Nếu muốn xóa, vui lòng dùng biểu mẫu liên hệ.</p>
     </div>
+    <!-- UNVERIFIED(要確認): クラッシュ報告にファイル名・曲名が混ざらないことはコードで未確認（sendDefaultPii:false・性能トレース無し・明示送信なしまで確認。fileDecodeFail は画面表示のみで例外メッセージには入っていないが、Sentry 既定のパンくずの内容は未調査）。確認が取れるまで本節の「識別する情報は付けません」以上に強い記述を足さないこと。 -->
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Chẩn đoán và phân tích</h2>
+      <h2><span class="num">10</span>Chẩn đoán và phân tích</h2>
       <p>Khi ứng dụng bị treo hoặc gặp lỗi, chúng tôi gửi chi tiết lỗi (nhật ký lỗi), phiên bản ứng dụng, loại và phiên bản hệ điều hành, tên mẫu thiết bị đến dịch vụ giám sát lỗi Sentry (Functional Software, Inc.) để điều tra nguyên nhân. Chúng tôi không đính kèm từ khóa tìm kiếm, nội dung danh sách, họ tên, địa chỉ email hay thông tin nhận dạng bạn. Ứng dụng không có phân tích mức sử dụng hay cơ chế quảng cáo.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Quyền truy cập</h2>
-      <p>Ứng dụng không sử dụng quyền camera, micro, ảnh, vị trí hay danh bạ.</p>
+      <h2><span class="num">11</span>Quyền truy cập</h2>
+      <p>Ứng dụng không sử dụng quyền camera, micro, ảnh, vị trí hay danh bạ. Tệp âm thanh ở chế độ tệp chỉ là những tệp bạn chọn trong màn hình chọn tệp của hệ thống; Ứng dụng không dùng quyền thư viện media/nhạc hay bộ nhớ nói chung. Trên Android, Ứng dụng dùng quyền dịch vụ nền (phát media) và, từ Android 13, quyền hiển thị thông báo cho thông báo khi đang phát (xem mục 07).</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Trẻ em</h2>
+      <h2><span class="num">12</span>Trẻ em</h2>
       <p>Ứng dụng không hướng đến trẻ em và dành cho người từ 18 tuổi trở lên.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">11</span>Xóa dữ liệu</h2>
-      <p>Bạn có thể xóa danh sách bài trong ứng dụng bất cứ lúc nào. Gỡ ứng dụng sẽ xóa mọi thứ lưu trên thiết bị. Máy chủ của chúng tôi không giữ danh sách bài và không lưu từ khóa tìm kiếm, nên bạn không cần gửi yêu cầu xóa cho chúng tôi.</p>
+      <h2><span class="num">13</span>Xóa dữ liệu</h2>
+      <p>Bạn có thể xóa danh sách bài trong ứng dụng bất cứ lúc nào. Tệp âm thanh đã nhập ở chế độ tệp sẽ bị xóa khi bạn xóa bài khỏi danh sách (nếu không danh sách nào khác dùng) hoặc khi bạn gỡ ứng dụng. Gỡ ứng dụng sẽ xóa mọi thứ lưu trên thiết bị. Máy chủ của chúng tôi không giữ danh sách bài và không lưu từ khóa tìm kiếm, nên bạn không cần gửi yêu cầu xóa cho chúng tôi.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">12</span>Thay đổi chính sách</h2>
+      <h2><span class="num">14</span>Thay đổi chính sách</h2>
       <p>Chúng tôi có thể thay đổi chính sách này khi cần. Mọi thay đổi sẽ được đăng trên trang này.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">13</span>Liên hệ</h2>
+      <h2><span class="num">15</span>Liên hệ</h2>
       <p>Nếu có câu hỏi về chính sách này, vui lòng liên hệ qua biểu mẫu dưới đây.</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>

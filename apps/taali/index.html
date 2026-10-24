@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taali ダンス練習プレイヤー - Life Hack Tools</title>
-  <meta name="description" content="練習したい区間だけを、ループ・メドレー再生するダンスチーム向けプレイヤー。前へ／次へのかんたん操作、テンポ変更に対応。YouTubeの曲を使えます。">
+  <meta name="description" content="練習したい区間だけを、ループ・メドレー再生するダンスチーム向けプレイヤー。前へ／次へのかんたん操作、テンポ変更に対応。YouTubeの曲のほか、端末にある音声ファイルも使えます（ファイルモード）。">
   <meta property="og:title" content="Taali ダンス練習プレイヤー - Life Hack Tools">
   <meta property="og:description" content="サビだけ・数曲つなげて練習。ループ、テンポ変更、仮想メドレー。">
   <meta property="og:image" content="https://lh.tools/assets/ogp/taali.png">
@@ -160,6 +160,7 @@
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
 </head>
 <body>
+  <!-- TODO(release): ファイルモード（v1.1.0）は、ストア公開と同時にこのブランチをマージして反映する。先にマージしない。 -->
   <div class="nav">
     <a href="/">&larr; LHTz</a>
     <div class="lang-switch">
@@ -190,7 +191,7 @@
     <p>
       曲の長い前奏を飛ばして「ダンスが始まる所」から流したい。サビだけを何度も繰り返したい。発表会用に数曲をつなげて通したい。Taali（ターリ）は、そんな練習の現場のストレスを減らす、ダンスチーム向けのプレイヤーです。曲名で検索して追加するか、YouTubeのURLを貼り付けるだけ。アカウント登録は不要です。
     </p>
-    <p class="about-note">※ 再生にはインターネット接続が必要です。YouTubeの公式プレイヤーで再生するため、埋め込み再生が許可されていない動画は再生できません。</p>
+    <p class="about-note">※ YouTubeモードの再生にはインターネット接続が必要です。YouTubeモードは、YouTubeの公式プレイヤーで再生するため、埋め込み再生が許可されていない動画は再生できません。ファイルモードも、接続確認のためわずかな通信を行うことがあります。</p>
   </div>
 
   <div class="section fade-in">
@@ -255,8 +256,13 @@
         <h3>セットリストを共有</h3>
         <p>LINEなどでリンクを共有。受け取った人は同じ設定で練習できます。曲と区間のキューシートはテキストで共有できます。</p>
       </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+        <h3>ファイルモード</h3>
+        <p>端末にある音声ファイルを選んで、同じ区間・ループ・メドレー・テンポ変更で練習。拍（ビート）の目印と、小節の頭に合わせる機能つき。ファイルは端末の外へ送られません。再生中は通知が出て、画面ロック中も続きます（Android）。</p>
+      </div>
     </div>
-    <p class="about-note">Taaliは音声を保存・結合しません。YouTubeの公式プレイヤーの再生位置を操作するだけなので、再生は公式にカウントされます。</p>
+    <p class="about-note">YouTubeモードでは、Taaliは音声を保存・結合しません。YouTubeの公式プレイヤーの再生位置を操作するだけなので、再生は公式にカウントされます。ファイルモードは、ご自身が再生してよい音声ファイルを端末の中だけで使い、外へは送りません。ファイルモードでは、YouTubeのプレイヤーを表示しないので、YouTubeの広告は出ません（YouTubeモードの広告は、Premiumに入っていても出ることがあります）。</p>
   </div>
 
   <div class="screenshots fade-in">

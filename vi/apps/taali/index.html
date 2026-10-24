@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taali: Phát nhạc tập nhảy - Life Hack Tools</title>
-  <meta name="description" content="Trình phát dành cho đội nhảy: chỉ phát, lặp và ghép medley đoạn cần tập, có nút bài trước/bài sau tiện lợi và đổi tốc độ. Dùng được với bài hát trên YouTube.">
+  <meta name="description" content="Trình phát dành cho đội nhảy: chỉ phát, lặp và ghép medley đoạn cần tập, có nút bài trước/bài sau tiện lợi và đổi tốc độ. Dùng được với bài hát trên YouTube và cả tệp âm thanh có sẵn trên thiết bị (chế độ tệp).">
   <meta property="og:title" content="Taali: Phát nhạc tập nhảy - Life Hack Tools">
   <meta property="og:description" content="Chỉ tập đoạn điệp khúc hoặc nối nhiều bài. Lặp, đổi tốc độ và medley ảo.">
   <meta property="og:image" content="https://lh.tools/assets/ogp/taali.png">
@@ -160,6 +160,7 @@
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
 </head>
 <body>
+  <!-- TODO(release): ファイルモード（v1.1.0）は、ストア公開と同時にこのブランチをマージして反映する。先にマージしない。 -->
   <div class="nav">
     <a href="/">&larr; LHTz</a>
     <div class="lang-switch">
@@ -190,7 +191,7 @@
     <p>
       Bỏ qua đoạn dạo đầu dài, bắt đầu ngay chỗ điệu nhảy bắt đầu. Lặp lại đúng đoạn điệp khúc. Nối vài bài thành medley cho buổi biểu diễn. Taali giúp buổi tập của đội nhảy bớt phiền toái. Tìm bài hát theo tên hoặc dán URL YouTube. Không cần tài khoản.
     </p>
-    <p class="about-note">* Cần kết nối internet. Bài hát phát bằng trình phát YouTube chính thức nên video không cho phép phát nhúng sẽ không phát được.</p>
+    <p class="about-note">* Chế độ YouTube cần kết nối internet. Bài hát phát bằng trình phát YouTube chính thức nên video không cho phép phát nhúng sẽ không phát được. Chế độ tệp cũng có thể thực hiện một yêu cầu mạng nhỏ để kiểm tra kết nối.</p>
   </div>
 
   <div class="section fade-in">
@@ -255,8 +256,13 @@
         <h3>Chia sẻ danh sách</h3>
         <p>Chia sẻ liên kết qua LINE hoặc ứng dụng bất kỳ; bạn bè mở ra là có đúng thiết lập đó. Có thể chia sẻ bảng cue các bài và đoạn dưới dạng văn bản.</p>
       </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+        <h3>Chế độ tệp</h3>
+        <p>Chọn tệp âm thanh có sẵn trên thiết bị rồi luyện tập với cùng đoạn, lặp, medley và đổi tốc độ, kèm dấu nhịp và căn theo đầu ô nhịp. Tệp không bị gửi ra khỏi thiết bị. Thông báo đang phát giúp nhạc tiếp tục khi khóa màn hình (Android).</p>
+      </div>
     </div>
-    <p class="about-note">Taali không lưu hay ghép âm thanh. Ứng dụng chỉ điều khiển vị trí phát của trình phát YouTube chính thức nên lượt xem vẫn được tính bình thường.</p>
+    <p class="about-note">Ở chế độ YouTube, Taali không lưu hay ghép âm thanh. Ứng dụng chỉ điều khiển vị trí phát của trình phát YouTube chính thức nên lượt xem vẫn được tính bình thường. Ở chế độ tệp, các tệp âm thanh bạn chọn chỉ nằm trên thiết bị và không bao giờ được tải lên. Chỉ dùng tệp bạn được phép phát. Chế độ tệp không hiển thị trình phát YouTube nên không có quảng cáo YouTube ở đó (ở chế độ YouTube, quảng cáo vẫn có thể xuất hiện dù có YouTube Premium).</p>
   </div>
 
   <div class="screenshots fade-in">
