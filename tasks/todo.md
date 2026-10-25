@@ -1,3 +1,9 @@
+## 2026-10-25 PR #175 競合解消
+- [x] 最新mainを取り込み、Aidoなど他アプリの追加を維持
+- [x] 共通ポリシー3言語のNutriShot送信先表記を本文と統一
+- [x] 9ページのHTML言語・内部リンク・ローカルHTTP200/本文一致、sitemap XML、他アプリ注記維持、git diff --checkを検証
+- [ ] ユーザー確認後にマージ・公開内容照合（本作業ではマージしない）
+
 ## 2026-10-24 NutriShot Claude移行（#174）
 - [x] NutriShot PR #44のコードとAnthropic公式の商用API方針を確認
 - [x] ja/en/viの専用privacy・アプリページ・共通privacyの該当箇所を更新
