@@ -59,11 +59,11 @@
   </div>
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: October 13, 2026</span>
+    <span class="updated">Last updated: October 22, 2026</span>
     <p class="intro">This policy explains how Life Hack Tools (&ldquo;we&rdquo;) handles your information in Taali: Dance Practice Player (&ldquo;the app&rdquo;). The app needs no account, collects no personal information (except what you choose to send through the in-app contact form), and contains no ad SDK, tracking, or analytics SDK.</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Our approach</h2>
-      <p>The app has no login or account. We do not collect personal information such as your name or location. We receive an email address only if you type one yourself in the in-app contact form (see 07). The app contains no advertising mechanism, no tracking of user behavior, and no analytics SDK.</p>
+      <p>The app has no login or account. We do not collect personal information such as your name or location. We receive an email address only if you type one yourself in the in-app contact form (see 09). The app contains no advertising mechanism, no tracking of user behavior, and no analytics SDK.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>Information stored on your device</h2>
@@ -83,36 +83,60 @@
       <p>The app does not download, save, convert, or export audio or video. It only controls the playback position.</p>
       <p>Your use of YouTube in the app is subject to the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service</a>. For how Google handles data, see the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
     </div>
+    <!-- TODO(release): 公開日を 1.1.0 のストア公開日に合わせて更新する。 -->
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Update checks</h2>
+      <h2><span class="num">06</span>File mode (playing audio files on your device)</h2>
+      <p>In addition to YouTube mode, the app has a &ldquo;File mode&rdquo; that plays audio files you already have on your device.</p>
+      <ul>
+        <li>The app handles only the audio files you choose yourself in your device&rsquo;s system file picker. It does not request or use access to your photo or music library or to your device storage in general.</li>
+        <li>The files you choose are copied into the app&rsquo;s own storage area. We do not send the audio or the file names to our servers or to anyone else. Tempo and beat analysis also runs on your device.</li>
+        <li>Copied files are removed when you delete the song from your lists (if no other list uses it) or when you uninstall the app.</li>
+        <li>Sharing in File mode sends only the song list as text, never the files themselves.</li>
+        <li>File mode is not a feature for fetching, downloading, recording, or converting audio from YouTube or any other service. Use only files you are allowed to play.</li>
+        <li>YouTube mode and File mode keep separate lists. The YouTube player is not shown in File mode, so the ads and viewing-data collection that come with YouTube embedded playback do not occur in File mode.</li>
+        <li>Even in File mode, the app may fetch one small image from YouTube&rsquo;s image server, for example at launch, to check the connection. It may also send crash information as described in 10.</li>
+      </ul>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>Playback notification and foreground service (Android)</h2>
+      <p>While File mode is playing, the app runs an Android foreground service (media playback) and shows an ongoing &ldquo;now playing&rdquo; notification (song title and a Pause button), so that the music keeps playing when the screen is locked or you use other apps.</p>
+      <ul>
+        <li>The service and notification run only after you start playback in File mode. They stop, and the notification disappears, when you pause, stop, the set ends, or you switch mode. They do not run in YouTube mode.</li>
+        <li>On Android 13 and later the app may ask for permission to show notifications. If you decline, playback still continues; the notification just is not shown.</li>
+        <li>This feature does not collect or send any information.</li>
+      </ul>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">08</span>Update checks</h2>
       <p>To check whether an app update is available, we send technical information such as a randomly generated install ID, the app version, and the OS type to Expo (EAS Update, 650 Industries, Inc.). This does not include your setlists or search terms.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>In-app contact</h2>
+      <h2><span class="num">09</span>In-app contact</h2>
       <p>When you send a message from "Contact" in the app, the message text, an optional email address, the app version, the OS type, and the device model are sent to our contact server (Cloudflare Workers) and notified to our team tools. We use them only to reply and to investigate problems, never for advertising or tracking. The email address is optional. To ask for deletion, please use the contact form.</p>
     </div>
+    <!-- UNVERIFIED(要確認): クラッシュ報告にファイル名・曲名が混ざらないことはコードで未確認（sendDefaultPii:false・性能トレース無し・明示送信なしまで確認。fileDecodeFail は画面表示のみで例外メッセージには入っていないが、Sentry 既定のパンくずの内容は未調査）。確認が取れるまで本節の「識別する情報は付けません」以上に強い記述を足さないこと。 -->
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Diagnostics and analytics</h2>
+      <h2><span class="num">10</span>Diagnostics and analytics</h2>
       <p>When the app crashes or hits an error, we send the error details (crash log), the app version, the OS type and version, and the device model to the error-monitoring service Sentry (Functional Software, Inc.) to investigate the cause. We attach no search terms, setlist contents, name, email address or other information that identifies you. The app contains no usage analytics or advertising mechanism.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Permissions</h2>
-      <p>The app does not use the camera, microphone, photos, location, or contacts permissions.</p>
+      <h2><span class="num">11</span>Permissions</h2>
+      <p>The app does not use the camera, microphone, photos, location, or contacts permissions. Audio files in File mode are only those you choose in the system file picker; the app does not use media or music library or general storage permissions. On Android, it uses the foreground service (media playback) permission and, on Android 13 and later, the notification permission for the playback notification (see 07).</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Children</h2>
+      <h2><span class="num">12</span>Children</h2>
       <p>The app is not directed at children and is intended for people aged 18 and over.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">11</span>Deleting your data</h2>
-      <p>You can delete your setlist in the app at any time. Uninstalling the app deletes everything stored on your device. We hold no setlists on our servers and do not store search terms, so you do not need to send us a deletion request.</p>
+      <h2><span class="num">13</span>Deleting your data</h2>
+      <p>You can delete your setlist in the app at any time. Audio files you imported in File mode are removed when you delete the song from your lists (if no other list uses it) or when you uninstall the app. Uninstalling the app deletes everything stored on your device. We hold no setlists on our servers and do not store search terms, so you do not need to send us a deletion request.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">12</span>Changes to this policy</h2>
+      <h2><span class="num">14</span>Changes to this policy</h2>
       <p>We may update this policy as needed. Any changes will be posted on this page.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">13</span>Contact</h2>
+      <h2><span class="num">15</span>Contact</h2>
       <p>For questions about this policy, please contact us using the form below.</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
