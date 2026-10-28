@@ -56,7 +56,7 @@
   </div>
   <div class="content">
     <h1>Chính sách bảo mật</h1>
-    <span class="updated">Cập nhật lần cuối: 20 tháng 6, 2026</span>
+    <span class="updated">Cập nhật lần cuối: 28 tháng 10, 2026</span>
     <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Rete ("Ứng dụng"). Ứng dụng là dịch vụ quản lý thẻ tích điểm và ưu đãi, được sử dụng bởi cả cửa hàng (chủ cửa hàng) và khách hàng. Dữ liệu chúng tôi xử lý khác nhau tùy theo vai trò của người dùng.</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Thông tin chúng tôi thu thập</h2>
@@ -67,14 +67,16 @@
         <li><strong>Hình ảnh:</strong> Hình ảnh mà chủ cửa hàng chọn từ thư viện ảnh của thiết bị để dùng làm hình ảnh tem hoặc ưu đãi. Hình ảnh đã chọn được tải lên bộ lưu trữ đám mây (Supabase Storage) và dùng để hiển thị trong ứng dụng.</li>
         <li><strong>Máy ảnh:</strong> Máy ảnh được dùng để quét mã QR của cửa hàng và mã QR ưu đãi. Việc quét chỉ nhằm đọc mã QR; ứng dụng không chụp hoặc lưu ảnh.</li>
         <li><strong>Mã định danh tự động tạo:</strong> ID ẩn danh được tạo trong ứng dụng (không nhận dạng một cá nhân cụ thể). Được dùng để đồng bộ và chuyển dữ liệu.</li>
+        <li><strong>Dữ liệu thông báo đẩy (chỉ khi khách hàng cho phép thông báo):</strong> Push token, loại thiết bị (iOS / Android), ngôn ngữ ứng dụng, múi giờ của thiết bị, v.v. Xem chi tiết tại "05 Thông báo đẩy".</li>
+        <li><strong>Thông tin gói trả phí (chỉ với cửa hàng đăng ký gói trả phí):</strong> ID khách hàng Stripe, ID gói đăng ký (subscription), trạng thái gói, quốc gia của cửa hàng, v.v. Chúng tôi không nhận thông tin thanh toán như số thẻ. Xem chi tiết tại "06 Thanh toán gói trả phí cho cửa hàng (Stripe)".</li>
         <li><strong>Dữ liệu chẩn đoán:</strong> Nhật ký lỗi và dữ liệu hiệu suất để cải thiện độ ổn định (có thể được thu thập tùy theo cấu hình công cụ chẩn đoán).</li>
       </ul>
       <p>Đối với khách hàng, ứng dụng không thu thập thông tin nhận dạng cá nhân như tên hoặc số điện thoại, và cũng không thu thập dữ liệu vị trí. Đối với tài khoản cửa hàng, chúng tôi thu thập địa chỉ email để đăng nhập.</p>
-      <p class="table-note">Lưu ý: Ứng dụng có một số cấu hình cho tính năng hiển thị vị trí cửa hàng trong tương lai, nhưng phiên bản hiện tại không lấy hoặc sử dụng dữ liệu vị trí. Nếu chúng tôi thêm tính năng lấy dữ liệu vị trí, chúng tôi sẽ cập nhật chính sách này và chỉ lấy khi có sự cho phép của người dùng.</p>
+      <p class="table-note">Lưu ý: Ứng dụng có một số cấu hình cho tính năng hiển thị vị trí cửa hàng trong tương lai, nhưng phiên bản hiện tại không lấy hoặc sử dụng dữ liệu vị trí. Nếu chúng tôi thêm tính năng lấy dữ liệu vị trí, chúng tôi sẽ cập nhật chính sách này và chỉ lấy khi có sự cho phép của người dùng. Múi giờ được lưu cho thông báo đẩy (ví dụ: Asia/Tokyo) chỉ dùng để quyết định thời điểm gửi thông báo và không được xem là dữ liệu vị trí.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>Dữ liệu chúng tôi xử lý</h2>
-      <p>Các loại dữ liệu mà ứng dụng xử lý, cùng với mục đích, việc chia sẻ với bên thứ ba và mã hóa, như sau. Chúng tôi không bán hoặc chia sẻ dữ liệu người dùng cho bên thứ ba. Mọi liên lạc đều được mã hóa (HTTPS / TLS).</p>
+      <p>Các loại dữ liệu mà ứng dụng xử lý, cùng với mục đích, việc chia sẻ với bên thứ ba và mã hóa, như sau. Chúng tôi không bán dữ liệu người dùng cho bên thứ ba. Dữ liệu được chuyển cho dịch vụ bên ngoài để cung cấp chức năng của ứng dụng được ghi ở cột "Chia sẻ bên thứ ba" trong bảng dưới đây và ở mục "04 Dịch vụ của bên thứ ba". Mọi liên lạc đều được mã hóa (HTTPS / TLS).</p>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead>
@@ -116,6 +118,20 @@
               <td>Khi truyền</td>
             </tr>
             <tr>
+              <th>Push token, loại thiết bị, ngôn ngữ, múi giờ</th>
+              <td>Khách hàng cho phép thông báo</td>
+              <td>Thông báo đẩy về ưu đãi và tin tức từ cửa hàng</td>
+              <td>Chuyển cho Expo, Apple (APNs) và Google (FCM) chỉ để gửi thông báo</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Thông tin gói trả phí (ID khách hàng Stripe, ID gói đăng ký, trạng thái, quốc gia, v.v.)</th>
+              <td>Cửa hàng đăng ký gói trả phí</td>
+              <td>Đăng ký, thanh toán và hủy gói trả phí</td>
+              <td>Stripe (xử lý thanh toán)</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
               <th>Dữ liệu chẩn đoán</th>
               <td>Mọi người dùng</td>
               <td>Phân tích lỗi / cải thiện chất lượng</td>
@@ -132,40 +148,68 @@
         <li>Cung cấp chức năng ứng dụng (phát hành và sử dụng thẻ tích điểm và ưu đãi, v.v.)</li>
         <li>Xác thực tài khoản cửa hàng</li>
         <li>Đồng bộ dữ liệu giữa các thiết bị</li>
+        <li>Gửi thông báo đẩy về ưu đãi và tin tức từ các cửa hàng mà khách hàng đã ghé (chỉ khi khách hàng cho phép thông báo)</li>
+        <li>Xử lý việc đăng ký, thanh toán và hủy gói trả phí cho cửa hàng, và chuyển đổi gói theo trạng thái đăng ký</li>
         <li>Cải thiện chất lượng và sửa lỗi</li>
       </ul>
+      <p>Chúng tôi không sử dụng dữ liệu thông báo đẩy hoặc thông tin gói trả phí cho mục đích quảng cáo.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">04</span>Dịch vụ của bên thứ ba</h2>
       <p>Ứng dụng sử dụng các dịch vụ bên ngoài sau để cung cấp chức năng:</p>
       <ul>
-        <li><strong>Supabase:</strong> Dùng cho xử lý phía máy chủ (xác thực, lưu trữ dữ liệu và lưu trữ hình ảnh). Email cửa hàng, dữ liệu đã đăng ký, hình ảnh đã tải lên và ID ẩn danh được quản lý an toàn trên dịch vụ này.</li>
+        <li><strong>Supabase:</strong> Dùng cho xử lý phía máy chủ (xác thực, lưu trữ dữ liệu và lưu trữ hình ảnh). Email cửa hàng, dữ liệu đã đăng ký, hình ảnh đã tải lên, ID ẩn danh, dữ liệu thông báo đẩy và thông tin gói trả phí được quản lý an toàn trên dịch vụ này.</li>
+        <li><strong>Expo (Expo Push Service):</strong> Dùng để gửi thông báo đẩy. Chúng tôi gửi push token và nội dung thông báo (tên cửa hàng, tiêu đề thông báo, nội dung ưu đãi, v.v.) cho Expo.</li>
+        <li><strong>Apple Push Notification service (APNs) / Firebase Cloud Messaging (FCM, Google):</strong> Expo gửi thông báo đến thiết bị iOS qua APNs của Apple và đến thiết bị Android qua FCM của Google.</li>
+        <li><strong>Stripe:</strong> Dùng cho thanh toán, lập hóa đơn và hủy gói trả phí cho cửa hàng. Với cửa hàng ngoài Nhật Bản, chúng tôi sử dụng Stripe Managed Payments và bên bán là Link (Stripe).</li>
         <li><strong>Sentry:</strong> Có thể được dùng để thu thập dữ liệu chẩn đoán nhằm phân tích lỗi và cải thiện chất lượng.</li>
       </ul>
       <p>Các dịch vụ này chỉ được sử dụng trong phạm vi cần thiết để cung cấp chức năng của ứng dụng. Chúng tôi không bán thông tin người dùng cho bên thứ ba.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>Lưu trữ dữ liệu</h2>
-      <p>Một số dữ liệu, chẳng hạn như cài đặt, được lưu trên bộ nhớ cục bộ của thiết bị. Thông tin tài khoản cửa hàng, dữ liệu đã đăng ký và hình ảnh đã tải lên được lưu trên máy chủ đám mây (Supabase).</p>
+      <h2><span class="num">05</span>Thông báo đẩy</h2>
+      <p>Ứng dụng (phiên bản 1.1.2 trở lên) chỉ gửi thông báo đẩy về ưu đãi và tin tức từ các cửa hàng mà khách hàng đã ghé khi khách hàng cho phép thông báo. Chúng tôi không xin quyền khi mở ứng dụng lần đầu; lời mời bật thông báo được hiển thị trên màn hình sau khi bạn nhận tem.</p>
+      <ul>
+        <li><strong>Dữ liệu được lưu:</strong> Expo push token (địa chỉ dùng để gửi thông báo đến thiết bị), loại thiết bị (iOS / Android), ngôn ngữ ứng dụng (tiếng Nhật / tiếng Anh / tiếng Việt), múi giờ của thiết bị, và giá trị băm (hash) tạo từ mã định danh của mỗi lần cài đặt. Các dữ liệu này được lưu gắn với ID ẩn danh của bạn. Chúng tôi cũng lưu cài đặt bật/tắt thông báo theo từng cửa hàng và lịch sử thông báo đã gửi (loại, thời điểm gửi và kết quả).</li>
+        <li><strong>Nội dung thông báo:</strong> Nhắc về ưu đãi tháng sinh nhật (nếu bạn đã đăng ký tháng sinh), thông báo phiếu ưu đãi chào mừng quay lại, nhắc rằng chỉ còn một tem nữa là nhận ưu đãi (nếu cửa hàng bật tính năng này), và tin tức từ cửa hàng (nếu cửa hàng chọn gửi kèm thông báo). Chỉ các cửa hàng mà bạn có thẻ tích điểm mới gửi thông báo. Mỗi cửa hàng có giới hạn số thông báo gửi cho bạn mỗi tháng, và không gửi vào ban đêm (từ 21 giờ đến 9 giờ sáng theo múi giờ của thiết bị).</li>
+        <li><strong>Bên nhận dữ liệu:</strong> Để gửi thông báo, chúng tôi gửi push token và nội dung thông báo cho dịch vụ thông báo đẩy của Expo; Expo chuyển đến thiết bị qua APNs của Apple (iOS) hoặc FCM của Google (Android). Cửa hàng chỉ thấy tổng số thông báo đã gửi; push token và các dữ liệu thiết bị khác không được tiết lộ cho cửa hàng.</li>
+        <li><strong>Cách tắt:</strong> Tắt thông báo của ứng dụng trong cài đặt thiết bị sẽ dừng mọi thông báo. Để dừng thông báo từ một cửa hàng cụ thể, hãy tắt thông báo trên trang của cửa hàng đó trong ứng dụng.</li>
+        <li><strong>Xóa:</strong> Khi Expo cho chúng tôi biết một thiết bị không còn nhận được thông báo (ví dụ: do ứng dụng đã bị xóa), chúng tôi tự động xóa push token và dữ liệu liên quan của thiết bị đó. Nếu bạn cài lại ứng dụng trên cùng thiết bị, đăng ký cũ sẽ được thay thế. Để yêu cầu xóa các dữ liệu này hoặc lịch sử thông báo, vui lòng liên hệ bên dưới.</li>
+      </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Chia sẻ với bên thứ ba</h2>
-      <p>Chúng tôi không bán, chia sẻ hoặc cung cấp thông tin người dùng cho bên thứ ba, trừ khi pháp luật yêu cầu.</p>
+      <h2><span class="num">06</span>Thanh toán gói trả phí cho cửa hàng (Stripe)</h2>
+      <p>Việc đăng ký và thanh toán gói trả phí cho cửa hàng được thực hiện qua dịch vụ thanh toán do Stripe cung cấp.</p>
+      <ul>
+        <li><strong>Thông tin thanh toán:</strong> Thông tin thanh toán như số thẻ do cửa hàng nhập trực tiếp trên trang thanh toán của Stripe (Stripe Checkout) hoặc cổng khách hàng, và do Stripe xử lý. Chúng tôi không nhận và không lưu số thẻ hoặc các thông tin tương tự.</li>
+        <li><strong>Cửa hàng ngoài Nhật Bản:</strong> Thanh toán được xử lý bằng Stripe Managed Payments, và bên bán là Link (Stripe). Trong trường hợp này, thông tin về thanh toán, thuế và biên lai do Link (Stripe) xử lý.</li>
+        <li><strong>Dữ liệu chúng tôi lưu:</strong> ID khách hàng Stripe, ID gói đăng ký, ID giá và ID phiên thanh toán; trạng thái gói (đang hoạt động, đang thử thanh toán lại, đã hủy, v.v.); ngày kết thúc kỳ thanh toán hiện tại và việc có hẹn hủy hay không; quốc gia của cửa hàng (mã quốc gia); và lịch sử nhận thông báo từ Stripe (ID và loại sự kiện).</li>
+        <li><strong>Dữ liệu chuyển cho Stripe:</strong> Khi cửa hàng đăng ký, chúng tôi chuyển cho Stripe ID nhận dạng cửa hàng, quốc gia của cửa hàng và ngôn ngữ hiển thị. Thông tin cần cho việc lập hóa đơn, như địa chỉ email, do cửa hàng nhập trực tiếp trên trang của Stripe.</li>
+        <li><strong>Xóa:</strong> Có thể hủy gói hoặc đổi thẻ trên cổng khách hàng từ trang thanh toán. Để yêu cầu xóa tài khoản cửa hàng, vui lòng liên hệ bên dưới; chúng tôi sẽ hủy gói trả phí và xóa các dữ liệu nêu trên mà chúng tôi lưu. Lịch sử thanh toán do Stripe (Link) lưu sẽ được Stripe (Link) xử lý theo chính sách bảo mật của họ và pháp luật hiện hành.</li>
+      </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Xóa dữ liệu</h2>
-      <p>Người dùng có thể xóa dữ liệu cục bộ bằng cách gỡ cài đặt ứng dụng. Để yêu cầu xóa tài khoản cửa hàng hoặc dữ liệu trên máy chủ, vui lòng liên hệ bên dưới.</p>
+      <h2><span class="num">07</span>Lưu trữ dữ liệu</h2>
+      <p>Một số dữ liệu, chẳng hạn như cài đặt, được lưu trên bộ nhớ cục bộ của thiết bị. Thông tin tài khoản cửa hàng, dữ liệu đã đăng ký, hình ảnh đã tải lên, dữ liệu thông báo đẩy và thông tin gói trả phí được lưu trên máy chủ đám mây (Supabase).</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Quyền riêng tư trẻ em</h2>
+      <h2><span class="num">08</span>Chia sẻ với bên thứ ba</h2>
+      <p>Chúng tôi không bán, chia sẻ hoặc cung cấp thông tin người dùng cho bên thứ ba, trừ khi pháp luật yêu cầu và trừ trường hợp chúng tôi giao cho các dịch vụ bên ngoài nêu tại "04 Dịch vụ của bên thứ ba" xử lý trong phạm vi cần thiết để cung cấp chức năng của ứng dụng.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">09</span>Xóa dữ liệu</h2>
+      <p>Người dùng có thể xóa dữ liệu cục bộ bằng cách gỡ cài đặt ứng dụng. Dữ liệu thông báo đẩy có thể được tự động xóa như mô tả tại "05 Thông báo đẩy". Để yêu cầu xóa tài khoản cửa hàng hoặc dữ liệu trên máy chủ, vui lòng liên hệ bên dưới.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">10</span>Quyền riêng tư trẻ em</h2>
       <p>Ứng dụng không dành cho trẻ em dưới 13 tuổi và không cố ý thu thập thông tin cá nhân từ trẻ em.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Thay đổi chính sách</h2>
+      <h2><span class="num">11</span>Thay đổi chính sách</h2>
       <p>Chúng tôi có thể cập nhật chính sách này khi cần. Thay đổi sẽ được đăng trên trang này.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Liên hệ</h2>
+      <h2><span class="num">12</span>Liên hệ</h2>
       <p>Nếu có câu hỏi về chính sách này, vui lòng liên hệ:</p>
       <div class="contact-card">
         <div class="x-icon"><svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>

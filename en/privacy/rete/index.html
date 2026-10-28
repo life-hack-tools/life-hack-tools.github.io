@@ -56,7 +56,7 @@
   </div>
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: June 20, 2026</span>
+    <span class="updated">Last updated: October 28, 2026</span>
     <p class="intro">This Privacy Policy describes how Life Hack Tools ("we") handles user information in Rete ("the App"). The App is a stamp card and rewards management service used by both shops (owners) and visitors (customers). The data we handle differs depending on the user's role.</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Information We Collect</h2>
@@ -67,14 +67,16 @@
         <li><strong>Images:</strong> Images that a shop owner selects from their device's photo library to use as stamp or reward images. Selected images are uploaded to cloud storage (Supabase Storage) and used for display within the App.</li>
         <li><strong>Camera:</strong> The camera is used to scan shop QR codes and reward QR codes. Scanning is solely for reading QR codes; the App does not take or store photos.</li>
         <li><strong>Auto-generated identifier:</strong> An anonymous ID generated within the app (it does not identify a specific individual). It is used for data synchronization and handoff.</li>
+        <li><strong>Push notification data (only if a visitor allows notifications):</strong> A push token, device type (iOS / Android), app language, device time zone, and similar. See "05 Push Notifications" for details.</li>
+        <li><strong>Paid plan subscription data (only for shops that subscribe to a paid plan):</strong> Stripe customer ID, subscription ID, subscription status, the shop's country, and similar. We do not receive payment details such as card numbers. See "06 Payments for the Shop Paid Plan (Stripe)" for details.</li>
         <li><strong>Diagnostic data:</strong> Crash logs and performance data for improving app stability (may be collected depending on the diagnostics tool configuration).</li>
       </ul>
       <p>For visitors (customers), the App does not collect personally identifiable information such as names or phone numbers, nor does it collect location data. For shop accounts, we collect an email address for sign-in.</p>
-      <p class="table-note">Note: The App includes some configuration for a possible future shop-location feature, but the current version does not obtain or use location data. If we add a feature that obtains location data, we will update this policy and obtain it with the user's permission.</p>
+      <p class="table-note">Note: The App includes some configuration for a possible future shop-location feature, but the current version does not obtain or use location data. If we add a feature that obtains location data, we will update this policy and obtain it with the user's permission. The time zone stored for push notifications (e.g. Asia/Tokyo) is used only to decide when notifications may be sent and is not treated as location data.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">02</span>Data We Handle</h2>
-      <p>The types of data the App handles, along with their purpose, third-party sharing, and encryption, are as follows. We do not sell or share user data with third parties. All communication is encrypted (HTTPS / TLS).</p>
+      <p>The types of data the App handles, along with their purpose, third-party sharing, and encryption, are as follows. We do not sell user data to third parties. Data passed to external services to provide the App's functionality is listed in the "Third-party sharing" column below and in "04 Third-Party Services". All communication is encrypted (HTTPS / TLS).</p>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead>
@@ -116,6 +118,20 @@
               <td>In transit</td>
             </tr>
             <tr>
+              <th>Push token, device type, language, time zone</th>
+              <td>Visitors who allow notifications</td>
+              <td>Push notifications about rewards and news from shops</td>
+              <td>Passed to Expo, Apple (APNs) and Google (FCM) only to deliver notifications</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>Paid plan subscription data (Stripe customer ID, subscription ID, status, country, etc.)</th>
+              <td>Shops that subscribe to a paid plan</td>
+              <td>Subscribing, billing and cancelling the paid plan</td>
+              <td>Stripe (payment processing)</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
               <th>Diagnostic data</th>
               <td>All users</td>
               <td>Crash analysis / quality improvement</td>
@@ -132,40 +148,68 @@
         <li>Providing app functionality (issuing and using stamp cards and rewards, etc.)</li>
         <li>Authenticating shop accounts</li>
         <li>Data synchronization across devices</li>
+        <li>Sending push notifications about rewards and news from shops the visitor has visited (only if the visitor allows notifications)</li>
+        <li>Processing subscriptions, billing and cancellations for the shop paid plan, and switching plans according to the subscription status</li>
         <li>Improving app quality and fixing issues</li>
       </ul>
+      <p>We do not use push notification data or subscription data for advertising.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">04</span>Third-Party Services</h2>
       <p>The App uses the following external services to provide its functionality:</p>
       <ul>
-        <li><strong>Supabase:</strong> Used for backend processing (authentication, data storage, and image storage). Shop email addresses, registered data, uploaded images, and anonymous IDs are securely managed on this service.</li>
+        <li><strong>Supabase:</strong> Used for backend processing (authentication, data storage, and image storage). Shop email addresses, registered data, uploaded images, anonymous IDs, push notification data and paid plan subscription data are securely managed on this service.</li>
+        <li><strong>Expo (Expo Push Service):</strong> Used to deliver push notifications. We send the push token and the notification content (shop name, announcement title, reward description, etc.) to Expo.</li>
+        <li><strong>Apple Push Notification service (APNs) / Firebase Cloud Messaging (FCM, Google):</strong> Expo delivers notifications to iOS devices through Apple's APNs and to Android devices through Google's FCM.</li>
+        <li><strong>Stripe:</strong> Used for payments, billing and cancellation of the shop paid plan. For shops outside Japan, Stripe Managed Payments is used and the seller is Link (Stripe).</li>
         <li><strong>Sentry:</strong> May be used to collect diagnostic data for crash analysis and quality improvement.</li>
       </ul>
       <p>These are used only to the extent necessary to provide the App's functionality. We do not sell user information to third parties.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">05</span>Data Storage</h2>
-      <p>Some data, such as settings, is stored in the device's local storage. Shop account information, registered data, and uploaded images are stored on cloud servers (Supabase).</p>
+      <h2><span class="num">05</span>Push Notifications</h2>
+      <p>The App (version 1.1.2 and later) sends push notifications about rewards and news from shops a visitor (customer) has visited, only if the visitor allows notifications. We do not ask for permission on first launch; we offer it on the screen shown after you receive a stamp.</p>
+      <ul>
+        <li><strong>What we store:</strong> The Expo push token (the address used to deliver notifications to your device), device type (iOS / Android), app language (Japanese / English / Vietnamese), device time zone, and a hash derived from a per-installation identifier. These are stored linked to your anonymous ID. We also store your per-shop on/off settings and a record of notifications sent (type, time sent and result).</li>
+        <li><strong>What we send:</strong> A reminder about a birthday-month reward (if you have registered your birth month), a notice of a welcome-back coupon, a reminder that one more stamp earns a reward (if the shop has turned this on), and news from the shop (if the shop chooses to send it as a notification). Notifications come only from shops where you have a stamp card. Each shop has a monthly limit on how many notifications it can send you, and none are sent at night (9 p.m. to 9 a.m. in your device's time zone).</li>
+        <li><strong>Who receives the data:</strong> To deliver notifications, we send the push token and notification content to the Expo push notification service, which delivers them to your device through Apple's APNs (iOS) or Google's FCM (Android). Shops only see the total number of notifications sent; push tokens and other device data are not disclosed to shops.</li>
+        <li><strong>How to stop:</strong> Turning off notifications for the App in your device settings stops all notifications. To stop notifications from a particular shop, turn them off on that shop's page in the App.</li>
+        <li><strong>Deletion:</strong> When Expo tells us that a device can no longer receive notifications (for example, because the App was deleted), we automatically delete that device's push token and related data. If you reinstall the App on the same device, the old registration is replaced. To request deletion of this data or the notification records, please contact us below.</li>
+      </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>Third-Party Sharing</h2>
-      <p>We do not sell, share, or provide user information to third parties, except as required by law.</p>
+      <h2><span class="num">06</span>Payments for the Shop Paid Plan (Stripe)</h2>
+      <p>Subscriptions and payments for the shop paid plan are handled through payment services provided by Stripe.</p>
+      <ul>
+        <li><strong>Payment details:</strong> Payment details such as card numbers are entered by the shop directly on Stripe's payment page (Stripe Checkout) or customer portal and are handled by Stripe. We do not receive or store card numbers or similar details.</li>
+        <li><strong>Shops outside Japan:</strong> Payments are processed with Stripe Managed Payments, and the seller is Link (Stripe). In this case, information about payments, taxes and receipts is handled by Link (Stripe).</li>
+        <li><strong>What we store:</strong> The Stripe customer ID, subscription ID, price ID and checkout session ID; the subscription status (active, payment being retried, cancelled, etc.); the end of the current billing period and whether cancellation is scheduled; the shop's country (country code); and a record of notifications received from Stripe (event ID and type).</li>
+        <li><strong>What we pass to Stripe:</strong> When a shop subscribes, we pass an ID that identifies the shop, the shop's country and the display language to Stripe. Information needed for billing, such as an email address, is entered by the shop directly on Stripe's pages.</li>
+        <li><strong>Deletion:</strong> Cancellation and card changes can be made in the customer portal from the billing page. To request deletion of a shop account, please contact us below; we will cancel the paid plan and delete the data listed above that we store. Payment records stored by Stripe (Link) are handled by Stripe (Link) under its own privacy policy and applicable law.</li>
+      </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Data Deletion</h2>
-      <p>Users can delete local data by uninstalling the app. To request deletion of a shop account or server-side data, please contact us below.</p>
+      <h2><span class="num">07</span>Data Storage</h2>
+      <p>Some data, such as settings, is stored in the device's local storage. Shop account information, registered data, uploaded images, push notification data and paid plan subscription data are stored on cloud servers (Supabase).</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Children's Privacy</h2>
+      <h2><span class="num">08</span>Third-Party Sharing</h2>
+      <p>We do not sell, share, or provide user information to third parties, except as required by law and except where we entrust the external services listed in "04 Third-Party Services" with handling it to the extent necessary to provide the App's functionality.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">09</span>Data Deletion</h2>
+      <p>Users can delete local data by uninstalling the app. Push notification data may be deleted automatically as described in "05 Push Notifications". To request deletion of a shop account or server-side data, please contact us below.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">10</span>Children's Privacy</h2>
       <p>The App is not intended for children under 13 and does not knowingly collect personal information from children.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Changes to This Policy</h2>
+      <h2><span class="num">11</span>Changes to This Policy</h2>
       <p>We may update this policy as needed. Changes will be posted on this page.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Contact</h2>
+      <h2><span class="num">12</span>Contact</h2>
       <p>For questions about this policy, please contact us:</p>
       <div class="contact-card">
         <div class="x-icon"><svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
