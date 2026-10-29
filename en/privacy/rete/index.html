@@ -56,7 +56,7 @@
   </div>
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: October 28, 2026</span>
+    <span class="updated">Last updated: October 29, 2026</span>
     <p class="intro">This Privacy Policy describes how Life Hack Tools ("we") handles user information in Rete ("the App"). The App is a stamp card and rewards management service used by both shops (owners) and visitors (customers). The data we handle differs depending on the user's role.</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Information We Collect</h2>
@@ -67,11 +67,13 @@
         <li><strong>Images:</strong> Images that a shop owner selects from their device's photo library to use as stamp or reward images. Selected images are uploaded to cloud storage (Supabase Storage) and used for display within the App.</li>
         <li><strong>Camera:</strong> The camera is used to scan shop QR codes and reward QR codes. Scanning is solely for reading QR codes; the App does not take or store photos.</li>
         <li><strong>Auto-generated identifier:</strong> An anonymous ID generated within the app (it does not identify a specific individual). It is used for data synchronization and handoff.</li>
+        <li><strong>Birth month (only if a visitor registers it):</strong> The birth month (January to December) that a visitor may optionally register on the account screen. We do not store the day or year of birth. See "07 Birth Month and First-Visit Details for Shops" for details.</li>
+        <li><strong>First-visit details for a shop (only if the shop asks and the visitor enters them):</strong> A display name (what the shop should call you) and birth month that a shop may ask for after you receive a stamp there. See "07 Birth Month and First-Visit Details for Shops" for details.</li>
         <li><strong>Push notification data (only if a visitor allows notifications):</strong> A push token, device type (iOS / Android), app language, device time zone, and similar. See "05 Push Notifications" for details.</li>
         <li><strong>Paid plan subscription data (only for shops that subscribe to a paid plan):</strong> Stripe customer ID, subscription ID, subscription status, the shop's country, and similar. We do not receive payment details such as card numbers. See "06 Payments for the Shop Paid Plan (Stripe)" for details.</li>
         <li><strong>Diagnostic data:</strong> Crash logs and performance data for improving app stability (may be collected depending on the diagnostics tool configuration).</li>
       </ul>
-      <p>For visitors (customers), the App does not collect personally identifiable information such as names or phone numbers, nor does it collect location data. For shop accounts, we collect an email address for sign-in.</p>
+      <p>For visitors (customers), the App does not collect contact details such as phone numbers, email addresses or postal addresses, nor does it collect location data. A display name and birth month are stored only if the visitor enters them, as described above. The display name does not have to be your real name; a nickname is fine. For shop accounts, we collect an email address for sign-in.</p>
       <p class="table-note">Note: The App includes some configuration for a possible future shop-location feature, but the current version does not obtain or use location data. If we add a feature that obtains location data, we will update this policy and obtain it with the user's permission. The time zone stored for push notifications (e.g. Asia/Tokyo) is used only to decide when notifications may be sent and is not treated as location data.</p>
     </div>
     <div class="policy-section fade-in">
@@ -118,6 +120,20 @@
               <td>In transit</td>
             </tr>
             <tr>
+              <th>Birth month (registered on the account)</th>
+              <td>Visitors who register it</td>
+              <td>Issuing birthday-month rewards and notifying visitors about them</td>
+              <td>None</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <th>Display name and birth month (first-visit details for a shop)</th>
+              <td>Visitors who enter them</td>
+              <td>Showing them to the owner of the shop that asked</td>
+              <td>Shown only to the owner of the shop that asked</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
               <th>Push token, device type, language, time zone</th>
               <td>Visitors who allow notifications</td>
               <td>Push notifications about rewards and news from shops</td>
@@ -148,17 +164,19 @@
         <li>Providing app functionality (issuing and using stamp cards and rewards, etc.)</li>
         <li>Authenticating shop accounts</li>
         <li>Data synchronization across devices</li>
+        <li>Issuing birthday-month rewards and notifying visitors about them (only if the visitor has registered a birth month)</li>
+        <li>Showing the details a shop asked for on a first visit (display name and birth month) to that shop's owner</li>
         <li>Sending push notifications about rewards and news from shops the visitor has visited (only if the visitor allows notifications)</li>
         <li>Processing subscriptions, billing and cancellations for the shop paid plan, and switching plans according to the subscription status</li>
         <li>Improving app quality and fixing issues</li>
       </ul>
-      <p>We do not use push notification data or subscription data for advertising.</p>
+      <p>We do not use push notification data, subscription data, birth months or first-visit details for advertising.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">04</span>Third-Party Services</h2>
       <p>The App uses the following external services to provide its functionality:</p>
       <ul>
-        <li><strong>Supabase:</strong> Used for backend processing (authentication, data storage, and image storage). Shop email addresses, registered data, uploaded images, anonymous IDs, push notification data and paid plan subscription data are securely managed on this service.</li>
+        <li><strong>Supabase:</strong> Used for backend processing (authentication, data storage, and image storage). Shop email addresses, registered data, uploaded images, anonymous IDs, birth months, first-visit details, push notification data and paid plan subscription data are securely managed on this service.</li>
         <li><strong>Expo (Expo Push Service):</strong> Used to deliver push notifications. We send the push token and the notification content (shop name, announcement title, reward description, etc.) to Expo.</li>
         <li><strong>Apple Push Notification service (APNs) / Firebase Cloud Messaging (FCM, Google):</strong> Expo delivers notifications to iOS devices through Apple's APNs and to Android devices through Google's FCM.</li>
         <li><strong>Stripe:</strong> Used for payments, billing and cancellation of the shop paid plan. For shops outside Japan, Stripe Managed Payments is used and the seller is Link (Stripe).</li>
@@ -189,27 +207,38 @@
       </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Data Storage</h2>
-      <p>Some data, such as settings, is stored in the device's local storage. Shop account information, registered data, uploaded images, push notification data and paid plan subscription data are stored on cloud servers (Supabase).</p>
+      <h2><span class="num">07</span>Birth Month and First-Visit Details for Shops</h2>
+      <p>A visitor's (customer's) birth month is used for birthday-month rewards. In addition, a shop can ask first-time visitors for a display name (what the shop should call you) and birth month. Shops cannot ask for contact details such as phone numbers or email addresses.</p>
+      <ul>
+        <li><strong>Birth month on your account:</strong> The birth month (January to December) you may optionally register on the account screen. We do not store the day or year of birth. It is used to issue a reward when you visit a shop that offers a birthday-month reward during your birth month (once a year per shop), and for push notifications about that reward (see "05 Push Notifications"). The birth month you register is not itself shown to shops (a shop may be able to tell that a reward is a birthday-month reward, for example when you use it).</li>
+        <li><strong>First-visit details for a shop:</strong> A shop owner can set each item — display name (up to 30 characters) and birth month — to "Don't ask", "Optional" or "Required". At shops that use this, a screen asking for these details is shown after you receive a stamp there. The display name does not have to be your real name; a nickname is fine. Optional items can be left blank. While a required item is still empty, you are asked again each time you receive a stamp, but the stamp is added without waiting for your answer.</li>
+        <li><strong>Who can see what you enter:</strong> What you enter is stored separately for each shop, and only that shop's owner can see it, as a list of answers (display name, birth month and the date answered). It is not shown to the shop's staff or to other shops, and it is not shown in our own administration console either. The list of answers does not include your anonymous ID or other identifiers. If a shop switches an item back to "Don't ask", that item is no longer shown to the owner.</li>
+        <li><strong>Relation to the birth month on your account:</strong> The birth month field in the first-visit form is pre-filled with the birth month registered on your account, but it is not passed to the shop unless you submit it. A birth month you give a shop in the first-visit form is not used for your account's birth month or for deciding birthday-month rewards.</li>
+        <li><strong>Deletion:</strong> You can remove the birth month on your account by choosing "Do not set" on the account screen. First-visit details are deleted together with a visitor's data when that data is deleted, and the details given to a shop are also deleted if the shop is deleted. To request deletion, please contact us below.</li>
+      </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Third-Party Sharing</h2>
-      <p>We do not sell, share, or provide user information to third parties, except as required by law and except where we entrust the external services listed in "04 Third-Party Services" with handling it to the extent necessary to provide the App's functionality.</p>
+      <h2><span class="num">08</span>Data Storage</h2>
+      <p>Some data, such as settings, is stored in the device's local storage. Shop account information, registered data, uploaded images, birth months, first-visit details, push notification data and paid plan subscription data are stored on cloud servers (Supabase).</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Data Deletion</h2>
-      <p>Users can delete local data by uninstalling the app. Push notification data may be deleted automatically as described in "05 Push Notifications". To request deletion of a shop account or server-side data, please contact us below.</p>
+      <h2><span class="num">09</span>Third-Party Sharing</h2>
+      <p>We do not sell, share, or provide user information to third parties, except as required by law, except where we entrust the external services listed in "04 Third-Party Services" with handling it to the extent necessary to provide the App's functionality, and except where we show the first-visit details a visitor entered for a shop to that shop's owner (see "07 Birth Month and First-Visit Details for Shops").</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Children's Privacy</h2>
+      <h2><span class="num">10</span>Data Deletion</h2>
+      <p>Users can delete local data by uninstalling the app. Push notification data may be deleted automatically as described in "05 Push Notifications". The birth month on your account can be removed on the account screen in the App. First-visit details are deleted when a visitor's data or the shop is deleted, as described in "07 Birth Month and First-Visit Details for Shops". To request deletion of a shop account or server-side data, please contact us below.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">11</span>Children's Privacy</h2>
       <p>The App is not intended for children under 13 and does not knowingly collect personal information from children.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">11</span>Changes to This Policy</h2>
+      <h2><span class="num">12</span>Changes to This Policy</h2>
       <p>We may update this policy as needed. Changes will be posted on this page.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">12</span>Contact</h2>
+      <h2><span class="num">13</span>Contact</h2>
       <p>For questions about this policy, please contact us:</p>
       <div class="contact-card">
         <div class="x-icon"><svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>

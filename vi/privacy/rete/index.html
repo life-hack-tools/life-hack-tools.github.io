@@ -56,7 +56,7 @@
   </div>
   <div class="content">
     <h1>Chính sách bảo mật</h1>
-    <span class="updated">Cập nhật lần cuối: 28 tháng 10, 2026</span>
+    <span class="updated">Cập nhật lần cuối: 29 tháng 10, 2026</span>
     <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Rete ("Ứng dụng"). Ứng dụng là dịch vụ quản lý thẻ tích điểm và ưu đãi, được sử dụng bởi cả cửa hàng (chủ cửa hàng) và khách hàng. Dữ liệu chúng tôi xử lý khác nhau tùy theo vai trò của người dùng.</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Thông tin chúng tôi thu thập</h2>
@@ -67,11 +67,13 @@
         <li><strong>Hình ảnh:</strong> Hình ảnh mà chủ cửa hàng chọn từ thư viện ảnh của thiết bị để dùng làm hình ảnh tem hoặc ưu đãi. Hình ảnh đã chọn được tải lên bộ lưu trữ đám mây (Supabase Storage) và dùng để hiển thị trong ứng dụng.</li>
         <li><strong>Máy ảnh:</strong> Máy ảnh được dùng để quét mã QR của cửa hàng và mã QR ưu đãi. Việc quét chỉ nhằm đọc mã QR; ứng dụng không chụp hoặc lưu ảnh.</li>
         <li><strong>Mã định danh tự động tạo:</strong> ID ẩn danh được tạo trong ứng dụng (không nhận dạng một cá nhân cụ thể). Được dùng để đồng bộ và chuyển dữ liệu.</li>
+        <li><strong>Tháng sinh (chỉ khi khách hàng đăng ký):</strong> Tháng sinh (từ tháng 1 đến tháng 12) mà khách hàng có thể tự chọn đăng ký trên màn hình tài khoản. Chúng tôi không lưu ngày hoặc năm sinh. Xem chi tiết tại "07 Tháng sinh và thông tin hỏi lần đầu ghé cửa hàng".</li>
+        <li><strong>Thông tin hỏi lần đầu ghé cửa hàng (chỉ khi cửa hàng yêu cầu và khách hàng nhập):</strong> Tên hiển thị (tên bạn muốn cửa hàng gọi) và tháng sinh mà cửa hàng có thể hỏi sau khi bạn nhận tem tại cửa hàng đó. Xem chi tiết tại "07 Tháng sinh và thông tin hỏi lần đầu ghé cửa hàng".</li>
         <li><strong>Dữ liệu thông báo đẩy (chỉ khi khách hàng cho phép thông báo):</strong> Push token, loại thiết bị (iOS / Android), ngôn ngữ ứng dụng, múi giờ của thiết bị, v.v. Xem chi tiết tại "05 Thông báo đẩy".</li>
         <li><strong>Thông tin gói trả phí (chỉ với cửa hàng đăng ký gói trả phí):</strong> ID khách hàng Stripe, ID gói đăng ký (subscription), trạng thái gói, quốc gia của cửa hàng, v.v. Chúng tôi không nhận thông tin thanh toán như số thẻ. Xem chi tiết tại "06 Thanh toán gói trả phí cho cửa hàng (Stripe)".</li>
         <li><strong>Dữ liệu chẩn đoán:</strong> Nhật ký lỗi và dữ liệu hiệu suất để cải thiện độ ổn định (có thể được thu thập tùy theo cấu hình công cụ chẩn đoán).</li>
       </ul>
-      <p>Đối với khách hàng, ứng dụng không thu thập thông tin nhận dạng cá nhân như tên hoặc số điện thoại, và cũng không thu thập dữ liệu vị trí. Đối với tài khoản cửa hàng, chúng tôi thu thập địa chỉ email để đăng nhập.</p>
+      <p>Đối với khách hàng, ứng dụng không thu thập thông tin liên lạc như số điện thoại, địa chỉ email hoặc địa chỉ nhà, và cũng không thu thập dữ liệu vị trí. Tên hiển thị và tháng sinh chỉ được lưu khi khách hàng tự nhập, như nêu ở trên. Tên hiển thị không cần là tên thật; biệt danh cũng được. Đối với tài khoản cửa hàng, chúng tôi thu thập địa chỉ email để đăng nhập.</p>
       <p class="table-note">Lưu ý: Ứng dụng có một số cấu hình cho tính năng hiển thị vị trí cửa hàng trong tương lai, nhưng phiên bản hiện tại không lấy hoặc sử dụng dữ liệu vị trí. Nếu chúng tôi thêm tính năng lấy dữ liệu vị trí, chúng tôi sẽ cập nhật chính sách này và chỉ lấy khi có sự cho phép của người dùng. Múi giờ được lưu cho thông báo đẩy (ví dụ: Asia/Tokyo) chỉ dùng để quyết định thời điểm gửi thông báo và không được xem là dữ liệu vị trí.</p>
     </div>
     <div class="policy-section fade-in">
@@ -118,6 +120,20 @@
               <td>Khi truyền</td>
             </tr>
             <tr>
+              <th>Tháng sinh (đăng ký trên tài khoản)</th>
+              <td>Khách hàng đã đăng ký</td>
+              <td>Phát hành ưu đãi tháng sinh nhật và thông báo về ưu đãi đó</td>
+              <td>Không</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
+              <th>Tên hiển thị và tháng sinh (thông tin hỏi lần đầu ghé cửa hàng)</th>
+              <td>Khách hàng đã nhập</td>
+              <td>Hiển thị cho chủ cửa hàng đã yêu cầu</td>
+              <td>Chỉ hiển thị cho chủ cửa hàng đã yêu cầu</td>
+              <td>Khi truyền</td>
+            </tr>
+            <tr>
               <th>Push token, loại thiết bị, ngôn ngữ, múi giờ</th>
               <td>Khách hàng cho phép thông báo</td>
               <td>Thông báo đẩy về ưu đãi và tin tức từ cửa hàng</td>
@@ -148,17 +164,19 @@
         <li>Cung cấp chức năng ứng dụng (phát hành và sử dụng thẻ tích điểm và ưu đãi, v.v.)</li>
         <li>Xác thực tài khoản cửa hàng</li>
         <li>Đồng bộ dữ liệu giữa các thiết bị</li>
+        <li>Phát hành ưu đãi tháng sinh nhật và thông báo về ưu đãi đó (chỉ khi khách hàng đã đăng ký tháng sinh)</li>
+        <li>Hiển thị cho chủ cửa hàng các thông tin mà cửa hàng đó hỏi khi khách ghé lần đầu (tên hiển thị và tháng sinh)</li>
         <li>Gửi thông báo đẩy về ưu đãi và tin tức từ các cửa hàng mà khách hàng đã ghé (chỉ khi khách hàng cho phép thông báo)</li>
         <li>Xử lý việc đăng ký, thanh toán và hủy gói trả phí cho cửa hàng, và chuyển đổi gói theo trạng thái đăng ký</li>
         <li>Cải thiện chất lượng và sửa lỗi</li>
       </ul>
-      <p>Chúng tôi không sử dụng dữ liệu thông báo đẩy hoặc thông tin gói trả phí cho mục đích quảng cáo.</p>
+      <p>Chúng tôi không sử dụng dữ liệu thông báo đẩy, thông tin gói trả phí, tháng sinh hoặc thông tin hỏi lần đầu ghé cửa hàng cho mục đích quảng cáo.</p>
     </div>
     <div class="policy-section fade-in">
       <h2><span class="num">04</span>Dịch vụ của bên thứ ba</h2>
       <p>Ứng dụng sử dụng các dịch vụ bên ngoài sau để cung cấp chức năng:</p>
       <ul>
-        <li><strong>Supabase:</strong> Dùng cho xử lý phía máy chủ (xác thực, lưu trữ dữ liệu và lưu trữ hình ảnh). Email cửa hàng, dữ liệu đã đăng ký, hình ảnh đã tải lên, ID ẩn danh, dữ liệu thông báo đẩy và thông tin gói trả phí được quản lý an toàn trên dịch vụ này.</li>
+        <li><strong>Supabase:</strong> Dùng cho xử lý phía máy chủ (xác thực, lưu trữ dữ liệu và lưu trữ hình ảnh). Email cửa hàng, dữ liệu đã đăng ký, hình ảnh đã tải lên, ID ẩn danh, tháng sinh, thông tin hỏi lần đầu ghé cửa hàng, dữ liệu thông báo đẩy và thông tin gói trả phí được quản lý an toàn trên dịch vụ này.</li>
         <li><strong>Expo (Expo Push Service):</strong> Dùng để gửi thông báo đẩy. Chúng tôi gửi push token và nội dung thông báo (tên cửa hàng, tiêu đề thông báo, nội dung ưu đãi, v.v.) cho Expo.</li>
         <li><strong>Apple Push Notification service (APNs) / Firebase Cloud Messaging (FCM, Google):</strong> Expo gửi thông báo đến thiết bị iOS qua APNs của Apple và đến thiết bị Android qua FCM của Google.</li>
         <li><strong>Stripe:</strong> Dùng cho thanh toán, lập hóa đơn và hủy gói trả phí cho cửa hàng. Với cửa hàng ngoài Nhật Bản, chúng tôi sử dụng Stripe Managed Payments và bên bán là Link (Stripe).</li>
@@ -189,27 +207,38 @@
       </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Lưu trữ dữ liệu</h2>
-      <p>Một số dữ liệu, chẳng hạn như cài đặt, được lưu trên bộ nhớ cục bộ của thiết bị. Thông tin tài khoản cửa hàng, dữ liệu đã đăng ký, hình ảnh đã tải lên, dữ liệu thông báo đẩy và thông tin gói trả phí được lưu trên máy chủ đám mây (Supabase).</p>
+      <h2><span class="num">07</span>Tháng sinh và thông tin hỏi lần đầu ghé cửa hàng</h2>
+      <p>Tháng sinh của khách hàng được dùng cho ưu đãi tháng sinh nhật. Ngoài ra, cửa hàng có thể đề nghị khách hàng ghé lần đầu nhập tên hiển thị (tên bạn muốn cửa hàng gọi) và tháng sinh. Cửa hàng không thể hỏi thông tin liên lạc như số điện thoại hoặc địa chỉ email.</p>
+      <ul>
+        <li><strong>Tháng sinh trên tài khoản:</strong> Tháng sinh (từ tháng 1 đến tháng 12) mà bạn có thể tự chọn đăng ký trên màn hình tài khoản. Chúng tôi không lưu ngày hoặc năm sinh. Tháng sinh được dùng để phát hành ưu đãi khi bạn ghé một cửa hàng có ưu đãi tháng sinh nhật trong tháng sinh của bạn (mỗi cửa hàng một lần mỗi năm), và để gửi thông báo đẩy về ưu đãi đó (xem "05 Thông báo đẩy"). Bản thân tháng sinh bạn đăng ký không được hiển thị cho cửa hàng (cửa hàng có thể biết một ưu đãi là ưu đãi tháng sinh nhật, ví dụ khi bạn sử dụng ưu đãi đó).</li>
+        <li><strong>Thông tin hỏi lần đầu ghé cửa hàng:</strong> Chủ cửa hàng có thể đặt từng mục — tên hiển thị (tối đa 30 ký tự) và tháng sinh — thành "Không hỏi", "Tùy chọn" hoặc "Bắt buộc". Tại các cửa hàng sử dụng tính năng này, màn hình đề nghị nhập thông tin sẽ hiển thị sau khi bạn nhận tem tại cửa hàng đó. Tên hiển thị không cần là tên thật; biệt danh cũng được. Các mục tùy chọn có thể để trống. Khi một mục bắt buộc vẫn còn trống, bạn sẽ được đề nghị nhập lại mỗi lần nhận tem, nhưng tem vẫn được đóng mà không cần chờ bạn nhập.</li>
+        <li><strong>Ai có thể xem nội dung bạn nhập:</strong> Nội dung bạn nhập được lưu riêng cho từng cửa hàng, và chỉ chủ cửa hàng đó mới xem được, dưới dạng danh sách câu trả lời (tên hiển thị, tháng sinh và ngày trả lời). Nội dung này không hiển thị cho nhân viên của cửa hàng hay các cửa hàng khác, và cũng không hiển thị trên trang quản trị vận hành của chúng tôi. Danh sách câu trả lời không bao gồm ID ẩn danh hay các mã định danh khác. Nếu cửa hàng chuyển một mục về "Không hỏi", mục đó sẽ không còn hiển thị cho chủ cửa hàng.</li>
+        <li><strong>Liên quan đến tháng sinh trên tài khoản:</strong> Ô tháng sinh trong biểu mẫu lần đầu ghé được điền sẵn tháng sinh đã đăng ký trên tài khoản, nhưng sẽ không được chuyển cho cửa hàng nếu bạn không gửi. Tháng sinh bạn nhập cho cửa hàng trong biểu mẫu này không được dùng cho tháng sinh trên tài khoản hoặc để xét ưu đãi tháng sinh nhật.</li>
+        <li><strong>Xóa:</strong> Bạn có thể xóa tháng sinh trên tài khoản bằng cách chọn "Không thiết lập" trên màn hình tài khoản. Thông tin hỏi lần đầu ghé cửa hàng sẽ bị xóa cùng với dữ liệu của khách hàng khi dữ liệu đó bị xóa, và thông tin đã nhập cho một cửa hàng cũng bị xóa khi cửa hàng đó bị xóa. Để yêu cầu xóa, vui lòng liên hệ bên dưới.</li>
+      </ul>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Chia sẻ với bên thứ ba</h2>
-      <p>Chúng tôi không bán, chia sẻ hoặc cung cấp thông tin người dùng cho bên thứ ba, trừ khi pháp luật yêu cầu và trừ trường hợp chúng tôi giao cho các dịch vụ bên ngoài nêu tại "04 Dịch vụ của bên thứ ba" xử lý trong phạm vi cần thiết để cung cấp chức năng của ứng dụng.</p>
+      <h2><span class="num">08</span>Lưu trữ dữ liệu</h2>
+      <p>Một số dữ liệu, chẳng hạn như cài đặt, được lưu trên bộ nhớ cục bộ của thiết bị. Thông tin tài khoản cửa hàng, dữ liệu đã đăng ký, hình ảnh đã tải lên, tháng sinh, thông tin hỏi lần đầu ghé cửa hàng, dữ liệu thông báo đẩy và thông tin gói trả phí được lưu trên máy chủ đám mây (Supabase).</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Xóa dữ liệu</h2>
-      <p>Người dùng có thể xóa dữ liệu cục bộ bằng cách gỡ cài đặt ứng dụng. Dữ liệu thông báo đẩy có thể được tự động xóa như mô tả tại "05 Thông báo đẩy". Để yêu cầu xóa tài khoản cửa hàng hoặc dữ liệu trên máy chủ, vui lòng liên hệ bên dưới.</p>
+      <h2><span class="num">09</span>Chia sẻ với bên thứ ba</h2>
+      <p>Chúng tôi không bán, chia sẻ hoặc cung cấp thông tin người dùng cho bên thứ ba, trừ khi pháp luật yêu cầu, trừ trường hợp chúng tôi giao cho các dịch vụ bên ngoài nêu tại "04 Dịch vụ của bên thứ ba" xử lý trong phạm vi cần thiết để cung cấp chức năng của ứng dụng, và trừ trường hợp chúng tôi hiển thị cho chủ cửa hàng thông tin mà khách hàng đã nhập khi ghé cửa hàng đó lần đầu (xem "07 Tháng sinh và thông tin hỏi lần đầu ghé cửa hàng").</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Quyền riêng tư trẻ em</h2>
+      <h2><span class="num">10</span>Xóa dữ liệu</h2>
+      <p>Người dùng có thể xóa dữ liệu cục bộ bằng cách gỡ cài đặt ứng dụng. Dữ liệu thông báo đẩy có thể được tự động xóa như mô tả tại "05 Thông báo đẩy". Tháng sinh trên tài khoản có thể được xóa trên màn hình tài khoản trong ứng dụng. Thông tin hỏi lần đầu ghé cửa hàng sẽ bị xóa khi dữ liệu của khách hàng hoặc cửa hàng bị xóa, như mô tả tại "07 Tháng sinh và thông tin hỏi lần đầu ghé cửa hàng". Để yêu cầu xóa tài khoản cửa hàng hoặc dữ liệu trên máy chủ, vui lòng liên hệ bên dưới.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">11</span>Quyền riêng tư trẻ em</h2>
       <p>Ứng dụng không dành cho trẻ em dưới 13 tuổi và không cố ý thu thập thông tin cá nhân từ trẻ em.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">11</span>Thay đổi chính sách</h2>
+      <h2><span class="num">12</span>Thay đổi chính sách</h2>
       <p>Chúng tôi có thể cập nhật chính sách này khi cần. Thay đổi sẽ được đăng trên trang này.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">12</span>Liên hệ</h2>
+      <h2><span class="num">13</span>Liên hệ</h2>
       <p>Nếu có câu hỏi về chính sách này, vui lòng liên hệ:</p>
       <div class="contact-card">
         <div class="x-icon"><svg viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
