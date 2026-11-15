@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StockHome - Life Hack Tools</title>
-  <meta name="description" content="Never forget your household inventory.">
+  <title>StockHome: Home Inventory — Auto shopping list when low | Life Hack Tools</title>
+  <meta name="description" content="See everything in your home at a glance. Auto shopping list when stock runs low, auto-consume at your usage pace, barcode entry, expiry dates, low-stock alerts, and household sharing via invite code. Free up to 50 items; Pro is a one-time ¥1,500. Japanese, English, Vietnamese.">
   <link rel="canonical" href="https://lh.tools/en/apps/stockhome/">
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -13,8 +13,8 @@
   <link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/stockhome/">
   <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/stockhome/">
   <link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/stockhome/">
-  <meta property="og:title" content="StockHome - Life Hack Tools">
-  <meta property="og:description" content="Never forget your household inventory.">
+  <meta property="og:title" content="StockHome: Home Inventory — Auto shopping list when low">
+  <meta property="og:description" content="Share your household stock with family. Items go on the shopping list automatically when low. Barcode entry, expiry dates, low-stock alerts. Free up to 50 items; Pro is a one-time ¥1,500.">
   <meta property="og:image" content="https://lh.tools/assets/ogp/stockhome.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -26,249 +26,99 @@
   <meta name="twitter:image" content="https://lh.tools/assets/ogp/stockhome.png">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
-      overflow-x: hidden;
-    }
-
-    /* Navigation */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 16px 24px;
-      background: rgba(10,10,10,0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .nav a {
-      color: #aaa; text-decoration: none; font-size: 14px;
-      transition: color 0.3s;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
     .nav a:hover { color: #fff; }
     .lang-switch { display: flex; gap: 8px; }
-    .lang-switch a {
-      font-size: 12px; padding: 4px 10px; border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.15); color: #888;
-      text-decoration: none; transition: all 0.2s;
-    }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
     .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
     .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
 
-    /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 24px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle at 50% 50%, rgba(16,185,129,0.12) 0%, transparent 50%);
-      animation: pulse 8s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.5; }
-      50% { transform: scale(1.1); opacity: 1; }
-    }
-    .hero-icon {
-      width: 120px; height: 120px;
-      border-radius: 28px;
-      box-shadow: 0 20px 60px rgba(16,185,129,0.3);
-      margin-bottom: 32px;
-      animation: float 6s ease-in-out infinite;
-      position: relative;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-    .hero h1 {
-      font-size: clamp(36px, 8vw, 56px);
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-      position: relative;
-    }
-    .hero .subtitle {
-      font-size: clamp(16px, 3vw, 20px);
-      color: #888;
-      margin-bottom: 40px;
-      position: relative;
-    }
-    .hero .cta {
-      display: flex; gap: 16px; flex-wrap: wrap;
-      justify-content: center;
-      position: relative;
-    }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 24px 80px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 50% 50%, rgba(16,185,129,0.12) 0%, transparent 50%); animation: pulse 8s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+    .hero-icon { width: 110px; height: 110px; border-radius: 26px; box-shadow: 0 20px 60px rgba(16,185,129,0.3); margin-bottom: 28px; animation: float 6s ease-in-out infinite; position: relative; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .hero .app-name { font-size: 15px; font-weight: 600; letter-spacing: 1px; color: #9fe8cf; margin-bottom: 12px; position: relative; }
+    .hero h1 { font-size: clamp(34px, 7vw, 52px); font-weight: 800; letter-spacing: -1px; margin-bottom: 14px; position: relative; line-height: 1.15; }
+    .hero h1 .accent { color: #10b981; }
+    .hero .subtitle { font-size: clamp(15px, 2.6vw, 19px); color: #aaa; margin-bottom: 36px; position: relative; line-height: 1.7; max-width: 560px; }
+    .hero .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; }
     .hero .cta a { transition: opacity 0.2s; }
     .hero .cta a:hover { opacity: 0.8; }
     .hero .cta img { height: 50px; }
     .hero .cta img[src*="google-play"] { height: 74px; margin: -12px 0; }
-    .coming-soon {
-      display: inline-block;
-      color: #10b981;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 10px 28px;
-      border: 1px solid rgba(16,185,129,0.3);
-      border-radius: 10px;
-      background: rgba(16,185,129,0.06);
-      animation: pulse-badge 3s ease-in-out infinite;
-    }
-    @keyframes pulse-badge {
-      0%, 100% { border-color: rgba(16,185,129,0.2); }
-      50% { border-color: rgba(16,185,129,0.5); }
-    }
+    .chips { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 26px; position: relative; }
+    .chip { font-size: 13px; color: #9fe8cf; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 999px; padding: 6px 14px; }
 
-    /* Sections */
-    .section {
-      padding: 100px 24px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .section-title {
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #10b981;
-      margin-bottom: 16px;
-    }
-    .section h2 {
-      font-size: clamp(28px, 5vw, 40px);
-      font-weight: 700;
-      margin-bottom: 24px;
-      line-height: 1.2;
-    }
-    .section p {
-      font-size: 17px;
-      color: #999;
-      line-height: 1.8;
-    }
+    .section { padding: 96px 24px; max-width: 820px; margin: 0 auto; }
+    .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #10b981; margin-bottom: 16px; }
+    .section h2 { font-size: clamp(26px, 5vw, 38px); font-weight: 700; margin-bottom: 24px; line-height: 1.25; }
+    .section p { font-size: 17px; color: #999; line-height: 1.85; }
+    .section p strong { color: #ddd; font-weight: 600; }
 
-    /* Features */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 48px;
-    }
-    .feature-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      padding: 28px;
-      transition: transform 0.3s, border-color 0.3s, background 0.3s;
-    }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(16,185,129,0.3);
-      background: rgba(255,255,255,0.06);
-    }
-    .feature-icon {
-      font-size: 32px;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .feature-card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .feature-card p {
-      font-size: 14px;
-      color: #777;
-      line-height: 1.6;
-    }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+    .step { padding: 28px 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; }
+    .step .num { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: rgba(16,185,129,0.15); color: #10b981; font-weight: 800; font-size: 18px; margin-bottom: 14px; }
+    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: #888; line-height: 1.7; }
 
-    /* Screenshots */
-    .screenshots {
-      padding: 80px 0;
-      overflow: hidden;
-    }
-    .screenshots .section-title,
-    .screenshots h2 {
-      text-align: center;
-      padding: 0 24px;
-    }
-    .screenshot-scroll {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      padding: 48px 24px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+    .feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; transition: transform 0.3s, border-color 0.3s, background 0.3s; position: relative; }
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(16,185,129,0.3); background: rgba(255,255,255,0.06); }
+    .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; color: #10b981; }
+    .feature-icon svg { width: 32px; height: 32px; display: block; }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: #777; line-height: 1.6; }
+    .pro-tag { position: absolute; top: 18px; right: 18px; font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #0a0a0a; background: #10b981; border-radius: 999px; padding: 3px 9px; }
+
+    .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 48px; }
+    .plan { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 32px 28px; }
+    .plan.pro { border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.05); }
+    .plan .plan-name { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #10b981; margin-bottom: 10px; }
+    .plan .price { font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-bottom: 4px; }
+    .plan .price small { font-size: 14px; font-weight: 500; color: #888; letter-spacing: 0; margin-left: 6px; }
+    .plan .note { font-size: 13px; color: #777; margin-bottom: 20px; line-height: 1.6; }
+    .plan ul { list-style: none; display: grid; gap: 10px; }
+    .plan li { font-size: 15px; color: #ccc; display: flex; gap: 10px; align-items: flex-start; line-height: 1.55; }
+    .plan li::before { content: '✓'; color: #10b981; font-weight: 800; flex-shrink: 0; }
+    .pricing-note { font-size: 13px; color: #666; margin-top: 20px; line-height: 1.7; }
+
+    .screenshots { padding: 80px 0; overflow: hidden; }
+    .screenshots .section-title, .screenshots h2 { text-align: center; padding: 0 24px; }
+    .screenshot-scroll { display: flex; justify-content: safe center; gap: 24px; overflow-x: auto; padding: 48px 24px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .screenshot-scroll::-webkit-scrollbar { display: none; }
-    .screenshot-scroll img {
-      height: 500px;
-      border-radius: 24px;
-      scroll-snap-align: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      flex-shrink: 0;
-      transition: transform 0.3s;
-    }
-    .screenshot-scroll img:hover {
-      transform: scale(1.02);
-    }
+    .shot { display: flex; flex-direction: column; gap: 14px; flex-shrink: 0; scroll-snap-align: center; }
+    .shot img { height: 480px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); transition: transform 0.3s; }
+    .shot img:hover { transform: scale(1.02); }
+    .shot span { font-size: 13px; color: #888; text-align: center; }
 
-    /* Footer CTA */
-    .footer-cta {
-      text-align: center;
-      padding: 100px 24px;
-      position: relative;
-      overflow: hidden;
-    }
-    .footer-cta::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: -50%;
-      width: 200%; height: 100%;
-      background: radial-gradient(ellipse at 50% 100%, rgba(16,185,129,0.08) 0%, transparent 60%);
-    }
-    .footer-cta h2 {
-      font-size: clamp(24px, 5vw, 36px);
-      font-weight: 700;
-      margin-bottom: 32px;
-      position: relative;
-    }
-    .footer-cta .cta {
-      display: flex; gap: 16px; flex-wrap: wrap;
-      justify-content: center;
-      position: relative;
-    }
+    .usecases { list-style: none; margin-top: 44px; display: grid; gap: 14px; }
+    .usecases li { display: flex; align-items: flex-start; gap: 12px; font-size: 16px; color: #bbb; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 16px 18px; line-height: 1.6; }
+    .usecases li::before { content: '✓'; color: #10b981; font-weight: 800; flex-shrink: 0; }
+
+    .footer-cta { text-align: center; padding: 100px 24px 60px; position: relative; overflow: hidden; }
+    .footer-cta::before { content: ''; position: absolute; bottom: 0; left: -50%; width: 200%; height: 100%; background: radial-gradient(ellipse at 50% 100%, rgba(16,185,129,0.08) 0%, transparent 60%); }
+    .footer-cta h2 { font-size: clamp(24px, 5vw, 36px); font-weight: 700; margin-bottom: 32px; position: relative; }
+    .footer-cta .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; }
     .footer-cta .cta a { transition: opacity 0.2s; }
     .footer-cta .cta a:hover { opacity: 0.8; }
     .footer-cta .cta img { height: 50px; }
     .footer-cta .cta img[src*="google-play"] { height: 74px; margin: -12px 0; }
 
-    /* Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-      /* feature-icon-svg */
-    .feature-icon { color: #10b981; }
-    .feature-icon svg { width: 32px; height: 32px; display: block; }
+    .cross { max-width: 820px; margin: 0 auto; padding: 40px 24px 20px; text-align: center; position: relative; }
+    .cross .section-title { color: #10b981; }
+    .cross-apps { display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
+    .cross-apps a { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #aaa; text-decoration: none; font-size: 12px; transition: color 0.2s, transform 0.2s; }
+    .cross-apps a:hover { color: #fff; transform: translateY(-3px); }
+    .cross-apps img { width: 60px; height: 60px; border-radius: 15px; }
+    .follow { margin-top: 36px; position: relative; }
+    .follow a { color: #10b981; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid rgba(16,185,129,0.3); border-radius: 10px; padding: 10px 22px; transition: all 0.2s; }
+    .follow a:hover { background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.5); }
+
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
@@ -287,61 +137,145 @@
   <!-- Hero -->
   <div class="hero">
     <img src="/assets/icon-stockhome.png" alt="StockHome" class="hero-icon">
-    <h1>StockHome</h1>
-    <p class="subtitle">Never forget your household inventory.</p>
+    <div class="app-name">StockHome: Home Inventory</div>
+    <h1>Auto shopping list<br><span class="accent">when low.</span></h1>
+    <p class="subtitle">See everything in your home at a glance and share it with the whole household.<br>No more forgotten purchases. No more buying it twice.</p>
     <div class="cta">
       <a href="https://apps.apple.com/jp/app/stockhome/id6760977394"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
-      <a href="https://play.google.com/store/apps/details?id=tools.lh.stockhome"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a>
+      <a href="https://play.google.com/store/apps/details?id=tools.lh.stockhome"><img src="/assets/google-play-badge.png" alt="Get it on Google Play"></a>
+    </div>
+    <div class="chips">
+      <span class="chip">✓ Free up to 50 items</span>
+      <span class="chip">✓ Pro: one-time ¥1,500</span>
+      <span class="chip">✓ Household sharing</span>
+      <span class="chip">✓ JA / EN / VI</span>
     </div>
   </div>
 
-  <!-- About -->
+  <!-- Problem -> Solution -->
   <div class="section fade-in">
-    <div class="section-title">About</div>
-    <h2>Say goodbye to<br>forgotten purchases.</h2>
+    <div class="section-title">Why StockHome?</div>
+    <h2>When you can't see your stock,<br>you quietly waste money and time.</h2>
     <p>
-      StockHome is an app that makes it easy to manage your household inventory.
-      Register food, daily essentials, medicine, and more by category. When stock runs low, items are automatically added to your shopping list.
-      Share your inventory with family or roommates using an invite code, with real-time sync.
+      Checking the shelf before every shopping trip. Thinking you had bought it, then finding it empty. Two people in the house buying the same thing.
+      When what you own is <strong>invisible</strong>, the small waste adds up every single day.<br><br>
+      StockHome puts your household stock on your phone so that <strong>everyone in the house sees the same inventory</strong>.
+      No more relying on "someone probably remembers".
     </p>
+  </div>
+
+  <!-- How it works -->
+  <div class="section fade-in">
+    <div class="section-title">How it works</div>
+    <h2>Three steps. Start today.</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="num">1</span>
+        <h3>Add your stock</h3>
+        <p>Pick from presets or scan a barcode. Food, daily essentials, medicine — added in seconds.</p>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <h3>Low stock goes on the list</h3>
+        <p>When something runs low it is added to your shopping list automatically. Let it auto-consume at your usage pace, too.</p>
+      </div>
+      <div class="step">
+        <span class="num">3</span>
+        <h3>Share with the household</h3>
+        <p>Send an invite code and the whole household shares one inventory. Someone buys it, everyone sees it. No double purchases.</p>
+      </div>
+    </div>
   </div>
 
   <!-- Features -->
   <div class="section fade-in">
     <div class="section-title">Features</div>
-    <h2>Just what you need.</h2>
+    <h2>Just what you need, done well.</h2>
     <div class="features">
       <div class="feature-card">
-        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg></span>
-        <h3>Category Management</h3>
-        <p>Organize inventory by food, daily essentials, medicine, and more.</p>
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1" /> <circle cx="19" cy="21" r="1" /> <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg></span>
+        <h3>Auto shopping list</h3>
+        <p>When stock drops below your threshold, it goes on the shopping list by itself. Nothing forgotten.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1" /> <circle cx="19" cy="21" r="1" /> <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg></span>
-        <h3>Auto Shopping List</h3>
-        <p>Automatically adds items to your shopping list when stock runs low.</p>
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7" /> <polyline points="16 17 22 17 22 11" /></svg></span>
+        <h3>Auto-consume</h3>
+        <p>Set how fast you use something and the quantity goes down on its own. No daily data entry.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5v14" /> <path d="M8 5v14" /> <path d="M12 5v14" /> <path d="M17 5v14" /> <path d="M21 5v14" /></svg></span>
+        <h3>Barcode entry</h3>
+        <p>Scan a product's barcode to add it. Next time, a single scan records the restock.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /></svg></span>
+        <h3>Expiry dates</h3>
+        <p>Record an expiry date and get a reminder 3 days before, the day before, and on the day. Less food waste.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /> <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg></span>
+        <h3>Low-stock alerts</h3>
+        <p>A notification only on days there is something to buy. Your phone nudges you before you head out.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg></span>
-        <h3>Household Sharing</h3>
-        <p>Share inventory in real-time with family or roommates via invite code.</p>
+        <h3>Share with family or roommates</h3>
+        <p>Just send an invite code. One inventory and one shopping list, synced in real time.</p>
+      </div>
+      <div class="feature-card">
+        <span class="pro-tag">PRO</span>
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /> <circle cx="12" cy="13" r="3" /></svg></span>
+        <h3>Product photos</h3>
+        <p>Attach a photo to each item so look-alike packages are easy to tell apart.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" x2="12" y1="15" y2="3" /></svg></span>
+        <h3>CSV export</h3>
+        <p>Export your inventory and change history as CSV. Your data stays yours.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /> <circle cx="12" cy="10" r="3" /></svg></span>
+        <h3>Multiple places</h3>
+        <p>Home, parents' house, cabin, office. Keep a separate inventory for each place.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></svg></span>
-        <h3>3 Languages</h3>
-        <p>Available in Japanese, English, and Vietnamese.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a7.31 7.31 0 0 0 10 10Z" /> <path d="m9 15 3-3" /> <path d="M17 13a6 6 0 0 0-6-6" /> <path d="M21 13A10 10 0 0 0 11 3" /></svg></span>
-        <h3>Offline Support</h3>
-        <p>Works without internet. Syncs automatically when connected.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg></span>
-        <h3>Easy to Use</h3>
-        <p>Just pick from presets. No tedious data entry needed.</p>
+        <h3>3 languages</h3>
+        <p>Japanese, English, and Vietnamese. Everyone in the house, in their own language.</p>
       </div>
     </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="section fade-in">
+    <div class="section-title">Pricing</div>
+    <h2>Start free.<br>Pay once if you need more.</h2>
+    <div class="pricing">
+      <div class="plan">
+        <div class="plan-name">Free</div>
+        <div class="price">¥0</div>
+        <div class="note">No account required. Start right away.</div>
+        <ul>
+          <li>Up to 50 stock items</li>
+          <li>Auto shopping list, auto-consume, barcode, expiry dates, alerts</li>
+          <li>Share with family or roommates</li>
+          <li>CSV export and multiple places</li>
+          <li>No product photos</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <div class="plan-name">Pro</div>
+        <div class="price">¥1,500<small>one-time purchase</small></div>
+        <div class="note">Not a subscription. Buy once, keep it for good.</div>
+        <ul>
+          <li>Unlimited stock items beyond 50</li>
+          <li>Product photos on every item</li>
+          <li>If anyone in the household has Pro, the whole household is unlocked</li>
+          <li>Everything in Free is included</li>
+        </ul>
+      </div>
+    </div>
+    <p class="pricing-note">Price shown in Japanese yen. Prices in other currencies follow what your store displays. Purchase is made inside the app.</p>
   </div>
 
   <!-- Screenshots -->
@@ -349,42 +283,55 @@
     <div class="section-title">Screenshots</div>
     <h2>See it in action.</h2>
     <div class="screenshot-scroll">
-      <img src="/assets/store/ios-screenshot-01-home.webp" alt="Home Screen">
-      <img src="/assets/store/ios-screenshot-02-add.webp" alt="Add Item">
-      <img src="/assets/store/ios-screenshot-03-shopping.webp" alt="Shopping List">
-      <img src="/assets/store/ios-screenshot-04-settings.webp" alt="Settings">
+      <div class="shot"><img src="/assets/store/ios-screenshot-01-home.webp" alt="Home screen"><span>Your household stock at a glance</span></div>
+      <div class="shot"><img src="/assets/store/ios-screenshot-02-add.webp" alt="Add item"><span>Add from presets or by barcode</span></div>
+      <div class="shot"><img src="/assets/store/ios-screenshot-03-shopping.webp" alt="Shopping list"><span>Auto shopping list when low</span></div>
+      <div class="shot"><img src="/assets/store/ios-screenshot-04-settings.webp" alt="Settings"><span>Household sharing, alerts, languages</span></div>
     </div>
+  </div>
+
+  <!-- Use cases -->
+  <div class="section fade-in">
+    <div class="section-title">Who it's for</div>
+    <h2>If even one of these sounds familiar, it's for you.</h2>
+    <ul class="usecases">
+      <li>Both of you work, and nobody really knows what's in the house</li>
+      <li>You buy in bulk and keep forgetting how much is left</li>
+      <li>"Can you grab some more of that?" never quite gets through to your family or roommates</li>
+      <li>You buy duplicates, or run out at exactly the wrong moment</li>
+      <li>You end up throwing away food that passed its expiry date</li>
+    </ul>
   </div>
 
   <!-- Footer CTA -->
   <div class="footer-cta fade-in">
-    <h2>Try it out now.</h2>
+    <h2>Get your household stock in order today.</h2>
+    <p style="color:#888;font-size:15px;margin:-16px 0 28px;position:relative;line-height:1.7;">Free up to 50 items. No account needed to start.</p>
     <div class="cta">
       <a href="https://apps.apple.com/jp/app/stockhome/id6760977394"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
-      <a href="https://play.google.com/store/apps/details?id=tools.lh.stockhome"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a>
+      <a href="https://play.google.com/store/apps/details?id=tools.lh.stockhome"><img src="/assets/google-play-badge.png" alt="Get it on Google Play"></a>
+    </div>
+  </div>
+
+  <!-- Cross promo + follow -->
+  <div class="cross fade-in">
+    <div class="section-title">More from Life Hack Tools</div>
+    <div class="cross-apps">
+      <a href="/en/apps/peckish/"><img src="/assets/icon-peckish.png" alt="Peckish">Peckish</a>
+      <a href="/en/apps/todo-box/"><img src="/assets/icon-todo-box.png" alt="TodoBox">TodoBox</a>
+      <a href="/en/apps/mugg/"><img src="/assets/icon-mugg.png" alt="Mugg">Mugg</a>
+      <a href="/en/apps/word-diary/"><img src="/assets/icon-word-diary.png" alt="Word Diary">Word Diary</a>
+    </div>
+    <div class="follow">
+      <a href="https://x.com/LifeHackToolz" target="_blank">Follow us on X for new apps and updates →</a>
     </div>
   </div>
 
   <script>
-    // Scroll fade-in animation
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Parallax on hero background
-    window.addEventListener('scroll', () => {
-      const hero = document.querySelector('.hero::before');
-      const scrollY = window.scrollY;
-      document.querySelector('.hero').style.setProperty(
-        '--scroll', scrollY * 0.3 + 'px'
-      );
-    });
   </script>
   <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
