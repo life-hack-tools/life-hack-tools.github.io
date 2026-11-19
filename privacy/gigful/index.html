@@ -34,37 +34,38 @@
   
 .fade-in{opacity:1!important;transform:none!important}
 @media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
-.fade-in{opacity:1;transform:none}.intro{color:#bbb}.policy-section p{color:#bbb}.updated{color:#aaa}a{color:#a9c9ba}.page-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:36px}.page-links a{color:#b9d7c9}h2{scroll-margin-top:90px}.beta{display:inline-block;background:#19372f;color:#cee8dc;padding:5px 12px;border-radius:7px;margin-bottom:20px}.hero-icon{width:100px;height:100px;object-fit:contain;border-radius:24px;margin-bottom:20px}.content{overflow-wrap:anywhere}.policy-section h2{margin-top:28px}.policy-section p{margin:14px 0}.nav{gap:12px}.lang-switch a{min-height:36px;display:flex;align-items:center}.nav a{min-height:36px;display:flex;align-items:center}a:focus-visible{outline:3px solid #b7dbc9;outline-offset:4px}.contact-card{margin-top:24px}</style></head><body><nav class="nav" aria-label="Life Hack Tools"><a href="/" >← LHTz</a><div class="lang-switch"><a href="/privacy/gigful/" hreflang="ja" lang="ja" class="active" aria-current="page">JA</a><a href="/en/privacy/gigful/" hreflang="en" lang="en">EN</a><a href="/vi/privacy/gigful/" hreflang="vi" lang="vi">VI</a></div></nav><main class="content"><h1>Gigful プライバシーポリシー</h1><div class="policy-section"><p class="updated">最終更新: 2026年11月1日。</p>
-<p>Life Hack Tools（以下「運営者」）は、Gigfulで扱う情報を次のとおり取り扱います。</p>
+.fade-in{opacity:1;transform:none}.intro{color:#bbb}.policy-section p{color:#bbb}.updated{color:#aaa}a{color:#a9c9ba}.page-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:36px}.page-links a{color:#b9d7c9}h2{scroll-margin-top:90px}.beta{display:inline-block;background:#19372f;color:#cee8dc;padding:5px 12px;border-radius:7px;margin-bottom:20px}.hero-icon{width:100px;height:100px;object-fit:contain;border-radius:24px;margin-bottom:20px}.content{overflow-wrap:anywhere}.policy-section h2{margin-top:28px}.policy-section p{margin:14px 0}.nav{gap:12px}.lang-switch a{min-height:36px;display:flex;align-items:center}.nav a{min-height:36px;display:flex;align-items:center}a:focus-visible{outline:3px solid #b7dbc9;outline-offset:4px}.contact-card{margin-top:24px}</style></head><body><nav class="nav" aria-label="Life Hack Tools"><a href="/" >← LHTz</a><div class="lang-switch"><a href="/privacy/gigful/" hreflang="ja" lang="ja" class="active" aria-current="page">JA</a><a href="/en/privacy/gigful/" hreflang="en" lang="en">EN</a><a href="/vi/privacy/gigful/" hreflang="vi" lang="vi">VI</a></div></nav><main class="content"><h1>Gigful プライバシーポリシー</h1><div class="policy-section"><p class="updated">最終更新: 2026年11月19日。</p>
+<p>Life Hack Tools（以下「運営者」）は、イベントの保存・共有・公開ページ・購入機能を備えたGigfulで、情報を次のとおり取り扱います。</p>
 <h2>イベントのデータ</h2>
-<p>製品版では、イベントのデータは既定でGoogle Firebase（Authentication・Cloud Firestore・Cloud Functions。Cloud Functionsは東京リージョン）に保存されます。保存するのは、イベント名・日付・会場・定員・スタッフ人数、券種、費目、分配、担当者・チーム・出演時間、借り物、予定です。担当者名・貸主名などは利用者が入力する自由入力で、第三者の名前を含むことがあります。必要な範囲の情報だけを入力してください。</p>
-<p>スタッフ名簿、業者・取引先、飲食の発注、協賛、個別チケット（購入者名を含む）、想定人数、募集リンクの控え、会場の詳細、宣伝素材は端末の中だけに保存し、サーバーへは送りません。</p>
+<p>イベントのデータは端末とGoogle Firebase（Authentication・Cloud Firestore・Cloud Functions）で処理します。イベント名・日付・会場・券種・費目・分配・担当者・チーム・借り物・予定などを保存・同期します。自由入力には第三者の名前や連絡先が含まれる場合があります。必要な情報だけを入力してください。</p>
+<p>スタッフ名簿や個別チケットなど、端末専用の項目もあります。ただし、公開ページに載せるイベント情報やチラシ画像は、下記の公開操作で別途サーバーへ送ります。</p>
 <h2>アカウント</h2>
-<p>メールアドレスなどの登録は不要です。起動すると、Firebase Authenticationが匿名のユーザーIDを発行します。このIDがサーバー上のイベントの持ち主を示します。</p>
-<p>任意でAppleでサインイン（iOS）すると、機種変更や再インストールのあとに自分のイベントを復元できます。このとき匿名のアカウントにAppleのアカウントを結び付け、Firebaseにはメールアドレス（Appleの「メールを非公開」を選んだ場合はAppleの中継用アドレス）が記録されます。氏名は求めず、保存しません。</p>
+<p>外部アカウントでのサインインは必須ではなく、初回画面の「あとで」で進められます。サーバーの利用時にはFirebase Authenticationが匿名のユーザーIDを発行し、イベントの所有者や共有権限を管理します。匿名利用もサーバーを使わないという意味ではありません。</p>
+<p>iOSでは任意でAppleでサインインできます。匿名アカウントとAppleアカウントを結び付け、機種変更等の際のアクセスに使います。Firebaseにはメールアドレス（メールを非公開にした場合はAppleの中継用アドレス）が記録されます。Appleから氏名は求めません。</p>
 <h2>共有</h2>
-<p>招待リンクを作ると、リンクを開いた人は、与えられた権限（編集または閲覧）でそのイベントを見たり編集したりできます。サーバーには、作成者と参加者のユーザーIDと権限、招待の情報（ID・権限・発行日時・発行から7日間の期限）、参加者を外した記録、各データの更新時刻を保存します。招待リンクは公開の場所に置かないでください。</p>
-<h2>会場の検索</h2>
-<p>会場名を検索すると、入力した文字列がCloud Functionsを経由してLHTzの位置情報基盤（places-gateway）に送られ、Google Places APIに問い合わせます。候補を選ぶと、選んだ場所のIDを同じ経路で送り、住所・電話番号・地図のURL・座標を受け取って、そのイベントの会場の詳細として端末に保存します。端末の位置情報は取得せず、ユーザーIDやメールアドレスもGoogleへは送りません。会場の名前はイベントの一部としてサーバーにも保存されます。小さな地図は、iOSではAppleの標準地図、AndroidではGoogleの地図サービスを使って表示します。</p>
+<p>利用者が招待リンクを作ると、参加者は与えられた編集・閲覧権限でイベントを利用できます。サーバーには所有者・参加者のユーザーIDと権限、招待のID・権限・発行時刻・期限、参加者を外した記録、更新時刻等を保存します。招待リンクは公開の場所に置かないでください。</p>
+<h2>会場検索と任意の位置情報</h2>
+<p>会場の入力欄で、近くの候補を出すために使用中の位置情報の許可を求めることがあります。許可すると端末の緯度・経度を取得し、検索文字列とともにCloud Functions、LHTzのplaces-gatewayを経由してGoogle Places APIに送り、候補の優先順位や距離の表示に使います。位置情報を拒否したり取得できなかったりしても、位置情報なしで検索できます。バックグラウンドの位置追跡は行いません。</p>
+<p>候補を選ぶと場所IDを同じ経路で送り、住所・電話番号・地図URL・会場の座標を受け取ります。会場の座標と利用者の現在地は異なる情報です。会場名はイベントの一部として保存します。検索用のGoogle Placesリクエストに、アプリからユーザーIDやメールアドレスは付けません。地図表示にはiOSのApple Maps、AndroidのGoogleの地図サービスを使います。</p>
+<h2>公開イベントページとチラシ画像</h2>
+<p>「宣伝」からイベントを公開すると、利用者が設定したタイトル・日時・会場・告知文等をサーバーへ送り、https://gigful.lh.tools/e/… でリンクを知る人が閲覧できるようにします。</p>
+<p>選んだチラシ画像は最初に端末へコピーします。公開時にはチラシの1枚目をサーバーへアップロードして公開ページに載せます。画像は常に端末だけにとどまるわけではありません。画像や公開文に個人情報が含まれないか確認してください。公開をやめても、閲覧者が保存したコピーを運営者から消すことはできません。</p>
 <h2>出演者の募集</h2>
-<p>主催者は、募集用の公開ページ（https://gigful-lht.web.app/r/…）を作れます。ページには、主催者が入れたタイトル・日時・会場・条件・連絡先・持ち時間が公開されます。ページを開いた人はログインなしで応募でき、応募者が入力した名前・連絡先・演目・持ち時間・メッセージはFirebaseに保存され、主催者のアプリだけが読めます。応募者の通信情報（IPアドレス等）は、Firebaseが通信を処理するために受け取ります。応募者本人からの削除の依頼は、主催者または下記の窓口で受け付けます。</p>
+<p>主催者が募集ページを公開すると、タイトル・日時・会場・条件・連絡先・持ち時間等が https://gigful.lh.tools/r/… に表示されます。応募者はログインせずに名前・連絡先・演目・持ち時間・メッセージを送れます。応募内容はFirebaseに保存し、主催者がアプリから読めるようにします。応募者の接続元IPアドレス等は、通信処理と不正な連続応募を抑えるために処理します。削除の依頼は主催者または下記の窓口で受け付けます。</p>
 <h2>クラッシュ報告（同意した場合のみ）</h2>
-<p>初回に、クラッシュ報告を送るかを尋ねます。同意した場合だけ、Sentryに、アプリのバージョン、OSの名前とバージョン、機種の分類、エラーの発生位置（関数名・ファイル名・行番号）を送ります。エラーの文言、操作の履歴、イベントの内容、ユーザーID、IPアドレスは送りません。同意はあとから変えられます。</p>
+<p>Sentryへのクラッシュ報告は初期状態で無効です。「設定」の「クラッシュ情報を送る」を有効にした場合だけ送信し、あとから無効にできます。報告内容はアプリのバージョン、OS、機種分類、エラーの発生位置等に絞ります。アプリが作る報告から、エラー本文、操作履歴、イベント内容、ユーザーID、IPアドレス等を取り除きます。通信先は接続に伴うIPアドレス等を受け取ります。</p>
 <h2>アプリ内課金</h2>
-<p>買い切りのGigful Proを購入・復元する版では、AppleまたはGoogleが購入を処理し、購入の確認のためにRevenueCat（米国）へ購入の記録（レシート・購入トークン）とRevenueCatが付ける匿名の識別子が送られます。氏名・メールアドレス・イベントの内容は送りません。広告IDによる計測は行いません。</p>
-<h2>更新の配信</h2>
-<p>アプリは起動時にExpoの更新サービスへ更新を確認します。更新の確認には、OS・プロジェクトID・ランタイムなどに加え、インストールごとのランダムな識別子（EAS-Client-ID）と接続元のIPアドレスを送ります。この識別子はハードウェアIDや広告IDではありません。前回の更新起動で致命的なエラーが記録されている場合、そのエラー内容の一部（最大1024文字）も次回の更新要求で送信されます。イベントの内容は送りません。</p>
-<h2>広告・トラッキング・取得しない情報</h2>
-<p>広告は表示せず、広告SDKは組み込んでいません。他社のアプリやサイトをまたぐ追跡（トラッキング）は行いません。位置情報、連絡先、マイク、広告IDは取得しません。写真は、利用者が「宣伝」でチラシとして選んだ画像だけをアプリの領域にコピーし、端末の中にとどめます（サーバーへは送りません）。カメラは「QR で入場チェック」で入場券の QR コードを読むためだけに使い、映像や画像は保存も送信もしません。</p>
-<h2>バックアップと書き出し</h2>
-<p>JSONには入力したイベントの情報が、PDFには運営表に含まれる情報が入ります。利用者が書き出したときだけ作られ、保存先・送信先は利用者がOSの画面で選びます。書き出したファイルやOSのバックアップは、アプリ内で削除しても自動では削除されません。</p>
-<h2>保存期間と削除</h2>
-<p>端末のイベントは、アプリ内で削除するか、アプリを削除するまで保存されます。「端末の一覧から削除」は端末のコピーだけを消し、サーバーのデータは残ります。</p>
-<p>サーバーに保存したデータ（共有したイベント・アカウント）は、利用者が削除を依頼するまで保存します。最後の更新から2年を過ぎた共有イベントは、運営者が削除することがあります。</p>
-<p>現在のアプリには、サーバー上のイベントやアカウントをアプリ内から削除する機能はありません。削除の依頼は <a href="mailto:info@lh.tools">info@lh.tools</a> へお送りください。削除したいイベントの名前と開催日、Appleでサインインしている場合はそのメールアドレスを添えてください。運営者が確認のうえ、30日以内にサーバーのデータを削除します。</p>
-<p>期限切れの招待や、共有から外した参加者の記録は、自動では削除されません。削除を希望する場合は、上の依頼に含めてください。</p>
-<h2>委託先</h2>
-<p>運営者は、Google（Firebase・Places API・Googleの地図サービス）、Apple、Sentry、RevenueCat、Expo（EAS Update）、お問い合わせの受付先（form.lh.tools）に、上記の目的の範囲で処理を委託・利用します。法令に基づく場合を除き、利用者のデータを第三者に提供しません。</p>
-<h2>お問い合わせ</h2>
-<p>アプリ内のお問い合わせでは、本文、任意の返信用メールアドレス、端末のOS・モデル、アプリのバージョン・ビルド、言語などをform.lh.toolsに送信し、対応のために利用します。実名や参加者の情報を含むバックアップは、必要性を確認せず送らないでください。</p>
-<p><strong>窓口:</strong> Life Hack Tools / <a href="/contact/?app=Gigful">お問い合わせフォーム</a> / <a href="mailto:info@lh.tools">info@lh.tools</a></p></div><nav class="page-links" aria-label="Gigful"><a href="/apps/gigful/">アプリ紹介</a><a href="/privacy/gigful/">プライバシー</a><a href="/support/gigful/">サポート</a></nav></main><footer style="text-align:center;padding:24px;color:#aaa;font-size:12px">© 2026 Life Hack Tools</footer></body></html>
+<p>Gigful ProはAppleまたはGoogle Playが決済する買い切りのアプリ内購入です。購入確認・権利の取得・復元にはRevenueCatを使い、購入の記録やRevenueCatの匿名識別子等を処理します。アプリから氏名・メールアドレス・イベント内容をRevenueCatに設定して送ることはしません。端末識別子の自動収集を無効にする設定で利用し、広告IDによる計測は行いません。購入記録は利用した各ストアの方針でも取り扱われます。</p>
+<h2>更新の配信と診断</h2>
+<p>アプリは起動時にExpoの更新サービスへ更新を確認します。OS・プロジェクトID・ランタイム、インストールごとのランダムな識別子（EAS-Client-ID）、接続元IPアドレス等が処理されます。前回の更新起動で致命的なエラーが記録された場合、その一部（最大1024文字）を次回の更新要求で送る場合があります。Sentryの同意設定とは別の経路です。イベント本文を更新要求に自動添付する処理はありません。</p>
+<h2>写真・カメラ、広告とトラッキング</h2>
+<p>写真は利用者が選んだチラシや券面の画像を扱い、チラシの公開アップロードは上記のとおりです。カメラは入場券のQRコードの読取りに使い、カメラ映像や撮影画像は保存・送信しません。連絡帳、マイク、広告IDは利用しません。広告SDKは組み込まず、他社のアプリやサイトをまたぐ追跡は行いません。</p>
+<h2>書き出したファイル</h2>
+<p>PDF等を書き出して共有すると、保存先・送信先は利用者がOSの画面で選びます。送信先サービスの方針も適用されます。書き出したファイルやOSのバックアップ、他の人が保存したコピーは、運営者側の削除対応だけでは消えません。</p>
+<h2>保存と削除の依頼</h2>
+<p>サーバーのデータは、利用者が削除を依頼するまで保存します。最後の更新から2年を過ぎた共有イベントは、運営者が削除することがあります。端末の一覧からイベントを外す操作は、サーバー上のイベントやアカウントの削除とは異なります。現在、アカウント画面からサーバー上のアカウントを削除する操作はありません。</p>
+<p>削除の依頼はinfo@lh.toolsへ、対象イベントの名前・開催日等、対象を特定できる情報を添えてお送りください。本人確認のためアカウントIDを確認し、30日以内に対応します。アカウントIDが分かる場合は依頼に添えてください。IDの確認方法が分からない場合は、窓口へご相談ください。Appleでサインインしている場合は、そのメールアドレスもお知らせください。期限切れの招待や外した参加者の記録は自動では削除しないため、削除したい場合は依頼の対象に含めてください。ストアの購入記録や利用者が外部に保存したコピーは、運営者が直接削除できない場合があります。</p>
+<h2>問い合わせと処理先</h2>
+<p>アプリ内のお問い合わせを送ると、本文、任意の返信先メール、OS・機種・アプリ版等の診断情報をform.lh.toolsへ送り、サポートに使います。イベント全体を自動添付しません。</p>
+<p>上記の機能にFirebase、Google Places/地図、Apple、Sentry、RevenueCat、Expo、問い合わせ受付サービスを利用します。各サービスは通信の処理に接続元IP等を受け取ります。利用者が招待・公開・外部共有を行った情報は、その相手や公開ページの閲覧者にも見える点にご注意ください。</p>
+<p><strong>お問い合わせ:</strong> Life Hack Tools / <a href="/contact/?app=Gigful">お問い合わせ</a> / <a href="mailto:info@lh.tools">info@lh.tools</a></p></div><nav class="page-links" aria-label="Gigful"><a href="/apps/gigful/">アプリ紹介</a><a href="/privacy/gigful/">プライバシー</a><a href="/support/gigful/">サポート</a></nav></main><footer style="text-align:center;padding:24px;color:#aaa;font-size:12px">© 2026 Life Hack Tools</footer></body></html>
