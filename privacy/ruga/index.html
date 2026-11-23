@@ -59,7 +59,7 @@
   </div>
   <div class="content">
     <h1>プライバシーポリシー</h1>
-    <span class="updated">最終更新日: 2026年11月3日</span>
+    <span class="updated">最終更新日: 2026年11月22日</span>
     <p class="intro">Life Hack Tools（以下「当団体」）は、Ruga（バス停の発車時刻＆徒歩時間アプリ／以下「本アプリ」）における利用者の情報の取り扱いについて、以下のとおり定めます。本アプリはアカウント登録が不要で、広告もトラッキングもありません。データは転送時に暗号化されます。</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>位置情報</h2>
@@ -85,26 +85,32 @@
       <p>アプリの更新があるかを確認するため、ランダムに作ったインストール ID を Expo（EAS Update、650 Industries, Inc.）に送ります。</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>アプリ内の問い合わせから送信した場合</h2>
+      <h2><span class="num">06</span>ロック画面の表示（iPhone）</h2>
+      <p>iPhone で乗るバスを選ぶと、発車時刻をロック画面に表示します（ライブアクティビティ）。発車の 2 分後に表示を消すため、その表示のために iPhone が発行する通知用のトークンと、表示を消す予定の時刻を、暗号化した通信で当団体の Live Activity サーバー（Google Cloud 上で運用）へ送ります。位置情報・選んだバス停・経路は送りません。</p>
+      <p>サーバーは、予定の時刻になると Apple Push Notification service（Apple）を通じて、表示を消す通知を送ります。トークンは暗号化して送信の予約の中だけに保持し、通知を送るか予約を取り消すと消えます。データベースには、トークンを元に戻せない形に変換した値と予定の時刻だけを保存し、32 日以内に自動で削除します。当団体のログにはトークンを記録しません。</p>
+      <p>iPhone の設定でライブアクティビティをオフにしている場合は、表示も送信もしません。Android 版にはこの機能はありません。</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>アプリ内の問い合わせから送信した場合</h2>
       <p>アプリの中の問い合わせ画面から、利用者ご自身が送信したときだけ、次の情報を当団体のお問い合わせ窓口（form.lh.tools）へ送ります。送信しない限り、これらの情報が送られることはありません。</p>
       <ul><li>問い合わせの本文（書かれた内容がそのまま届きます）</li><li>アプリのバージョンとビルド番号</li><li>OS の種類とバージョン</li><li>端末の機種</li><li>言語の設定</li><li>連絡先（入力した場合のみ。入力は任意です）</li></ul>
       <p>これらは、問い合わせへの対応のために使います。連絡先を入力しなかった場合、こちらから返信することはできません。</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>時刻表の出典と、ご利用にあたってのお願い</h2>
+      <h2><span class="num">08</span>時刻表の出典と、ご利用にあたってのお願い</h2>
       <p>本アプリの発車時刻は、公共交通オープンデータセンター（ODPT）や GTFS データリポジトリ（gtfs-data.jp）などを通じて、各地の交通事業者が公開しているデータをもとにしています。データは、公共交通オープンデータ基本ライセンスなど、それぞれのデータの利用条件に沿って利用しています。鉄道の時刻表の一部は、公共交通オープンデータチャレンジ 2026 のデータを、その利用条件と期間に沿って使っています。</p>
       <p>表示される時刻表の正確性・完全性は保証されません。表示内容についてのお問い合わせは、京王バスなどの交通事業者ではなく、<a href="/support/ruga/">Ruga のサポート</a>へお願いします。</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>権限</h2>
+      <h2><span class="num">09</span>権限</h2>
       <p>本アプリが使う端末の権限は、位置情報だけです。アプリを使っているときにだけ使います。バックグラウンドでの位置情報、カメラ、写真、連絡先は使いません。</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>ポリシーの変更</h2>
+      <h2><span class="num">10</span>ポリシーの変更</h2>
       <p>当団体は、必要に応じて本ポリシーを変更することがあります。変更があった場合は、本ページにて公開します。</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>お問い合わせ</h2>
+      <h2><span class="num">11</span>お問い合わせ</h2>
       <p>本ポリシーに関するお問い合わせは、以下のフォームからご連絡ください。</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
