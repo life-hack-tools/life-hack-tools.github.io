@@ -233,6 +233,8 @@
     .feature-icon svg { width: 32px; height: 32px; display: block; }
       /* features-2x2 */
     @media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
+      /* howto-video */
+    .howto-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; margin-top: 28px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); background: #f7f3ee; }
   </style>
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
@@ -268,6 +270,17 @@
       Word Diaryは、1日1枚の写真と1つの言葉だけで日記を続けるアプリです。
       長文は不要。今日を一言で表すだけで、あなたの軌跡が積み重なっていきます。
     </p>
+  </div>
+
+  <!-- How to -->
+  <div class="section fade-in">
+    <div class="section-title">How to</div>
+    <h2>使い方は、39 秒でわかります。</h2>
+    <p>写真を選び、一語を入れて、保存する。残した記録は「記録」タブで振り返れます。</p>
+    <video class="howto-video" controls playsinline preload="none" width="1920" height="1080" poster="/assets/word-diary/howto-ja-poster.jpg">
+      <source src="/assets/word-diary/howto-ja.mp4" type="video/mp4">
+      <a href="/assets/word-diary/howto-ja.mp4">使い方の動画（MP4、39 秒）</a>
+    </video>
   </div>
 
   <!-- Features -->
