@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pitto - Life Hack Tools</title>
-  <meta name="description" content="比べて停めて、迷わず戻る。駐車場メモ＆ナビアプリ。行き先の近くで停められる場所を比べ、停めた場所をワンタップ記録。マスコットのPitriが車まで案内します。">
+  <meta name="description" content="比べて停めて、迷わず戻る。駐車場メモ＆ナビアプリ。行き先の近くで停められる場所を比べ、停めた場所をワンタップ記録。記録した場所まで、方向と距離で案内します。">
   <meta property="og:title" content="Pitto - Life Hack Tools">
-  <meta property="og:description" content="比べて停めて、迷わず戻る。駐車場メモ＆ナビアプリ。停めた場所を記録して、Pitriが車まで案内。">
+  <meta property="og:description" content="比べて停めて、迷わず戻る。駐車場メモ＆ナビアプリ。停めた場所を記録して、車まで方向と距離で案内。">
   <meta property="og:image" content="https://lh.tools/assets/ogp/pitto.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -132,7 +132,7 @@
     }
     .screenshot-scroll::-webkit-scrollbar { display: none; }
     .screenshot-scroll img {
-      height: 500px; width: auto; border-radius: 24px; scroll-snap-align: center;
+      display: block; height: 500px; width: auto; border-radius: 24px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.5); flex-shrink: 0; transition: transform 0.3s;
     }
     .screenshot-scroll img:hover { transform: scale(1.02); }
@@ -151,14 +151,26 @@
       /* feature-icon-svg */
     .feature-icon { color: #14b8a6; }
     .feature-icon svg { width: 32px; height: 32px; display: block; }
-      /* how-video */
-    .how-video { width: min(78%, 300px); margin: 32px auto 0; }
-    .how-video video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); background: #111; box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
-    .how-video p { font-size: 12px; color: #888; text-align: center; margin-top: 10px; }
-    @media (min-width: 720px) {
-      .how-grid { display: grid; grid-template-columns: 260px 1fr; gap: 32px; align-items: start; margin-top: 48px; }
-      .how-grid .steps { margin-top: 0; }
-      .how-video { order: -1; width: 100%; margin: 0; }
+      /* hero-layout: 動画があるときは PC 幅で左に文字、右に動画。スマホ幅はボタンの下に動画 */
+    .hero-inner { position: relative; width: 100%; max-width: 960px; display: flex; flex-direction: column; align-items: center; }
+    .hero-text { display: flex; flex-direction: column; align-items: center; }
+    .price { margin-top: 16px; font-size: 13px; color: #aaa; letter-spacing: 1px; position: relative; }
+    .hero-video { width: min(78%, 280px); margin-top: 40px; }
+    .hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); background: #111; box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .hero-video p { font-size: 12px; color: #888; text-align: center; margin-top: 10px; }
+    @media (min-width: 900px) {
+      .hero-inner.has-video { display: grid; grid-template-columns: 1fr 280px; gap: 64px; align-items: center; }
+      .hero-inner.has-video .hero-text { align-items: flex-start; text-align: left; }
+      .hero-inner.has-video .cta { justify-content: flex-start; }
+      .hero-inner.has-video .hero-video { width: 100%; margin-top: 0; }
+    }
+      /* screenshot-captions: PC 幅では 5 枚を横に並べる */
+    .screenshot-scroll figure { flex-shrink: 0; scroll-snap-align: center; }
+    .screenshot-scroll figcaption { font-size: 14px; color: #999; text-align: center; margin-top: 14px; }
+    @media (min-width: 1200px) {
+      .screenshot-scroll { max-width: 1200px; margin: 0 auto; }
+      .screenshot-scroll figure { flex: 1 1 0; min-width: 0; }
+      .screenshot-scroll img { width: 100%; height: auto; }
     }
   </style>
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
@@ -175,12 +187,23 @@
   </div>
 
   <div class="hero">
-    <img src="/assets/icon-pitto.png" alt="Pitto" class="hero-icon">
-    <h1>Pitto</h1>
-    <p class="subtitle">比べて停めて、迷わず戻る。</p>
-    <div class="cta">
-      <a href="https://apps.apple.com/app/id6787791382"><img src="/assets/app-store-badge.svg" alt="App Store でダウンロード"></a>
-      <a href="https://play.google.com/store/apps/details?id=tools.lh.pitto"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a>
+    <div class="hero-inner has-video">
+      <div class="hero-text">
+        <img src="/assets/icon-pitto.png" alt="Pitto" class="hero-icon">
+        <h1>Pitto</h1>
+        <p class="subtitle">比べて停めて、迷わず戻る。</p>
+        <div class="cta">
+          <a href="/go/pitto/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="App Store でダウンロード"></a>
+          <a href="/go/pitto/google-play/" rel="nofollow"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a>
+        </div>
+        <p class="price">無料</p>
+      </div>
+      <div class="hero-video">
+        <video controls playsinline muted preload="none" width="720" height="1280" poster="/assets/pitto/howto-ja-vertical-poster.webp" aria-label="使い方の動画（音は出ません）">
+          <source src="/assets/pitto/howto-ja-vertical.mp4" type="video/mp4">
+        </video>
+        <p>使い方の動画（音は出ません）</p>
+      </div>
     </div>
   </div>
 
@@ -189,14 +212,13 @@
     <h2>駐車場の「どこに停めた？」を<br>もう二度と。</h2>
     <p>
       Pittoは、行き先の近くで停められる場所を比べて選び、停めた場所を記録して、迷わず車まで戻るための駐車場メモ＆ナビアプリです。
-      案内役はマスコットの Pitri。停める前の「どこがいい？」から、停めたあとの「どこに置いた？」まで、まるっとサポートします。
+      マスコットは Pitri。停める前の「どこがいい？」から、停めたあとの「どこに置いた？」まで、まるっとサポートします。
     </p>
   </div>
 
   <div class="section fade-in">
     <div class="section-title">How it works</div>
     <h2>4ステップで、迷わない。</h2>
-    <div class="how-grid">
     <div class="steps">
       <div class="step-card">
         <div class="step-num">1</div>
@@ -223,16 +245,9 @@
         <div class="step-num">4</div>
         <div class="step-body">
           <h3>車まで戻る</h3>
-          <p>買い物や用事のあとは、Pitriの案内で記録した場所へ迷わず一直線。</p>
+          <p>買い物や用事のあとは、記録した場所まで方向と距離で案内。歩くと矢印と距離が変わります。</p>
         </div>
       </div>
-    </div>
-    <div class="how-video">
-      <video controls playsinline muted preload="none" width="720" height="1280" poster="/assets/pitto/howto-ja-vertical-poster.webp" aria-label="使い方の動画（音は出ません）">
-        <source src="/assets/pitto/howto-ja-vertical.mp4" type="video/mp4">
-      </video>
-      <p>使い方の動画（音は出ません）</p>
-    </div>
     </div>
   </div>
 
@@ -266,9 +281,9 @@
         <p>記録した場所へ、そのまま案内。用事のあとも迷わず戻れます。</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h.01" /> <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20" /> <path d="m20 7 2 .5-2 .5" /> <path d="M10 18v3" /> <path d="M14 17.75V21" /> <path d="M7 18a6 6 0 0 0 3.84-10.61" /></svg></span>
-        <h3>Pitriナビ</h3>
-        <p>マスコットのPitriが道案内。ちょっと楽しく、車までエスコートします。</p>
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></svg></span>
+        <h3>3 言語に対応</h3>
+        <p>日本語・英語・ベトナム語で使えます。</p>
       </div>
     </div>
   </div>
@@ -277,19 +292,19 @@
     <div class="section-title">Screenshots</div>
     <h2>こんな感じ。</h2>
     <div class="screenshot-scroll">
-      <img src="/assets/pitto/screenshots/ja/01-home.webp" alt="ホーム画面" width="828" height="1472" loading="lazy">
-      <img src="/assets/pitto/screenshots/ja/02-search.webp" alt="行き先検索" width="828" height="1472" loading="lazy">
-      <img src="/assets/pitto/screenshots/ja/03-candidates.webp" alt="候補を比較" width="828" height="1472" loading="lazy">
-      <img src="/assets/pitto/screenshots/ja/04-save.webp" alt="停めた場所を記録" width="828" height="1472" loading="lazy">
-      <img src="/assets/pitto/screenshots/ja/05-return.webp" alt="車まで戻る" width="828" height="1472" loading="lazy">
+      <figure><img src="/assets/pitto/screenshots/ja/01-home.webp" alt="ホーム画面" width="828" height="1472" loading="lazy"><figcaption>ホーム</figcaption></figure>
+      <figure><img src="/assets/pitto/screenshots/ja/02-search.webp" alt="行き先検索" width="828" height="1472" loading="lazy"><figcaption>行き先を入れる</figcaption></figure>
+      <figure><img src="/assets/pitto/screenshots/ja/03-candidates.webp" alt="候補を比較" width="828" height="1472" loading="lazy"><figcaption>候補を見比べる</figcaption></figure>
+      <figure><img src="/assets/pitto/screenshots/ja/04-save.webp" alt="停めた場所を記録" width="828" height="1472" loading="lazy"><figcaption>階とメモを記録</figcaption></figure>
+      <figure><img src="/assets/pitto/screenshots/ja/05-return.webp" alt="車まで戻る" width="828" height="1472" loading="lazy"><figcaption>車まで戻る</figcaption></figure>
     </div>
   </div>
 
   <div class="footer-cta fade-in">
     <h2>もう、車を探さない。</h2>
     <div class="cta">
-      <a href="https://apps.apple.com/app/id6787791382"><img src="/assets/app-store-badge.svg" alt="App Store でダウンロード"></a>
-      <a href="https://play.google.com/store/apps/details?id=tools.lh.pitto"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a>
+      <a href="/go/pitto/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="App Store でダウンロード"></a>
+      <a href="/go/pitto/google-play/" rel="nofollow"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a>
     </div>
   </div>
 

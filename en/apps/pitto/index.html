@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pitto - Life Hack Tools</title>
-  <meta name="description" content="Compare, park, and find your way back. A parking-memo & navigation app: compare places to park near your destination, save where you parked with one tap, and let Pitri guide you back to your car.">
+  <meta name="description" content="Compare, park, and find your way back. A parking-memo & navigation app: compare places to park near your destination, save where you parked with one tap, and get guided back to your car by direction and distance.">
   <meta property="og:title" content="Pitto - Life Hack Tools">
-  <meta property="og:description" content="Compare, park, and find your way back. Save where you parked and let Pitri guide you back to your car.">
+  <meta property="og:description" content="Compare, park, and find your way back. Save where you parked and get guided back to your car by direction and distance.">
   <meta property="og:image" content="https://lh.tools/assets/ogp/pitto.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -132,7 +132,7 @@
     }
     .screenshot-scroll::-webkit-scrollbar { display: none; }
     .screenshot-scroll img {
-      height: 500px; width: auto; border-radius: 24px; scroll-snap-align: center;
+      display: block; height: 500px; width: auto; border-radius: 24px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.5); flex-shrink: 0; transition: transform 0.3s;
     }
     .screenshot-scroll img:hover { transform: scale(1.02); }
@@ -151,6 +151,27 @@
       /* feature-icon-svg */
     .feature-icon { color: #14b8a6; }
     .feature-icon svg { width: 32px; height: 32px; display: block; }
+      /* hero-layout: 動画があるときは PC 幅で左に文字、右に動画。スマホ幅はボタンの下に動画 */
+    .hero-inner { position: relative; width: 100%; max-width: 960px; display: flex; flex-direction: column; align-items: center; }
+    .hero-text { display: flex; flex-direction: column; align-items: center; }
+    .price { margin-top: 16px; font-size: 13px; color: #aaa; letter-spacing: 1px; position: relative; }
+    .hero-video { width: min(78%, 280px); margin-top: 40px; }
+    .hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); background: #111; box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .hero-video p { font-size: 12px; color: #888; text-align: center; margin-top: 10px; }
+    @media (min-width: 900px) {
+      .hero-inner.has-video { display: grid; grid-template-columns: 1fr 280px; gap: 64px; align-items: center; }
+      .hero-inner.has-video .hero-text { align-items: flex-start; text-align: left; }
+      .hero-inner.has-video .cta { justify-content: flex-start; }
+      .hero-inner.has-video .hero-video { width: 100%; margin-top: 0; }
+    }
+      /* screenshot-captions: PC 幅では 5 枚を横に並べる */
+    .screenshot-scroll figure { flex-shrink: 0; scroll-snap-align: center; }
+    .screenshot-scroll figcaption { font-size: 14px; color: #999; text-align: center; margin-top: 14px; }
+    @media (min-width: 1200px) {
+      .screenshot-scroll { max-width: 1200px; margin: 0 auto; }
+      .screenshot-scroll figure { flex: 1 1 0; min-width: 0; }
+      .screenshot-scroll img { width: 100%; height: auto; }
+    }
   </style>
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
@@ -166,12 +187,18 @@
   </div>
 
   <div class="hero">
-    <img src="/assets/icon-pitto.png" alt="Pitto" class="hero-icon">
-    <h1>Pitto</h1>
-    <p class="subtitle">Compare, park, and find your way back.</p>
-    <div class="cta">
-      <a href="https://apps.apple.com/app/id6787791382"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
-      <a href="https://play.google.com/store/apps/details?id=tools.lh.pitto"><img src="/assets/google-play-badge.png" alt="Get it on Google Play"></a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <img src="/assets/icon-pitto.png" alt="Pitto" class="hero-icon">
+        <h1>Pitto</h1>
+        <p class="subtitle">Compare, park, and find your way back.</p>
+        <div class="cta">
+          <a href="/go/pitto/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
+          <a href="/go/pitto/google-play/" rel="nofollow"><img src="/assets/google-play-badge.png" alt="Get it on Google Play"></a>
+        </div>
+        <p class="price">Free</p>
+      </div>
+      <!-- 使い方の動画を置くときは、上の div に has-video を足し、ここに日本語ページと同じ hero-video を入れる（/assets/pitto/howto-en-vertical.mp4） -->
     </div>
   </div>
 
@@ -180,7 +207,7 @@
     <h2>Never lose your car in<br>a parking lot again.</h2>
     <p>
       Pitto is a parking-memo & navigation app that helps you compare places to park near your destination, save where you parked, and find your way back without a hitch.
-      Your guide is Pitri, our mascot. From "where should I park?" before you stop to "where did I leave it?" after, Pitto has you covered.
+      Our mascot is Pitri. From "where should I park?" before you stop to "where did I leave it?" after, Pitto has you covered.
     </p>
   </div>
 
@@ -213,7 +240,7 @@
         <div class="step-num">4</div>
         <div class="step-body">
           <h3>Head back to your car</h3>
-          <p>After your errands, follow Pitri straight back to the spot you saved.</p>
+          <p>After shopping or errands, Pitto guides you back to the spot you saved by direction and distance. The arrow and distance update as you walk.</p>
         </div>
       </div>
     </div>
@@ -249,9 +276,9 @@
         <p>Navigate right back to the spot you saved, even after a long day out.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h.01" /> <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20" /> <path d="m20 7 2 .5-2 .5" /> <path d="M10 18v3" /> <path d="M14 17.75V21" /> <path d="M7 18a6 6 0 0 0 3.84-10.61" /></svg></span>
-        <h3>Pitri navigation</h3>
-        <p>Pitri, our mascot, leads the way—a little more fun on the walk back to your car.</p>
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></svg></span>
+        <h3>Three languages</h3>
+        <p>Use it in Japanese, English, or Vietnamese.</p>
       </div>
     </div>
   </div>
@@ -260,19 +287,19 @@
     <div class="section-title">Screenshots</div>
     <h2>Take a look.</h2>
     <div class="screenshot-scroll">
-      <img src="/assets/pitto/screenshots/en/01-home.webp" alt="Home screen" width="828" height="1472" loading="lazy">
-      <img src="/assets/pitto/screenshots/en/02-search.webp" alt="Destination search" width="828" height="1472" loading="lazy">
-      <img src="/assets/pitto/screenshots/en/03-candidates.webp" alt="Compare candidates" width="828" height="1472" loading="lazy">
-      <img src="/assets/pitto/screenshots/en/04-save.webp" alt="Save where you parked" width="828" height="1472" loading="lazy">
-      <img src="/assets/pitto/screenshots/en/05-return.webp" alt="Head back to your car" width="828" height="1472" loading="lazy">
+      <figure><img src="/assets/pitto/screenshots/en/01-home.webp" alt="Home screen" width="828" height="1472" loading="lazy"><figcaption>Home</figcaption></figure>
+      <figure><img src="/assets/pitto/screenshots/en/02-search.webp" alt="Destination search" width="828" height="1472" loading="lazy"><figcaption>Enter a destination</figcaption></figure>
+      <figure><img src="/assets/pitto/screenshots/en/03-candidates.webp" alt="Compare candidates" width="828" height="1472" loading="lazy"><figcaption>Compare options</figcaption></figure>
+      <figure><img src="/assets/pitto/screenshots/en/04-save.webp" alt="Save where you parked" width="828" height="1472" loading="lazy"><figcaption>Save floor & note</figcaption></figure>
+      <figure><img src="/assets/pitto/screenshots/en/05-return.webp" alt="Head back to your car" width="828" height="1472" loading="lazy"><figcaption>Head back to your car</figcaption></figure>
     </div>
   </div>
 
   <div class="footer-cta fade-in">
     <h2>Never hunt for your car again.</h2>
     <div class="cta">
-      <a href="https://apps.apple.com/app/id6787791382"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
-      <a href="https://play.google.com/store/apps/details?id=tools.lh.pitto"><img src="/assets/google-play-badge.png" alt="Get it on Google Play"></a>
+      <a href="/go/pitto/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
+      <a href="/go/pitto/google-play/" rel="nofollow"><img src="/assets/google-play-badge.png" alt="Get it on Google Play"></a>
     </div>
   </div>
 
