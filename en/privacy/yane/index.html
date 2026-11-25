@@ -60,8 +60,8 @@
   </div>
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: October 15, 2026</span>
-    <p class="intro">This Privacy Policy describes how Life Hack Tools ("we") handles user information in Yane: Roommate Bills &amp; Chores ("the App"). The App lets people who live together — roommates, couples and shared houses — share their records of money and chores and keep in touch with each other. No account is required. Only members of the same home can view and edit that home's data, and we never sell or provide user information to third parties. The App shows no ads.</p>
+    <span class="updated">Last updated: October 22, 2026</span>
+    <p class="intro">This Privacy Policy describes how Life Hack Tools ("we") handles user information in Yane: Roommate Bills &amp; Chores ("the App"). The App lets people who live together — roommates, couples and shared houses — share their records of money and chores and keep in touch with each other. No account is required. Only members of the same home can view and edit that home's data, and we do not sell user information; section 08 explains optional external notifications. The App shows no ads.</p>
 
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Account and Identifier</h2>
@@ -153,6 +153,11 @@
       </ul>
       <p>Notifications are relayed through Expo's notification service and delivered to your device by Apple's or Google's notification service. The notification text includes the home's name, the poster's display name and part of the post. You can turn off notifications at any time in your device settings.</p>
       <p>Chore reminders remain <strong>local notifications</strong> scheduled only on your device.</p>
+      <h3>Optional LINE group notifications</h3>
+      <p>In versions offering LINE linking, notices are sent only after a home owner checks the destination group and consents to each notification category. This is optional and separate from LINE Login. We send generic notices and a public app URL for new home messages, messages from Yane, and a daily chore summary at 9 AM in the selected time zone. Notices exclude post text, photos, names, amounts, home or member IDs, and the person who asked Yane.</p>
+      <p>People who do not use Yane may belong to the LINE group, and all group participants can read the notices. To connect a group, our webhook temporarily processes incoming group messages to identify a connection code. We do not store incoming post text.</p>
+      <p>Our servers store the destination group ID, name and participant count, the connecting owner and membership generation, notification categories, language, time zone, processing outcomes and reserved message counts. Connection codes are stored only as hashes and expire after 10 minutes. Short-lived codes, webhook deduplication and rate-limit records, and invalidated connection information are marked for deletion after their retention periods (10 minutes for codes and two days for the other records). Delivery jobs and source-event deduplication records are marked for deletion 30 days after creation. Actual deletion can occur later due to processing delays.</p>
+      <p>Current home members can view the connection status, and an owner can disconnect it in the app. Membership and connection-generation checks stop new sends after the connecting owner leaves or the home is deleted. Requests already in flight just before disconnection may not be cancellable. Notices already sent to LINE are not removed from LINE by disconnecting or deleting a Yane account.</p>
     </div>
 
     <div class="policy-section fade-in">
@@ -168,7 +173,7 @@
       <ul>
         <li><strong>Google:</strong> Firebase (Authentication, Cloud Firestore and Storage), Cloud Run, Sign in with Google, Android's notification service, and Google Play billing</li>
         <li><strong>Apple:</strong> Sign in with Apple, iPhone's notification service, and App Store payments</li>
-        <li><strong>LY Corporation:</strong> LINE Login</li>
+        <li><strong>LY Corporation:</strong> LINE Login and optional LINE group notifications (Messaging API)</li>
         <li><strong>Zalo (VNG Corporation):</strong> Log in with Zalo</li>
         <li><strong>RevenueCat, Inc. (United States):</strong> managing in-app purchases (section 16)</li>
         <li><strong>Expo:</strong> relaying push notifications</li>
@@ -180,7 +185,7 @@
     <div class="policy-section fade-in">
       <h2><span class="num">11</span>Who Can See Your Information</h2>
       <p>Within the App, a home's data (including comments, notes in House notes and photos) can be viewed and edited <strong>only by current members of that home</strong>. This restriction is enforced by Cloud Firestore and Firebase Storage security rules. Members who leave a home can no longer see its data.</p>
-      <p>We never sell or provide user information to third parties. The App shows no ads.</p>
+      <p>We do not sell user information. With the optional LINE notifications in section 08, we share notices for the categories consented to by an owner with the group that owner confirmed. The App shows no ads.</p>
     </div>
 
     <div class="policy-section fade-in">

@@ -60,8 +60,8 @@
   </div>
   <div class="content">
     <h1>Chính sách bảo mật</h1>
-    <span class="updated">Cập nhật lần cuối: 15 tháng 10 năm 2026</span>
-    <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Yane: Chia tiền &amp; việc nhà ("Ứng dụng"). Ứng dụng giúp những người sống chung — bạn cùng phòng, cặp đôi và nhà ở ghép — chia sẻ ghi chép về tiền bạc và việc nhà, và liên lạc với nhau. Bạn không cần tạo tài khoản. Chỉ thành viên trong cùng một nhà mới có thể xem và chỉnh sửa dữ liệu của nhà đó, và chúng tôi không bao giờ bán hay cung cấp thông tin người dùng cho bên thứ ba. Ứng dụng không hiển thị quảng cáo.</p>
+    <span class="updated">Cập nhật lần cuối: 22 tháng 10 năm 2026</span>
+    <p class="intro">Chính sách bảo mật này mô tả cách Life Hack Tools ("chúng tôi") xử lý thông tin người dùng trong Yane: Chia tiền &amp; việc nhà ("Ứng dụng"). Ứng dụng giúp những người sống chung — bạn cùng phòng, cặp đôi và nhà ở ghép — chia sẻ ghi chép về tiền bạc và việc nhà, và liên lạc với nhau. Bạn không cần tạo tài khoản. Chỉ thành viên trong cùng một nhà mới có thể xem và chỉnh sửa dữ liệu của nhà đó, và chúng tôi không bán thông tin người dùng; mục 08 giải thích thông báo bên ngoài tùy chọn. Ứng dụng không hiển thị quảng cáo.</p>
 
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Tài khoản và mã định danh</h2>
@@ -153,6 +153,11 @@
       </ul>
       <p>Thông báo được chuyển tiếp qua dịch vụ thông báo của Expo và được gửi đến thiết bị của bạn qua dịch vụ thông báo của Apple hoặc Google. Nội dung thông báo gồm tên của nhà, tên hiển thị của người đăng và một phần nội dung. Bạn có thể tắt thông báo bất cứ lúc nào trong phần cài đặt của thiết bị.</p>
       <p>Thông báo đến lượt làm việc nhà vẫn là <strong>thông báo cục bộ</strong>, chỉ được hẹn giờ trên thiết bị của bạn.</p>
+      <h3>Thông báo nhóm LINE tùy chọn</h3>
+      <p>Ở phiên bản có liên kết LINE, thông báo chỉ được gửi sau khi chủ nhà xác nhận đúng nhóm nhận và đồng ý với từng loại thông báo. Đây là tính năng tùy chọn, tách biệt với đăng nhập LINE. Chúng tôi chỉ gửi lời thông báo chung và đường dẫn công khai của ứng dụng cho tin mới của nhà, tin từ Yane và tổng hợp việc nhà lúc 9 giờ sáng theo múi giờ đã chọn. Thông báo không chứa nội dung bài đăng, ảnh, tên, số tiền, ID nhà hoặc thành viên hay người đã nhờ Yane.</p>
+      <p>Nhóm LINE có thể có người không dùng Yane và mọi người trong nhóm đều đọc được thông báo. Để kết nối nhóm, webhook tạm thời xử lý tin trong nhóm để nhận diện mã kết nối. Chúng tôi không lưu nội dung tin nhận được.</p>
+      <p>Máy chủ lưu ID, tên và số người của nhóm nhận, chủ nhà kết nối và thế hệ tư cách thành viên, loại thông báo, ngôn ngữ, múi giờ, kết quả xử lý và số lượt gửi đã giữ chỗ. Mã kết nối chỉ được lưu dưới dạng băm và hết hiệu lực sau 10 phút. Mã ngắn hạn, bản ghi chống trùng lặp webhook, giới hạn tần suất và thông tin liên kết đã vô hiệu hóa được đánh dấu để xóa khi hết thời hạn lưu (10 phút cho mã, hai ngày cho các bản ghi còn lại). Hàng đợi gửi và bản ghi chống trùng sự kiện nguồn được đánh dấu để xóa sau 30 ngày kể từ khi tạo. Việc xóa thực tế có thể chậm hơn do thời gian xử lý.</p>
+      <p>Thành viên hiện tại của nhà có thể xem trạng thái kết nối và chủ nhà có thể ngắt liên kết trong ứng dụng. Kiểm tra tư cách thành viên và thế hệ kết nối ngăn lượt gửi mới khi chủ nhà đã kết nối rời đi hoặc nhà bị xóa. Yêu cầu đang gửi ngay trước khi ngắt có thể không hủy được. Thông báo đã gửi đến LINE không bị xóa khỏi LINE khi ngắt liên kết hoặc xóa tài khoản Yane.</p>
     </div>
 
     <div class="policy-section fade-in">
@@ -168,7 +173,7 @@
       <ul>
         <li><strong>Google:</strong> Firebase (Authentication, Cloud Firestore, Storage), Cloud Run, đăng nhập bằng Google, dịch vụ thông báo của Android và thanh toán qua Google Play</li>
         <li><strong>Apple:</strong> Đăng nhập bằng Apple, dịch vụ thông báo của iPhone và thanh toán qua App Store</li>
-        <li><strong>LY Corporation:</strong> LINE Login (đăng nhập bằng LINE)</li>
+        <li><strong>LY Corporation:</strong> LINE Login và thông báo nhóm LINE tùy chọn (Messaging API)</li>
         <li><strong>Zalo (VNG Corporation):</strong> đăng nhập bằng Zalo</li>
         <li><strong>RevenueCat, Inc. (Hoa Kỳ):</strong> quản lý giao dịch mua trong ứng dụng (mục 16)</li>
         <li><strong>Expo:</strong> chuyển tiếp thông báo đẩy</li>
@@ -180,7 +185,7 @@
     <div class="policy-section fade-in">
       <h2><span class="num">11</span>Ai có thể xem thông tin của bạn</h2>
       <p>Trong Ứng dụng, dữ liệu của một nhà (bao gồm bình luận, Thông báo trong nhà và ảnh) <strong>chỉ có thể được xem và chỉnh sửa bởi những người đang là thành viên của nhà đó</strong>. Giới hạn này được thực thi bằng quy tắc bảo mật (security rules) của Cloud Firestore và Firebase Storage. Thành viên đã rời nhà sẽ không còn xem được dữ liệu của nhà đó.</p>
-      <p>Chúng tôi không bao giờ bán hay cung cấp thông tin người dùng cho bên thứ ba. Ứng dụng không hiển thị quảng cáo.</p>
+      <p>Chúng tôi không bán thông tin người dùng. Với thông báo LINE tùy chọn ở mục 08, chúng tôi chia sẻ thông báo thuộc loại chủ nhà đã đồng ý đến nhóm chủ nhà đã xác nhận. Ứng dụng không hiển thị quảng cáo.</p>
     </div>
 
     <div class="policy-section fade-in">

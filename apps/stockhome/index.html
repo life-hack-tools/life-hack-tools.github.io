@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StockHome — 家の在庫を、家族みんなで。| Life Hack Tools</title>
-  <meta name="description" content="「あれ、まだあったっけ？」をゼロに。家の在庫をスマホで一覧化して、家族みんなで共有。買い忘れも二重買いも、もう終わり。無料・オフライン対応・日英越3言語。">
+  <title>StockHome 在庫管理・買い物リスト — 減ったら自動で買い物リストへ | Life Hack Tools</title>
+  <meta name="description" content="家の在庫をスマホで一覧化。減ったら自動で買い物リストへ、使うペースで自動消費、バーコード登録、消費期限・残量アラート通知、家族と招待コードで共有。在庫 50 件までは無料、Pro は買切 ¥1,500。日英越3言語。">
   <link rel="canonical" href="https://lh.tools/apps/stockhome/">
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -13,8 +13,8 @@
   <link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/stockhome/">
   <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/stockhome/">
   <link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/stockhome/">
-  <meta property="og:title" content="StockHome — 家の在庫を、家族みんなで。">
-  <meta property="og:description" content="「あれ、まだあったっけ？」をゼロに。家の在庫を家族で共有。買い忘れも二重買いも、もう終わり。無料で使えます。">
+  <meta property="og:title" content="StockHome 在庫管理・買い物リスト — 減ったら自動で買い物リストへ">
+  <meta property="og:description" content="家の在庫を家族みんなで共有。減ったら自動で買い物リストへ。バーコード登録・消費期限・残量アラート通知。在庫 50 件までは無料、Pro は買切 ¥1,500。">
   <meta property="og:image" content="https://lh.tools/assets/ogp/stockhome.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -40,6 +40,7 @@
     @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
     .hero-icon { width: 110px; height: 110px; border-radius: 26px; box-shadow: 0 20px 60px rgba(16,185,129,0.3); margin-bottom: 28px; animation: float 6s ease-in-out infinite; position: relative; }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .hero .app-name { font-size: 15px; font-weight: 600; letter-spacing: 1px; color: #9fe8cf; margin-bottom: 12px; position: relative; }
     .hero h1 { font-size: clamp(34px, 7vw, 52px); font-weight: 800; letter-spacing: -1px; margin-bottom: 14px; position: relative; line-height: 1.15; }
     .hero h1 .accent { color: #10b981; }
     .hero .subtitle { font-size: clamp(15px, 2.6vw, 19px); color: #aaa; margin-bottom: 36px; position: relative; line-height: 1.7; max-width: 560px; }
@@ -64,11 +65,25 @@
     .step p { font-size: 14px; color: #888; line-height: 1.7; }
 
     .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
-    .feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; transition: transform 0.3s, border-color 0.3s, background 0.3s; }
+    .feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; transition: transform 0.3s, border-color 0.3s, background 0.3s; position: relative; }
     .feature-card:hover { transform: translateY(-4px); border-color: rgba(16,185,129,0.3); background: rgba(255,255,255,0.06); }
-    .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; color: #10b981; }
+    .feature-icon svg { width: 32px; height: 32px; display: block; }
     .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
     .feature-card p { font-size: 14px; color: #777; line-height: 1.6; }
+    .pro-tag { position: absolute; top: 18px; right: 18px; font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #0a0a0a; background: #10b981; border-radius: 999px; padding: 3px 9px; }
+
+    .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 48px; }
+    .plan { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 32px 28px; }
+    .plan.pro { border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.05); }
+    .plan .plan-name { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #10b981; margin-bottom: 10px; }
+    .plan .price { font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-bottom: 4px; }
+    .plan .price small { font-size: 14px; font-weight: 500; color: #888; letter-spacing: 0; margin-left: 6px; }
+    .plan .note { font-size: 13px; color: #777; margin-bottom: 20px; line-height: 1.6; }
+    .plan ul { list-style: none; display: grid; gap: 10px; }
+    .plan li { font-size: 15px; color: #ccc; display: flex; gap: 10px; align-items: flex-start; line-height: 1.55; }
+    .plan li::before { content: '✓'; color: #10b981; font-weight: 800; flex-shrink: 0; }
+    .pricing-note { font-size: 13px; color: #666; margin-top: 20px; line-height: 1.7; }
 
     .screenshots { padding: 80px 0; overflow: hidden; }
     .screenshots .section-title, .screenshots h2 { text-align: center; padding: 0 24px; }
@@ -104,9 +119,6 @@
 
     .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-      /* feature-icon-svg */
-    .feature-icon { color: #10b981; }
-    .feature-icon svg { width: 32px; height: 32px; display: block; }
   </style>
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
@@ -125,16 +137,17 @@
   <!-- Hero -->
   <div class="hero">
     <img src="/assets/icon-stockhome.png" alt="StockHome" class="hero-icon">
-    <h1>「あれ、まだあったっけ？」<br>を<span class="accent">ゼロ</span>に。</h1>
+    <div class="app-name">StockHome 在庫管理・買い物リスト</div>
+    <h1>減ったら<span class="accent">自動で</span><br>買い物リストへ。</h1>
     <p class="subtitle">家のストックをスマホで一覧化して、家族みんなで共有。<br>買い忘れも、うっかり二重買いも、これで終わり。</p>
     <div class="cta">
       <a href="https://apps.apple.com/jp/app/stockhome/id6760977394"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
       <a href="https://play.google.com/store/apps/details?id=tools.lh.stockhome"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a>
     </div>
     <div class="chips">
-      <span class="chip">✓ 無料</span>
+      <span class="chip">✓ 在庫 50 件まで無料</span>
+      <span class="chip">✓ Pro 買切 ¥1,500</span>
       <span class="chip">✓ 世帯で共有</span>
-      <span class="chip">✓ オフライン対応</span>
       <span class="chip">✓ 日 / EN / VI</span>
     </div>
   </div>
@@ -159,12 +172,12 @@
       <div class="step">
         <span class="num">1</span>
         <h3>在庫を登録</h3>
-        <p>プリセットから選ぶだけ。食品・日用品・薬をサッと登録。面倒な入力はいりません。</p>
+        <p>プリセットから選ぶか、バーコードを読み取るだけ。食品・日用品・薬をサッと登録。</p>
       </div>
       <div class="step">
         <span class="num">2</span>
         <h3>減ったら自動でリスト</h3>
-        <p>残りが少なくなると、買い物リストへ自動で追加。「買い忘れた…」がなくなります。</p>
+        <p>残りが少なくなると、買い物リストへ自動で追加。使うペースで自動で減らすこともできます。</p>
       </div>
       <div class="step">
         <span class="num">3</span>
@@ -180,29 +193,50 @@
     <h2>必要な機能だけ、しっかり。</h2>
     <div class="features">
       <div class="feature-card">
-        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg></span>
-        <h3>世帯共有</h3>
-        <p>招待コードで家族・ルームメイトとリアルタイム共有。「誰が買う？」が消える。</p>
-      </div>
-      <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1" /> <circle cx="19" cy="21" r="1" /> <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg></span>
-        <h3>自動買い物リスト</h3>
-        <p>残量が減ったら自動でリスト化。買い忘れゼロ。</p>
+        <h3>減ったら自動で買い物リスト</h3>
+        <p>残量が設定値を下回ると、買い物リストへ自動で追加。買い忘れゼロ。</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg></span>
-        <h3>カテゴリ管理</h3>
-        <p>食品・日用品・薬・その他。カテゴリごとにサッと整理。</p>
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7" /> <polyline points="16 17 22 17 22 11" /></svg></span>
+        <h3>自動消費</h3>
+        <p>使うペースを設定すると、残量が自動で減っていく。毎回の入力はいりません。</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a7.31 7.31 0 0 0 10 10Z" /> <path d="m9 15 3-3" /> <path d="M17 13a6 6 0 0 0-6-6" /> <path d="M21 13A10 10 0 0 0 11 3" /></svg></span>
-        <h3>オフライン対応</h3>
-        <p>ネットがなくても使える。接続時に自動同期。</p>
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5v14" /> <path d="M8 5v14" /> <path d="M12 5v14" /> <path d="M17 5v14" /> <path d="M21 5v14" /></svg></span>
+        <h3>バーコード登録</h3>
+        <p>商品のバーコードを読み取って登録。次からはスキャンするだけで補充。</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg></span>
-        <h3>かんたん操作</h3>
-        <p>プリセットから選ぶだけ。面倒な入力は不要。</p>
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /></svg></span>
+        <h3>消費期限</h3>
+        <p>期限を登録しておけば、3日前・前日・当日にお知らせ。食品ロスを防ぐ。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /> <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg></span>
+        <h3>残量アラート通知</h3>
+        <p>買うものがある日だけ通知。買い物に出る前に、スマホがそっと教えてくれる。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg></span>
+        <h3>家族・ルームメイトと共有</h3>
+        <p>招待コードを送るだけ。同じ在庫と買い物リストをリアルタイムで共有。</p>
+      </div>
+      <div class="feature-card">
+        <span class="pro-tag">PRO</span>
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /> <circle cx="12" cy="13" r="3" /></svg></span>
+        <h3>商品写真</h3>
+        <p>在庫に写真を付けて見分けやすく。似たパッケージも迷わない。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" x2="12" y1="15" y2="3" /></svg></span>
+        <h3>CSV 書き出し</h3>
+        <p>在庫と変更履歴を CSV で書き出し。データはあなたのもの。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /> <circle cx="12" cy="10" r="3" /></svg></span>
+        <h3>複数の保管場所</h3>
+        <p>自宅・実家・別荘・オフィス。場所ごとに在庫を分けて管理。</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></svg></span>
@@ -212,15 +246,47 @@
     </div>
   </div>
 
+  <!-- Pricing -->
+  <div class="section fade-in">
+    <div class="section-title">料金</div>
+    <h2>無料で始めて、<br>必要になったら一度だけ。</h2>
+    <div class="pricing">
+      <div class="plan">
+        <div class="plan-name">Free</div>
+        <div class="price">¥0</div>
+        <div class="note">アカウント登録なしで、すぐ使えます。</div>
+        <ul>
+          <li>在庫 50 件まで</li>
+          <li>自動買い物リスト・自動消費・バーコード・消費期限・通知</li>
+          <li>家族・ルームメイトと共有</li>
+          <li>CSV 書き出し・複数の保管場所</li>
+          <li>商品写真は付けられません</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <div class="plan-name">Pro</div>
+        <div class="price">¥1,500<small>買切・一度だけ</small></div>
+        <div class="note">サブスクではありません。一度買えば、ずっと使えます。</div>
+        <ul>
+          <li>在庫 50 件超も無制限に登録</li>
+          <li>商品写真を付けて見分けやすく</li>
+          <li>世帯の誰かが Pro なら、世帯全員が解除</li>
+          <li>Free の機能はすべて含みます</li>
+        </ul>
+      </div>
+    </div>
+    <p class="pricing-note">価格は日本円。他の通貨での価格は各ストアの表示に従います。購入はアプリ内から行います。</p>
+  </div>
+
   <!-- Screenshots -->
   <div class="screenshots fade-in">
     <div class="section-title">Screenshots</div>
     <h2>こんな感じ。</h2>
     <div class="screenshot-scroll">
       <div class="shot"><img src="/assets/store/ios-screenshot-01-home.webp" alt="ホーム画面"><span>家の在庫をひと目で</span></div>
-      <div class="shot"><img src="/assets/store/ios-screenshot-02-add.webp" alt="アイテム追加"><span>プリセットでサッと追加</span></div>
-      <div class="shot"><img src="/assets/store/ios-screenshot-03-shopping.webp" alt="買い物リスト"><span>足りない物は自動でリストに</span></div>
-      <div class="shot"><img src="/assets/store/ios-screenshot-04-settings.webp" alt="設定"><span>世帯共有・多言語設定</span></div>
+      <div class="shot"><img src="/assets/store/ios-screenshot-02-add.webp" alt="アイテム追加"><span>プリセットやバーコードでサッと追加</span></div>
+      <div class="shot"><img src="/assets/store/ios-screenshot-03-shopping.webp" alt="買い物リスト"><span>減ったら自動で買い物リストへ</span></div>
+      <div class="shot"><img src="/assets/store/ios-screenshot-04-settings.webp" alt="設定"><span>世帯共有・通知・多言語設定</span></div>
     </div>
   </div>
 
@@ -233,13 +299,14 @@
       <li>まとめ買い派で、ストックの残りをよく忘れる</li>
       <li>家族やルームシェアで「あれ買っといて」がうまく伝わらない</li>
       <li>同じ物を二重に買ったり、肝心なときに限って切らしがち</li>
+      <li>消費期限切れで食品を捨ててしまうことがある</li>
     </ul>
   </div>
 
   <!-- Footer CTA -->
   <div class="footer-cta fade-in">
     <h2>家の在庫、今日からスッキリ。</h2>
-    <p style="color:#888;font-size:15px;margin:-16px 0 28px;position:relative;line-height:1.7;">無料でダウンロード。アカウント登録なしで、すぐに使いはじめられます。</p>
+    <p style="color:#888;font-size:15px;margin:-16px 0 28px;position:relative;line-height:1.7;">在庫 50 件までは無料。アカウント登録なしで、すぐに使いはじめられます。</p>
     <div class="cta">
       <a href="https://apps.apple.com/jp/app/stockhome/id6760977394"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
       <a href="https://play.google.com/store/apps/details?id=tools.lh.stockhome"><img src="/assets/google-play-badge.png" alt="Google Play で手に入れよう"></a>

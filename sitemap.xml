@@ -871,7 +871,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/rete/"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/rete/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/rete/"/>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -880,7 +880,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/rete/"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/rete/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/rete/"/>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -889,7 +889,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/rete/"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/rete/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/rete/"/>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
@@ -1511,6 +1511,159 @@
     <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/aske/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/aske/"/>
     <lastmod>2026-10-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/privacy/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/nutrishot/"/>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/nutrishot/"/>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/nutrishot/"/>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/apps/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/apps/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/apps/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/support/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/support/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/support/nutrishot/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/nutrishot/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/nutrishot/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/privacy/aido/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/aido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/aido/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/aido/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/aido/"/>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/aido/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/aido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/aido/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/aido/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/aido/"/>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/aido/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/aido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/aido/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/aido/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/aido/"/>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/apps/aido/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/aido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/aido/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/aido/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/apps/aido/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/aido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/aido/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/aido/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/apps/aido/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/aido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/aido/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/aido/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/support/aido/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/aido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/aido/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/aido/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/support/aido/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/aido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/aido/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/aido/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/support/aido/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/aido/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/aido/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/aido/"/>
+  </url>
+  <url>
+    <loc>https://lh.tools/apps/aske/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/aske/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/aske/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/aske/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/aske/"/>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/apps/aske/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/aske/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/aske/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/aske/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/aske/"/>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/apps/aske/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/aske/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/aske/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/aske/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/aske/"/>
+    <lastmod>2026-11-01</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

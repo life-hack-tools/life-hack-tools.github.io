@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Word Diary - Google Play</title>
+  <noscript><meta http-equiv="refresh" content="0; url=https://play.google.com/store/apps/details?id=tools.lh.worddiary&amp;referrer=utm_source%3Dlh.tools%26utm_medium%3Dweb"></noscript>
+  <style>body{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Segoe UI',sans-serif;background:#f7f3ee;color:#3b332c;display:grid;place-items:center;min-height:100vh;margin:0;text-align:center;line-height:2}a{color:#9c4430}</style>
+</head>
+<body>
+  <p>Word Diary &rarr; Google Play<br><a id="go" href="https://play.google.com/store/apps/details?id=tools.lh.worddiary&amp;referrer=utm_source%3Dlh.tools%26utm_medium%3Dweb">Google Play</a></p>
+  <!-- ストアのボタンが押された数を、このページの表示数として数える。解析の読み込みを待ってから移動する（最長 1.2 秒）。 -->
+  <script>
+    (function () {
+      var url = document.getElementById('go').href, done = false;
+      function go() { if (done) return; done = true; location.replace(url); }
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', '{"token": "f34d6826bcce4460be24fcf34a27f4b7"}');
+      s.onload = function () { setTimeout(go, 250); };
+      s.onerror = go;
+      document.head.appendChild(s);
+      setTimeout(go, 1200);
+    })();
+  </script>
+</body>
+</html>

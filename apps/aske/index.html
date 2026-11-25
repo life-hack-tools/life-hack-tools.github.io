@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aske 筋トレ記録 - Life Hack Tools</title>
+  <meta name="description" content="重量と回数をすばやく記録する筋トレログ。前回セットの再利用、休憩タイマー、プレート計算、履歴、種目別の推定1RMやボリューム推移に対応。記録は端末内に保存されます。">
+  <meta property="og:title" content="Aske 筋トレ記録 - Life Hack Tools">
+  <meta property="og:description" content="素早く記録する筋トレログ。重量と回数をすばやく残し、履歴と成長を静かに積み上げる。">
+  <meta property="og:image" content="https://lh.tools/assets/icon-aske.png">
+  <meta property="og:url" content="https://lh.tools/apps/aske/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Life Hack Tools">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@LifeHackToolz">
+  <link rel="canonical" href="https://lh.tools/apps/aske/">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/apps/aske/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/aske/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/aske/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/aske/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.8; overflow-x: hidden; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a { font-size: 12px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); color: #888; text-decoration: none; transition: all 0.2s; }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 24px; position: relative; overflow: hidden; }
+    .hero-icon { width: 120px; height: 120px; border-radius: 28px; box-shadow: 0 20px 60px rgba(232,116,42,0.25); margin-bottom: 32px; position: relative; }
+    .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
+    .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
+    .status { display: inline-block; padding: 12px 28px; border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; color: #bbb; font-size: 14px; position: relative; }
+    .section { padding: 100px 24px; max-width: 800px; margin: 0 auto; }
+    .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #e8742a; margin-bottom: 16px; }
+    .section h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
+    .section p { font-size: 17px; color: #999; line-height: 1.8; }
+    .section .note { font-size: 13px; color: #666; margin-top: 24px; line-height: 1.7; }
+    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
+    .feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: #777; line-height: 1.6; }
+    .feature-icon { color: #e8742a; display: block; margin-bottom: 16px; }
+    .feature-icon svg { width: 32px; height: 32px; display: block; }
+    .legal-links { text-align: center; padding: 60px 24px 40px; }
+    .legal-links a { color: #888; text-decoration: none; font-size: 14px; margin: 0 12px; transition: color 0.2s; }
+    .legal-links a:hover { color: #e8742a; }
+    .footer { text-align: center; padding: 24px; color: #555; font-size: 12px; }
+    @media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/">&larr; LHTz</a>
+    <div class="lang-switch">
+      <a href="/apps/aske/" class="active">JA</a>
+      <a href="/en/apps/aske/">EN</a>
+      <a href="/vi/apps/aske/">VI</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <img src="/assets/icon-aske.png" alt="Aske" class="hero-icon" width="120" height="120">
+    <h1>Aske</h1>
+    <p class="subtitle">素早く記録する筋トレログ</p>
+    <p class="status">近日公開</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">About</div>
+    <h2>重量と回数を、すばやく残す。</h2>
+    <p>
+      Askeは、ジムや自宅でのトレーニングを短い操作で記録するワークアウトログです。
+      前回のセットを再利用して入力を減らし、履歴と成長を静かに積み上げます。
+      中級者のトレーニング記録に向けて作っています。
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Features</div>
+    <h2>記録に必要なものを、そろえる。</h2>
+    <div class="features">
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>
+        <h3>前回セットの再利用</h3>
+        <p>前回のセットを呼び出して、重量と回数をすばやく入力できます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/></svg></span>
+        <h3>休憩タイマー</h3>
+        <p>休憩タイマーは任意で使えます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6v12"/><path d="M18 6v12"/><path d="M2 9v6"/><path d="M22 9v6"/><path d="M6 12h12"/></svg></span>
+        <h3>プレート計算</h3>
+        <p>バーベルに付けるプレートの組み合わせを計算できます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></span>
+        <h3>種目別の推定1RMとボリューム</h3>
+        <p>種目ごとの推定1RMとボリュームの推移を確認できます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m10 8 6 4-6 4z"/></svg></span>
+        <h3>フォーム動画</h3>
+        <p>フォーム動画で、種目ごとの大切なポイントをいつでも確認できます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+        <h3>端末内に保存</h3>
+        <p>記録は端末内に保存されます。バックアップは自分で管理できます。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-links">
+    <a href="/privacy/aske/">プライバシーポリシー</a>
+    <a href="/support/aske/">サポート</a>
+  </div>
+
+  <div class="footer">© 2026 Life Hack Tools</div>
+</body>
+</html>

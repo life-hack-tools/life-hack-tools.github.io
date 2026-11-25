@@ -59,11 +59,11 @@
   </div>
   <div class="content">
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: October 15, 2026</span>
+    <span class="updated">Last updated: November 22, 2026</span>
     <p class="intro">This policy explains how Life Hack Tools (&ldquo;we&rdquo;) handles your information in Ruga, a bus departure time and walking time app (&ldquo;the app&rdquo;). The app needs no account, and it has no ads and no tracking. Data is encrypted in transit.</p>
     <div class="policy-section fade-in">
       <h2><span class="num">01</span>Your location</h2>
-      <p>Ruga uses your location to calculate walking time to a bus stop on your device. When you use your current or chosen starting point to find nearby stops, Ruga sends its coordinates over an encrypted connection to our Ruga Gateway, which we operate on Google Cloud. The Gateway processes coordinates only as long as needed for the search; we do not store them or include them in application logs. Due to how network services work, your IP address and other connection information may remain in the cloud provider&rsquo;s logs for a period of time. Approximate location also works.</p>
+      <p>Ruga uses your location to calculate walking time to a bus stop on your device. When you use your current or chosen starting point to find nearby stops or the way on from a station, Ruga sends its coordinates over an encrypted connection to our Ruga Gateway, which we operate on Google Cloud. The Gateway processes coordinates only as long as needed for the search; we do not store them or include them in application logs. Due to how network services work, your IP address and other connection information may remain in the cloud provider&rsquo;s logs for a period of time. When the map shows a walking route, Ruga sends the coordinates of the starting point and the stop through our Gateway to the Google Routes API. Approximate location also works.</p>
       <p>If you do not allow location, you can still choose a stop manually and use basic timetable features.</p>
     </div>
     <div class="policy-section fade-in">
@@ -85,26 +85,32 @@
       <p>To check whether an app update is available, a randomly generated install ID is sent to Expo (EAS Update, 650 Industries, Inc.).</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">06</span>If you send a message from inside the app</h2>
+      <h2><span class="num">06</span>Lock Screen display (iPhone)</h2>
+      <p>When you choose a bus on iPhone, Ruga shows its departure time on the Lock Screen (Live Activity). To remove the display 2 minutes after departure, Ruga sends the notification token that iPhone issues for that display, and the time the display should end, over an encrypted connection to our Live Activity server, which we operate on Google Cloud. Ruga does not send your location, the stops you chose or your route.</p>
+      <p>At the scheduled time, the server sends a notification through the Apple Push Notification service (Apple) to remove the display. The token is kept encrypted only inside the scheduled send and is deleted once the notification is sent or the schedule is cancelled. The database stores only a value derived from the token that cannot be turned back into it, and the scheduled time; these are deleted automatically within 32 days. We do not record the token in our logs.</p>
+      <p>If Live Activities are turned off in your iPhone settings, nothing is shown or sent. The Android version does not have this feature.</p>
+    </div>
+    <div class="policy-section fade-in">
+      <h2><span class="num">07</span>If you send a message from inside the app</h2>
       <p>If you send a message yourself from the inquiry screen inside the app, the information below is sent to our contact service (form.lh.tools). Nothing is sent unless you choose to send it.</p>
       <ul><li>The text of your message (it arrives exactly as you wrote it)</li><li>The app version and build number</li><li>The type and version of your operating system</li><li>Your device model</li><li>Your language setting</li><li>Your contact details, only if you enter them (entering them is optional)</li></ul>
       <p>We use this only to respond to your inquiry. If you do not enter contact details, we cannot reply to you.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">07</span>Timetable sources, and a request</h2>
-      <p>Departure times in the app are based on data for Keio Bus (Keio Dentetsu Bus Co., Ltd.) provided through the Public Transportation Open Data Center (ODPT). We use the data in line with the ODPT Basic License. You can see when the data was last fetched inside the app.</p>
+      <h2><span class="num">08</span>Timetable sources, and a request</h2>
+      <p>Departure times in the app are based on data that transport operators across Japan publish through sources such as the Public Transportation Open Data Center (ODPT) and the GTFS Data Repository (gtfs-data.jp). We use each dataset in line with its terms, such as the ODPT Basic License. Some rail timetables come from the Open Data Challenge for Public Transportation 2026, used within its terms and period.</p>
       <p>We do not guarantee that the timetables shown are accurate or complete. If you have a question about what the app shows, please contact <a href="/en/support/ruga/">Ruga support</a>, not Keio Bus or other transport operators.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">08</span>Permissions</h2>
+      <h2><span class="num">09</span>Permissions</h2>
       <p>The only device permission the app uses is location, and only while you are using the app. It does not use background location, the camera, photos or contacts.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">09</span>Changes to this policy</h2>
+      <h2><span class="num">10</span>Changes to this policy</h2>
       <p>We may update this policy when needed. If we do, we will post the changes on this page.</p>
     </div>
     <div class="policy-section fade-in">
-      <h2><span class="num">10</span>Contact</h2>
+      <h2><span class="num">11</span>Contact</h2>
       <p>If you have questions about this policy, please contact us through the form below.</p>
       <div class="contact-card">
         <div class="mail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
