@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taali: Dance Practice Player - Life Hack Tools</title>
-  <meta name="description" content="A practice player for dance teams. Cue, loop and medley just the sections you want, with simple previous/next controls and tempo control. Works with YouTube songs, and with audio files on your device (File mode).">
-  <meta property="og:title" content="Taali: Dance Practice Player - Life Hack Tools">
-  <meta property="og:description" content="Practice just the chorus or chain several songs. Loop, tempo control and virtual medley.">
+  <title>Taali: Your timing, not the song's. - Life Hack Tools</title>
+  <meta name="description" content="Play just the parts you want, in the order you want. Set a start and end for each song, then loop it or play a medley, with simple previous/next controls and tempo control. For dance, singing or instrument practice. Works with YouTube videos (played as-is in the official player, never downloaded) and with audio files on your phone (File mode).">
+  <meta property="og:title" content="Taali: Your timing, not the song's. - Life Hack Tools">
+  <meta property="og:description" content="Play just the parts you want, in the order you want. Loop, tempo control and virtual medley, with YouTube videos and audio files on your phone.">
   <meta property="og:image" content="https://lh.tools/assets/ogp/taali.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -70,6 +70,7 @@
     }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
     .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
+    .hero .tagline { font-size: clamp(24px, 5.5vw, 34px); font-weight: 800; color: #f0f0f0; line-height: 1.35; margin-bottom: 12px; position: relative; }
     .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
     .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: flex-start; position: relative; }
     .cta a { transition: opacity 0.2s; }
@@ -173,7 +174,8 @@
   <div class="hero">
     <img src="/assets/icon-taali.png" alt="Taali" class="hero-icon">
     <h1>Taali</h1>
-    <p class="subtitle">Cue, loop and medley for dance teams</p>
+    <p class="tagline">Your timing, not the song's.</p>
+    <p class="subtitle">Play just the parts you want, in the order you want.</p>
     <div class="cta">
       <a href="/go/taali/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
       <div class="store-soon">
@@ -185,9 +187,9 @@
 
   <div class="section fade-in">
     <div class="section-title">About</div>
-    <h2>Keep rehearsal<br>moving.</h2>
+    <h2>Just the parts you want,<br>in your order.</h2>
     <p>
-      Skip the long intro and start from where the dance begins. Repeat just the chorus. Chain a few songs into a medley for your showcase. Taali takes the friction out of rehearsal for dance teams. Search for a song by name or paste a YouTube URL. No account is needed.
+      Skip the long intro and start where you want. Repeat just the chorus. Chain a few songs and run them in the order you set. Taali doesn't make you keep up with the song; it plays the song to your plan. For dance, singing or instrument practice. Works with YouTube videos (played as-is in the official YouTube player, never downloaded) and with audio files on your phone (File mode). For YouTube, just search by song name or paste a URL. No account is needed.
     </p>
     <p class="about-note">* YouTube mode needs an internet connection. Songs play in the official YouTube player, so videos that do not allow embedded playback cannot be played. File mode may also make a small network request to check the connection.</p>
   </div>
@@ -200,13 +202,13 @@
         <div class="step-num">1</div>
         <div class="step-body">
           <h3>Find and add a song</h3>
-          <p>Search by name, or paste a YouTube URL to add it.</p>
+          <p>Search by name, or paste a YouTube URL to add it. In File mode, pick an audio file on your device.</p>
         </div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <div class="step-body">
-          <h3>Set the section</h3>
+          <h3>Choose what to play</h3>
           <p>Move the bar, listen, then tap "From here" / "To here". A zoomed bar lets you fine-tune within 10 seconds either way.</p>
         </div>
       </div>
@@ -227,7 +229,7 @@
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span>
         <h3>Start and end per song</h3>
-        <p>Play just the section you want to practice and skip long intros.</p>
+        <p>Set a start and end for each song and play just that part. Skip long intros.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span>
@@ -247,7 +249,7 @@
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
         <h3>Tempo control</h3>
-        <p>0.75x to 1.0x without changing pitch, ideal for learning choreography.</p>
+        <p>0.75x to 1.0x without changing pitch, for when you want to take it slower.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98"/><path d="m15.41 6.51-6.82 3.98"/></svg></span>
@@ -267,7 +269,7 @@
     <div class="section-title">Screenshots</div>
     <h2>Take a look.</h2>
     <div class="screenshot-scroll">
-      <img src="/assets/taali/screenshots/en/01-hero.webp" alt="Play just the section you want to practice" loading="lazy">
+      <img src="/assets/taali/screenshots/en/01-hero.webp" alt="Play just the part you want, right away" loading="lazy">
       <img src="/assets/taali/screenshots/en/03-editor.webp" alt="Fine-tune a section with the zoomed bar" loading="lazy">
       <img src="/assets/taali/screenshots/en/04-list.webp" alt="Virtual medley list" loading="lazy">
     </div>
