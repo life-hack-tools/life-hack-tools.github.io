@@ -71,7 +71,7 @@
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
     .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
     .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
-    .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: center; position: relative; }
+    .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: flex-start; position: relative; }
     .cta a { transition: opacity 0.2s; }
     .cta a:hover { opacity: 0.8; }
     .cta img { height: 50px; }
@@ -83,9 +83,10 @@
       display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
     }
     .coming-soon .badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    /* 片方だけ配信中: 仮のボタンは App Store バッジと同じ 150x50 にし、上端をそろえる（注記は仮のボタンの下） */
     .badge-placeholder {
-      display: inline-flex; align-items: center; gap: 8px;
-      height: 50px; padding: 0 20px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 150px; height: 50px; padding: 0 12px; border-radius: 10px;
       background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
       color: #aaa; font-size: 13px; font-weight: 600;
     }
