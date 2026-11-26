@@ -157,6 +157,19 @@
     .about-note { font-size: 13px; color: #666; margin-top: 24px; line-height: 1.7; }
     .feature-icon { color: #e8742a; }
     .feature-icon svg { width: 32px; height: 32px; display: block; }
+      /* hero-layout: 動画があるときは PC 幅で左に文字、右に動画。スマホ幅はボタンの下に動画（Pitto と同じ） */
+    .hero-inner { position: relative; width: 100%; max-width: 960px; display: flex; flex-direction: column; align-items: center; }
+    .hero-text { display: flex; flex-direction: column; align-items: center; }
+    .hero-video { width: min(78%, 280px); margin-top: 40px; }
+    .hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); background: #111; box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .hero-video p { font-size: 12px; color: #888; text-align: center; margin-top: 10px; line-height: 1.6; }
+    .hero-video p.credit { font-size: 11px; color: #666; margin-top: 4px; }
+    @media (min-width: 900px) {
+      .hero-inner.has-video { display: grid; grid-template-columns: 1fr 280px; gap: 64px; align-items: center; }
+      .hero-inner.has-video .hero-text { align-items: flex-start; text-align: left; }
+      .hero-inner.has-video .cta { justify-content: flex-start; }
+      .hero-inner.has-video .hero-video { width: 100%; margin-top: 0; }
+    }
   </style>
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
@@ -172,15 +185,26 @@
   </div>
 
   <div class="hero">
-    <img src="/assets/icon-taali.png" alt="Taali" class="hero-icon">
-    <h1>Taali</h1>
-    <p class="tagline">Theo ý bạn, chứ không theo bài hát.</p>
-    <p class="subtitle">Chỉ phát đoạn bạn muốn, theo thứ tự bạn muốn.</p>
-    <div class="cta">
-      <a href="/go/taali/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
-      <div class="store-soon">
-        <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
-        <span class="note">Bản Android sắp ra mắt</span>
+    <div class="hero-inner has-video">
+      <div class="hero-text">
+        <img src="/assets/icon-taali.png" alt="Taali" class="hero-icon">
+        <h1>Taali</h1>
+        <p class="tagline">Theo ý bạn, chứ không theo bài hát.</p>
+        <p class="subtitle">Chỉ phát đoạn bạn muốn, theo thứ tự bạn muốn.</p>
+        <div class="cta">
+          <a href="/go/taali/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
+          <div class="store-soon">
+            <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
+            <span class="note">Bản Android sắp ra mắt</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-video">
+        <video controls playsinline muted preload="none" width="720" height="1280" poster="/assets/taali/howto-vi-vertical-poster.webp" aria-label="Video hướng dẫn (không có tiếng)">
+          <source src="/assets/taali/howto-vi-vertical.mp4" type="video/mp4">
+        </video>
+        <p>Video hướng dẫn (không có tiếng)</p>
+        <p class="credit">Hình ảnh: phim mở của Blender Foundation / Blender Studio (CC BY)</p>
       </div>
     </div>
   </div>
