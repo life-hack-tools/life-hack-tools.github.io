@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zobo - Life Hack Tools</title>
-  <meta name="description" content="Không ai quên chìa khóa, ví hay điện thoại. Zobo chỉ nhắc đúng những điều khác mọi ngày, như hộ chiếu, thẻ khám bệnh, bếp và khóa cửa, chỉ trong một dòng.">
+  <meta name="description" content="Không ai quên chìa khóa, ví hay điện thoại. Zobo chỉ nhắc đúng những điều khác mọi ngày, như hộ chiếu, bếp và khóa cửa, chỉ trong một dòng.">
   <meta property="og:title" content="Zobo - Life Hack Tools">
   <meta property="og:description" content="Bạn không quên chìa khóa. Bạn quên những thứ khác mọi ngày. Zobo chỉ nhắc đúng thứ đó.">
   <meta property="og:image" content="https://lh.tools/assets/ogp/zobo.png">
@@ -71,7 +71,7 @@
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
     .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
     .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
-    .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: center; position: relative; }
+    .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: flex-start; position: relative; }
     .cta a { transition: opacity 0.2s; }
     .cta a:hover { opacity: 0.8; }
     .cta img { height: 50px; }
@@ -83,9 +83,10 @@
       display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
     }
     .coming-soon .badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    /* 片方だけ配信中: 仮のボタンは App Store バッジと同じ 150x50 にし、上端をそろえる（注記は仮のボタンの下） */
     .badge-placeholder {
-      display: inline-flex; align-items: center; gap: 8px;
-      height: 50px; padding: 0 20px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 150px; height: 50px; padding: 0 12px; border-radius: 10px;
       background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
       color: #aaa; font-size: 13px; font-weight: 600;
     }
@@ -174,12 +175,11 @@
     <h1>Zobo</h1>
     <p class="subtitle">Chỉ nhắc điều khác mọi ngày</p>
     <div class="cta">
-      <div class="coming-soon">
-        <div class="badges">
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App Store</span>
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
-        </div>
-        <span class="note">Sắp ra mắt</span>
+      <!-- Google Play の公開後は、下の store-soon ブロックを Google Play（tools.lh.zobo）のバッジに差し替える -->
+      <a href="/go/zobo/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
+      <div class="store-soon">
+        <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
+        <span class="note">Bản Android sắp ra mắt</span>
       </div>
     </div>
   </div>
@@ -188,7 +188,7 @@
     <div class="section-title">About</div>
     <h2>Không liệt kê tất cả.<br>Chỉ điều khác mọi ngày.</h2>
     <p>
-      Không ai quên chìa khóa, ví hay điện thoại. Thứ bạn quên là món đồ không mang hằng ngày, vào một ngày khác mọi ngày. Zobo là ứng dụng danh sách kiểm tra trước khi ra khỏi nhà. Ứng dụng chỉ nhắc, trong một dòng, những việc thuộc về ngày hôm đó, như hộ chiếu, thẻ khám bệnh, bếp và khóa cửa. Không cần tài khoản, không có quảng cáo, và dữ liệu chỉ nằm trên thiết bị của bạn.
+      Không ai quên chìa khóa, ví hay điện thoại. Thứ bạn quên là món đồ không mang hằng ngày, vào một ngày khác mọi ngày. Zobo là ứng dụng danh sách kiểm tra trước khi ra khỏi nhà. Ứng dụng chỉ nhắc, trong một dòng, những việc thuộc về ngày hôm đó, như hộ chiếu, bếp và khóa cửa. Không cần tài khoản, không có quảng cáo, và dữ liệu chỉ nằm trên thiết bị của bạn.
     </p>
     <p class="about-note">* Linh vật là Zobo, chú voi con, vì voi không bao giờ quên.</p>
   </div>
@@ -201,21 +201,21 @@
         <div class="step-num">1</div>
         <div class="step-body">
           <h3>Tạo kế hoạch</h3>
-          <p>Chọn Chuyến bay quốc tế, Du lịch trong nước hoặc Việc ra ngoài khác, rồi nhập tên, ngày và giờ khởi hành. Tùy loại, các mục chỉ thuộc về ngày hôm đó sẽ được thêm sẵn.</p>
+          <p>Chọn Chuyến bay quốc tế, Du lịch trong nước hoặc Việc ra ngoài khác, rồi nhập tên, ngày và giờ khởi hành. Với Du lịch trong nước và Chuyến bay quốc tế, các mục chỉ thuộc về ngày hôm đó sẽ được thêm sẵn (Việc ra ngoài khác bắt đầu từ danh sách trống).</p>
         </div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <div class="step-body">
           <h3>Chỉ xem việc của lúc này</h3>
-          <p>Việc cần làm được chia thành "tuần này", "hôm trước", "sáng hôm đó" và "tại sân bay". Bạn chỉ thấy việc của lúc này, những việc sau cứ để sau.</p>
+          <p>Việc cần làm được chia thành "tuần này", "hôm trước" và "sáng hôm đó" (chuyến bay có thêm "tại sân bay"). Bạn chỉ thấy việc của lúc này, những việc sau cứ để sau.</p>
         </div>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
         <div class="step-body">
           <h3>Đánh dấu rồi lên đường</h3>
-          <p>Vào ngày đi, bạn đánh dấu từng mục. Mỗi lần đánh dấu đều lưu kèm giờ, nên nếu sau khi ra khỏi nhà bạn thấy lo, chỉ cần xem lại là xong.</p>
+          <p>Vào ngày đi, bạn đánh dấu từng mục. Ngay trước khi ra khỏi nhà, mục "Trước khi ra khỏi nhà" giúp bạn chỉ vào từng thứ không thể thiếu. Mỗi lần đánh dấu đều lưu kèm giờ, nên nếu sau khi ra khỏi nhà bạn thấy lo, chỉ cần xem lại là xong.</p>
         </div>
       </div>
     </div>
@@ -233,7 +233,7 @@
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg></span>
         <h3>Chia theo thời gian</h3>
-        <p>Việc cần làm được chia thành "tuần này", "hôm trước", "sáng hôm đó" và "tại sân bay". Với chuyến bay quốc tế, hạn hộ chiếu và làm thủ tục trực tuyến được thêm sẵn.</p>
+        <p>Việc cần làm được chia thành "tuần này", "hôm trước" và "sáng hôm đó" (chuyến bay có thêm "tại sân bay"). Với chuyến bay quốc tế, hạn hộ chiếu và làm thủ tục trực tuyến được thêm sẵn.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
@@ -246,9 +246,19 @@
         <p>Mỗi lần đánh dấu đều lưu kèm thời gian. Lỡ trên đường thấy lo, xem lại là xong.</p>
       </div>
       <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20H2"/><path d="M11 4.562v16.157a1 1 0 0 0 1.242.97L19 20V5.562a2 2 0 0 0-1.515-1.94l-4-1A2 2 0 0 0 11 4.561z"/><path d="M11 4H8a2 2 0 0 0-2 2v14"/><path d="M14 12h.01"/><path d="M22 20h-3"/></svg></span>
+        <h3>Trước khi ra khỏi nhà</h3>
+        <p>Vào ngày khởi hành, chỉ vào từng thứ không thể thiếu như hộ chiếu, vé máy bay hay quần áo thay, gọn trong một màn hình. Bạn tự chọn mục nào được đưa vào, và có thể mở từ lời nhắc lúc 7 giờ sáng.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12a10.06 10.06 1 0 0-20 0Z"/><path d="M12 12v8a2 2 0 0 0 4 0"/><path d="M12 2v1"/></svg></span>
+        <h3>Hợp với nơi bạn đến</h3>
+        <p>Khi tạo Du lịch trong nước hoặc Chuyến bay quốc tế, hãy chọn điểm đến. Nếu tháng khởi hành ở đó buổi sáng và tối thường lạnh, ứng dụng thêm áo khoác; nếu là mùa hay mưa, thêm ô vào đồ mang theo của hôm trước. Có 14 điểm đến để chọn, như Hokkaido, Okinawa, Đài Bắc, Seoul, Paris. Đây là mức tham khảo theo tháng, không phải dự báo thời tiết.</p>
+      </div>
+      <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
         <h3>Nhắc nhẹ nhàng</h3>
-        <p>Mỗi kế hoạch tối đa hai lời nhắc, vào 20 giờ hôm trước và 7 giờ sáng hôm đó. Không dùng con số để thúc giục bạn, và ngày không có kế hoạch thì không hiện gì.</p>
+        <p>Mỗi kế hoạch tối đa hai lời nhắc, vào 20 giờ hôm trước và 7 giờ sáng hôm đó. Ngày không có kế hoạch thì không hiện gì.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></span>
@@ -273,12 +283,11 @@
   <div class="footer-cta fade-in">
     <h2>Chỉ nhắc điều khác mọi ngày.</h2>
     <div class="cta">
-      <div class="coming-soon">
-        <div class="badges">
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App Store</span>
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
-        </div>
-        <span class="note">Sắp ra mắt</span>
+      <!-- Google Play の公開後は、下の store-soon ブロックを Google Play（tools.lh.zobo）のバッジに差し替える -->
+      <a href="/go/zobo/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="Tải trên App Store"></a>
+      <div class="store-soon">
+        <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
+        <span class="note">Bản Android sắp ra mắt</span>
       </div>
     </div>
   </div>
