@@ -71,7 +71,7 @@
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
     .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
     .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
-    .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: center; position: relative; }
+    .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: flex-start; position: relative; }
     .cta a { transition: opacity 0.2s; }
     .cta a:hover { opacity: 0.8; }
     .cta img { height: 50px; }
@@ -83,9 +83,10 @@
       display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
     }
     .coming-soon .badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    /* 片方だけ配信中: 仮のボタンは App Store バッジと同じ 150x50 にし、上端をそろえる（注記は仮のボタンの下） */
     .badge-placeholder {
-      display: inline-flex; align-items: center; gap: 8px;
-      height: 50px; padding: 0 20px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 150px; height: 50px; padding: 0 12px; border-radius: 10px;
       background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
       color: #aaa; font-size: 13px; font-weight: 600;
     }
@@ -155,6 +156,19 @@
     .about-note { font-size: 13px; color: #666; margin-top: 24px; line-height: 1.7; }
     .feature-icon { color: #7fa3c7; }
     .feature-icon svg { width: 32px; height: 32px; display: block; }
+      /* hero-layout: 動画があるときは PC 幅で左に文字、右に動画。スマホ幅はボタンの下に動画（Pitto と同じ） */
+    .hero-inner { position: relative; width: 100%; max-width: 960px; display: flex; flex-direction: column; align-items: center; }
+    .hero-text { display: flex; flex-direction: column; align-items: center; }
+    .hero-video { width: min(78%, 280px); margin-top: 40px; }
+    .hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); background: #111; box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .hero-video p { font-size: 12px; color: #888; text-align: center; margin-top: 10px; line-height: 1.6; }
+    .hero-video p.credit { font-size: 11px; color: #666; margin-top: 4px; }
+    @media (min-width: 900px) {
+      .hero-inner.has-video { display: grid; grid-template-columns: 1fr 280px; gap: 64px; align-items: center; }
+      .hero-inner.has-video .hero-text { align-items: flex-start; text-align: left; }
+      .hero-inner.has-video .cta { justify-content: flex-start; }
+      .hero-inner.has-video .hero-video { width: 100%; margin-top: 0; }
+    }
   </style>
   <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
   <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
@@ -170,16 +184,25 @@
   </div>
 
   <div class="hero">
-    <img src="/assets/icon-zobo.png" alt="Zobo" class="hero-icon">
-    <h1>Zobo</h1>
-    <p class="subtitle">Only what's different today</p>
-    <div class="cta">
-      <div class="coming-soon">
-        <div class="badges">
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App Store</span>
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
+    <div class="hero-inner has-video">
+      <div class="hero-text">
+        <img src="/assets/icon-zobo.png" alt="Zobo" class="hero-icon">
+        <h1>Zobo</h1>
+        <p class="subtitle">Only what's different today</p>
+        <div class="cta">
+          <!-- Google Play の公開後は、下の store-soon ブロックを Google Play（tools.lh.zobo）のバッジに差し替える -->
+          <a href="/go/zobo/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
+          <div class="store-soon">
+            <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
+            <span class="note">Android coming soon</span>
+          </div>
         </div>
-        <span class="note">Coming soon</span>
+      </div>
+      <div class="hero-video">
+        <video controls playsinline muted preload="none" width="720" height="1280" poster="/assets/zobo/howto-en-vertical-poster.webp" aria-label="How-to video (no sound)">
+          <source src="/assets/zobo/howto-en-vertical.mp4" type="video/mp4">
+        </video>
+        <p>How-to video (no sound)</p>
       </div>
     </div>
   </div>
@@ -201,21 +224,21 @@
         <div class="step-num">1</div>
         <div class="step-body">
           <h3>Create a plan</h3>
-          <p>Choose Domestic trip, Overseas flight, or Other outing, then add a name, a date, and a departure time. Items that belong only to that day are added for you, based on the type.</p>
+          <p>Choose Domestic trip, Overseas flight, or Other outing, then add a name, a date, and a departure time. For Domestic trip and Overseas flight, items that belong only to that day are added for you (Other outing starts blank).</p>
         </div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <div class="step-body">
           <h3>See only what matters now</h3>
-          <p>Tasks fall into "this week", "day before", "morning of", and "at the airport". You only see what matters now, and the rest can wait.</p>
+          <p>Tasks fall into "this week", "day before", and "morning" (plus "at airport" for flights). You only see what matters now, and the rest can wait.</p>
         </div>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
         <div class="step-body">
           <h3>Check and head out</h3>
-          <p>On the day, check things off one by one. Each check is saved with a time, so if you start to wonder "did I...?" after leaving, one look settles it.</p>
+          <p>On the day, check things off one by one. Right before you leave, "Before you leave" lets you point at only the things you can't go without. Each check is saved with a time, so if you start to wonder "did I...?" after leaving, one look settles it.</p>
         </div>
       </div>
     </div>
@@ -233,7 +256,7 @@
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg></span>
         <h3>Split by time</h3>
-        <p>Tasks are split into "this week", "day before", "morning of", and "at the airport". For international flights, passport validity and online check-in are added for you.</p>
+        <p>Tasks are split into "this week", "day before", and "morning" (plus "at airport" for flights). For overseas flights, passport validity and online check-in are added for you.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
@@ -246,9 +269,19 @@
         <p>Every check is saved with a timestamp. If you start wondering "did I...?" on the way, one look settles it.</p>
       </div>
       <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20H2"/><path d="M11 4.562v16.157a1 1 0 0 0 1.242.97L19 20V5.562a2 2 0 0 0-1.515-1.94l-4-1A2 2 0 0 0 11 4.561z"/><path d="M11 4H8a2 2 0 0 0-2 2v14"/><path d="M14 12h.01"/><path d="M22 20h-3"/></svg></span>
+        <h3>Before you leave</h3>
+        <p>On departure day, point and check only the things you can't go without, such as your passport, ticket, and change of clothes, on one screen. You choose which items belong there, and the 7 am reminder opens it too.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12a10.06 10.06 1 0 0-20 0Z"/><path d="M12 12v8a2 2 0 0 0 4 0"/><path d="M12 2v1"/></svg></span>
+        <h3>Matched to where you're going</h3>
+        <p>When you create a Domestic trip or Overseas flight, pick a destination. If it tends to be cold in the mornings and evenings that month, a jacket is added to the day-before list; if it's a rainy month, an umbrella. Choose from 14 places, including Hokkaido, Okinawa, Taipei, Seoul, and Paris. It's a rough monthly guide, not a forecast.</p>
+      </div>
+      <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
         <h3>Gentle reminders</h3>
-        <p>At most two reminders per plan, at 8 pm the day before and 7 am on the day. No counters pressuring you, and nothing on days with no plans.</p>
+        <p>At most two reminders per plan, at 8 pm the day before and 7 am on the day. Nothing on days with no plans.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></span>
@@ -273,12 +306,11 @@
   <div class="footer-cta fade-in">
     <h2>Only what's different today.</h2>
     <div class="cta">
-      <div class="coming-soon">
-        <div class="badges">
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App Store</span>
-          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
-        </div>
-        <span class="note">Coming soon</span>
+      <!-- Google Play の公開後は、下の store-soon ブロックを Google Play（tools.lh.zobo）のバッジに差し替える -->
+      <a href="/go/zobo/app-store/" rel="nofollow"><img src="/assets/app-store-badge.svg" alt="Download on the App Store"></a>
+      <div class="store-soon">
+        <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
+        <span class="note">Android coming soon</span>
       </div>
     </div>
   </div>
