@@ -109,6 +109,11 @@
     .app-card:hover img {
       transform: scale(1.08);
     }
+    .app-card .app-status {
+      font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      color: #d0a15e; border: 1px solid rgba(208,161,94,0.35);
+      border-radius: 999px; padding: 2px 12px;
+    }
     .app-card h2 {
       font-size: 20px;
       font-weight: 700;
@@ -151,6 +156,12 @@
     <h1>Ứng dụng</h1>
 
     <div class="app-grid">
+      <!-- アイコンは未決（2026-11-28）。決まったら img を足し、公開後に app-status を外す -->
+      <a href="/vi/apps/honabi" class="app-card" data-accent="amber">
+        <h2>Honabi</h2>
+        <span class="app-status">Sắp ra mắt</span>
+        <p>Tìm trợ cấp, hỗ trợ tại Nhật Bản cho hộ kinh doanh cá thể và doanh nghiệp nhỏ. Lọc chương trình của trung ương, tỉnh, thành phố, xem khả năng đủ điều kiện, và theo dõi bằng tiến độ, ghi chú, nhắc nhở hạn chót. Ứng dụng hiển thị bằng tiếng Nhật. Không phải ứng dụng chính thức của nhà nước.</p>
+      </a>
       <a href="/vi/apps/aske" class="app-card" data-accent="amber">
         <img src="/assets/icon-aske.png" alt="Aske">
         <h2>Aske</h2>

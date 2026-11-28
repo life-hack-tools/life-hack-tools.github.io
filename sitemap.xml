@@ -1666,4 +1666,85 @@
     <lastmod>2026-11-01</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://lh.tools/apps/honabi/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/honabi/"/>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/apps/honabi/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/honabi/"/>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/apps/honabi/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/apps/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/honabi/"/>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/privacy/honabi/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/honabi/"/>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/privacy/honabi/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/honabi/"/>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/privacy/honabi/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/privacy/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/privacy/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/privacy/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/privacy/honabi/"/>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/support/honabi/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/honabi/"/>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/en/support/honabi/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/honabi/"/>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lh.tools/vi/support/honabi/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://lh.tools/support/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lh.tools/en/support/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://lh.tools/vi/support/honabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lh.tools/support/honabi/"/>
+    <lastmod>2026-11-28</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>

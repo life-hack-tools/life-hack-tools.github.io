@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ほなび - Life Hack Tools</title>
+  <meta name="description" content="個人事業主・小規模な法人のための、補助金・助成金さがしアプリ。国・都道府県・市区町村の制度を、地域・業種・やりたいこと・締切で絞り込み、申請できそうかを確かめられます。">
+  <meta property="og:title" content="ほなび - Life Hack Tools">
+  <meta property="og:description" content="個人事業主・小規模な法人のための、補助金・助成金さがしアプリ。国・都道府県・市区町村の制度を、地域・業種・やりたいこと・締切で絞り込み、申請できそうかを確かめられます。">
+  <meta property="og:url" content="https://lh.tools/apps/honabi/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Life Hack Tools">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@LifeHackToolz">
+  <link rel="canonical" href="https://lh.tools/apps/honabi/">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate" hreflang="ja" href="https://lh.tools/apps/honabi/">
+  <link rel="alternate" hreflang="en" href="https://lh.tools/en/apps/honabi/">
+  <link rel="alternate" hreflang="vi" href="https://lh.tools/vi/apps/honabi/">
+  <link rel="alternate" hreflang="x-default" href="https://lh.tools/apps/honabi/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 24px;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav a:hover { color: #fff; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch a {
+      font-size: 12px; padding: 4px 10px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15); color: #888;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .lang-switch a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .lang-switch a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 80px 24px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(208,161,94,0.12) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+    .hero-icon {
+      width: 120px; height: 120px; border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(208,161,94,0.3);
+      margin-bottom: 32px; animation: float 6s ease-in-out infinite; position: relative;
+    }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .hero h1 { font-size: clamp(36px, 8vw, 56px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
+    .hero .subtitle { font-size: clamp(16px, 3vw, 20px); color: #888; margin-bottom: 40px; position: relative; }
+    .cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: flex-start; position: relative; }
+    .cta a { transition: opacity 0.2s; }
+    .cta a:hover { opacity: 0.8; }
+    .cta img { height: 50px; }
+    .cta img[src*="google-play"] { height: 74px; margin: -12px 0; }
+    .coming-soon {
+      display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .coming-soon .badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .badge-placeholder {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 150px; height: 50px; padding: 0 12px; border-radius: 10px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+      color: #aaa; font-size: 13px; font-weight: 600;
+    }
+    .badge-placeholder svg { width: 20px; height: 20px; opacity: 0.7; }
+    .note {
+      font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: #d0a15e;
+    }
+    .section { padding: 100px 24px; max-width: 800px; margin: 0 auto; }
+    .section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #d0a15e; margin-bottom: 16px; }
+    .section h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
+    .section p { font-size: 17px; color: #999; line-height: 1.8; }
+    .steps { display: grid; gap: 16px; margin-top: 48px; }
+    .step-card {
+      display: flex; align-items: flex-start; gap: 20px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 24px 28px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .step-card:hover { transform: translateX(4px); border-color: rgba(208,161,94,0.3); background: rgba(255,255,255,0.06); }
+    .step-num {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(208,161,94,0.12); border: 1px solid rgba(208,161,94,0.25);
+      color: #d0a15e; font-weight: 800; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-body h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .step-body p { font-size: 15px; color: #888; line-height: 1.6; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+    .feature-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 28px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(208,161,94,0.3); background: rgba(255,255,255,0.06); }
+    .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: #777; line-height: 1.6; }
+    .legal-links { text-align: center; padding: 0 24px 40px; }
+    .legal-links a { color: #888; text-decoration: none; font-size: 14px; margin: 0 12px; transition: color 0.2s; }
+    .legal-links a:hover { color: #d0a15e; }
+    .footer-cta { text-align: center; padding: 100px 24px; position: relative; overflow: hidden; }
+    .footer-cta::before {
+      content: ''; position: absolute; bottom: 0; left: -50%;
+      width: 200%; height: 100%;
+      background: radial-gradient(ellipse at 50% 100%, rgba(208,161,94,0.06) 0%, transparent 60%);
+    }
+    .footer-cta h2 { font-size: clamp(24px, 5vw, 36px); font-weight: 700; margin-bottom: 32px; position: relative; }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+      /* feature-icon-svg */
+    .feature-icon { color: #d0a15e; }
+    .feature-icon svg { width: 32px; height: 32px; display: block; }
+  
+    .about-note { font-size: 13px; color: #666; margin-top: 24px; line-height: 1.7; }
+    .feature-icon { color: #d0a15e; }
+    .feature-icon svg { width: 32px; height: 32px; display: block; }
+    .notice {
+      margin-top: 32px; padding: 20px 24px; border-radius: 16px;
+      background: rgba(208,161,94,0.08); border: 1px solid rgba(208,161,94,0.3);
+    }
+    .notice h3 { font-size: 15px; font-weight: 700; color: #d0a15e; margin-bottom: 6px; }
+    .section .notice p, .section .lang-note { font-size: 15px; line-height: 1.8; }
+    .section .notice p { color: #bbb; }
+    .section .lang-note { margin-top: 20px; color: #bbb; }
+    .lang-note strong { color: #f0f0f0; }
+  </style>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript>
+  <style>@media(prefers-reduced-motion:reduce){.fade-in{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/">&larr; LHTz</a>
+    <div class="lang-switch">
+      <a href="/apps/honabi/" class="active">JA</a>
+      <a href="/en/apps/honabi/">EN</a>
+      <a href="/vi/apps/honabi/">VI</a>
+    </div>
+  </div>
+
+  <!-- アプリのアイコンは未決（2026-11-28）。決まったら /assets/icon-honabi.png を置き、h1 の上に hero-icon の img を足す -->
+  <div class="hero">
+    <h1>ほなび</h1>
+    <p class="subtitle">使えそうな補助金・助成金を、探して確かめる</p>
+    <div class="cta">
+      <!-- 公開後は、coming-soon ブロックを App Store / Google Play（tools.lh.honabi）のバッジに差し替える -->
+      <div class="coming-soon">
+        <div class="badges">
+          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App Store</span>
+          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
+        </div>
+        <span class="note">近日公開</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">About</div>
+    <h2>探して、確かめて、<br>忘れずに進める。</h2>
+    <p>
+      ほなびは、個人事業主や小規模な法人のための、補助金・助成金を探すアプリです。国・都道府県・市区町村の制度から、地域や業種、やりたいことで候補を絞り、申請できそうか・いくらもらえそうか・手続きの手間はどれくらいかを、ひとつの画面で確かめられます。気になる制度は保存して、進み具合やメモ、締切前のリマインダーで管理できます。
+    </p>
+    <div class="notice">
+      <h3>ご注意</h3>
+      <p>ほなびは、国や自治体などの行政機関が作ったアプリではありません（非公式のアプリです）。掲載している情報は、jGrants・J-Net21・自治体などが公開している情報を毎日集めて整理したものです。最新で正確な条件は、必ず各機関の公式ページでご確認ください。</p>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">How it works</div>
+    <h2>3ステップで、候補を絞る。</h2>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>条件を入れて探す</h3>
+          <p>キーワード・都道府県・業種・従業員数・やりたいこと・締切・準備の重さなどで、候補を絞ります。</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>詳細で確かめる</h3>
+          <p>申請できそうか・もらえる額・申請方法・準備するもの・締切・手続きの手間を、判断サマリーで確かめます。正式な内容は、詳細から公式ページを開いて確認します。</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>保存して進める</h3>
+          <p>気になる制度は保存。進み具合とメモを残し、締切前のリマインダーを設定できます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-title">Features</div>
+    <h2>迷うところを、先にまとめる。</h2>
+    <div class="features">
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+        <h3>細かく絞り込める</h3>
+        <p>キーワード、都道府県、業種、従業員数、やりたいこと、締切、準備の重さなどで、国・都道府県・市区町村の制度を絞り込めます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3>対象かどうかの目安</h3>
+        <p>事業の形・都道府県・従業員数・創業からの年数・業種を入れておくと、それぞれの制度の条件に合いそうかを一覧に表示します。あくまで目安です。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg></span>
+        <h3>判断サマリー</h3>
+        <p>申請できそうか、いくらもらえそうか、申請方法、準備するもの、締切、手続きの手間をまとめて表示。公式ページへのリンクもあります。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m5.6 5.6 2.1 2.1"/><path d="m16.3 16.3 2.1 2.1"/><path d="m5.6 18.4 2.1-2.1"/><path d="m16.3 7.7 2.1-2.1"/></svg></span>
+        <h3>新着・更新・締切間近</h3>
+        <p>新しく載った制度、内容が更新された制度、締切が近い制度を「新着」タブで確認できます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>
+        <h3>保存して、進み具合を記録</h3>
+        <p>保存した制度ごとに「気になる」「確認中」「申請準備中」「申請済み」などの進み具合と、メモを残せます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
+        <h3>締切前のリマインダー</h3>
+        <p>保存した制度に、締切前に知らせるリマインダー（端末の通知）を設定できます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h3>プロフィールの使い分け</h3>
+        <p>条件のセット（プロフィール）を複数保存して、切り替えて探せます。名前は仮名でかまいません。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+        <h3>データは端末の中に</h3>
+        <p>アカウント登録はいりません。プロフィール・保存・進み具合・メモは端末の中に保存します。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-cta fade-in">
+    <h2>まずは、探してみる。</h2>
+    <div class="cta">
+      <div class="coming-soon">
+        <div class="badges">
+          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App Store</span>
+          <span class="badge-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Google Play</span>
+        </div>
+        <span class="note">近日公開</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-links">
+    <a href="/privacy/honabi/">プライバシーポリシー</a>
+    <a href="/support/honabi/">サポート</a>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <footer style="text-align:center;padding:24px;color:#555;font-size:12px;">© 2026 Life Hack Tools</footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f34d6826bcce4460be24fcf34a27f4b7"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
