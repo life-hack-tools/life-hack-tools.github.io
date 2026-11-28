@@ -109,6 +109,11 @@
     .app-card:hover img {
       transform: scale(1.08);
     }
+    .app-card .app-status {
+      font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      color: #d0a15e; border: 1px solid rgba(208,161,94,0.35);
+      border-radius: 999px; padding: 2px 12px;
+    }
     .app-card h2 {
       font-size: 20px;
       font-weight: 700;
@@ -151,6 +156,12 @@
     <h1>Apps</h1>
 
     <div class="app-grid">
+      <!-- アイコンは未決（2026-11-28）。決まったら img を足し、公開後に app-status を外す -->
+      <a href="/en/apps/honabi" class="app-card" data-accent="amber">
+        <h2>Honabi</h2>
+        <span class="app-status">Coming soon</span>
+        <p>Find subsidies and grants in Japan for sole proprietors and small businesses. Filter national, prefectural and municipal programs, check whether you may be eligible, and track saved programs with progress, notes and deadline reminders. The app is in Japanese. Not an official government app.</p>
+      </a>
       <a href="/en/apps/aske" class="app-card" data-accent="amber">
         <img src="/assets/icon-aske.png" alt="Aske">
         <h2>Aske</h2>

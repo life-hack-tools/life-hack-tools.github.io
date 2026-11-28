@@ -109,6 +109,11 @@
     .app-card:hover img {
       transform: scale(1.08);
     }
+    .app-card .app-status {
+      font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      color: #d0a15e; border: 1px solid rgba(208,161,94,0.35);
+      border-radius: 999px; padding: 2px 12px;
+    }
     .app-card h2 {
       font-size: 20px;
       font-weight: 700;
@@ -151,6 +156,12 @@
     <h1>Apps</h1>
 
     <div class="app-grid">
+      <!-- アイコンは未決（2026-11-28）。決まったら img を足し、公開後に app-status を外す -->
+      <a href="/apps/honabi" class="app-card" data-accent="amber">
+        <h2>ほなび</h2>
+        <span class="app-status">近日公開</span>
+        <p>個人事業主・小規模な法人のための、補助金・助成金さがしアプリ。国・都道府県・市区町村の制度を地域・業種・やりたいこと・締切で絞り込み、申請できそうかを確かめて、保存・進み具合・締切前のリマインダーで管理します。行政の公式アプリではありません。</p>
+      </a>
       <a href="/apps/aske" class="app-card" data-accent="amber">
         <img src="/assets/icon-aske.png" alt="Aske">
         <h2>Aske</h2>
